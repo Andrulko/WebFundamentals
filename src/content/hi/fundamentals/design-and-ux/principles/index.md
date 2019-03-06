@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Google and AnswerLab undertook a study examining how users interact with a diverse set of mobile sites. The goal was to answer the question, 'What makes a good mobile site?'
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Google and AnswerLab undertook a study examining how users interact with a diverse set of mobile sites. The goal was to answer the question, 'What makes a good mobile site?'
 
-{# wf_published_on: 2014-08-08 #}
-{# wf_updated_on: 2018-08-05 #}
+{# wf_published_on: 2014-08-08 #} {# wf_updated_on: 2018-08-05 #}
 
 # क्या है जो एक अच्छी मोबाइल साइट बनाता है {: .page-title }
 
@@ -11,14 +8,9 @@ description: Google and AnswerLab undertook a study examining how users interact
 
 इस प्रश्न का उत्तर पाने के लिए एक [शोध अध्ययन](https://www.google.com/think/multiscreen/whitepaper-sitedesign.html?utm_source=web-fundamentals&utm_term=chrome&utm_content=ux-landing&utm_campaign=web-fundamentals){: .external } किया. महत्वपूर्ण तथ्य:
 
+> Mobile users are very goal-oriented. They expect to be able to get what they need, immediately, and on their own terms.
 
-<blockquote class="wf-blockquote">
-मोबाईल उपयोगकर्ता बहोत ही लक्ष्यात्मक होते है। उन्हें जो ज़रूरत होती है उसको वह त्वरित और अपनी शर्तों पर
-पाने की उम्मीद रखते है.
-</blockquote>
-
-यह अध्ययन ११९ घंटो तक अमेरिका में प्रतिभागियों के साथ में व्यक्ति प्रयोज्य सत्रों के माध्यम से आयोजित किया गया था । प्रतिभागियों को मोबाइल साइटों के विविध सेट में महत्वपूर्ण कार्य करने के लिए कहा गया।
- आईओएस और एंड्रॉयड उपयोगकर्ताओं को शामिल किया गया था, और उपयोगकर्ताओं को अपने खुद के फोन पर साइटों का परीक्षण किया। प्रत्येक साइट के लिए, प्रतिभागियों को जोर से अपने विचारों को आवाज देने के लिए कहा गया था जैसे ही उन्होंने रूपांतरण केंद्रित कार्यों जैसे की खरीदी करना या आरक्षण बुक करना,  को पूरा करते है.
+यह अध्ययन ११९ घंटो तक अमेरिका में प्रतिभागियों के साथ में व्यक्ति प्रयोज्य सत्रों के माध्यम से आयोजित किया गया था । प्रतिभागियों को मोबाइल साइटों के विविध सेट में महत्वपूर्ण कार्य करने के लिए कहा गया। आईओएस और एंड्रॉयड उपयोगकर्ताओं को शामिल किया गया था, और उपयोगकर्ताओं को अपने खुद के फोन पर साइटों का परीक्षण किया। प्रत्येक साइट के लिए, प्रतिभागियों को जोर से अपने विचारों को आवाज देने के लिए कहा गया था जैसे ही उन्होंने रूपांतरण केंद्रित कार्यों जैसे की खरीदी करना या आरक्षण बुक करना, को पूरा करते है.
 
 अध्ययन ने पांच श्रेणियों में बांटे हुए 25 मोबाइल साइट डिजाइन सिद्धांतों को उजागर किया।
 
@@ -28,8 +20,7 @@ Success: Focus your mobile homepage on connecting users to the content they’re
 
 ### Keep calls to action front and center
 
-Make secondary tasks available through [menus](/web/fundamentals/design-and-ux/responsive/)
-or “below the fold” (the part of the webpage that can’t be seen without scrolling down).
+Make secondary tasks available through [menus](/web/fundamentals/design-and-ux/responsive/) or “below the fold” (the part of the webpage that can’t be seen without scrolling down).
 
 <div class="attempt-left">
   <figure id="fig1">
@@ -39,6 +30,7 @@ or “below the fold” (the part of the webpage that can’t be seen without sc
      </figcaption>
   </figure>
 </div>
+
 <div class="attempt-right">
   <figure id="fig1">
     <img src="images/hpnav-cta-bad.png">
@@ -61,9 +53,7 @@ or “below the fold” (the part of the webpage that can’t be seen without sc
   </figure>
 </div>
 
-Mobile users don’t have the patience to scroll through a long list of options
-to find what they want. Reorganize your menu to use as few items as possible,
-without sacrificing usability.
+Mobile users don’t have the patience to scroll through a long list of options to find what they want. Reorganize your menu to use as few items as possible, without sacrificing usability.
 
 <div style="clear:both;"></div>
 
@@ -78,17 +68,13 @@ without sacrificing usability.
   </figure>
 </div>
 
-Users expect to go back to the homepage when they tap the logo in the top-left
-of a mobile page, and they become frustrated when it isn’t available or doesn’t work.
+Users expect to go back to the homepage when they tap the logo in the top-left of a mobile page, and they become frustrated when it isn’t available or doesn’t work.
 
 <div style="clear:both;"></div>
 
 ### Don't let promotions steal the show
 
-Large app install interstitials (e.g., full-page promotions that hide content
-and prompt users to install an app) annoy users and make it difficult to
-perform tasks. In addition to annoying users, [sites that use interstitials
-may see a negative impact to their search rankings](https://webmasters.googleblog.com/2016/08/helping-users-easily-access-content-on.html).
+Large app install interstitials (e.g., full-page promotions that hide content and prompt users to install an app) annoy users and make it difficult to perform tasks. In addition to annoying users, [sites that use interstitials may see a negative impact to their search rankings](https://webmasters.googleblog.com/2016/08/helping-users-easily-access-content-on.html).
 
 <div class="attempt-left">
   <figure id="fig1">
@@ -98,6 +84,7 @@ may see a negative impact to their search rankings](https://webmasters.googleblo
      </figcaption>
   </figure>
 </div>
+
 <div class="attempt-right">
   <figure id="fig1">
     <img src="images/hpnav-promo-bad.png">
@@ -115,9 +102,7 @@ Success: Help mobile users find what they’re looking for in a hurry.
 
 ### Make site search visible
 
-Users looking for information usually turn to search, so the search field
-should be one of the first things they see on your pages. Don’t hide the search
-box in a menu.
+Users looking for information usually turn to search, so the search field should be one of the first things they see on your pages. Don’t hide the search box in a menu.
 
 <div class="attempt-left">
   <figure id="fig1">
@@ -127,6 +112,7 @@ box in a menu.
      </figcaption>
   </figure>
 </div>
+
 <div class="attempt-right">
   <figure id="fig1">
     <img src="images/ss-search-bad.jpg">
@@ -140,10 +126,7 @@ box in a menu.
 
 ### Ensure site search results are relevant
 
-Users don’t scan through multiple pages of results to find what they’re looking
-for. Make life easier on users by auto-completing queries, correcting
-misspellings, and suggesting related queries. Rather than reinventing the
-wheel, consider robust products like [Google Custom Search](https://cse.google.com/cse/){: .external }.
+Users don’t scan through multiple pages of results to find what they’re looking for. Make life easier on users by auto-completing queries, correcting misspellings, and suggesting related queries. Rather than reinventing the wheel, consider robust products like [Google Custom Search](https://cse.google.com/cse/){: .external }.
 
 <div class="attempt-left">
   <figure id="fig1">
@@ -153,6 +136,7 @@ wheel, consider robust products like [Google Custom Search](https://cse.google.c
      </figcaption>
   </figure>
 </div>
+
 <div class="attempt-right">
   <figure id="fig1">
     <img src="images/ss-relevant-bad.png">
@@ -164,13 +148,9 @@ wheel, consider robust products like [Google Custom Search](https://cse.google.c
 
 <div style="clear:both;"></div>
 
-
 ### Implement filters to narrow results
 
-Study participants rely on [filters](/custom-search/docs/structured_search)
-to find what they’re looking for, and abandon sites that do not have effective
-filters. Place filters above search results, and help users by displaying how
-many results will be returned when a specific filter is applied.
+Study participants rely on [filters](/custom-search/docs/structured_search) to find what they’re looking for, and abandon sites that do not have effective filters. Place filters above search results, and help users by displaying how many results will be returned when a specific filter is applied.
 
 <div class="attempt-left">
   <figure id="fig1">
@@ -180,6 +160,7 @@ many results will be returned when a specific filter is applied.
      </figcaption>
   </figure>
 </div>
+
 <div class="attempt-right">
   <figure id="fig1">
     <img src="images/ss-filters-bad.jpg">
@@ -195,16 +176,15 @@ many results will be returned when a specific filter is applied.
 
 <div class="attempt-right">
   <figure id="fig1">
-    <img src="images/ss-guide-good.png" alt="Zappos guides users by asking them what they're looking for.">
+    <img src="images/ss-guide-good.png"
+         alt="Zappos guides users by asking them what they're looking for.">
     <figcaption class="success">
       <b>DO</b>: Help users to find what they're looking for by guiding them in the right direction.
      </figcaption>
   </figure>
 </div>
 
-For sites with diverse customer segments, ask a few questions before presenting
-the search box, and use the customer’s responses as search query filters to
-ensure that users get results from the most relevant segment.
+For sites with diverse customer segments, ask a few questions before presenting the search box, and use the customer’s responses as search query filters to ensure that users get results from the most relevant segment.
 
 <div style="clear:both;"></div>
 
@@ -214,10 +194,7 @@ Success: Understand your customer journeys and let users convert on their own te
 
 ### Let users explore before they commit
 
-Study participants were frustrated by sites that require upfront registrations
-to view the site, especially when the brand was unfamiliar. Although customer
-information may be integral to your business, asking for it too early may
-result in fewer registrations.
+Study participants were frustrated by sites that require upfront registrations to view the site, especially when the brand was unfamiliar. Although customer information may be integral to your business, asking for it too early may result in fewer registrations.
 
 <div class="attempt-left">
   <figure id="fig1">
@@ -227,6 +204,7 @@ result in fewer registrations.
      </figcaption>
   </figure>
 </div>
+
 <div class="attempt-right">
   <figure id="fig1">
     <img src="images/cc-gates-bad.png">
@@ -237,7 +215,6 @@ result in fewer registrations.
 </div>
 
 <div style="clear:both;"></div>
-
 
 ### Let users purchase as guests
 
@@ -250,26 +227,17 @@ result in fewer registrations.
   </figure>
 </div>
 
-Study participants viewed guest checkouts as “convenient”, “simple”, “easy”,
-and “quick”. Users are annoyed by sites that force them to register for an
-account when making a purchase, especially when the benefit of an account is
-unclear.
+Study participants viewed guest checkouts as “convenient”, “simple”, “easy”, and “quick”. Users are annoyed by sites that force them to register for an account when making a purchase, especially when the benefit of an account is unclear.
 
 <div style="clear:both;"></div>
 
 ### Use existing information to maximize convenience
 
-Remember and
-[pre-fill preferences](/web/fundamentals/design-and-ux/input/forms/#label-and-name-inputs-properly)
-for registered users. Offer familiar, third-party checkout services for new users.
+Remember and [pre-fill preferences](/web/fundamentals/design-and-ux/input/forms/#label-and-name-inputs-properly) for registered users. Offer familiar, third-party checkout services for new users.
 
 ### Use click-to-call buttons for complex tasks
 
-On devices with calling capabilities,
-[click-to-call links](/web/fundamentals/native-hardware/click-to-call/) enable
-users to make a phone call by simply tapping a link. On most mobile devices the
-user receives a confirmation before the number is dialed, or a menu is presented
-asking the user how the number should be handled.
+On devices with calling capabilities, [click-to-call links](/web/fundamentals/native-hardware/click-to-call/) enable users to make a phone call by simply tapping a link. On most mobile devices the user receives a confirmation before the number is dialed, or a menu is presented asking the user how the number should be handled.
 
 ### Make it easy to finish on another device
 
@@ -282,11 +250,7 @@ asking the user how the number should be handled.
   </figure>
 </div>
 
-Users frequently want to finish tasks on other devices. For instance, they
-might wish to view an item on a larger screen. Or they might get busy and need
-to finish later. Support these customer journeys by enabling users to
-[share items on social networks](/web/fundamentals/discovery-and-monetization/social-discovery/),
-or by letting users email themselves links from directly within the site.
+Users frequently want to finish tasks on other devices. For instance, they might wish to view an item on a larger screen. Or they might get busy and need to finish later. Support these customer journeys by enabling users to [share items on social networks](/web/fundamentals/discovery-and-monetization/social-discovery/), or by letting users email themselves links from directly within the site.
 
 <div style="clear:both;"></div>
 
@@ -294,18 +258,13 @@ or by letting users email themselves links from directly within the site.
 
 Success: Provide a seamless, frictionless conversion experience with usable forms.
 
-
 ### Streamline information entry
 
-Automatically advance to the next field when a user presses Return. In general,
-the fewer taps the user must perform, the better.
+Automatically advance to the next field when a user presses Return. In general, the fewer taps the user must perform, the better.
 
 ### Choose the simplest input
 
-Use the most [appropriate input type](/web/fundamentals/design-and-ux/input/forms/choose-the-best-input-type)
-for each scenario. Use elements like
-[`datalist`](/web/fundamentals/design-and-ux/input/forms/choose-the-best-input-type#offer-suggestions-during-input-with-datalist)
-to provide suggested values for a field.
+Use the most [appropriate input type](/web/fundamentals/design-and-ux/input/forms/choose-the-best-input-type) for each scenario. Use elements like [`datalist`](/web/fundamentals/design-and-ux/input/forms/choose-the-best-input-type#offer-suggestions-during-input-with-datalist) to provide suggested values for a field.
 
 ### Provide visual calendar for date selection
 
@@ -318,8 +277,7 @@ to provide suggested values for a field.
   </figure>
 </div>
 
-Clearly label start and end dates. Users should not need to leave a site and
-check a calendar app just to schedule a date.
+Clearly label start and end dates. Users should not need to leave a site and check a calendar app just to schedule a date.
 
 <div style="clear:both;"></div>
 
@@ -340,12 +298,7 @@ Label inputs properly and validate input in real-time.
 
 ### Design efficient forms
 
-Take advantage of [autofill](/web/fundamentals/design-and-ux/input/forms/#label-and-name-inputs-properly#use-metadata-to-enable-auto-complete)
-so that users can easily complete forms with pre-populated data. Pre-fill
-fields with information you already know. For example, when retrieving shipping
-and billing addresses, try to use
-[`requestAutocomplete`](/web/fundamentals/design-and-ux/input/forms/use-request-auto-complete)
-or enable users to copy their shipping address to their billing address (or vice versa).
+Take advantage of [autofill](/web/fundamentals/design-and-ux/input/forms/#label-and-name-inputs-properly#use-metadata-to-enable-auto-complete) so that users can easily complete forms with pre-populated data. Pre-fill fields with information you already know. For example, when retrieving shipping and billing addresses, try to use [`requestAutocomplete`](/web/fundamentals/design-and-ux/input/forms/use-request-auto-complete) or enable users to copy their shipping address to their billing address (or vice versa).
 
 ## Usability and form factor
 
@@ -353,22 +306,11 @@ Success: Delight your mobile users with small things that enhance their experien
 
 ### Optimize your entire site for mobile
 
-Use a [responsive layout](/web/fundamentals/design-and-ux/responsive/) that
-changes based on the size and capabilities of the user’s device. Study
-participants found sites with a mix of desktop and mobile-optimized pages even
-harder to use than desktop-only sites.
+Use a [responsive layout](/web/fundamentals/design-and-ux/responsive/) that changes based on the size and capabilities of the user’s device. Study participants found sites with a mix of desktop and mobile-optimized pages even harder to use than desktop-only sites.
 
 ### Don't make users pinch-to-zoom
 
-Users are comfortable with scrolling sites vertically, but not horizontally.
-Avoid large, fixed-width elements. Use
-[CSS media queries](/web/fundamentals/design-and-ux/responsive/#use-css-media-queries-for-responsiveness)
-to apply different stylings for different screens. Don’t create content that
-only displays well at a particular
-[viewport width](/web/fundamentals/design-and-ux/responsive/#set-the-viewport).
-Sites that force users to horizontally scroll fail the
-[Google Mobile-Friendly Test](https://search.google.com/test/mobile-friendly){: .external },
-which may negatively impact their search rankings.
+Users are comfortable with scrolling sites vertically, but not horizontally. Avoid large, fixed-width elements. Use [CSS media queries](/web/fundamentals/design-and-ux/responsive/#use-css-media-queries-for-responsiveness) to apply different stylings for different screens. Don’t create content that only displays well at a particular [viewport width](/web/fundamentals/design-and-ux/responsive/#set-the-viewport). Sites that force users to horizontally scroll fail the [Google Mobile-Friendly Test](https://search.google.com/test/mobile-friendly){: .external }, which may negatively impact their search rankings.
 
 ### Make product images expandable
 
@@ -381,10 +323,7 @@ which may negatively impact their search rankings.
   </figure>
 </div>
 
-Retail customers expect sites to let them
-[view high resolution closeups](/web/fundamentals/design-and-ux/media/images#make-product-images-expandable)
-of products. Study participants got frustrated when they weren’t able to see
-what they were buying.
+Retail customers expect sites to let them [view high resolution closeups](/web/fundamentals/design-and-ux/media/images#make-product-images-expandable) of products. Study participants got frustrated when they weren’t able to see what they were buying.
 
 <div style="clear:both;"></div>
 
@@ -399,11 +338,7 @@ what they were buying.
   </figure>
 </div>
 
-Study participants tended to stay in the same screen orientation until
-something prompted them to switch. Design for both landscape and portrait,
-or encourage users to switch to the optimal orientation. Make sure that your
-important calls-to-action can be completed even if the users ignore the
-suggestion to switch orientations.
+Study participants tended to stay in the same screen orientation until something prompted them to switch. Design for both landscape and portrait, or encourage users to switch to the optimal orientation. Make sure that your important calls-to-action can be completed even if the users ignore the suggestion to switch orientations.
 
 <div style="clear:both;"></div>
 
@@ -418,30 +353,17 @@ suggestion to switch orientations.
   </figure>
 </div>
 
-Users may have trouble switching between windows and might not be able to find
-their way back to the site. Avoid calls-to-action that launch new windows.
-Identify any journeys that might cause a user to look outside your site and
-provide features to keep them on your site. For example, if you accept coupons,
-offer them directly on the site, rather than forcing users to search other
-sites for deals.
+Users may have trouble switching between windows and might not be able to find their way back to the site. Avoid calls-to-action that launch new windows. Identify any journeys that might cause a user to look outside your site and provide features to keep them on your site. For example, if you accept coupons, offer them directly on the site, rather than forcing users to search other sites for deals.
 
 <div style="clear:both;"></div>
 
 ### Avoid "full site" labeling
 
-When study participants saw an option for a "full site" (i.e., desktop site)
-versus a "mobile site", they thought the mobile site lacked content and chose
-the "full" one instead, directing them to the desktop site.
-
+When study participants saw an option for a "full site" (i.e., desktop site) versus a "mobile site", they thought the mobile site lacked content and chose the "full" one instead, directing them to the desktop site.
 
 ### Be clear why you need a user's location
 
-Users should always understand why you’re asking for their
-[location](/web/fundamentals/native-hardware/user-location/). Study
-participants trying to book a hotel in another city became confused when a
-travel site detected their location and offered hotels in their current city
-instead. Leave location fields blank by default, and let users choose to
-populate them through a clear call-to-action like “Find Near Me”.
+Users should always understand why you’re asking for their [location](/web/fundamentals/native-hardware/user-location/). Study participants trying to book a hotel in another city became confused when a travel site detected their location and offered hotels in their current city instead. Leave location fields blank by default, and let users choose to populate them through a clear call-to-action like “Find Near Me”.
 
 <div class="attempt-left">
   <figure id="fig1">
@@ -451,6 +373,7 @@ populate them through a clear call-to-action like “Find Near Me”.
      </figcaption>
   </figure>
 </div>
+
 <div class="attempt-right">
   <figure id="fig1">
     <img src="images/sw-navigation-bad.png">
@@ -462,5 +385,6 @@ populate them through a clear call-to-action like “Find Near Me”.
 
 <div style="clear:both;"></div>
 
-Translated by:
-{% include "web/_shared/contributors/moinshaikh.html" %}
+## Feedback {: #feedback }
+
+Translated by: {% include "web/_shared/contributors/moinshaikh.html" %}
