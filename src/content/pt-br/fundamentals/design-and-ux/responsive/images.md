@@ -1,36 +1,23 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Uma imagem vale 1.000 palavras e as imagens têm um papel essencial em todas as páginas. No entanto, elas frequentemente também representam a maior parte dos bytes baixados.  Com um Web design responsivo, não só seus layouts podem ser alterados com base nas características do dispositivo, mas as imagens também.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Uma imagem vale 1.000 palavras e as imagens têm um papel essencial em todas as páginas. No entanto, elas frequentemente também representam a maior parte dos bytes baixados. Com um Web design responsivo, não só seus layouts podem ser alterados com base nas características do dispositivo, mas as imagens também.
 
-{# wf_updated_on: 2018-12-15 #}
-{# wf_published_on: 2014-04-29 #}
+{# wf_updated_on: 2018-12-15 #} {# wf_published_on: 2014-04-29 #}
 
 # Imagens {: .page-title }
 
 {% include "web/_shared/contributors/petelepage.html" %}
 
-
-Um Web design responsivo significa que não só seus layouts podem ser alterados com base nas características
-do dispositivo, mas o conteúdo também.  Por exemplo, em telas de alta resolução (2x),
-gráficos de alta resolução garantem a nitidez. Uma imagem
-com 50% de largura pode ficar boa em um navegador com 800 pixels de largura, mas
-ocupará muito espaço em um celular mais estreito, utilizando a mesma
-largura de banda quando reduzida para caber em uma tela menor.
+Um Web design responsivo significa que não só seus layouts podem ser alterados com base nas características do dispositivo, mas o conteúdo também. Por exemplo, em telas de alta resolução (2x), gráficos de alta resolução garantem a nitidez. Uma imagem com 50% de largura pode ficar boa em um navegador com 800 pixels de largura, mas ocupará muito espaço em um celular mais estreito, utilizando a mesma largura de banda quando reduzida para caber em uma tela menor.
 
 ## Direção de arte
 
 <img src="img/art-direction.png" alt="Exemplo de direção de arte"
-srcset="img/art-direction.png 1x, img/art-direction-2x.png 2x">
+srcset="img/art-direction.png 1x, img/art-direction-2x.png 2x" />
 
-Outras imagens podem precisar de alterações mais significativas: alteração de
-proporções, cortes e até mesmo a substituição de toda a imagem.  Nesse caso,
-a alteração da imagem é normalmente chamada de direção de arte.  Consulte
-[responsiveimages.org/demos/](https://responsiveimages.org/demos/){: .external } para obter mais
-exemplos.
+Outras imagens podem precisar de alterações mais significativas: alteração de proporções, cortes e até mesmo a substituição de toda a imagem. Nesse caso, a alteração da imagem é normalmente chamada de direção de arte. Consulte [responsiveimages.org/demos/](https://responsiveimages.org/demos/){: .external } para obter mais exemplos.
 
 {% include "web/_shared/udacity/ud882.html" %}
 
-## Imagens na marcação
+## Imagens na marcação 
 
 <style>
   .side-by-side {
@@ -52,40 +39,29 @@ exemplos.
   }
 </style>
 
-O elemento `img` é incrível &mdash; ele baixa, decodifica e renderiza conteúdo &mdash; e os navegadores modernos oferecem suporte a uma grande variedade de formatos de imagens.  Incluir imagens que se
-adequam a diferentes dispositivos não é diferente do mesmo processo para desktop e exige apenas pequenos
-ajustes para criar uma boa experiência.
+ 
 
+O elemento `img` é incrível &mdash; ele baixa, decodifica e renderiza conteúdo &mdash; e os navegadores modernos oferecem suporte a uma grande variedade de formatos de imagens. Incluir imagens que se adequam a diferentes dispositivos não é diferente do mesmo processo para desktop e exige apenas pequenos ajustes para criar uma boa experiência.
 
 ### TL;DR {: .hide-from-toc }
 
-- Use tamanhos relativos para imagens para evitar a sobreposição acidental do contêiner.
-- Use o elemento `picture` quando quiser especificar diferentes imagens dependendo das características do dispositivo (também conhecido como direção de arte).
-- Use `srcset` e o descritor `x` no elemento `img` para dar dicas ao navegador sobre a melhor imagem a ser usada ao escolher entre diferentes densidades.
-- Considere o uso de imagens em linha para reduzir solicitações de arquivos se sua página tiver apenas uma ou duas imagens que não forem usadas em outras áreas do site.
-
+* Use tamanhos relativos para imagens para evitar a sobreposição acidental do contêiner.
+* Use o elemento `picture` quando quiser especificar diferentes imagens dependendo das características do dispositivo (também conhecido como direção de arte).
+* Use `srcset` e o descritor `x` no elemento `img` para dar dicas ao navegador sobre a melhor imagem a ser usada ao escolher entre diferentes densidades.
+* Considere o uso de imagens em linha para reduzir solicitações de arquivos se sua página tiver apenas uma ou duas imagens que não forem usadas em outras áreas do site.
 
 ### Use tamanhos relativos para imagens
 
-Lembre-se de usar unidades relativas ao especificar larguras de imagens para impedir que elas
-acidentalmente ultrapassem a janela de visualização.  Por exemplo, `width: 50%;` fará
-com que a largura da imagem seja 50% do contêiner (não 50% da janela de visualização ou do
-tamanho real em pixels).
+Lembre-se de usar unidades relativas ao especificar larguras de imagens para impedir que elas acidentalmente ultrapassem a janela de visualização. Por exemplo, `width: 50%;` fará com que a largura da imagem seja 50% do contêiner (não 50% da janela de visualização ou do tamanho real em pixels).
 
-Como o CSS permite que o conteúdo ultrapasse o contêiner, pode ser necessário usar
-max-width: 100% para impedir que imagens e outros conteúdos façam isso.  Por
-exemplo:
-
+Como o CSS permite que o conteúdo ultrapasse o contêiner, pode ser necessário usar max-width: 100% para impedir que imagens e outros conteúdos façam isso. Por exemplo:
 
     img, embed, object, video {
       max-width: 100%;
     }
+    
 
-
-Forneça descrições significativas pelo atributo `alt` em elementos `img`
-; elas tornarão seu site mais acessível, fornecendo contexto para
-leitores de tela e outras tecnologias de assistência.
-
+Forneça descrições significativas pelo atributo `alt` em elementos `img` ; elas tornarão seu site mais acessível, fornecendo contexto para leitores de tela e outras tecnologias de assistência.
 
 ### Aprimore `img`s com `srcset` para dispositivos de DPI alto
 
@@ -95,47 +71,27 @@ leitores de tela e outras tecnologias de assistência.
   </iframe>
 </div>
 
-O atributo `srcset` aprimora o comportamento do elemento
-`img`, facilitando o fornecimento de vários arquivos de imagem
-para dispositivos com diferentes características. Semelhante à `image-set`
-[função CSS](#use-image-set-to-provide-high-res-images)
-nativa ao CSS, o `srcset` permite que o navegador escolha a melhor
-qualidade de imagem dependendo das características do dispositivos, por exemplo, o uso
-de uma imagem de 2x em uma tela de 2x e, potencialmente no futuro, uma imagem de 1x em
-um dispositivo de 2x em uma rede de largura de banda limitada.
+O atributo `srcset` aprimora o comportamento do elemento `img`, facilitando o fornecimento de vários arquivos de imagem para dispositivos com diferentes características. Semelhante à `image-set` [função CSS](#use-image-set-to-provide-high-res-images) nativa ao CSS, o `srcset` permite que o navegador escolha a melhor qualidade de imagem dependendo das características do dispositivos, por exemplo, o uso de uma imagem de 2x em uma tela de 2x e, potencialmente no futuro, uma imagem de 1x em um dispositivo de 2x em uma rede de largura de banda limitada.
 
-
-<div style="clear:both;"></div>
-
+<div style="clear:both;">
+</div>
 
     <img src="photo.png" srcset="photo@2x.png 2x" ...>
+    
 
+Navegadores que não oferecem suporte a `srcset` simplesmente usam o arquivo de imagem padrão especificado pelo atributo `src`. Por esse motivo, é importante sempre incluir uma imagem de 1x que pode ser exibida em qualquer dispositivo, independentemente dos recursos. Quando `srcset` é suportado, a lista separada por vírgulas de imagem/condições é analisada antes da realização de qualquer solicitação e somente a imagem mais apropriada é baixada e exibida.
 
-Navegadores que não oferecem suporte a `srcset` simplesmente usam o arquivo de imagem
-padrão especificado pelo atributo `src`.  Por esse motivo, é importante
-sempre incluir uma imagem de 1x que pode ser exibida em qualquer dispositivo, independentemente dos
-recursos.  Quando `srcset` é suportado, a lista separada por vírgulas de
-imagem/condições é analisada antes da realização de qualquer solicitação e somente a imagem mais
-apropriada é baixada e exibida.
-
-Embora as condições podem incluir desde a densidade de pixels até a largura e
-altura, somente a densidade de pixels é permitida no momento.  Para equilibrar o comportamento
-atual com futuros recursos, forneça apenas a imagem de 2x no
-atributo.
+Embora as condições podem incluir desde a densidade de pixels até a largura e altura, somente a densidade de pixels é permitida no momento. Para equilibrar o comportamento atual com futuros recursos, forneça apenas a imagem de 2x no atributo.
 
 ### Direção de arte em imagens responsivas com `picture`
 
 <img class="attempt-right" src="img/art-direction.png" alt="Exemplo de direção de arte"
-srcset="img/art-direction.png 1x, img/art-direction-2x.png 2x">
+srcset="img/art-direction.png 1x, img/art-direction-2x.png 2x" />
 
-Para alterar imagens com base nas características do dispositivo, um processo também conhecido como direção
-de arte, use o elemento `picture`.  O elemento
-`picture` define uma solução declarativa para
-fornecer diversas versões de uma imagem com base em diferentes
-características, como o tamanho do dispositivo, a resolução do dispositivo, a orientação
-e muito mais.
+Para alterar imagens com base nas características do dispositivo, um processo também conhecido como direção de arte, use o elemento `picture`. O elemento `picture` define uma solução declarativa para fornecer diversas versões de uma imagem com base em diferentes características, como o tamanho do dispositivo, a resolução do dispositivo, a orientação e muito mais.
 
-<div style="clear:both;"></div>
+<div style="clear:both;">
+</div>
 
 Dogfood: O elemento `picture` está começando a ser usado em navegadores. Apesar de ele ainda não estar disponível em todos os navegadores, recomendamos seu uso por causa de sua compatibilidade com versões anteriores e do possível uso do [polyfill Picturefill](https://scottjehl.github.io/picturefill/){: .external }. Consulte o site [ResponsiveImages.org](http://responsiveimages.org/#implementation) para saber mais.
 
@@ -145,152 +101,186 @@ Dogfood: O elemento `picture` está começando a ser usado em navegadores. Apesa
   </iframe>
 </div>
 
-Use elemento  <code>picture</code> quando uma fonte de imagem
-existir em várias densidades ou quando um design responsivo exigir
-uma imagem um pouco diferente em alguns tipos de telas.  Semelhante ao elemento
-<code>video</code>, vários elementos  <code>source</code> podem
-ser incluídos, possibilitando a especificação de diferentes arquivos de imagem
-dependendo das consultas de mídia ou do formato da imagem.
+Use elemento `picture` quando uma fonte de imagem existir em várias densidades ou quando um design responsivo exigir uma imagem um pouco diferente em alguns tipos de telas. Semelhante ao elemento <code>video</code>, vários elementos `source` podem ser incluídos, possibilitando a especificação de diferentes arquivos de imagem dependendo das consultas de mídia ou do formato da imagem.
 
-<div style="clear:both;"></div>
+<div style="clear:both;">
+</div>
 
-<pre class="prettyprint">
-{% includecode content_path="web/fundamentals/design-and-ux/responsive/_code/media.html" region_tag="picture" adjust_indentation="auto" %}
+<pre class="prettyprint">{% includecode content_path="web/fundamentals/design-and-ux/responsive/_code/media.html" region_tag="picture" adjust_indentation="auto" %}
 </pre>
 
 [Experimente](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/media/media.html){: target="_blank" .external }
 
-No exemplo acima, se a largura do navegador for de pelo menos 800 pixels, será usado
-`head.jpg` ou `head-2x.jpg`, dependendo da resolução do dispositivo.
-Se o navegador tiver entre 450 e 800 pixels, será usado `head-small.jpg` ou
-`head-small-2x.jpg`, novamente, dependendo da resolução do dispositivo.
-Para larguras de tela inferiores a 450 pixels e para compatibilidade com versões anteriores nas quais não há suporte ao elemento
-`picture`, o navegador renderizará o elemento `img`
-e sempre deverá ser incluído.
+No exemplo acima, se a largura do navegador for de pelo menos 800 pixels, será usado `head.jpg` ou `head-2x.jpg`, dependendo da resolução do dispositivo. Se o navegador tiver entre 450 e 800 pixels, será usado `head-small.jpg` ou `head-small-2x.jpg`, novamente, dependendo da resolução do dispositivo. Para larguras de tela inferiores a 450 pixels e para compatibilidade com versões anteriores nas quais não há suporte ao elemento `picture`, o navegador renderizará o elemento `img` e sempre deverá ser incluído.
 
 #### Imagens com tamanho relativo
 
-Quando tamanho final da imagem não é conhecido, pode ser difícil especificar um
-descritor de densidade para as fontes de imagem.  Isso é especialmente válido para
-imagens que ocupam uma largura proporcional do navegador e são fluídas, dependendo
-do tamanho do navegador.
+Quando tamanho final da imagem não é conhecido, pode ser difícil especificar um descritor de densidade para as fontes de imagem. Isso é especialmente válido para imagens que ocupam uma largura proporcional do navegador e são fluídas, dependendo do tamanho do navegador.
 
-Em vez de fornecer tamanhos e densidades de imagem fixos, o tamanho de cada
-imagem fornecida pode ser especificado ao adicionar um descritor de largura juntamente  com o
-tamanho do elemento image, permitindo que o navegador calcule automaticamente
-a densidade de pixels efetiva e escolha a melhor imagem a ser baixada.
+Em vez de fornecer tamanhos e densidades de imagem fixos, o tamanho de cada imagem fornecida pode ser especificado ao adicionar um descritor de largura juntamente com o tamanho do elemento image, permitindo que o navegador calcule automaticamente a densidade de pixels efetiva e escolha a melhor imagem a ser baixada.
 
-<pre class="prettyprint">
-{% includecode content_path="web/fundamentals/design-and-ux/responsive/_code/sizes.html" region_tag="picture" adjust_indentation="auto" %}
+<pre class="prettyprint">{% includecode content_path="web/fundamentals/design-and-ux/responsive/_code/sizes.html" region_tag="picture" adjust_indentation="auto" %}
 </pre>
 
 [Experimente](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/media/sizes.html){: target="_blank" .external }
 
-
-O exemplo acima renderiza uma imagem que tem metade da largura da janela de visualização
-(`sizes="50vw"`) e, dependendo da largura do navegador e da
-proporção de pixels do dispositivo, permite que o navegador escolha a imagem correta independentemente
-do tamanho da janela do navegador. Por exemplo, a tabela abaixo mostra qual
-imagem o navegador escolheria:
+O exemplo acima renderiza uma imagem que tem metade da largura da janela de visualização (`sizes="50vw"`) e, dependendo da largura do navegador e da proporção de pixels do dispositivo, permite que o navegador escolha a imagem correta independentemente do tamanho da janela do navegador. Por exemplo, a tabela abaixo mostra qual imagem o navegador escolheria:
 
 <table class="">
-  <thead>
-    <tr>
-      <th data-th="Browser width">Largura do navegador</th>
-      <th data-th="Device pixel ratio">Proporção de pixels do dispositivo</th>
-      <th data-th="Image used">Imagem usada</th>
-      <th data-th="Effective resolution">Resolução efetiva</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td data-th="Browser width">400 pixels</td>
-      <td data-th="Device pixel ratio">1</td>
-      <td data-th="Image used"><code>200.png</code></td>
-      <td data-th="Effective resolution">1x</td>
-    </tr>
-    <tr>
-      <td data-th="Browser width">400 pixels</td>
-      <td data-th="Device pixel ratio">2</td>
-      <td data-th="Image used"><code>400.png</code></td>
-      <td data-th="Effective resolution">2x</td>
-    </tr>
-    <tr>
-      <td data-th="Browser width">320 pixels</td>
-      <td data-th="Device pixel ratio">2</td>
-      <td data-th="Image used"><code>400.png</code></td>
-      <td data-th="Effective resolution">2.5x</td>
-    </tr>
-    <tr>
-      <td data-th="Browser width">600 pixels</td>
-      <td data-th="Device pixel ratio">2</td>
-      <td data-th="Image used"><code>800.png</code></td>
-      <td data-th="Effective resolution">2.67x</td>
-    </tr>
-    <tr>
-      <td data-th="Browser width">640 pixels</td>
-      <td data-th="Device pixel ratio">3</td>
-      <td data-th="Image used"><code>1000.png</code></td>
-      <td data-th="Effective resolution">3.125x</td>
-    </tr>
-    <tr>
-      <td data-th="Browser width">1100 pixels</td>
-      <td data-th="Device pixel ratio">1</td>
-      <td data-th="Image used"><code>1400.png</code></td>
-      <td data-th="Effective resolution">1.27x</td>
-    </tr>
-  </tbody>
+  <tr>
+    <th data-th="Browser width">
+      Largura do navegador
+    </th>
+    
+    <th data-th="Device pixel ratio">
+      Proporção de pixels do dispositivo
+    </th>
+    
+    <th data-th="Image used">
+      Imagem usada
+    </th>
+    
+    <th data-th="Effective resolution">
+      Resolução efetiva
+    </th>
+  </tr>
+  
+  <tr>
+    <td data-th="Browser width">
+      400 pixels
+    </td>
+    
+    <td data-th="Device pixel ratio">
+      1
+    </td>
+    
+    <td data-th="Image used">
+      <code>200.png</code>
+    </td>
+    
+    <td data-th="Effective resolution">
+      1x
+    </td>
+  </tr>
+  
+  <tr>
+    <td data-th="Browser width">
+      400 pixels
+    </td>
+    
+    <td data-th="Device pixel ratio">
+      2
+    </td>
+    
+    <td data-th="Image used">
+      <code>400.png</code>
+    </td>
+    
+    <td data-th="Effective resolution">
+      2x
+    </td>
+  </tr>
+  
+  <tr>
+    <td data-th="Browser width">
+      320 pixels
+    </td>
+    
+    <td data-th="Device pixel ratio">
+      2
+    </td>
+    
+    <td data-th="Image used">
+      <code>400.png</code>
+    </td>
+    
+    <td data-th="Effective resolution">
+      2.5x
+    </td>
+  </tr>
+  
+  <tr>
+    <td data-th="Browser width">
+      600 pixels
+    </td>
+    
+    <td data-th="Device pixel ratio">
+      2
+    </td>
+    
+    <td data-th="Image used">
+      <code>800.png</code>
+    </td>
+    
+    <td data-th="Effective resolution">
+      2.67x
+    </td>
+  </tr>
+  
+  <tr>
+    <td data-th="Browser width">
+      640 pixels
+    </td>
+    
+    <td data-th="Device pixel ratio">
+      3
+    </td>
+    
+    <td data-th="Image used">
+      <code>1000.png</code>
+    </td>
+    
+    <td data-th="Effective resolution">
+      3.125x
+    </td>
+  </tr>
+  
+  <tr>
+    <td data-th="Browser width">
+      1100 pixels
+    </td>
+    
+    <td data-th="Device pixel ratio">
+      1
+    </td>
+    
+    <td data-th="Image used">
+      <code>1400.png</code>
+    </td>
+    
+    <td data-th="Effective resolution">
+      1.27x
+    </td>
+  </tr>
 </table>
-
 
 #### Considere pontos de interrupção em imagens responsivas
 
-Em muitos casos, o tamanho da imagem pode ser alterado dependendo dos pontos de interrupção
-do layout do site.  Por exemplo, em uma tela pequena, você pode querer que a imagem
-ocupe toda a largura da janela de visualização enquanto, em telas maiores, ela deve
-ocupar apenas uma pequena parcela.
+Em muitos casos, o tamanho da imagem pode ser alterado dependendo dos pontos de interrupção do layout do site. Por exemplo, em uma tela pequena, você pode querer que a imagem ocupe toda a largura da janela de visualização enquanto, em telas maiores, ela deve ocupar apenas uma pequena parcela.
 
-<pre class="prettyprint">
-{% includecode content_path="web/fundamentals/design-and-ux/responsive/_code/breakpoints.html" region_tag="picture" adjust_indentation="auto" %}
+<pre class="prettyprint">{% includecode content_path="web/fundamentals/design-and-ux/responsive/_code/breakpoints.html" region_tag="picture" adjust_indentation="auto" %}
 </pre>
 
 [Experimente](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/media/breakpoints.html){: target="_blank" .external }
 
-O atributo `sizes` no exemplo acima usa várias consultas de mídia para
-especificar o tamanho da imagem. Quando a largura do navegador é superior a
-600 pixels, a imagem ocupará cerca de 25% da largura da janela de visualização. Quando o navegador tem entre 500
-e 600 pixels, a imagem ocupará 50% da largura da janela de visualização. Para navegadores com menos de 500 pixels, a
-imagem ocupará toda a largura.
+O atributo `sizes` no exemplo acima usa várias consultas de mídia para especificar o tamanho da imagem. Quando a largura do navegador é superior a 600 pixels, a imagem ocupará cerca de 25% da largura da janela de visualização. Quando o navegador tem entre 500 e 600 pixels, a imagem ocupará 50% da largura da janela de visualização. Para navegadores com menos de 500 pixels, a imagem ocupará toda a largura.
 
+### Permita que imagens de produtos possam ser ampliadas<figure class="attempt-right"> 
 
-### Permita que imagens de produtos possam ser ampliadas
+<img src="img/sw-make-images-expandable-good.png" srcset="img/sw-make-images-expandable-good.png 1x, img/sw-make-images-expandable-good-2x.png 2x" alt="Site da J. Crews com imagem de produto ampliável" /> <figcaption class="success"> Site da J. Crews com imagem de produto ampliável. </figcaption> </figure> 
 
-<figure class="attempt-right">
-  <img src="img/sw-make-images-expandable-good.png" srcset="img/sw-make-images-expandable-good.png 1x, img/sw-make-images-expandable-good-2x.png 2x" alt="Site da J. Crews com imagem de produto ampliável">
-  <figcaption class="success">
-    Site da J. Crews com imagem de produto ampliável.
-  </figcaption>
-</figure>
+Os clientes querem ver o que estão comprando. Em sites de varejo, os usuários esperam poder visualizar closes de alta resolução dos produtos para conferir os detalhes. Os [participantes deste estudo](/web/fundamentals/getting-started/principles/#make-product-images-expandable) ficaram frustrados quando isso não era possível.
 
-Os clientes querem ver o que estão comprando.  Em sites de varejo, os usuários esperam poder
-visualizar closes de alta resolução dos produtos para conferir os
-detalhes. Os [participantes deste estudo](/web/fundamentals/getting-started/principles/#make-product-images-expandable) ficaram frustrados quando isso não era possível.
+Um bom exemplo de imagens que podem ser tocadas e ampliadas é fornecido pelo site da J. Crew. Uma sobreposição que desaparece indica que uma imagem pode ser tocada, fornecendo uma versão ampliada da imagem com todos os detalhes visíveis.
 
-Um bom exemplo de imagens que podem ser tocadas e ampliadas é fornecido pelo site da J. Crew.
-Uma sobreposição que desaparece indica que uma imagem pode ser tocada, fornecendo uma
-versão ampliada da imagem com todos os detalhes visíveis.
-
-<div style="clear:both;"></div>
+<div style="clear:both;">
+</div>
 
 ### Outras técnicas de imagem
 
 #### Imagens compactáveis
 
-A [técnica de imagem compactável](http://www.html5rocks.com/en/mobile/high-dpi/#toc-tech-overview)
-apresenta uma imagem de 2x altamente compactada para todos os dispositivos, independentemente dos recurso reais
-do dispositivo em questão.  Dependendo do tipo de imagem e do nível de
-compactação, a qualidade pode não ser visivelmente alterada, mas o tamanho do arquivo é
-significativamente reduzido.
+A [técnica de imagem compactável](http://www.html5rocks.com/en/mobile/high-dpi/#toc-tech-overview) apresenta uma imagem de 2x altamente compactada para todos os dispositivos, independentemente dos recurso reais do dispositivo em questão. Dependendo do tipo de imagem e do nível de compactação, a qualidade pode não ser visivelmente alterada, mas o tamanho do arquivo é significativamente reduzido.
 
 [Experimente](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/media/compressive.html){: target="_blank" .external }
 
@@ -298,19 +288,9 @@ Warning: Tenha cautela ao usar a técnica de compactação devido aos maiores cu
 
 #### Substituição de imagem JavaScript
 
-A substituição de imagem JavaScript verifica os recursos do dispositivo e "faz a escolha
-certa". Você pode determinar a proporção de pixels do dispositivo via
-`window.devicePixelRatio`, obter a largura e a altura da tela e até possivelmente
-executar o sniffing da conexão de rede via `navigator.connection` ou emitindo uma
-solicitação falsa. Após coletar todas essas informações, você pode decidir qual
-imagem carregar.
+A substituição de imagem JavaScript verifica os recursos do dispositivo e "faz a escolha certa". Você pode determinar a proporção de pixels do dispositivo via `window.devicePixelRatio`, obter a largura e a altura da tela e até possivelmente executar o sniffing da conexão de rede via `navigator.connection` ou emitindo uma solicitação falsa. Após coletar todas essas informações, você pode decidir qual imagem carregar.
 
-Uma grande desvantagem dessa abordagem é que o uso do JavaScript significa que você
-atrasará o carregamento da imagem até que pelo menos o analisador look-ahead tenha terminado. Isso
-significa que o download das imagens não será iniciado até que o evento `pageload` seja
-acionado. Além disso, o navegador provavelmente fará o download das imagens de 1x e 2x,
-resultando no aumento do peso da página.
-
+Uma grande desvantagem dessa abordagem é que o uso do JavaScript significa que você atrasará o carregamento da imagem até que pelo menos o analisador look-ahead tenha terminado. Isso significa que o download das imagens não será iniciado até que o evento `pageload` seja acionado. Além disso, o navegador provavelmente fará o download das imagens de 1x e 2x, resultando no aumento do peso da página.
 
 #### Imagens em linha: de raster e vetoriais
 
@@ -326,8 +306,7 @@ O SVG permite a inclusão de gráficos vetoriais responsivos em uma página da W
 
 Abaixo apresentamos duas versões da mesma imagem: à esquerda, uma imagem PNG e, à direita, uma imagem SVG. O formato SVG fica ótimo em qualquer tamanho, enquanto o PNG começa a ficar desfocado em tamanhos de exibição maiores.
 
-<img class="side-by-side" src="img/html5.png" alt="Logotipo HTML5, formato PNG" />
-<img class="side-by-side" src="img/html5.svg" alt="Logotipo HTML5, formato SVG" />
+<img class="side-by-side" src="img/html5.png" alt="Logotipo HTML5, formato PNG" /> <img class="side-by-side" src="img/html5.svg" alt="Logotipo HTML5, formato SVG" />
 
 Se quiser reduzir o número de solicitações de arquivos realizadas pela sua página, codifique imagens em linha usando o formato SVG ou de URI de dados. Ao visualizar o código-fonte desta página, você verá que os dois logotipos abaixo são declarados em linha: um URI de dados e um SVG.
 
@@ -385,28 +364,24 @@ Se quiser reduzir o número de solicitações de arquivos realizadas pela sua p�
     jQ3OS44MjgsMjQyLjM4IDQ3OS44MjgsMjQyLjUwMiA0ODAsMjQyLjUwMiA1OTkuNjQsMjQyLjUw
     MiA1OTkuOCwyNDIuNTAyIDYwMC43OTYsMjMxLjMzOCANCgkJCQk2MDMuMDU5LDIwNi4xNTkgNjA
     0LjI0NywxOTIuODMzIDQ4MCwxOTIuODMzIDQ3OS44MjgsMTkyLjgzMyA0NzkuODI4LDIyMy42OD
-    IgCQkJIi8+DQoJCTwvZz4NCgk8L2c+DQo8L2c+DQo8L3N2Zz4NCg==">
-<svg class="side-by-side" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-  width="396.74px" height="560px" viewBox="281.63 0 396.74 560" enable-background="new 281.63 0 396.74 560" xml:space="preserve"><g><g><g><polygon fill="#E44D26" points="409.737,242.502 414.276,293.362 479.828,293.362 480,293.362 480,242.502 479.828,242.502"/><path fill="#E44D26" d="M281.63,110.053l36.106,404.968L479.757,560l162.47-45.042l36.144-404.905H281.63z M611.283,489.176 L480,525.572V474.03l-0.229,0.063L378.031,445.85l-6.958-77.985h22.98h26.879l3.536,39.612l55.315,14.937l0.046-0.013v-0.004 L480,422.35v-79.32h-0.172H368.853l-12.207-136.871l-1.189-13.325h124.371H480v-49.668h162.17L611.283,489.176z"/><polygon fill="#F16529" points="480,192.833 604.247,192.833 603.059,206.159 600.796,231.338 599.8,242.502 599.64,242.502 480,242.502 480,293.362 581.896,293.362 595.28,293.362 594.068,306.699 582.396,437.458 581.649,445.85 480,474.021 480,474.03 480,525.572 611.283,489.176 642.17,143.166 480,143.166       "/><polygon fill="#F16529" points="540.988,343.029 480,343.029 480,422.35 535.224,407.445      "/><polygon fill="#EBEBEB" points="414.276,293.362 409.737,242.502 479.828,242.502 479.828,242.38 479.828,223.682 479.828,192.833 355.457,192.833 356.646,206.159 368.853,343.029 479.828,343.029 479.828,293.362       "/><polygon fill="#EBEBEB" points="479.828,474.069 479.828,422.4 479.782,422.413 424.467,407.477 420.931,367.864 394.052,367.864 371.072,367.864 378.031,445.85 479.771,474.094 480,474.03 480,474.021       "/><polygon points="343.784,50.229 366.874,50.229 366.874,75.517 392.114,75.517 392.114,0 366.873,0 366.873,24.938 343.783,24.938 343.783,0 318.544,0 318.544,75.517 343.784,75.517      "/><polygon points="425.307,25.042 425.307,75.517 450.549,75.517 450.549,25.042 472.779,25.042 472.779,0 403.085,0 403.085,25.042 425.306,25.042       "/><polygon points="508.537,38.086 525.914,64.937 526.349,64.937 543.714,38.086 543.714,75.517 568.851,75.517 568.851,0 542.522,0 526.349,26.534 510.159,0 483.84,0 483.84,75.517 508.537,75.517      "/><polygon points="642.156,50.555 606.66,50.555 606.66,0 581.412,0 581.412,75.517 642.156,75.517      "/><polygon fill="#FFFFFF" points="480,474.021 581.649,445.85 582.396,437.458 594.068,306.699 595.28,293.362 581.896,293.362 480,293.362 479.828,293.362 479.828,343.029 480,343.029 540.988,343.029 535.224,407.445 480,422.35 479.828,422.396 479.828,422.4 479.828,474.069       "/><polygon fill="#FFFFFF" points="479.828,242.38 479.828,242.502 480,242.502 599.64,242.502 599.8,242.502 600.796,231.338 603.059,206.159 604.247,192.833 480,192.833 479.828,192.833 479.828,223.682       "/></g></g></g></svg>
+    IgCQkJIi8+DQoJCTwvZz4NCgk8L2c+DQo8L2c+DQo8L3N2Zz4NCg==" /> <svg class="side-by-side" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="396.74px" height="560px" viewbox="281.63 0 396.74 560" enable-background="new 281.63 0 396.74 560" xml:space="preserve"><g><g><g><polygon fill="#E44D26" points="409.737,242.502 414.276,293.362 479.828,293.362 480,293.362 480,242.502 479.828,242.502"/><path fill="#E44D26" d="M281.63,110.053l36.106,404.968L479.757,560l162.47-45.042l36.144-404.905H281.63z M611.283,489.176 L480,525.572V474.03l-0.229,0.063L378.031,445.85l-6.958-77.985h22.98h26.879l3.536,39.612l55.315,14.937l0.046-0.013v-0.004 L480,422.35v-79.32h-0.172H368.853l-12.207-136.871l-1.189-13.325h124.371H480v-49.668h162.17L611.283,489.176z"/><polygon fill="#F16529" points="480,192.833 604.247,192.833 603.059,206.159 600.796,231.338 599.8,242.502 599.64,242.502 480,242.502 480,293.362 581.896,293.362 595.28,293.362 594.068,306.699 582.396,437.458 581.649,445.85 480,474.021 480,474.03 480,525.572 611.283,489.176 642.17,143.166 480,143.166 "/><polygon fill="#F16529" points="540.988,343.029 480,343.029 480,422.35 535.224,407.445 "/><polygon fill="#EBEBEB" points="414.276,293.362 409.737,242.502 479.828,242.502 479.828,242.38 479.828,223.682 479.828,192.833 355.457,192.833 356.646,206.159 368.853,343.029 479.828,343.029 479.828,293.362 "/><polygon fill="#EBEBEB" points="479.828,474.069 479.828,422.4 479.782,422.413 424.467,407.477 420.931,367.864 394.052,367.864 371.072,367.864 378.031,445.85 479.771,474.094 480,474.03 480,474.021 "/><polygon points="343.784,50.229 366.874,50.229 366.874,75.517 392.114,75.517 392.114,0 366.873,0 366.873,24.938 343.783,24.938 343.783,0 318.544,0 318.544,75.517 343.784,75.517 "/><polygon points="425.307,25.042 425.307,75.517 450.549,75.517 450.549,25.042 472.779,25.042 472.779,0 403.085,0 403.085,25.042 425.306,25.042 "/><polygon points="508.537,38.086 525.914,64.937 526.349,64.937 543.714,38.086 543.714,75.517 568.851,75.517 568.851,0 542.522,0 526.349,26.534 510.159,0 483.84,0 483.84,75.517 508.537,75.517 "/><polygon points="642.156,50.555 606.66,50.555 606.66,0 581.412,0 581.412,75.517 642.156,75.517 "/><polygon fill="#FFFFFF" points="480,474.021 581.649,445.85 582.396,437.458 594.068,306.699 595.28,293.362 581.896,293.362 480,293.362 479.828,293.362 479.828,343.029 480,343.029 540.988,343.029 535.224,407.445 480,422.35 479.828,422.396 479.828,422.4 479.828,474.069 "/><polygon fill="#FFFFFF" points="479.828,242.38 479.828,242.502 480,242.502 599.64,242.502 599.8,242.502 600.796,231.338 603.059,206.159 604.247,192.833 480,192.833 479.828,192.833 479.828,223.682 "/></g></g></g></svg>
 
 O SVG tem um [bom suporte](http://caniuse.com/svg-html5) em navegadores de computadores e dispositivos móveis e [ferramentas de otimização](https://sarasoueidan.com/blog/svgo-tools/) podem reduzir o tamanho do SVG de forma significativa. As duas linhas a seguir de logotipos SVG parecem idênticas, mas uma tem cerca de 3 KB e a outra apenas 2 KB:
 
-<svg class="side-by-side" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="396.74px" height="560px" viewBox="281.63 0 396.74 560" enable-background="new 281.63 0 396.74 560" xml:space="preserve"><g><g><g><polygon fill="#E44D26" points="409.737,242.502 414.276,293.362 479.828,293.362 480,293.362 480,242.502 479.828,242.502"/><path fill="#E44D26" d="M281.63,110.053l36.106,404.968L479.757,560l162.47-45.042l36.144-404.905H281.63z M611.283,489.176 L480,525.572V474.03l-0.229,0.063L378.031,445.85l-6.958-77.985h22.98h26.879l3.536,39.612l55.315,14.937l0.046-0.013v-0.004 L480,422.35v-79.32h-0.172H368.853l-12.207-136.871l-1.189-13.325h124.371H480v-49.668h162.17L611.283,489.176z"/><polygon fill="#F16529" points="480,192.833 604.247,192.833 603.059,206.159 600.796,231.338 599.8,242.502 599.64,242.502 480,242.502 480,293.362 581.896,293.362 595.28,293.362 594.068,306.699 582.396,437.458 581.649,445.85 480,474.021 480,474.03 480,525.572 611.283,489.176 642.17,143.166 480,143.166       "/><polygon fill="#F16529" points="540.988,343.029 480,343.029 480,422.35 535.224,407.445      "/><polygon fill="#EBEBEB" points="414.276,293.362 409.737,242.502 479.828,242.502 479.828,242.38 479.828,223.682 479.828,192.833 355.457,192.833 356.646,206.159 368.853,343.029 479.828,343.029 479.828,293.362       "/><polygon fill="#EBEBEB" points="479.828,474.069 479.828,422.4 479.782,422.413 424.467,407.477 420.931,367.864 394.052,367.864 371.072,367.864 378.031,445.85 479.771,474.094 480,474.03 480,474.021       "/><polygon points="343.784,50.229 366.874,50.229 366.874,75.517 392.114,75.517 392.114,0 366.873,0 366.873,24.938 343.783,24.938 343.783,0 318.544,0 318.544,75.517 343.784,75.517      "/><polygon points="425.307,25.042 425.307,75.517 450.549,75.517 450.549,25.042 472.779,25.042 472.779,0 403.085,0 403.085,25.042 425.306,25.042       "/><polygon points="508.537,38.086 525.914,64.937 526.349,64.937 543.714,38.086 543.714,75.517 568.851,75.517 568.851,0 542.522,0 526.349,26.534 510.159,0 483.84,0 483.84,75.517 508.537,75.517      "/><polygon points="642.156,50.555 606.66,50.555 606.66,0 581.412,0 581.412,75.517 642.156,75.517      "/><polygon fill="#FFFFFF" points="480,474.021 581.649,445.85 582.396,437.458 594.068,306.699 595.28,293.362 581.896,293.362 480,293.362 479.828,293.362 479.828,343.029 480,343.029 540.988,343.029 535.224,407.445 480,422.35 479.828,422.396 479.828,422.4 479.828,474.069       "/><polygon fill="#FFFFFF" points="479.828,242.38 479.828,242.502 480,242.502 599.64,242.502 599.8,242.502 600.796,231.338 603.059,206.159 604.247,192.833 480,192.833 479.828,192.833 479.828,223.682       "/></g></g></g></svg><svg class="side-by-side" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="50%" height="560px" viewBox="281.63 0 396.74 560" enable-background="new 281.63 0 396.74 560" xml:space="preserve"><g><g><g><polygon fill="#E44D26" points="409.7,242.5 414.3,293.4 479.8,293.4 480,293.4 480,242.5 479.8,242.5"/><path fill="#E44D26" d="M281.63 110.053l36.106 404.968L479.757 560l162.47-45.042l36.144-404.905H281.63z M611.283 489.2 L480 525.572V474.03l-0.229 0.063L378.031 445.85l-6.958-77.985h22.98h26.879l3.536 39.612l55.315 14.937l0.046-0.013v-0.004 L480 422.35v-79.32h-0.172H368.853l-12.207-136.871l-1.189-13.325h124.371H480v-49.668h162.17L611.283 489.176z"/><polygon fill="#F16529" points="480,192.8 604.2,192.8 603.1,206.2 600.8,231.3 599.8,242.5 599.6,242.5 480,242.5 480,293.4 581.9,293.4 595.3,293.4 594.1,306.7 582.4,437.5 581.6,445.9 480,474 480,474 480,525.6 611.3,489.2 642.2,143.2 480,143.2"/><polygon fill="#F16529" points="541,343 480,343 480,422.4 535.2,407.4"/><polygon fill="#EBEBEB" points="414.3,293.4 409.7,242.5 479.8,242.5 479.8,242.4 479.8,223.7 479.8,192.8 355.5,192.8 356.6,206.2 368.9,343 479.8,343 479.8,293.4"/><polygon fill="#EBEBEB" points="479.8,474.1 479.8,422.4 479.8,422.4 424.5,407.5 420.9,367.9 394.1,367.9 371.1,367.9 378,445.9 479.8,474.1 480,474 480,474"/><polygon points="343.8,50.2 366.9,50.2 366.9,75.5 392.1,75.5 392.1,0 366.9,0 366.9,24.9 343.8,24.9 343.8,0 318.5,0 318.5,75.5 343.8,75.5"/><polygon points="425.3,25 425.3,75.5 450.5,75.5 450.5,25 472.8,25 472.8,0 403.1,0 403.1,25 425.3,25"/><polygon points="508.5,38.1 525.9,64.9 526.3,64.9 543.7,38.1 543.7,75.5 568.9,75.5 568.9,0 542.5,0 526.3,26.5 510.2,0 483.8,0 483.8,75.5 508.5,75.5"/><polygon points="642.2,50.6 606.7,50.6 606.7,0 581.4,0 581.4,75.5 642.2,75.5"/><polygon fill="#FFFFFF" points="480,474 581.6,445.9 582.4,437.5 594.1,306.7 595.3,293.4 581.9,293.4 480,293.4 479.8,293.4 479.8,343 480,343 541,343 535.2,407.4 480,422.4 479.8,422.4 479.8,422.4 479.8,474.1"/><polygon fill="#FFFFFF" points="479.8,242.4 479.8,242.5 480,242.5 599.6,242.5 599.8,242.5 600.8,231.3 603.1,206.2 604.2,192.8 480,192.8 479.8,192.8 479.8,223.7"/></g></g></g></svg>
+<svg class="side-by-side" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="396.74px" height="560px" viewbox="281.63 0 396.74 560" enable-background="new 281.63 0 396.74 560" xml:space="preserve"><g><g><g><polygon fill="#E44D26" points="409.737,242.502 414.276,293.362 479.828,293.362 480,293.362 480,242.502 479.828,242.502"/><path fill="#E44D26" d="M281.63,110.053l36.106,404.968L479.757,560l162.47-45.042l36.144-404.905H281.63z M611.283,489.176 L480,525.572V474.03l-0.229,0.063L378.031,445.85l-6.958-77.985h22.98h26.879l3.536,39.612l55.315,14.937l0.046-0.013v-0.004 L480,422.35v-79.32h-0.172H368.853l-12.207-136.871l-1.189-13.325h124.371H480v-49.668h162.17L611.283,489.176z"/><polygon fill="#F16529" points="480,192.833 604.247,192.833 603.059,206.159 600.796,231.338 599.8,242.502 599.64,242.502 480,242.502 480,293.362 581.896,293.362 595.28,293.362 594.068,306.699 582.396,437.458 581.649,445.85 480,474.021 480,474.03 480,525.572 611.283,489.176 642.17,143.166 480,143.166 "/><polygon fill="#F16529" points="540.988,343.029 480,343.029 480,422.35 535.224,407.445 "/><polygon fill="#EBEBEB" points="414.276,293.362 409.737,242.502 479.828,242.502 479.828,242.38 479.828,223.682 479.828,192.833 355.457,192.833 356.646,206.159 368.853,343.029 479.828,343.029 479.828,293.362 "/><polygon fill="#EBEBEB" points="479.828,474.069 479.828,422.4 479.782,422.413 424.467,407.477 420.931,367.864 394.052,367.864 371.072,367.864 378.031,445.85 479.771,474.094 480,474.03 480,474.021 "/><polygon points="343.784,50.229 366.874,50.229 366.874,75.517 392.114,75.517 392.114,0 366.873,0 366.873,24.938 343.783,24.938 343.783,0 318.544,0 318.544,75.517 343.784,75.517 "/><polygon points="425.307,25.042 425.307,75.517 450.549,75.517 450.549,25.042 472.779,25.042 472.779,0 403.085,0 403.085,25.042 425.306,25.042 "/><polygon points="508.537,38.086 525.914,64.937 526.349,64.937 543.714,38.086 543.714,75.517 568.851,75.517 568.851,0 542.522,0 526.349,26.534 510.159,0 483.84,0 483.84,75.517 508.537,75.517 "/><polygon points="642.156,50.555 606.66,50.555 606.66,0 581.412,0 581.412,75.517 642.156,75.517 "/><polygon fill="#FFFFFF" points="480,474.021 581.649,445.85 582.396,437.458 594.068,306.699 595.28,293.362 581.896,293.362 480,293.362 479.828,293.362 479.828,343.029 480,343.029 540.988,343.029 535.224,407.445 480,422.35 479.828,422.396 479.828,422.4 479.828,474.069 "/><polygon fill="#FFFFFF" points="479.828,242.38 479.828,242.502 480,242.502 599.64,242.502 599.8,242.502 600.796,231.338 603.059,206.159 604.247,192.833 480,192.833 479.828,192.833 479.828,223.682 "/></g></g></g></svg><svg class="side-by-side" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="50%" height="560px" viewbox="281.63 0 396.74 560" enable-background="new 281.63 0 396.74 560" xml:space="preserve"><g><g><g><polygon fill="#E44D26" points="409.7,242.5 414.3,293.4 479.8,293.4 480,293.4 480,242.5 479.8,242.5"/><path fill="#E44D26" d="M281.63 110.053l36.106 404.968L479.757 560l162.47-45.042l36.144-404.905H281.63z M611.283 489.2 L480 525.572V474.03l-0.229 0.063L378.031 445.85l-6.958-77.985h22.98h26.879l3.536 39.612l55.315 14.937l0.046-0.013v-0.004 L480 422.35v-79.32h-0.172H368.853l-12.207-136.871l-1.189-13.325h124.371H480v-49.668h162.17L611.283 489.176z"/><polygon fill="#F16529" points="480,192.8 604.2,192.8 603.1,206.2 600.8,231.3 599.8,242.5 599.6,242.5 480,242.5 480,293.4 581.9,293.4 595.3,293.4 594.1,306.7 582.4,437.5 581.6,445.9 480,474 480,474 480,525.6 611.3,489.2 642.2,143.2 480,143.2"/><polygon fill="#F16529" points="541,343 480,343 480,422.4 535.2,407.4"/><polygon fill="#EBEBEB" points="414.3,293.4 409.7,242.5 479.8,242.5 479.8,242.4 479.8,223.7 479.8,192.8 355.5,192.8 356.6,206.2 368.9,343 479.8,343 479.8,293.4"/><polygon fill="#EBEBEB" points="479.8,474.1 479.8,422.4 479.8,422.4 424.5,407.5 420.9,367.9 394.1,367.9 371.1,367.9 378,445.9 479.8,474.1 480,474 480,474"/><polygon points="343.8,50.2 366.9,50.2 366.9,75.5 392.1,75.5 392.1,0 366.9,0 366.9,24.9 343.8,24.9 343.8,0 318.5,0 318.5,75.5 343.8,75.5"/><polygon points="425.3,25 425.3,75.5 450.5,75.5 450.5,25 472.8,25 472.8,0 403.1,0 403.1,25 425.3,25"/><polygon points="508.5,38.1 525.9,64.9 526.3,64.9 543.7,38.1 543.7,75.5 568.9,75.5 568.9,0 542.5,0 526.3,26.5 510.2,0 483.8,0 483.8,75.5 508.5,75.5"/><polygon points="642.2,50.6 606.7,50.6 606.7,0 581.4,0 581.4,75.5 642.2,75.5"/><polygon fill="#FFFFFF" points="480,474 581.6,445.9 582.4,437.5 594.1,306.7 595.3,293.4 581.9,293.4 480,293.4 479.8,293.4 479.8,343 480,343 541,343 535.2,407.4 480,422.4 479.8,422.4 479.8,422.4 479.8,474.1"/><polygon fill="#FFFFFF" points="479.8,242.4 479.8,242.5 480,242.5 599.6,242.5 599.8,242.5 600.8,231.3 603.1,206.2 604.2,192.8 480,192.8 479.8,192.8 479.8,223.7"/></g></g></g></svg>
 
 ##### URI de dados
 
-URIs de dados oferecem uma maneira de incluir um arquivo em linha, como uma imagem, ao definir o src de um elemento  <code>img</code> como uma string com codificação Base64 usando o seguinte formato:
-
+URIs de dados oferecem uma maneira de incluir um arquivo em linha, como uma imagem, ao definir o src de um elemento `img` como uma string com codificação Base64 usando o seguinte formato:
 
     <img src="data:image/svg+xml;base64,[data]">
-
+    
 
 O início do código para o logotipo HTML5 acima tem a seguinte aparência:
 
-
     <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiB
     BZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW ...">
-
+    
 
 (A versão completa tem mais de 5000 caracteres!)
 
@@ -416,8 +391,7 @@ Ferramentas com recurso arrastar e soltar, como o [jpillora.com/base64-encoder](
 
 URIs de dados e SVGs também podem ser incluídos em linha no CSS &mdash; e isso é permitido para dispositivos móveis e computadores. Veja duas imagens aparentemente idênticas implementadas como imagens de fundo no CSS; um URI de dados e um SVG:
 
-<span class="side-by-side" id="data_uri"></span>
-<span class="side-by-side" id="svg"></span>
+<span class="side-by-side" id="data_uri"></span> <span class="side-by-side" id="svg"></span>
 
 ##### Vantagens e desvantagens do código em linha
 
@@ -425,7 +399,7 @@ O código de inclusão em linha para imagens pode ser longo &mdash; especialment
 
 A desvantagem:
 
-* Em dispositivos móveis, URIs de dados podem ter uma exibição [significativamente mais lenta](https://www.mobify.com/blog/data-uris-are-slow-on-mobile/) do que imagens de um  <code>src</code> externo.
+* Em dispositivos móveis, URIs de dados podem ter uma exibição [significativamente mais lenta](https://www.mobify.com/blog/data-uris-are-slow-on-mobile/) do que imagens de um `src` externo.
 * URIs de dados podem aumentar consideravelmente o tamanho de uma solicitação de HTTP.
 * Eles adicionam complexidade à sua marcação e ao seu fluxo de trabalho.
 * O formato de URI de dados é muito maior do que o binário (até 30%) e, portanto, não reduz o tamanho total do download.
@@ -435,333 +409,204 @@ A desvantagem:
 
 Assim como com todos os elementos responsivos, é preciso testar o que funciona melhor. Use ferramentas de desenvolvedor para verificar o tamanho do arquivo de download, o número de solicitações e a latência total. Às vezes, URIs de dados podem ser úteis para imagens rasterizadas &mdash; por exemplo, em uma página inicial que só inclui uma ou duas fotos que não são usadas em outras áreas. Se precisar incluir imagens vetoriais em linha, o formato SVG é uma opção muito melhor.
 
-
-
 ## Imagens em CSS
 
-A propriedade do CSS `background` é uma ferramenta eficaz para adicionar imagens
-complexas a elementos, facilitando a inclusão de várias imagens,
-sua repetição e muito mais.  Ao ser combinada com consultas de mídia, a propriedade background se torna ainda
-mais eficaz, permitindo o carregamento condicional de imagens com base na resolução
-da tela, no tamanho da janela de visualização e muito mais.
-
+A propriedade do CSS `background` é uma ferramenta eficaz para adicionar imagens complexas a elementos, facilitando a inclusão de várias imagens, sua repetição e muito mais. Ao ser combinada com consultas de mídia, a propriedade background se torna ainda mais eficaz, permitindo o carregamento condicional de imagens com base na resolução da tela, no tamanho da janela de visualização e muito mais.
 
 ### TL;DR {: .hide-from-toc }
-- Use a melhor imagem de acordo com as características de exibição, considerando o tamanho da tela, a resolução do dispositivo e o layout da página.
-- Altere a propriedade `background-image` no CSS para telas de alto DPI usando consultas de mídia com `min-resolution` e `-webkit-min-device-pixel-ratio`.
-- Use srcset para fornecer imagens de alta resolução além da imagem de 1x na marcação.
-- Considere os custos de desempenho ao usar técnicas de substituição de imagens em JavaScript ou ao exibir imagens de alta resolução altamente compactadas para reduzir os dispositivos de resolução.
 
+* Use a melhor imagem de acordo com as características de exibição, considerando o tamanho da tela, a resolução do dispositivo e o layout da página.
+* Altere a propriedade `background-image` no CSS para telas de alto DPI usando consultas de mídia com `min-resolution` e `-webkit-min-device-pixel-ratio`.
+* Use srcset para fornecer imagens de alta resolução além da imagem de 1x na marcação.
+* Considere os custos de desempenho ao usar técnicas de substituição de imagens em JavaScript ou ao exibir imagens de alta resolução altamente compactadas para reduzir os dispositivos de resolução.
 
 ### Use consultas de mídia para o carregamento condicional de imagens ou direção de arte
 
-Consultas de mídia não só afetam o layout da página, mas também podem ser usadas para
-carregar imagens condicionalmente ou para fornecer direção de arte dependendo da largura da
-janela de visualização.
+Consultas de mídia não só afetam o layout da página, mas também podem ser usadas para carregar imagens condicionalmente ou para fornecer direção de arte dependendo da largura da janela de visualização.
 
-No exemplo abaixo, em telas menores, somente `small.png` é
-baixada e aplicada ao `div` de conteúdo, enquanto em telas maiores,
-`background-image: url(body.png)` é aplicado ao corpo e a `background-image:
+No exemplo abaixo, em telas menores, somente `small.png` é baixada e aplicada ao `div` de conteúdo, enquanto em telas maiores, `background-image: url(body.png)` é aplicado ao corpo e a `background-image:
 url(large.png)` is applied to the content `div`.
 
-<pre class="prettyprint">
-{% includecode content_path="web/fundamentals/design-and-ux/responsive/_code/conditional-mq.html" region_tag="conditional" adjust_indentation="auto" %}
+<pre class="prettyprint">{% includecode content_path="web/fundamentals/design-and-ux/responsive/_code/conditional-mq.html" region_tag="conditional" adjust_indentation="auto" %}
 </pre>
 
 [Experimente](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/media/conditional-mq.html){: target="_blank" .external }
 
 ### Use image-set para fornecer imagens de alta resolução
 
-A função `image-set()` no CSS aprimora a propriedade `background` de comportamento,
-facilitando o fornecimento de vários arquivos de imagens para diferentes características
-de dispositivos.  Isso permite que o navegador escolha a melhor qualidade de imagem dependendo das
-características do dispositivos, por exemplo, o uso de uma imagem de 2x em uma tela de 2x
-ou de uma imagem de 1x em um dispositivo de 2x em uma rede de largura de banda limitada.
-
+A função `image-set()` no CSS aprimora a propriedade `background` de comportamento, facilitando o fornecimento de vários arquivos de imagens para diferentes características de dispositivos. Isso permite que o navegador escolha a melhor qualidade de imagem dependendo das características do dispositivos, por exemplo, o uso de uma imagem de 2x em uma tela de 2x ou de uma imagem de 1x em um dispositivo de 2x em uma rede de largura de banda limitada.
 
     background-image: image-set(
       url(icon1x.jpg) 1x,
       url(icon2x.jpg) 2x
     );
+    
 
+Além de carregar a imagem correta, o navegador também a dimensionará da forma adequada. Em outras palavras, o navegador presume que imagens de 2x são duas vezes maiores do que imagens de 1x e, dessa forma, reduzirá a imagem de 2x a um fator de 2 para que a imagem pareça ter o mesmo tamanho na página.
 
-Além de carregar a imagem correta, o navegador também a dimensionará
-da forma adequada. Em outras palavras, o navegador presume que imagens de 2x são duas vezes
-maiores do que imagens de 1x e, dessa forma, reduzirá a imagem de 2x a um fator de 2 para
-que a imagem pareça ter o mesmo tamanho na página.
+O suporte a `image-set()` ainda é novo e só é permitido nos navegadores Chrome e Safari com o prefixo de fornecedor `-webkit`. Tenha cuidado ao incluir uma imagem de fallback quando `image-set()` não tiver suporte. Por exemplo:
 
-O suporte a `image-set()` ainda é novo e só é permitido nos navegadores Chrome e
-Safari com o prefixo de fornecedor `-webkit`.  Tenha cuidado ao incluir uma
-imagem de fallback quando `image-set()` não tiver suporte. Por exemplo:
-
-<pre class="prettyprint">
-{% includecode content_path="web/fundamentals/design-and-ux/responsive/_code/image-set.html" region_tag="imageset" adjust_indentation="auto" %}
+<pre class="prettyprint">{% includecode content_path="web/fundamentals/design-and-ux/responsive/_code/image-set.html" region_tag="imageset" adjust_indentation="auto" %}
 </pre>
 
 [Experimente](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/media/image-set.html){: target="_blank" .external }
 
-O exemplo acima carregará o ativo apropriado em navegadores que oferecem suporte a image-set e, caso contrário,
-utilizam o ativo de 1x. A ressalva óbvia é que, embora o suporte a
-`image-set()` seja baixo, a maioria dos navegadores receberá um ativo de 1x.
+O exemplo acima carregará o ativo apropriado em navegadores que oferecem suporte a image-set e, caso contrário, utilizam o ativo de 1x. A ressalva óbvia é que, embora o suporte a `image-set()` seja baixo, a maioria dos navegadores receberá um ativo de 1x.
 
 ### Use consultas de mídia para fornecer imagens de alta resolução ou direção de arte
 
-Consultas de mídia podem criar regras baseadas na
-[proporção de pixels do dispositivo](http://www.html5rocks.com/en/mobile/high-dpi/#toc-bg),
-possibilitando a especificação de diferentes imagens para exibições de 2x vs. 1x.
-
+Consultas de mídia podem criar regras baseadas na [proporção de pixels do dispositivo](http://www.html5rocks.com/en/mobile/high-dpi/#toc-bg), possibilitando a especificação de diferentes imagens para exibições de 2x vs. 1x.
 
     @media (min-resolution: 2dppx),
     (-webkit-min-device-pixel-ratio: 2)
     {
       /* High dpi styles & resources here */
     }
+    
 
+O Chrome, o Firefox e o Opera oferecem suporte ao `(min-resolution: 2dppx)` padrão, enquanto os navegadores Safari e Android exigem a sintaxe prefixada de fornecedor mais antiga sem a unidade `dppx`. Lembre-se de que esses estilos são carregados somente se o dispositivo corresponder a consulta de mídia e você deve especificar estilos para o caso base. Isso também oferece o benefício de garantir que algo seja renderizado se o navegador não oferecer suporte a consultas de mídia de resoluções específicas.
 
-O Chrome, o Firefox e o Opera oferecem suporte ao `(min-resolution: 2dppx)` padrão,
-enquanto os navegadores Safari e Android exigem a sintaxe prefixada de fornecedor mais antiga
-sem a unidade `dppx`.  Lembre-se de que esses estilos são carregados somente se o dispositivo
-corresponder a consulta de mídia e você deve especificar estilos para o caso base.  Isso
-também oferece o benefício de garantir que algo seja renderizado se o navegador
-não oferecer suporte a consultas de mídia de resoluções específicas.
-
-<pre class="prettyprint">
-{% includecode content_path="web/fundamentals/design-and-ux/responsive/_code/media-query-dppx.html" region_tag="mqdppx" adjust_indentation="auto" %}
+<pre class="prettyprint">{% includecode content_path="web/fundamentals/design-and-ux/responsive/_code/media-query-dppx.html" region_tag="mqdppx" adjust_indentation="auto" %}
 </pre>
 
 [Experimente](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/media/media-query-dppx.html){: target="_blank" .external }
 
-Você também pode usar a sintaxe min-width para exibir imagens alternativas dependendo do
-tamanho da janela de visualização.  Essa técnica tem a vantagem de a imagem não ser
-baixada se a consulta de mídia não corresponder.  Por exemplo, `bg.png` só é
-baixado e aplicado ao `body` se a largura do navegador por de 500 pixels ou mais:
-
+Você também pode usar a sintaxe min-width para exibir imagens alternativas dependendo do tamanho da janela de visualização. Essa técnica tem a vantagem de a imagem não ser baixada se a consulta de mídia não corresponder. Por exemplo, `bg.png` só é baixado e aplicado ao `body` se a largura do navegador por de 500 pixels ou mais:
 
     @media (min-width: 500px) {
       body {
         background-image: url(bg.png);
       }
     }
-
-
+    
 
 ## Use SVG para ícones
 
-Ao adicionar ícones à sua página, use ícones SVG quando possível ou, em alguns
-casos, caracteres Unicode.
-
+Ao adicionar ícones à sua página, use ícones SVG quando possível ou, em alguns casos, caracteres Unicode.
 
 ### TL;DR {: .hide-from-toc }
-- Use SVG ou Unicode para ícones em vez de imagens rasterizadas.
 
+* Use SVG ou Unicode para ícones em vez de imagens rasterizadas.
 
 ### Substitua ícones simples por Unicode
 
-Muitas fontes incluem suporte para uma variedade de glifos Unicode, que podem ser usados
-no lugar de imagens. Diferentemente de imagens, fontes Unicode podem ser dimensionadas e manter uma aparência boa
-aparecendo grandes ou pequenas na tela.
+Muitas fontes incluem suporte para uma variedade de glifos Unicode, que podem ser usados no lugar de imagens. Diferentemente de imagens, fontes Unicode podem ser dimensionadas e manter uma aparência boa aparecendo grandes ou pequenas na tela.
 
-Além do conjunto de caracteres normal, o Unicode pode incluir símbolos para
-setas (&#8592;), operadores matemáticos (&#8730;), formas geométricas
-(&#9733;), imagens de controle (&#9654;), notação musical (&#9836;),
-letras gregas (&#937;) e até peças de xadrez (&#9822;).
+Além do conjunto de caracteres normal, o Unicode pode incluir símbolos para setas (&#8592;), operadores matemáticos (&#8730;), formas geométricas (&#9733;), imagens de controle (&#9654;), notação musical (&#9836;), letras gregas (&#937;) e até peças de xadrez (&#9822;).
 
-Você pode incluir um caractere Unicode da mesma maneira que faz com entidades nomeadas:
-`&#XXXX`, onde `XXXX` representa o número do caractere Unicode. Por exemplo:
-
+Você pode incluir um caractere Unicode da mesma maneira que faz com entidades nomeadas: `&#XXXX`, onde `XXXX` representa o número do caractere Unicode. Por exemplo:
 
     You're a super &#9733;
-
+    
 
 You're a super &#9733;
 
 ### Substitua ícones complexos por SVG
 
-Para requisitos de ícone mais complexos, os ícones SVG geralmente são leves,
-fáceis de usar e podem estilizados com CSS. O SVG tem diversas vantagens sobre
-imagens de raster:
+Para requisitos de ícone mais complexos, os ícones SVG geralmente são leves, fáceis de usar e podem estilizados com CSS. O SVG tem diversas vantagens sobre imagens de raster:
 
 * Imagens SVG são gráficos vetoriais que podem ser infinitamente dimensionados.
-* Efeitos CSS como cor, sombreamento, transparência e animações são
-  simples.
+* Efeitos CSS como cor, sombreamento, transparência e animações são simples.
 * Imagens SVG podem ser incorporadas diretamente no documento.
 * Elas são semânticas.
 * Elas proporcionam uma acessibilidade melhor com os atributos apropriados.
 
-
-
-<pre class="prettyprint">
-{% includecode content_path="web/fundamentals/design-and-ux/responsive/_code/icon-svg.html" region_tag="iconsvg" adjust_indentation="auto" %}
+<pre class="prettyprint">{% includecode content_path="web/fundamentals/design-and-ux/responsive/_code/icon-svg.html" region_tag="iconsvg" adjust_indentation="auto" %}
 </pre>
 
 [Experimente](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/media/icon-svg.html){: target="_blank" .external }
 
-### Use fontes de ícone com cautela
+### Use fontes de ícone com cautela<figure class="attempt-right"> 
 
-<figure class="attempt-right">
-  <img src="img/icon-fonts.png" class="center" srcset="img/icon-fonts.png 1x, img/icon-fonts-2x.png 2x" alt="Exemplo de uma página que usa FontAwesome para seus ícones de fonte.">
-  <figcaption>
-    <a href="https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/media/icon-font.html" target="_blank" class="external">
-      Exemplo de uma página que usa FontAwesome para seus ícones de fonte.
-    </a>
-  </figcaption>
-</figure>
+<img src="img/icon-fonts.png" class="center" srcset="img/icon-fonts.png 1x, img/icon-fonts-2x.png 2x" alt="Exemplo de uma página que usa FontAwesome para seus ícones de fonte." /> <figcaption> <a href="https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/media/icon-font.html" target="_blank" class="external"> Exemplo de uma página que usa FontAwesome para seus ícones de fonte. </a> </figcaption> </figure> 
 
-Fontes de ícone são populares e podem ser fáceis de usar, mas têm algumas desvantagens
-em comparação com ícones SVG:
+Fontes de ícone são populares e podem ser fáceis de usar, mas têm algumas desvantagens em comparação com ícones SVG:
 
-* Elas são gráficos vetoriais que podem ser infinitamente dimensionadas, mas elas podem sofrer
- suavização, resultando em ícones que não têm a nitidez esperada.
+* Elas são gráficos vetoriais que podem ser infinitamente dimensionadas, mas elas podem sofrer suavização, resultando em ícones que não têm a nitidez esperada.
 * Estilização limitada com CSS.
-* Pode ser difícil posicionar pixels perfeitamente, dependendo da altura da linha,
- do espaçamento entre as letras etc.
-* Não são semânticas e podem ser difíceis de usar com leitores de tela ou
-  outras tecnologias assistenciais.
-* A não ser que o escopo seja definido corretamente, podem resultar em um tamanho de arquivo grande que usa
-  apenas um pequeno subconjunto dos ícones disponíveis.
+* Pode ser difícil posicionar pixels perfeitamente, dependendo da altura da linha, do espaçamento entre as letras etc.
+* Não são semânticas e podem ser difíceis de usar com leitores de tela ou outras tecnologias assistenciais.
+* A não ser que o escopo seja definido corretamente, podem resultar em um tamanho de arquivo grande que usa apenas um pequeno subconjunto dos ícones disponíveis.
 
-<div style="clear:both;"></div>
+<div style="clear:both;">
+</div>
 
-<pre class="prettyprint">
-{% includecode content_path="web/fundamentals/design-and-ux/responsive/_code/icon-font.html" region_tag="iconfont" adjust_indentation="auto" %}
+<pre class="prettyprint">{% includecode content_path="web/fundamentals/design-and-ux/responsive/_code/icon-font.html" region_tag="iconfont" adjust_indentation="auto" %}
 </pre>
 
 [Experimente](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/media/icon-font.html){: target="_blank" .external }
 
-Existem centenas de fontes de ícone gratuitas e pagas, incluindo [Font
-Awesome](https://fortawesome.github.io/Font-Awesome/),
-[Pictos](http://pictos.cc/){: .external } e [Glyphicons](https://glyphicons.com/).
+Existem centenas de fontes de ícone gratuitas e pagas, incluindo [Font Awesome](https://fortawesome.github.io/Font-Awesome/), [Pictos](http://pictos.cc/){: .external } e [Glyphicons](https://glyphicons.com/).
 
-Equilibre o peso da solicitação HTTP adicional e do tamanho do arquivo com
-a necessidade dos ícones. Por exemplo, se você precisar apenas de alguns ícones, pode
-ser melhor usar uma imagem ou um sprite de imagens.
-
+Equilibre o peso da solicitação HTTP adicional e do tamanho do arquivo com a necessidade dos ícones. Por exemplo, se você precisar apenas de alguns ícones, pode ser melhor usar uma imagem ou um sprite de imagens.
 
 ## Otimize imagens para o desempenho
 
-As imagens frequentemente representam a maior parte dos bytes baixados e também ocupam
-uma parte significativa do espaço visual de uma página. Consequentemente, a otimização
-das imagens pode gerar algumas das maiores economias de bytes e melhorias de
-desempenho para seu site: quanto menos bytes o navegador precisar baixar,
-menor será a concorrência pela largura de banda do cliente e mais rápido o
-navegador poderá baixar e exibir todos os ativos.
-
+As imagens frequentemente representam a maior parte dos bytes baixados e também ocupam uma parte significativa do espaço visual de uma página. Consequentemente, a otimização das imagens pode gerar algumas das maiores economias de bytes e melhorias de desempenho para seu site: quanto menos bytes o navegador precisar baixar, menor será a concorrência pela largura de banda do cliente e mais rápido o navegador poderá baixar e exibir todos os ativos.
 
 ### TL;DR {: .hide-from-toc }
-- Não escolha um formato de imagem aleatório &mdash; entenda os diferentes formatos disponíveis e use o mais adequado.
-- Inclua ferramentas de otimização e compactação de imagens no seu fluxo de trabalho para reduzir os tamanhos dos arquivos.
-- Reduza o número de solicitações HTTP colocando imagens usadas com frequência em image sprites.
-- Considere carregar imagens somente após elas entrarem na visualização para melhorar o tempo inicial de carregamento da página e reduzir o peso inicial da página.
 
+* Não escolha um formato de imagem aleatório &mdash; entenda os diferentes formatos disponíveis e use o mais adequado.
+* Inclua ferramentas de otimização e compactação de imagens no seu fluxo de trabalho para reduzir os tamanhos dos arquivos.
+* Reduza o número de solicitações HTTP colocando imagens usadas com frequência em image sprites.
+* Considere carregar imagens somente após elas entrarem na visualização para melhorar o tempo inicial de carregamento da página e reduzir o peso inicial da página.
 
 ### Escolha o formato certo
 
-Existem dois tipos de imagens a serem considerados: [imagens vetoriais](https://en.wikipedia.org/wiki/Vector_graphics)
-e [imagens rasterizadas](https://en.wikipedia.org/wiki/Raster_graphics).
-Para imagens rasterizadas, também é necessário escolher o formato de compactação correto,
-por exemplo: `GIF`, `PNG`, `JPG`.
+Existem dois tipos de imagens a serem considerados: [imagens vetoriais](https://en.wikipedia.org/wiki/Vector_graphics) e [imagens rasterizadas](https://en.wikipedia.org/wiki/Raster_graphics). Para imagens rasterizadas, também é necessário escolher o formato de compactação correto, por exemplo: `GIF`, `PNG`, `JPG`.
 
-**Imagens rasterizadas**, como fotografias e outras imagens representadas como uma
-grade de pontos ou pixels individuais. Imagens de raster geralmente são produzidas por uma câmera ou
-um scanner, ou podem ser criadas no navegador com o elemento `canvas`.  Conforme o
-tamanho da imagem aumenta, o tamanho do arquivo também cresce.  Quando dimensionadas acima
-do tamanho original, imagens rasterizadas podem ficar desfocadas, pois os navegadores precisam adivinhar como
-preencher os pixels ausentes.
+**Imagens rasterizadas**, como fotografias e outras imagens representadas como uma grade de pontos ou pixels individuais. Imagens de raster geralmente são produzidas por uma câmera ou um scanner, ou podem ser criadas no navegador com o elemento `canvas`. Conforme o tamanho da imagem aumenta, o tamanho do arquivo também cresce. Quando dimensionadas acima do tamanho original, imagens rasterizadas podem ficar desfocadas, pois os navegadores precisam adivinhar como preencher os pixels ausentes.
 
-**Imagens vetoriais**, como logotipos e desenhos, são definidos por um conjunto de curvas,
-linhas, formas e cores de preenchimento. Imagens vetoriais são criadas com programas como o
-Adobe Illustrator ou o Inkscape e salvas em um formato vetorial como o
-[`SVG`](https://css-tricks.com/using-svg/).  Como imagens vetoriais são baseadas em
-primitivos simples, elas podem ser dimensionadas sem perda de qualidade ou
-alteração no tamanho do arquivo.
+**Imagens vetoriais**, como logotipos e desenhos, são definidos por um conjunto de curvas, linhas, formas e cores de preenchimento. Imagens vetoriais são criadas com programas como o Adobe Illustrator ou o Inkscape e salvas em um formato vetorial como o [`SVG`](https://css-tricks.com/using-svg/). Como imagens vetoriais são baseadas em primitivos simples, elas podem ser dimensionadas sem perda de qualidade ou alteração no tamanho do arquivo.
 
-Ao escolher o formato certo, é importante considerar a origem da
-imagem (rasterizada ou vetorial) e seu conteúdo (cores, animação, texto etc.).
-Nenhum formato individual se adequa a todos os tipos e cada um tem seus pontos positivos e
-negativos.
+Ao escolher o formato certo, é importante considerar a origem da imagem (rasterizada ou vetorial) e seu conteúdo (cores, animação, texto etc.). Nenhum formato individual se adequa a todos os tipos e cada um tem seus pontos positivos e negativos.
 
 Comece com estas diretrizes para escolher o formato certo:
 
 * Use `JPG` para imagens fotográficas.
-* Use `SVG` para imagens vetoriais e gráficos de cores sólidas, como logotipos e desenhos.
-  Se uma imagem vetorial estiver indisponível, experimente os formatos `WebP` ou `PNG`.
-* Use `PNG` em vez de `GIF`, pois esse formato permite mais cores e oferece
- taxas de compactação melhores.
-* Para animações mais longas, considere o uso de `<video>`, que oferece uma qualidade de imagem melhor
-   e dá ao usuário controle sobre a reprodução.
+* Use `SVG` para imagens vetoriais e gráficos de cores sólidas, como logotipos e desenhos. Se uma imagem vetorial estiver indisponível, experimente os formatos `WebP` ou `PNG`.
+* Use `PNG` em vez de `GIF`, pois esse formato permite mais cores e oferece taxas de compactação melhores.
+* Para animações mais longas, considere o uso de `<video>`, que oferece uma qualidade de imagem melhor e dá ao usuário controle sobre a reprodução.
 
 ### Reduza o tamanho do arquivo
 
-É possível reduzir o tamanho do arquivo consideravelmente ao realizar o “pós-processamento” das imagens após
-salvá-las. Existem diversas ferramentas de compactação de imagens &mdash; com e sem perda,
-on-line, de GUI e linha de comando.  Quando possível, é recomendável automatizar a otimização
-da imagem para que ela seja uma prioridade no seu fluxo de trabalho.
+É possível reduzir o tamanho do arquivo consideravelmente ao realizar o “pós-processamento” das imagens após salvá-las. Existem diversas ferramentas de compactação de imagens &mdash; com e sem perda, on-line, de GUI e linha de comando. Quando possível, é recomendável automatizar a otimização da imagem para que ela seja uma prioridade no seu fluxo de trabalho.
 
-Há várias ferramentas disponíveis para realizar uma compactação maior sem perdas em arquivos `JPG`
-e `PNG` que não afetam a qualidade da imagem. Para o formato `JPG`, experimente
-[jpegtran](http://jpegclub.org/){: .external } ou
-[jpegoptim](http://freshmeat.net/projects/jpegoptim/){: .external } (disponível apenas para Linux;
-executado com a opção --strip-all). Para o formato `PNG`, experimente
-[OptiPNG](http://optipng.sourceforge.net/){: .external } ou
-[PNGOUT](http://www.advsys.net/ken/util/pngout.htm).
+Há várias ferramentas disponíveis para realizar uma compactação maior sem perdas em arquivos `JPG` e `PNG` que não afetam a qualidade da imagem. Para o formato `JPG`, experimente [jpegtran](http://jpegclub.org/){: .external } ou [jpegoptim](http://freshmeat.net/projects/jpegoptim/){: .external } (disponível apenas para Linux; executado com a opção --strip-all). Para o formato `PNG`, experimente [OptiPNG](http://optipng.sourceforge.net/){: .external } ou [PNGOUT](http://www.advsys.net/ken/util/pngout.htm).
 
 ### Use image sprites
 
-<img src="img/sprite-sheet.png" class="attempt-right" alt="Folha de sprites de imagens usada no exemplo">
+<img src="img/sprite-sheet.png" class="attempt-right" alt="Folha de sprites de imagens usada no exemplo" />
 
-Os sprites CSS são uma técnica na qual um grupo de imagens é combinado em uma só
-imagem de "folha de sprites". Você pode, então, usar imagens individuais ao especificar a
-imagem de fundo de um elemento (a folha de sprites) e um offset para exibir a
-parte correta.
+Os sprites CSS são uma técnica na qual um grupo de imagens é combinado em uma só imagem de "folha de sprites". Você pode, então, usar imagens individuais ao especificar a imagem de fundo de um elemento (a folha de sprites) e um offset para exibir a parte correta.
 
-<div style="clear:both;"></div>
+<div style="clear:both;">
+</div>
 
-<pre class="prettyprint">
-{% includecode content_path="web/fundamentals/design-and-ux/responsive/_code/image-sprite.html" region_tag="sprite" adjust_indentation="auto" %}
+<pre class="prettyprint">{% includecode content_path="web/fundamentals/design-and-ux/responsive/_code/image-sprite.html" region_tag="sprite" adjust_indentation="auto" %}
 </pre>
 
 [Experimente](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/media//image-sprite.html){: target="_blank" .external }
 
-A criação de sprites tem a vantagem de reduzir o número de downloads necessários para obter
-várias imagens, ainda permitindo o armazenamento em cache.
+A criação de sprites tem a vantagem de reduzir o número de downloads necessários para obter várias imagens, ainda permitindo o armazenamento em cache.
 
 ### Considere um carregamento lento
 
-O carregamento lento pode agilizar significativamente o carregamento de páginas longas que incluem muitas imagens
-abaixo da dobra ao carregá-las conforme a necessidade ou depois que o conteúdo
-principal terminar de ser carregado e renderizado.  Além de melhorias de
-desempenho, o uso do carregamento lento pode criar experiências de rolagem infinita.
+O carregamento lento pode agilizar significativamente o carregamento de páginas longas que incluem muitas imagens abaixo da dobra ao carregá-las conforme a necessidade ou depois que o conteúdo principal terminar de ser carregado e renderizado. Além de melhorias de desempenho, o uso do carregamento lento pode criar experiências de rolagem infinita.
 
-Tenha cuidado ao criar páginas com rolagem infinita &mdash; pois o conteúdo é carregado conforme
-ele se torna visível, então mecanismos de pesquisa poderão nunca ver o conteúdo.  Além disso,
-usuários que procuram informações no rodapé nunca
-verão o rodapé, pois há sempre um novo conteúdo a ser carregado.
-
-
+Tenha cuidado ao criar páginas com rolagem infinita &mdash; pois o conteúdo é carregado conforme ele se torna visível, então mecanismos de pesquisa poderão nunca ver o conteúdo. Além disso, usuários que procuram informações no rodapé nunca verão o rodapé, pois há sempre um novo conteúdo a ser carregado.
 
 ## Evite imagens por completo
 
-Às vezes, a melhor imagem é a que não existe. Sempre que possível,
-use os recursos nativos do navegador para fornecer funções iguais ou
-semelhantes.  Navegadores geram elementos visuais que anteriormente
-exigiriam imagens.   Isso significa que os navegadores não precisam mais fazer o download de arquivos de imagem
-separados, evitando o uso de imagens dimensionadas de forma inadequada.  Você pode usar Unicode ou fontes especiais de ícone para renderizar ícones.
+Às vezes, a melhor imagem é a que não existe. Sempre que possível, use os recursos nativos do navegador para fornecer funções iguais ou semelhantes. Navegadores geram elementos visuais que anteriormente exigiriam imagens. Isso significa que os navegadores não precisam mais fazer o download de arquivos de imagem separados, evitando o uso de imagens dimensionadas de forma inadequada. Você pode usar Unicode ou fontes especiais de ícone para renderizar ícones.
 
 ### Coloque texto em marcações em vez de incorporá-los em imagens
 
-Sempre que possível, o texto deve ser texto, não incorporado em imagens. Por
-exemplo, usar imagens como títulos ou colocar informações de contato &mdash; como números
-de telefone ou endereços &mdash; diretamente em imagens impede os usuários de
-copiar e colar essas informações, além de torná-las inacessíveis para leitores de tela e criar um design
-não responsivo.  O texto deve ser colocado na sua marcação e, se necessário,
-use fontes da Web para criar o estilo desejado.
+Sempre que possível, o texto deve ser texto, não incorporado em imagens. Por exemplo, usar imagens como títulos ou colocar informações de contato &mdash; como números de telefone ou endereços &mdash; diretamente em imagens impede os usuários de copiar e colar essas informações, além de torná-las inacessíveis para leitores de tela e criar um design não responsivo. O texto deve ser colocado na sua marcação e, se necessário, use fontes da Web para criar o estilo desejado.
 
 ### Use CSS para substituir imagens
 
-Navegadores modernos podem usar recursos CSS para criar estilos que anteriormente
-exigiam imagens.  Por exemplo: gradientes complexos podem ser usados usando a propriedade
-`background`, sombras podem ser criadas usando `box-shadow` e bordas
-arredondadas podem ser adicionadas com a propriedade `border-radius`.
+Navegadores modernos podem usar recursos CSS para criar estilos que anteriormente exigiam imagens. Por exemplo: gradientes complexos podem ser usados usando a propriedade `background`, sombras podem ser criadas usando `box-shadow` e bordas arredondadas podem ser adicionadas com a propriedade `border-radius`. 
 
 <style>
   p#noImage {
@@ -779,15 +624,11 @@ arredondadas podem ser adicionadas com a propriedade `border-radius`.
   }
 </style>
 
-<p id="noImage">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit
-amet augue eu magna scelerisque porta ut ut dolor. Nullam placerat egestas
-nisl sed sollicitudin. Fusce placerat, ipsum ac vestibulum porta, purus
-dolor mollis nunc, pharetra vehicula nulla nunc quis elit. Duis ornare
-fringilla dui non vehicula. In hac habitasse platea dictumst. Donec
-ipsum lectus, hendrerit malesuada sapien eget, venenatis tempus purus.
-</p>
+ 
 
+<p id="noImage">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet augue eu magna scelerisque porta ut ut dolor. Nullam placerat egestas nisl sed sollicitudin. Fusce placerat, ipsum ac vestibulum porta, purus dolor mollis nunc, pharetra vehicula nulla nunc quis elit. Duis ornare fringilla dui non vehicula. In hac habitasse platea dictumst. Donec ipsum lectus, hendrerit malesuada sapien eget, venenatis tempus purus.
+</p>
 
     <style>
       div#noImage {
@@ -797,11 +638,10 @@ ipsum lectus, hendrerit malesuada sapien eget, venenatis tempus purus.
         background: linear-gradient(rgba(9, 130, 154, 1), rgba(9, 130, 154, 0.5));
       }
     </style>
+    
 
+Lembre-se de que o uso dessas técnicas exige ciclos de renderização, que podem ser significativos em dispositivos móveis. Se elas forem utilizadas excessivamente, você perderá qualquer benefício ganho e poderá reduzir o desempenho.
 
-Lembre-se de que o uso dessas técnicas exige ciclos de renderização, que
-podem ser significativos em dispositivos móveis.  Se elas forem utilizadas excessivamente, você perderá
-qualquer benefício ganho e poderá reduzir o desempenho.
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
