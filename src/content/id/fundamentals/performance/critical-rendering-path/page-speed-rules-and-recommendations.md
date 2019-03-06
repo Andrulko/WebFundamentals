@@ -1,16 +1,12 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Panduan ini mempelajari aturan PageSpeed Insights dalam konteks: apa yang harus diperhatikan saat mengoptimalkan jalur rendering penting, dan alasannya.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Panduan ini mempelajari aturan PageSpeed Insights dalam konteks: apa yang harus diperhatikan saat mengoptimalkan jalur rendering penting, dan alasannya.
 
-{# wf_updated_on: 2015-10-05 #}
-{# wf_published_on: 2014-03-31 #}
+{# wf_updated_on: 2015-10-05 #} {# wf_published_on: 2014-03-31 #}
 
 # Aturan dan Rekomendasi PageSpeed {: .page-title }
 
 {% include "web/_shared/contributors/ilyagrigorik.html" %}
 
 Panduan ini mempelajari aturan PageSpeed Insights dalam konteks: apa yang harus diperhatikan saat mengoptimalkan jalur rendering penting, dan alasannya.
-
 
 ## Menghilangkan JavaScript dan CSS yang memblokir rendering
 
@@ -26,12 +22,7 @@ Sumber daya asinkron membuka halangan parser dokumen dan memungkinkan browser me
 
 ### Hindari panggilan server sinkron
 
-Gunakan metode `navigator.sendBeacon()` untuk membatasi data yang dikirim oleh XMLHttpRequests dalam penangan
-`unload`. Karena banyak browser mengharuskan permintaan seperti itu sebagai
-sinkron, permintaan itu bisa memperlambat transisi laman, terkadang secara kentara. Kode
-berikut menunjukkan cara menggunakan `navigator.sendBeacon()` untuk mengirim data ke server dalam penangan
-`pagehide` dan bukan pada penangan `unload`.
-
+Gunakan metode `navigator.sendBeacon()` untuk membatasi data yang dikirim oleh XMLHttpRequests dalam penangan `unload`. Karena banyak browser mengharuskan permintaan seperti itu sebagai sinkron, permintaan itu bisa memperlambat transisi laman, terkadang secara kentara. Kode berikut menunjukkan cara menggunakan `navigator.sendBeacon()` untuk mengirim data ke server dalam penangan `pagehide` dan bukan pada penangan `unload`.
 
     <script>
       function() {
@@ -45,8 +36,7 @@ berikut menunjukkan cara menggunakan `navigator.sendBeacon()` untuk mengirim dat
     </script>
     
 
-Metode `fetch()` baru menyediakan cara mudah untuk meminta data secara asinkron. Karena belum tersedia secara luas, Anda harus menggunakan deteksi fitur untuk menguji keberadaannya sebelum digunakan. Metode ini memproses respons dengan Promise dan bukan dengan penangan beberapa penangan kejadian. Tidak seperti respons terhadap XMLHttpRequest, respons fetch adalah sebuah objek aliran yang dimulai dalam Chrome 43. Ini juga berarti bahwa panggilan ke `json()` juga mengembalikan Promise. 
-
+Metode `fetch()` baru menyediakan cara mudah untuk meminta data secara asinkron. Karena belum tersedia secara luas, Anda harus menggunakan deteksi fitur untuk menguji keberadaannya sebelum digunakan. Metode ini memproses respons dengan Promise dan bukan dengan penangan beberapa penangan kejadian. Tidak seperti respons terhadap XMLHttpRequest, respons fetch adalah sebuah objek aliran yang dimulai dalam Chrome 43. Ini juga berarti bahwa panggilan ke `json()` juga mengembalikan Promise.
 
     <script>
     fetch('./api/some.json')  
@@ -69,7 +59,6 @@ Metode `fetch()` baru menyediakan cara mudah untuk meminta data secara asinkron.
     
 
 Metode `fetch()` juga dapat menangani permintaan POST.
-
 
     <script>
     fetch(url, {
@@ -106,6 +95,6 @@ Direktif pengimporan CSS (`@import`) mengaktifkan satu stylsheet untuk mengimpor
 
 Untuk memperoleh kinerja terbaik, Anda bisa mempertimbangkan penyisipan CSS penting secara langsung ke dalam dokumen HTML. Ini meniadakan perjalanan bolak-balik tambahan dalam jalur penting dan jika dilakukan dengan benar bisa digunakan untuk mengirimkan satu panjang jalur penting dalam "satu kali bolak-balik" yang mana hanya HTML-lah yang menjadi sumber daya pemblokir.
 
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Obtén más información sobre las animaciones y su uso en apps y sitios modernos.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Obtén más información sobre las animaciones y su uso en apps y sitios modernos.
 
-{# wf_updated_on: 2016-08-23 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2016-08-23 #} {# wf_published_on: 2014-08-08 #}
 
 # Animaciones {: .page-title }
 
@@ -11,12 +8,11 @@ description: Obtén más información sobre las animaciones y su uso en apps y s
 
 Las animaciones ocupan un lugar muy importante a la hora de lograr que las aplicaciones y los sitios web resulten atractivos. Los usuarios desean usar interfaces de usuario altamente receptivas e interactivas. Sin embargo, animar tu interfaz no es necesariamente una tarea simple. ¿Qué se debe animar? ¿En qué momento? ¿Qué tipo de apariencia debe tener la animación?
 
-
 ### TL;DR {: .hide-from-toc }
+
 * Usa las animaciones como una forma de dar vida a tus proyectos.
 * Las animaciones deben ser coherentes con la interacción del usuario.
 * Ten cuidado con las propiedades que animas: algunas consumen más recursos que otras.
-
 
 ## Elección de los objetos adecuados que se animarán
 
@@ -24,7 +20,7 @@ Las buenas animaciones agregan un toque de diversión y atractivo a los proyecto
 
 ## Uso de animaciones para respaldar las interacciones
 
-No realices animaciones solamente porque puedes hacerlo; esto resulta fastidioso para los usuarios y se puede percibir como algo entorpecedor. En su lugar, usa animaciones colocadas estratégicamente para _reforzar_ las interacciones del usuario. Si pulsan el ícono del menú, deslizan para que aparezca un panel lateral de navegación, o si pulsan un botón, tal vez puedas usar un brillo o rebote sutiles para mostrar la interacción. Evita las animaciones que interrumpan o entorpezcan la actividad del usuario sin necesidad.
+No realices animaciones solamente porque puedes hacerlo; esto resulta fastidioso para los usuarios y se puede percibir como algo entorpecedor. En su lugar, usa animaciones colocadas estratégicamente para *reforzar* las interacciones del usuario. Si pulsan el ícono del menú, deslizan para que aparezca un panel lateral de navegación, o si pulsan un botón, tal vez puedas usar un brillo o rebote sutiles para mostrar la interacción. Evita las animaciones que interrumpan o entorpezcan la actividad del usuario sin necesidad.
 
 ## Evita animar propiedades que consuman muchos recursos
 
@@ -34,5 +30,6 @@ Es más difícil cambiar algunas propiedades que otras, y es por eso que algunas
 
 Puedes obtener más información sobre las consideraciones de rendimiento de las animaciones en la guía [Animaciones y rendimiento](animations-and-performance), pero si quieres el TL;DR, solo modifica transforms y opacity, y usa `will-change`. Si deseas saber exactamente el trabajo que se desencadena al animar una propiedad determinada, consulta [Desencadenadores de CSS](http://csstriggers.com).
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

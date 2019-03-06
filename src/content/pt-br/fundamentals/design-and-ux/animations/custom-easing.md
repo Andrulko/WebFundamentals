@@ -1,22 +1,18 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Vá além e crie animações totalmente personalizadas para seus projetos.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Vá além e crie animações totalmente personalizadas para seus projetos.
 
-{# wf_updated_on: 2016-08-23 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2016-08-23 #} {# wf_published_on: 2014-08-08 #}
 
 # Easing personalizado {: .page-title }
 
-{% include "web/_shared/contributors/paullewis.html" %}
-{% include "web/_shared/contributors/samthorogood.html" %}
+{% include "web/_shared/contributors/paullewis.html" %} {% include "web/_shared/contributors/samthorogood.html" %}
 
 Em alguns casos, você não desejará usar as palavras-chave de easing incluídas com o CSS ou usará animações Web ou uma estrutura JavaScript. Geralmente, nesse caso, é possível definir suas próprias curvas (ou equações), o que proporciona mais controle sobre as animações do seu projeto.
 
 ### TL;DR {: .hide-from-toc }
+
 * O easing personalizado confere mais personalidade a seus projetos.
 * Você pode criar curvas de Bézier cúbicas que se parecem com as curvas de animação padrão (ease-out, ease-in etc.), mas com ênfase em locais diferentes.
 * Use JavaScript quando precisar de mais controle sobre o timing e o comportamento da animação, por exemplo, animações elastic ou bounce.
-
 
 Se estiver animando com CSS, você poderá estabelecer curvas de Bézier cúbicas para definir a precisão. Na verdade, as palavras-chave `ease`, `ease-in`, `ease-out` e `linear` mapeiam para curvas de Bézier predefinidas, que são detalhadas na [Especificação das transições CSS](http://www.w3.org/TR/css3-transitions/) e na [Especificação das animações Web](https://w3c.github.io/web-animations/#scaling-using-a-cubic-bezier-curve).
 
@@ -31,6 +27,7 @@ Para comparação, aqui estão duas curvas: uma curva ease-in-out comum e uma cu
     <img src="images/ease-in-out-markers.png" alt="Curva de animação ease-in-out." />
   </figure>
 </div>
+
 <div class="attempt-right">
   <figure>
     <img src="images/custom.png" alt="Curva de animação personalizada." />
@@ -40,7 +37,6 @@ Para comparação, aqui estão duas curvas: uma curva ease-in-out comum e uma cu
 [Veja uma animação com easing personalizado](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/animations/box-move-custom-curve.html){: target="_blank" .external }
 
 O CSS para a curva personalizada é:
-
 
     transition: transform 500ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
     
@@ -63,12 +59,10 @@ Uma das melhores estruturas é a [Greensock’s TweenMax](https://github.com/gre
 
 Para usar o TweenMax, inclua este script na sua página:
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
     
 
 Quando o script estiver pronto, você pode chamar o TweenMax no seu elemento e dizer quais propriedades e easings deseja. Há diversas opções de easing que você pode usar; o código abaixo usa um elastic ease-out:
-
 
     var box = document.getElementById('my-box');
     var animationDurationInSeconds = 1.5;
@@ -81,8 +75,6 @@ Quando o script estiver pronto, você pode chamar o TweenMax no seu elemento e d
 
 A [Documentação do TweenMax](https://greensock.com/docs/#/HTML5/GSAP/TweenMax/) destaca todas as opções indicadas aqui, portanto, é uma leitura recomendada.
 
-
-
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

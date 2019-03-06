@@ -1,10 +1,6 @@
-project_path: /web/fundamentals/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Meng-cache dan menggunakan kembali sumber daya yang sebelumnya diambil merupakan aspek penting dalam mengoptimalkan kinerja.
+project_path: /web/fundamentals/_project.yaml book_path: /web/fundamentals/_book.yaml description: Meng-cache dan menggunakan kembali sumber daya yang sebelumnya diambil merupakan aspek penting dalam mengoptimalkan kinerja.
 
-{# wf_updated_on: 2019-02-06 #}
-{# wf_published_on: 2013-12-31 #}
-{# wf_blink_components: Blink>Network #}
+{# wf_updated_on: 2019-02-06 #} {# wf_published_on: 2013-12-31 #} {# wf_blink_components: Blink>Network #}
 
 # Meng-cache HTTP {: .page-title }
 
@@ -12,47 +8,45 @@ description: Meng-cache dan menggunakan kembali sumber daya yang sebelumnya diam
 
 Mengambil sesuatu melalui jaringan sama-sama lambat dan mahal. Respons besar mengharuskan sering bolak-balik antara klien dan server, yang mengakibatkan penundaan saat tersedia dan bisa diproses oleh browser, dan juga menimbulkan biaya data kepada pengunjung. Akibatnya, kemampuan untuk meng-cache dan menggunakan kembali sumber daya yang diambil sebelumnya merupakan aspek penting untuk mengoptimalkan kinerja.
 
-
 Kabar baiknya adalah setiap browser dibekali implementasi cache HTTP. Yang perlu Anda lakukan adalah memastikan bahwa setiap respons server menyediakan direktif header HTTP yang benar untuk menginstruksikan browser mengenai kapan dan berapa lama browser bisa meng-cache respons.
 
 Note: Jika menggunakan WebView untuk mengambil dan menampilkan konten web di aplikasi, Anda mungkin harus menyediakan flag konfigurasi tambahan untuk memastikan cache HTTP diaktifkan, ukurannya disetel ke jumlah yang wajar agar sesuai dengan kasus penggunaan Anda, dan agar cache tetap ada. Periksa dokumentasi platform dan konfirmasikan setelan Anda.
 
-<img src="images/http-request.png"  alt="Permintaan HTTP">
+<img src="images/http-request.png"  alt="Permintaan HTTP" />
 
 Bila server mengembalikan respons, server juga memancarkan sekumpulan header HTTP, yang menjelaskan tipe-kontennya, panjang, direktif caching, token validasi, dan lainnya. Misalnya, dalam pertukaran di atas, server mengembalikan respons 1024 byte, memerintahkan klien untuk meng-cache-nya hingga 120 detik, dan menyediakan token validasi (“x234dff”) yang bisa digunakan setelah respons berakhir untuk memeriksa apakah sumber daya telah dimodifikasi.
-
 
 ## Memvalidasi respons ter-cache dengan ETag
 
 ### TL;DR {: .hide-from-toc }
+
 * Server menggunakan header HTTP ETag untuk mengomunikasikan token validasi.
 * Token validasi memungkinkan pemeriksaan pembaruan sumber daya yang efisien: tidak ada data yang ditransfer jika sumber daya belum berubah.
-
 
 Anggaplah 120 detik telah berlalu sejak pengambilan awal dan browser telah memulai sebuah permintaan baru untuk sumber daya yang sama. Pertama-tama, browser akan memeriksa cache lokal dan menemukan respons sebelumnya. Sayangnya, browser tidak bisa menggunakan respons sebelumnya karena respons tersebut telah kedaluwarsa. Di tahap ini, browser bisa mengirimkan permintaan baru dan mengambil respons lengkap yang baru. Akan tetapi, ini tidak cukup karena jika sumber daya tidak berubah, maka tidak ada respons untuk mendownload informasi yang sama yang sudah ada di cache!
 
 Untuk mengatasi masalah itulah token validasi didesain, sebagaimana yang ditetapkan dalam header ETag. Server menghasilkan dan mengembalikan token acak yang biasanya berupa hash atau beberapa sidik jari lain dari konten file. Klien tidak perlu mengetahui cara menghasilkan sidik jari; klien hanya perlu mengirimkannya ke server pada permintaan berikutnya. Jika sidik jari masih sama, berarti sumber daya belum berubah dan Anda bisa melewati download.
 
-<img src="images/http-cache-control.png"  alt="Contoh Cache-Control HTTP">
+<img src="images/http-cache-control.png"  alt="Contoh Cache-Control HTTP" />
 
 Dalam contoh terdahulu, klien secara otomatis menyediakan token Etag di header permintaan HTTP "If-None-Match". Server akan memeriksa token dengan sumber daya saat ini. Jika token belum berubah, server akan mengembalikan respons "304 Not Modified", yang memberi tahu browser bahwa respons yang dimilikinya di cache belum berubah dan bisa diperpanjang selama 120 detik lagi. Perhatikan, Anda tidak perlu mendownload respons lagi, yang akan menghemat waktu dan bandwidth.
 
 Sebagai developer web, bagaimana Anda memanfaatkan validasi ulang yang efisien ini? Browser melakukan semua pekerjaan mewakili kita. Browser secara otomatis mendeteksi apakah token validasi telah ditetapkan sebelumnya, menambahkan token validasi ke permintaan keluar, dan akan memperbarui stempel waktu cache jika perlu berdasarkan respons yang diterima dari server. **Satu-satunya yang perlu dilakukan adalah memastikan server menyediakan token Etag yang diperlukan. Periksa dokumentasi server untuk flag konfigurasi yang diperlukan.**
 
-Note: Tips: Proyek Boilerplate HTML5 berisi <a href='https://github.com/h5bp/server-configs'>file konfigurasi contoh</a> untuk semua server paling populer bersama komentar detail untuk setiap setelan dan flag konfigurasi. Temukan server favorit Anda dalam daftar, cari setelan yang sesuai, dan salin/pastikan server Anda telah dikonfigurasi dengan setelan yang disarankan.
+Note: Tips: Proyek Boilerplate HTML5 berisi [file konfigurasi contoh](https://github.com/h5bp/server-configs) untuk semua server paling populer bersama komentar detail untuk setiap setelan dan flag konfigurasi. Temukan server favorit Anda dalam daftar, cari setelan yang sesuai, dan salin/pastikan server Anda telah dikonfigurasi dengan setelan yang disarankan.
 
 ## Cache-Control
 
 ### TL;DR {: .hide-from-toc }
+
 * Setiap sumber daya bisa mendefinisikan kebijakan caching-nya lewat header HTTP Cache-Control.
 * Direktif Cache-Control mengontrol siapa yang bisa meng-cache respons, dalam kondisi apa, dan sampai berapa lama.
-
 
 Dari sudut pandang optimalisasi kinerja, permintaan terbaik adalah permintaan yang tidak perlu dikomunikasikan dengan server: salinan lokal dari respons memungkinkan Anda meniadakan semua latensi jaringan dan menghindari biaya data untuk transfer data. Untuk mencapainya, spesifikasi HTTP memungkinkan server mengembalikan [direktif Cache-Control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) yang mengontrol bagaimana, dan berapa lama browser dan cache perantara lainnya bisa meng-cache respons individual.
 
 Note: Header Cache-Control didefinisikan sebagai bagian dari spesifikasi HTTP/1.1 dan menggantikan header sebelumnya (misalnya, Expires) yang digunakan untuk mendefinisikan kebijakan meng-cache respons. Semua browser modern mendukung Cache-Control, jadi itulah yang Anda perlukan.
 
-<img src="images/http-cache-control-highlight.png"  alt="Contoh Cache-Control HTTP">
+<img src="images/http-cache-control-highlight.png"  alt="Contoh Cache-Control HTTP" />
 
 ### "no-cache" dan "no-store"
 
@@ -72,11 +66,12 @@ Direktif ini menetapkan waktu maksimum dalam detik dari respons yang boleh diamb
 
 ## Mendefinisikan kebijakan Cache-Control yang optimal
 
-<img src="images/http-cache-decision-tree.png"  alt="Meng-cache pohon keputusan">
+<img src="images/http-cache-decision-tree.png"  alt="Meng-cache pohon keputusan" />
 
 Ikuti pohon keputusan di atas untuk menentukan kebijakan caching yang optimal bagi sumber daya tertentu, atau serangkaian sumber daya yang digunakan oleh aplikasi Anda. Idealnya, Anda harus berusaha meng-cache sebanyak mungkin respons pada klien selama mungkin, dan menyediakan token validasi untuk setiap respons untuk mengaktifkan validasi ulang yang efisien.
 
 <table class="responsive">
+  
 <thead>
   <tr>
     <th colspan="2">Direktif Cache-Control &amp; Penjelasan</th>
@@ -103,10 +98,10 @@ Sesuai dengan Arsip HTTP, di antara 300.000 situs teratas (menurut peringkat Ale
 ## Tidak memvalidkan dan memperbarui respons yang di-cache
 
 ### TL;DR {: .hide-from-toc }
+
 * Respons yang di-cache secara lokal digunakan hingga sumber daya "kedaluwarsa".
 * Penyematan sidik jari konten file dalam URL memungkinkan Anda memaksa klien untuk memperbarui ke versi respons yang baru.
 * Setiap aplikasi perlu mendefinisikan hierarki cache-nya sendiri agar kinerjanya optimal.
-
 
 Semua permintaan HTTP yang dibuat oleh browser akan dirutekan terlebih dahulu ke cache browser untuk memeriksa apakah ada respons cache valid yang bisa digunakan untuk memenuhi permintaan. Jika ada kecocokan, respons akan dibaca dari cache sehingga meniadakan latensi jaringan dan biaya data yang ditimbulkan oleh transfer.
 
@@ -116,7 +111,7 @@ Setelah browser meng-cache respons, versi yang di-cache akan digunakan hingga ti
 
 **Bagaimana cara mendapatkan yang terbaik dari kedua dunia: caching sisi klien dan pembaruan cepat?** Anda bisa mengubah URL sumber daya dan memaksa pengguna mengunduh respons baru kapan saja materinya berubah. Biasanya, Anda melakukannya dengan menyematkan sidik jari file, atau nomor versi, dalam nama file&mdash;misalnya, style.**x234dff**.css.
 
-<img src="images/http-cache-hierarchy.png"  alt="Hierarki cache">
+<img src="images/http-cache-hierarchy.png"  alt="Hierarki cache" />
 
 Kemampuan mendefinisikan kebijakan caching per-sumber daya memungkinkan Anda mendefinisikan "hierarki cache" yang memungkinkan Anda mengontrol tidak hanya berapa lama masing-masing di-cache, namun juga seberapa cepat pengunjung melihat versi baru. Untuk mengilustrasikannya, analisis contoh di atas:
 

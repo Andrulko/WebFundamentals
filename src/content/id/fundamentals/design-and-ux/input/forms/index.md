@@ -1,14 +1,10 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Formulir sulit diisi pada perangkat seluler. Formulir terbaik adalah formulir dengan masukan paling sedikit.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Formulir sulit diisi pada perangkat seluler. Formulir terbaik adalah formulir dengan masukan paling sedikit.
 
-{# wf_updated_on: 2018-08-05 #}
-{# wf_published_on: 2014-04-30 #}
+{# wf_updated_on: 2018-08-05 #} {# wf_published_on: 2014-04-30 #}
 
 # Membuat Formulir yang Mengagumkan {: .page-title }
 
 {% include "web/_shared/contributors/petelepage.html" %}
-
 
 <div class="video-wrapper">
   <iframe class="devsite-embedded-youtube-video" data-video-id="iYYHRwLqrKM"
@@ -18,18 +14,15 @@ description: Formulir sulit diisi pada perangkat seluler. Formulir terbaik adala
 
 Formulir sulit diisi pada perangkat seluler. Formulir terbaik adalah formulir dengan masukan paling sedikit. Formulir yang baik menyediakan tipe masukan semantik. Kunci harus berubah sesuai jenis masukan pengguna; pengguna memilih tanggal di kalender. Selalu beri tahu pengguna. Alat validasi harus memberi tahu pengguna apa yang harus mereka lakukan sebelum mengirimkan formulir.
 
-
 ## Mendesain formulir efisien
-
 
 Mendesain formulir efisien dengan menghindari tindakan yang berulang, hanya meminta informasi yang diperlukan dan memandu pengguna dengan menunjukkan seberapa jauh mereka dalam formulir multi-bagian.
 
-
 ### TL;DR {: .hide-from-toc }
+
 - Gunakan data yang ada untuk mengisi bidang dan pastikan untuk mengaktifkan isi-otomatis.
 - Gunakan bilah kemajuan yang dilabeli dengan jelas untuk membantu pengguna melalui formulir multi-bagian.
 - Sediakan kalender visual sehingga pengguna tidak perlu meninggalkan situs Anda dan berpindah ke aplikasi kalender pada ponsel cerdas mereka.
-
 
 ### Meminimalkan tindakan dan bidang berulang
 
@@ -40,15 +33,9 @@ Mendesain formulir efisien dengan menghindari tindakan yang berulang, hanya memi
   </figcaption>
 </figure>
 
-Pastikan formulir Anda tidak memiliki tindakan berulang, memiliki bidang yang
-diperlukan saja, dan memanfaatkan dari
-[isiotomatis](/web/fundamentals/design-and-ux/input/forms/#use-metadata-to-enable-auto-complete),
-sehingga pengguna bisa dengan mudah melengkapi formulir dengan data yang sudah diisi.
+Pastikan formulir Anda tidak memiliki tindakan berulang, memiliki bidang yang diperlukan saja, dan memanfaatkan dari [isiotomatis](/web/fundamentals/design-and-ux/input/forms/#use-metadata-to-enable-auto-complete), sehingga pengguna bisa dengan mudah melengkapi formulir dengan data yang sudah diisi.
 
-Cari kesempatan untuk mengisi informasi yang Anda sudah tahu, atau mungkin
-mengantisipasinya supaya pengguna tidak harus mengisinya sendiri.  Misalnya,
-alamat pengiriman sudah diisi dengan alamat pengiriman terakhir yang diberikan oleh
-pengguna.
+Cari kesempatan untuk mengisi informasi yang Anda sudah tahu, atau mungkin mengantisipasinya supaya pengguna tidak harus mengisinya sendiri. Misalnya, alamat pengiriman sudah diisi dengan alamat pengiriman terakhir yang diberikan oleh pengguna.
 
 <div style="clear:both;"></div>
 
@@ -61,11 +48,9 @@ pengguna.
   </figcaption>
 </figure>
 
-Bilah kemajuan dan menu harus secara akurat menampilkan kemajuan secara keseluruhan melalui
-formulir dan proses multi-langkah.
+Bilah kemajuan dan menu harus secara akurat menampilkan kemajuan secara keseluruhan melalui formulir dan proses multi-langkah.
 
-Jika Anda menempatkan formulir kompleks secara tidak proporsional dalam langkah sebelumnya, pengguna kemungkinan
-besar akan meninggalkan situs sebelum mereka melewati seluruh proses.
+Jika Anda menempatkan formulir kompleks secara tidak proporsional dalam langkah sebelumnya, pengguna kemungkinan besar akan meninggalkan situs sebelum mereka melewati seluruh proses.
 
 <div style="clear:both;"></div>
 
@@ -78,33 +63,22 @@ besar akan meninggalkan situs sebelum mereka melewati seluruh proses.
   </figcaption>
 </figure>
 
-Pengguna sering kali membutuhkan lebih banyak konteks saat menjadwalkan janji pertemuan dan tanggal perjalanan,
-untuk membuat segalanya lebih mudah dan mencegah pengguna meninggalkan situs Anda untuk memeriksa
-aplikasi kalender mereka, sediakan kalender visual dengan label yang jelas untuk memilih
-tanggal mulai dan selesai.
+Pengguna sering kali membutuhkan lebih banyak konteks saat menjadwalkan janji pertemuan dan tanggal perjalanan, untuk membuat segalanya lebih mudah dan mencegah pengguna meninggalkan situs Anda untuk memeriksa aplikasi kalender mereka, sediakan kalender visual dengan label yang jelas untuk memilih tanggal mulai dan selesai.
 
 <div style="clear:both;"></div>
 
 ## Pilih tipe masukan yang terbaik
 
-Rampingkan entri informasi dengan menggunakan tipe masukan yang tepat. Pengguna mengapresiasi
-situs web yang secara otomatis menampikan papan nomor untuk memasukkan nomor ponsel, atau
-secara otomatis memajukan bidang ketika mereka memasukkannya. Cari kesempatan untuk
-menghilangkan ketukan sia-sia dalam formulir Anda.
-
+Rampingkan entri informasi dengan menggunakan tipe masukan yang tepat. Pengguna mengapresiasi situs web yang secara otomatis menampikan papan nomor untuk memasukkan nomor ponsel, atau secara otomatis memajukan bidang ketika mereka memasukkannya. Cari kesempatan untuk menghilangkan ketukan sia-sia dalam formulir Anda.
 
 ### TL;DR {: .hide-from-toc }
-- Pilih tipe masukan yang paling tepat bagi data Anda untuk menyederhanakan masukan.
-- Berikan saran ketika pengguna mengetik dengan elemen <code>datalist</code>.
 
+- Pilih tipe masukan yang paling tepat bagi data Anda untuk menyederhanakan masukan.
+- Berikan saran ketika pengguna mengetik dengan elemen `datalist`.
 
 ### Tipe masukan HTML5
 
-HTML5 memperkenalkan sejumlah tipe masukan baru. Tipe masukan baru ini memberikan petunjuk
-ke browser tentang tipe layout keyboard yang ditampilkan pada keyboard
-di layar.  Pengguna lebih mudah saat memasukkan informasi yang diperlukan tanpa
-harus mengubah keyboard mereka dan cukup melihat tombol yang sesuai untuk jenis
-masukan tersebut.
+HTML5 memperkenalkan sejumlah tipe masukan baru. Tipe masukan baru ini memberikan petunjuk ke browser tentang tipe layout keyboard yang ditampilkan pada keyboard di layar. Pengguna lebih mudah saat memasukkan informasi yang diperlukan tanpa harus mengubah keyboard mereka dan cukup melihat tombol yang sesuai untuk jenis masukan tersebut.
 
 <table class="responsive">
   <thead>
@@ -226,16 +200,11 @@ masukan tersebut.
   </tbody>
 </table>
 
-Perhatian: Harap ingat untuk selalu menjaga pelokalan ketika memilih tipe masukan,
-beberapa lokal menggunakan titik (.) sebagai pemisah bukan koma (,)
+Perhatian: Harap ingat untuk selalu menjaga pelokalan ketika memilih tipe masukan, beberapa lokal menggunakan titik (.) sebagai pemisah bukan koma (,)
 
 ### Menawarkan saran saat masukan dengan datalist
 
-Elemen `datalist` bukanlah tipe masukan, namun daftar nilai masukan yang disarankan
-untuk dikaitkan dengan bidang formulir. Ini memungkinkan browser menyarankan opsi
-pelengkapan otomatis ketika pengguna mengetik. Tidak seperti elemen select ketika pengguna harus memindai daftar
-yang panjang untuk menemukan nilai yang mereka cari, dan membatasi mereka hanya ke daftar
-tersebut, elemen `datalist` memberikan petunjuk ketika pengguna mengetik.
+Elemen `datalist` bukanlah tipe masukan, namun daftar nilai masukan yang disarankan untuk dikaitkan dengan bidang formulir. Ini memungkinkan browser menyarankan opsi pelengkapan otomatis ketika pengguna mengetik. Tidak seperti elemen select ketika pengguna harus memindai daftar yang panjang untuk menemukan nilai yang mereka cari, dan membatasi mereka hanya ke daftar tersebut, elemen `datalist` memberikan petunjuk ketika pengguna mengetik.
 
 <pre class="prettyprint">
 {% includecode content_path="web/fundamentals/design-and-ux/input/forms/_code/order.html" region_tag="datalist" adjust_indentation="auto" %}
@@ -243,27 +212,21 @@ tersebut, elemen `datalist` memberikan petunjuk ketika pengguna mengetik.
 
 [Cobalah](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/input/forms/order.html){: target="_blank" .external }
 
-Note: Nilai <code>datalist</code> disediakan sebagai saran, dan pengguna tidak dibatasi pada saran yang diberikan.
+Note: Nilai `datalist` disediakan sebagai saran, dan pengguna tidak dibatasi pada saran yang diberikan.
 
 ## Memasukkan label dan nama dengan benar
 
 Formulir sulit diisi pada perangkat seluler. Formulir terbaik adalah formulir dengan masukan paling sedikit. Formulir yang baik menyediakan tipe masukan semantik. Kunci harus berubah sesuai jenis masukan pengguna; pengguna memilih tanggal di kalender. Selalu beri tahu pengguna. Alat validasi harus memberi tahu pengguna apa yang harus mereka lakukan sebelum mengirimkan formulir.
 
-
 ### TL;DR {: .hide-from-toc }
-- Selalu gunakan <code>label</code> pada masukan formulir, dan pastikan itu terlihat ketika bidang sedang dalam fokus.
-- Gunakan <code>placeholder</code> untuk memberikan panduan mengenai apa yang Anda harapkan.
-- Untuk membantu browser mengisi-otomatis formulir, gunakan <code>name</code> yang ditetapkan untuk elemen dan menyertakan atribut <code>autocomplete</code>.
 
+- Selalu gunakan `label` pada masukan formulir, dan pastikan itu terlihat ketika bidang sedang dalam fokus.
+- Gunakan `placeholder` untuk memberikan panduan mengenai apa yang Anda harapkan.
+- Untuk membantu browser mengisi-otomatis formulir, gunakan `name` yang ditetapkan untuk elemen dan menyertakan atribut `autocomplete`.
 
 ### Pentingnya label
 
-Elemen `label` memberikan petunjuk kepada pengguna, memberi tahu mereka informasi
-yang dibutuhkan dalam elemen formulir.  Setiap `label` terkait pada sebuah
-elemen masukan dengan menempatkannya di dalam elemen `label`, atau dengan menggunakan atribut "`for`".
-  Menerapkan label ke elemen formulir juga membantu meningkatkan ukuran target
-sentuh: pengguna bisa menyentuh label maupun masukan untuk menempatkan
-fokus pada elemen input.
+Elemen `label` memberikan petunjuk kepada pengguna, memberi tahu mereka informasi yang dibutuhkan dalam elemen formulir. Setiap `label` terkait pada sebuah elemen masukan dengan menempatkannya di dalam elemen `label`, atau dengan menggunakan atribut "`for`". Menerapkan label ke elemen formulir juga membantu meningkatkan ukuran target sentuh: pengguna bisa menyentuh label maupun masukan untuk menempatkan fokus pada elemen input.
 
 <pre class="prettyprint">
 {% includecode content_path="web/fundamentals/design-and-ux/input/forms/_code/order.html" region_tag="labels" adjust_indentation="auto" %}
@@ -273,46 +236,28 @@ fokus pada elemen input.
 
 ### Ukuran dan penempatan label
 
-Label dan masukan harus cukup besar agar mudah ditekan.  Di tampilan potret
-yang terlihat, label bidang harus diletakkan di atas elemen input, dan di sampingnya jika di mode
-lanskap.  Pastikan bidang label dan kotak masukan bersesuaian terlihat pada
-saat yang bersamaan.  Berhati-hatilah dengan penangan gulir khusus yang mungkin menggulir elemen
-masukan ke atas laman menyembunyikan label, atau label yang ditempatkan di bawah elemen
-masukan mungkin tertutupi oleh keyboard virtual.
+Label dan masukan harus cukup besar agar mudah ditekan. Di tampilan potret yang terlihat, label bidang harus diletakkan di atas elemen input, dan di sampingnya jika di mode lanskap. Pastikan bidang label dan kotak masukan bersesuaian terlihat pada saat yang bersamaan. Berhati-hatilah dengan penangan gulir khusus yang mungkin menggulir elemen masukan ke atas laman menyembunyikan label, atau label yang ditempatkan di bawah elemen masukan mungkin tertutupi oleh keyboard virtual.
 
 ### Gunakan Placeholder
 
-Atribut placeholder memberikan petunjuk kepada pengguna tentang apa yang diharapkan pada
-masukan, biasanya dengan menampilkan nilai sebagai teks bercahaya sampai pengguna
-mulai mengetik di elemen tersebut.
+Atribut placeholder memberikan petunjuk kepada pengguna tentang apa yang diharapkan pada masukan, biasanya dengan menampilkan nilai sebagai teks bercahaya sampai pengguna mulai mengetik di elemen tersebut.
 
-<input type="text" placeholder="MM-YYYY">
-
+<input type="text" placeholder="MM-YYYY" />
 
     <input type="text" placeholder="MM-YYYY" ...>
+    
 
-
-Perhatian: Placeholder segera menghilang ketika pengguna mulai mengetik di sebuah elemen, sehingga mereka tidak untuk menggantikan label.  Placeholder sebaiknya digunakan sebagai bantuan untuk memandu pengguna mengenai format dan materi yang diperlukan.
+Perhatian: Placeholder segera menghilang ketika pengguna mulai mengetik di sebuah elemen, sehingga mereka tidak untuk menggantikan label. Placeholder sebaiknya digunakan sebagai bantuan untuk memandu pengguna mengenai format dan materi yang diperlukan.
 
 ### Gunakan metadata untuk mengaktifkan pelengkapan-otomatis
 
-Pengguna menyukai ketika situs web mempercepat prosesnya dengan secara otomatis mengisi bidang
-yang umum seperti nama, alamat email dan bidang lainnya yang sering digunakan, ditambah hal ini
-membantu mengurangi potensi kesalahan masukan -- terutama pada keyboard virtual dan
-perangkat kecil.
+Pengguna menyukai ketika situs web mempercepat prosesnya dengan secara otomatis mengisi bidang yang umum seperti nama, alamat email dan bidang lainnya yang sering digunakan, ditambah hal ini membantu mengurangi potensi kesalahan masukan -- terutama pada keyboard virtual dan perangkat kecil.
 
-Browser menggunakan banyak heuristik untuk menentukan bidang mana yang bisa mereka
-[isi-otomatis](https://support.google.com/chrome/answer/142893)
-[berdasarkan data yang ditetapkan sebelumnya oleh pengguna](https://support.google.com/chrome/answer/142893),
-dan Anda dapat memberikan petunjuk ke browser dengan menyediakan atribut `name` dan
-atribut `autocomplete` pada setiap elemen masukan.
+Browser menggunakan banyak heuristik untuk menentukan bidang mana yang bisa mereka [isi-otomatis](https://support.google.com/chrome/answer/142893) [berdasarkan data yang ditetapkan sebelumnya oleh pengguna](https://support.google.com/chrome/answer/142893), dan Anda dapat memberikan petunjuk ke browser dengan menyediakan atribut `name` dan atribut `autocomplete` pada setiap elemen masukan.
 
-Note: Chrome mengharuskan elemen `input` dibungkus dalam tag `<form>` untuk mengaktifkan
-auto-complete. Jika elemen tidak dibungkus dengan tag `form`, Chrome akan memberikan
-saran, namun **tidak** akan mengisi formulir.
+Note: Chrome mengharuskan elemen `input` dibungkus dalam tag `<form>` untuk mengaktifkan auto-complete. Jika elemen tidak dibungkus dengan tag `form`, Chrome akan memberikan saran, namun **tidak** akan mengisi formulir.
 
-Misalnya, untuk memberikan petunjuk ke browser bahwa itu harus melengkapi-otomatis formulir dengan
-nama, alamat email dan nomor ponsel pengguna, Anda harus menggunakan:
+Misalnya, untuk memberikan petunjuk ke browser bahwa itu harus melengkapi-otomatis formulir dengan nama, alamat email dan nomor ponsel pengguna, Anda harus menggunakan:
 
 <pre class="prettyprint">
 {% includecode content_path="web/fundamentals/design-and-ux/input/forms/_code/order.html" region_tag="autocomplete" adjust_indentation="auto" %}
@@ -320,20 +265,18 @@ nama, alamat email dan nomor ponsel pengguna, Anda harus menggunakan:
 
 [Cobalah](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/input/forms/order.html){: target="_blank" .external }
 
-
-
 ### Masukan yang disarankan nilai atribut `name` dan `autocomplete`
 
 Nilai atribut `autocomplete` adalah bagian dari [WHATWG HTML Standard](https://html.spec.whatwg.org/multipage/forms.html#autofill). Atribut `autocomplete` yang paling umum dipakai ditunjukkan di bawah ini.
 
-Atribut `autocomplete` bisa disertai dengan nama bagian, seperti **`shipping `**`given-name` atau **`billing `**`street-address`. Browser akan otomatis mengisi bagian yang berbeda secara terpisah, dan bukan sebagai formulir berkelanjutan.
+Atribut `autocomplete` bisa disertai dengan nama bagian, seperti **`shipping`**`given-name` atau **`billing`**`street-address`. Browser akan otomatis mengisi bagian yang berbeda secara terpisah, dan bukan sebagai formulir berkelanjutan.
 
 <table>
   <thead>
     <tr>
       <th data-th="Content type">Jenis materi</th>
-      <th data-th="name attribute"> Atribut <code>name</code></th>
-      <th data-th="autocomplete attribute"> Atribut <code>autocomplete</code></th>
+      <th data-th="name attribute">Atribut <code>name</code></th>
+      <th data-th="autocomplete attribute">Atribut <code>autocomplete</code></th>
     </tr>
   </thead>
   <tbody>
@@ -454,51 +397,71 @@ Atribut `autocomplete` bisa disertai dengan nama bagian, seperti **`shipping `**
   </tbody>
 </table>
 
-
-Note: Gunakan hanya <code>street-address</code> atau <code>address-line1</code> dan <code>address-line2</code>. <code>address-level1</code> dan <code>address-level2</code> hanya diperlukan jika mereka dibutuhkan untuk format alamat Anda.
-
+Note: Gunakan hanya `street-address` atau `address-line1` dan `address-line2`. `address-level1` dan `address-level2` hanya diperlukan jika mereka dibutuhkan untuk format alamat Anda.
 
 ### Atribut `autofocus`
 
-Pada beberapa formulir, misalnya laman beranda Google dengan satu-satunya hal yang Anda ingin
-pengguna lakukan adalah mengisi bidang tertentu, Anda bisa menambahkan atribut `autofocus`
-.  Bila disetel, browser desktop segera memindahkan fokus ke bidang
-masukan, sehingga memudahkan pengguna untuk dengan cepat mulai menggunakan formulir.  Browser
-seluler mengabaikan atribut `autofocus`, untuk mencegah keyboard muncul
-secara acak.
+Pada beberapa formulir, misalnya laman beranda Google dengan satu-satunya hal yang Anda ingin pengguna lakukan adalah mengisi bidang tertentu, Anda bisa menambahkan atribut `autofocus` . Bila disetel, browser desktop segera memindahkan fokus ke bidang masukan, sehingga memudahkan pengguna untuk dengan cepat mulai menggunakan formulir. Browser seluler mengabaikan atribut `autofocus`, untuk mencegah keyboard muncul secara acak.
 
-Hati-hati menggunakan atribut autofocus karena akan mencuri fokus keyboard
-dan berpotensi mencegah karakter backspace digunakan untuk
-navigasi.
-
+Hati-hati menggunakan atribut autofocus karena akan mencuri fokus keyboard dan berpotensi mencegah karakter backspace digunakan untuk navigasi.
 
     <input type="text" autofocus ...>
-
-
+    
 
 ## Menyediakan validasi real-time
 
-Validasi data real-time tidak hanya membantu menjaga data Anda tetap bersih, namun juga membantu meningkatkan pengalaman pengguna.  Browser modern memiliki beberapa alat bawaan untuk membantu menyediakan validasi data real-time dan bisa mencegah pengguna mengirimkan formulir yang tidak valid.  Isyarat visual sebaiknya digunakan untuk menunjukkan apakah formulir telah dilengkapi dengan baik.
+Validasi data real-time tidak hanya membantu menjaga data Anda tetap bersih, namun juga membantu meningkatkan pengalaman pengguna. Browser modern memiliki beberapa alat bawaan untuk membantu menyediakan validasi data real-time dan bisa mencegah pengguna mengirimkan formulir yang tidak valid. Isyarat visual sebaiknya digunakan untuk menunjukkan apakah formulir telah dilengkapi dengan baik.
 
+Atribut `pattern` menentukan [ekspresi reguler](https://en.wikipedia.org/wiki/Regular_expression) yang digunakan untuk memvalidasi sebuah bidang masukan. Misalnya, untuk memvalidasi kode pos AS (5 digit, kadang-kadang diikuti dengan tanda hubung dan 4 digit tambahan), kita akan menyetel `pattern` seperti ini:
 
 ### TL;DR {: .hide-from-toc }
-- Manfaatkan atribut validasi bawaan browser seperti <code>pattern</code>, <code>required</code>, <code>min</code>, <code>max</code>, dll.
-- Gunakan JavaScript dan Constraints Validation API untuk persyaratan validasi yang lebih kompleks.
-- Tampilkan kesalahan validasi secara real time, dan jika pengguna mencoba untuk mengirimkan formulir yang tidak valid, tunjukkan semua bidang yang harus mereka perbaiki.
 
+Jika terdapat atribut `required`, maka bidang harus berisi nilai sebelum formulir bisa dikirimkan. Misalnya, untuk membuat kode pos yang diperlukan, kita cukup menambahkan atribut yang dibutuhkan:
+
+Untuk jenis masukan numerik seperti nomor atau jarak serta masukan tanggal/waktu, Anda bisa menentukan nilai minimum dan maksimum, serta berapa seharusnya nilai mereka setiap terjadi kenaikan/penurunan ketika diselaraskan dengan slider atau spinner. Misalnya, masukan ukuran sepatu akan menyetel ukuran minimal 1 dan ukuran maksimal 13, dengan kenaikan bertahap 0,5
+
+Atribut `maxlength` bisa digunakan untuk menentukan panjang maksimal masukan atau kotak teks dan akan bermanfaat ketika Anda ingin membatasi panjang informasi yang bisa diberikan pengguna. Misalnya, jika Anda ingin membatasi nama file sampai 12 karakter, Anda bisa menggunakan atribut berikut.
 
 ### Gunakan atribut ini untuk memvalidasi masukan
 
+Atribut `minlength` bisa digunakan untuk menentukan panjang minimal masukan atau kotak teks dan akan bermanfaat ketika Anda ingin menetapkan panjang minimal yang harus diberikan pengguna. Misalnya, jika Anda ingin menetapkan bahwa nama file memerlukan setidaknya 8 karakter, Anda bisa menggunakan atribut berikut.
+
+### Gunakan JavaScript untuk validasi real-time yang lebih kompleks
+
+Pada beberapa kejadian, Anda mungkin mau mengizinkan pengguna untuk mengirimkan formulir bahkan jika itu berisi masukan yang tidak valid. Untuk melakukan ini, tambahkan atribut `novalidate` ke elemen formulir, atau bidang masukan individual. Dalam kejadian ini, semua kelas-semu dan JavaScript API tetap akan memperbolehkan Anda untuk memeriksa apakah formulir divalidasi.
+
+### Menyetel pesan validasi khusus
+
+Berhasil: Bahkan dengan validasi masukan sisi-klien, validasi data pada server tetap penting untuk memastikan konsistensi dan keamanan data Anda.
+
+### Mencegah pengiriman formulir pada formulir tidak valid
+
+Ketika validasi bawaan ditambah ekspresi reguler tidak mencukupi, Anda bisa menggunakan [Constraint Validation API](https://w3c.github.io/html/sec-forms.html#constraints), alat yang efektif untuk menangani validasi khusus. API memungkinkan Anda untuk melakukan hal-hal seperti menyetel kesalahan khusus, memeriksa apakah suatu elemen valid, dan menentukan alasan sehingga sebuah elemen tidak valid:
+
+Jika suatu bidang gagal divalidasi, gunakan `setCustomValidity()` untuk menandai bidang tersebut sebagai tidak valid dan menjelaskan mengapa bidang tidak divalidasi. Misalnya, formulir pendaftaran mungkin meminta pengguna untuk mengonfirmasi alamat email mereka dengan memasukkannya dua kali. Gunakan kejadian blur pada masukan kedua untuk memvalidasi dua masukan tersebut dan menyetel respons yang tepat. Misalnya:
+
+[Cobalah](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/input/forms/order.html){: target="_blank" .external }
+
+## Provide real-time validation
+
+Oleh karena tidak semua browser akan mencegah pengguna mengirimkan formulir jika ada data yang tidak valid, Anda harus menangkap kejadian pengiriman, dan menggunakan `checkValidity()` pada elemen formulir untuk menentukan apakah formulir tersebut valid. Misalnya:
+
+[Cobalah](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/input/forms/order.html){: target="_blank" .external }
+
+### Menampilkan umpan balik secara real-time
+
+- Manfaatkan atribut validasi bawaan browser seperti `pattern`, `required`, `min`, `max`, dll.
+- Gunakan JavaScript dan Constraints Validation API untuk persyaratan validasi yang lebih kompleks.
+- Tampilkan kesalahan validasi secara real time, dan jika pengguna mencoba untuk mengirimkan formulir yang tidak valid, tunjukkan semua bidang yang harus mereka perbaiki.
+
+### Use these attributes to validate input
+
 #### Atribut `pattern`
 
-Atribut `pattern` menentukan [ekspresi reguler](https://en.wikipedia.org/wiki/Regular_expression)
-yang digunakan untuk memvalidasi sebuah bidang masukan. Misalnya, untuk memvalidasi kode pos AS
-(5 digit, kadang-kadang diikuti dengan tanda hubung dan 4 digit tambahan), kita akan
-menyetel `pattern` seperti ini:
-
+Akan lebih baik lagi jika memberikan indikasi visual pada masing-masing bidang yang menunjukkan apakah pengguna telah menyelesaikan formulir dengan benar sebelum mereka mengirimkannya. HTML5 juga memperkenalkan beberapa kelas-semu baru yang bisa digunakan untuk memberikan gaya masukan berdasarkan nilai atau atribut mereka.
 
     <input type="text" pattern="^\d{5,6}(?:[-\s]\d{4})?$" ...>
-
+    
 
 ##### Pola ekspresi reguler umum
 
@@ -546,72 +509,47 @@ menyetel `pattern` seperti ini:
 
 #### Atribut `required`
 
-Jika terdapat atribut `required`, maka bidang harus berisi nilai sebelum
-formulir bisa dikirimkan. Misalnya, untuk membuat kode pos yang diperlukan, kita
-cukup menambahkan atribut yang dibutuhkan:
-
+Validasi terjadi secara langsung yang berarti bahwa ketika laman dimuat, bidang mungkin ditandai sebagai tidak valid, meskipun pengguna belum memiliki kesempatan untuk mengisinya. Ini juga berarti bahwa ketika pengguna mengetik, ada kemungkinan mereka akan melihat gaya tidak valid saat mengetik. Untuk mencegah hal ini, Anda bisa memadukan CSS dengan JavaScript untuk hanya menampilkan penataan gaya yang tidak valid ketika pengguna telah mengunjungi bidang.
 
     <input type="text" required pattern="^\d{5,6}(?:[-\s]\d{4})?$" ...>
-
+    
 
 #### Atribut `min`, `max` dan `step`
 
-Untuk jenis masukan numerik seperti nomor atau jarak serta masukan tanggal/waktu, Anda
-bisa menentukan nilai minimum dan maksimum, serta berapa seharusnya nilai mereka setiap terjadi
-kenaikan/penurunan ketika diselaraskan dengan slider atau spinner.  Misalnya, masukan
-ukuran sepatu akan menyetel ukuran minimal 1 dan ukuran maksimal 13, dengan kenaikan bertahap
-0,5
-
+[Cobalah](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/input/forms/order.html){: target="_blank" .external }
 
     <input type="number" min="1" max="13" step="0.5" ...>
-
+    
 
 #### Atribut `maxlength`
 
-Atribut `maxlength` bisa digunakan untuk menentukan panjang maksimal masukan atau
-kotak teks dan akan bermanfaat ketika Anda ingin membatasi panjang informasi yang bisa diberikan
-pengguna. Misalnya, jika Anda ingin membatasi nama file sampai 12 karakter,
-Anda bisa menggunakan atribut berikut.
-
+Berhasil: Anda harus langsung menunjukkan kepada pengguna semua masalah pada formulir, bukannya menunjukkan satu per satu.
 
     <input type="text" id="83filename" maxlength="12" ...>
-
+    
 
 #### Atribut `minlength`
 
-Atribut `minlength` bisa digunakan untuk menentukan panjang minimal masukan atau
-kotak teks dan akan bermanfaat ketika Anda ingin menetapkan panjang minimal yang harus diberikan
-pengguna. Misalnya, jika Anda ingin menetapkan bahwa nama file memerlukan setidaknya
-8 karakter, Anda bisa menggunakan atribut berikut.
-
+{# wf_devsite_translation #}
 
     <input type="text" id="83filename" minlength="8" ...>
-
+    
 
 #### Atribut `novalidate`
 
-Pada beberapa kejadian, Anda mungkin mau mengizinkan pengguna untuk mengirimkan formulir bahkan jika itu
-berisi masukan yang tidak valid. Untuk melakukan ini, tambahkan atribut `novalidate` ke elemen
-formulir, atau bidang masukan individual. Dalam kejadian ini, semua kelas-semu dan
-JavaScript API tetap akan memperbolehkan Anda untuk memeriksa apakah formulir divalidasi.
-
+In some cases, you may want to allow the user to submit the form even if it contains invalid input. To do this, add the `novalidate` attribute to the form element, or individual input fields. In this case, all pseudo classes and JavaScript APIs will still allow you to check if the form validates.
 
     <form role="form" novalidate>
       <label for="inpEmail">Email address</label>
       <input type="email" ...>
     </form>
+    
 
+Success: Even with client-side input validation, it is always important to validate data on the server to ensure consistency and security in your data.
 
+### Use JavaScript for more complex real-time validation
 
-Berhasil: Bahkan dengan validasi masukan sisi-klien, validasi data pada server tetap penting untuk memastikan konsistensi dan keamanan data Anda.
-
-### Gunakan JavaScript untuk validasi real-time yang lebih kompleks
-
-Ketika validasi bawaan ditambah ekspresi reguler tidak mencukupi, Anda bisa menggunakan
-[Constraint Validation API](https://w3c.github.io/html/sec-forms.html#constraints),
-alat yang efektif untuk menangani validasi khusus.  API memungkinkan Anda untuk melakukan hal-hal
-seperti menyetel kesalahan khusus, memeriksa apakah suatu elemen valid, dan menentukan
-alasan sehingga sebuah elemen tidak valid:
+When the built-in validation plus regular expressions aren't enough, you can use the [Constraint Validation API](https://w3c.github.io/html/sec-forms.html#constraints), a powerful tool for handling custom validation. The API allows you to do things like set a custom error, check whether an element is valid, and determine the reason that an element is invalid:
 
 <table class="responsive">
   <thead>
@@ -643,40 +581,29 @@ alasan sehingga sebuah elemen tidak valid:
   </tbody>
 </table>
 
+### Set custom validation messages
 
-
-### Menyetel pesan validasi khusus
-
-Jika suatu bidang gagal divalidasi, gunakan `setCustomValidity()` untuk menandai bidang tersebut sebagai tidak valid
-dan menjelaskan mengapa bidang tidak divalidasi.  Misalnya, formulir pendaftaran mungkin
-meminta pengguna untuk mengonfirmasi alamat email mereka dengan memasukkannya dua kali.  Gunakan kejadian
-blur pada masukan kedua untuk memvalidasi dua masukan tersebut dan menyetel respons
-yang tepat.  Misalnya:
+If a field fails validation, use `setCustomValidity()` to mark the field invalid and explain why the field didn't validate. For example, a sign up form might ask the user to confirm their email address by entering it twice. Use the blur event on the second input to validate the two inputs and set the appropriate response. For example:
 
 <pre class="prettyprint">
 {% includecode content_path="web/fundamentals/design-and-ux/input/forms/_code/order.html" region_tag="customvalidation" adjust_indentation="auto" %}
 </pre>
 
-[Cobalah](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/input/forms/order.html){: target="_blank" .external }
+[Try it](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/input/forms/order.html){: target="_blank" .external }
 
-### Mencegah pengiriman formulir pada formulir tidak valid
+### Prevent form submission on invalid forms
 
-Oleh karena tidak semua browser akan mencegah pengguna mengirimkan formulir jika ada data
-yang tidak valid, Anda harus menangkap kejadian pengiriman, dan menggunakan `checkValidity()`
-pada elemen formulir untuk menentukan apakah formulir tersebut valid.  Misalnya:
+Because not all browsers will prevent the user from submitting the form if there is invalid data, you should catch the submit event, and use the `checkValidity()` on the form element to determine if the form is valid. For example:
 
 <pre class="prettyprint">
 {% includecode content_path="web/fundamentals/design-and-ux/input/forms/_code/order.html" region_tag="preventsubmission" adjust_indentation="auto" %}
 </pre>
 
-[Cobalah](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/input/forms/order.html){: target="_blank" .external }
+[Try it](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/input/forms/order.html){: target="_blank" .external }
 
-### Menampilkan umpan balik secara real-time
+### Show feedback in real-time
 
-Akan lebih baik lagi jika memberikan indikasi visual pada masing-masing bidang yang menunjukkan apakah
-pengguna telah menyelesaikan formulir dengan benar sebelum mereka mengirimkannya.
-HTML5 juga memperkenalkan beberapa kelas-semu baru yang bisa digunakan untuk memberikan gaya
-masukan berdasarkan nilai atau atribut mereka.
+It's helpful to provide a visual indication on each field that indicates whether the user has completed the form properly before they've submitted the form. HTML5 also introduces a number of new pseudo-classes that can be used to style inputs based on their value or attributes.
 
 <table class="responsive">
   <thead>
@@ -712,25 +639,20 @@ masukan berdasarkan nilai atau atribut mereka.
   </tbody>
 </table>
 
-Validasi terjadi secara langsung yang berarti bahwa ketika laman dimuat, bidang
-mungkin ditandai sebagai tidak valid, meskipun pengguna belum memiliki kesempatan untuk
-mengisinya.  Ini juga berarti bahwa ketika pengguna mengetik, ada kemungkinan mereka akan melihat
-gaya tidak valid saat mengetik. Untuk mencegah hal ini, Anda bisa memadukan CSS dengan
-JavaScript untuk hanya menampilkan penataan gaya yang tidak valid ketika pengguna telah mengunjungi bidang.
+Validation happens immediately which means that when the page is loaded, fields may be marked as invalid, even though the user hasn't had a chance to fill them in yet. It also means that as the user types, and it's possible they'll see the invalid style while typing. To prevent this, you can combine the CSS with JavaScript to only show invalid styling when the user has visited the field.
 
 <pre class="prettyprint">
 {% includecode content_path="web/fundamentals/design-and-ux/input/forms/_code/order.html" region_tag="invalidstyle" adjust_indentation="auto" %}
 </pre>
+
 <pre class="prettyprint">
 {% includecode content_path="web/fundamentals/design-and-ux/input/forms/_code/order.html" region_tag="initinputs" adjust_indentation="auto" %}
 </pre>
 
-[Cobalah](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/input/forms/order.html){: target="_blank" .external }
+[Try it](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/input/forms/order.html){: target="_blank" .external }
 
+Success: You should show the user all of the issues on the form at once, rather than showing them one at a time.
 
-Berhasil: Anda harus langsung menunjukkan kepada pengguna semua masalah pada formulir, bukannya menunjukkan satu per satu.
+## Feedback {: #feedback }
 
-
-
-
-{# wf_devsite_translation #}
+{% include "web/_shared/helpful.html" %}

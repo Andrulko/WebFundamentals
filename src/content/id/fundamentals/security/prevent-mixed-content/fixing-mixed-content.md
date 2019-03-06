@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Menemukan dan memperbaiki materi campuran adalah tugas penting, namun bisa makan waktu. Panduan ini mendiskusikan beberapa alat yang tersedia untuk membantu prosesnya.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Menemukan dan memperbaiki materi campuran adalah tugas penting, namun bisa makan waktu. Panduan ini mendiskusikan beberapa alat yang tersedia untuk membantu prosesnya.
 
-{# wf_published_on: 2015-09-28 #}
-{# wf_updated_on: 2017-07-12 #}
+{# wf_published_on: 2015-09-28 #} {# wf_updated_on: 2017-07-12 #}
 
 # Mencegah Materi Campuran {: .page-title }
 
@@ -19,16 +16,15 @@ Menemukan dan memperbaiki materi campuran adalah tugas penting, namun bisa makan
 * Gunakan header `Content-Security-Policy-Report-Only` untuk memantau kesalahan materi campuran di situs Anda.
 * Gunakan direktif CSP `upgrade-insecure-requests` untuk melindungi pengunjung Anda dari materi tidak aman.
 
-## Menemukan dan memperbaiki materi campuran 
+## Menemukan dan memperbaiki materi campuran
 
 Menemukan materi campuran secara manual bisa makan waktu, bergantung pada jumlah masalah yang Anda alami. Proses yang dijelaskan dalam dokumen ini menggunakan browser Chrome; akan tetapi sebagian besar browser modern menyediakan alat serupa untuk membantu proses ini.
 
 ### Menemukan materi campuran dengan mengunjungi situs Anda
 
-Saat mengunjungi laman HTTPS di Google Chrome, browser akan memperingatkan Anda mengenai materi campuran 
-sebagai kesalahan dan peringatan dalam Konsol JavaScript.
+Saat mengunjungi laman HTTPS di Google Chrome, browser akan memperingatkan Anda mengenai materi campuran sebagai kesalahan dan peringatan dalam Konsol JavaScript.
 
-Untuk menampilkan peringatan ini, buka laman contoh materi campuran pasif atau materi campuran aktif dan buka Konsol JavaScript Chrome. Anda bisa membuka konsol tersebut dari menu View: _View_ -&gt; _Developer_ -&gt; _JavaScript Console_ atau dengan mengeklik kanan pada laman, memilih _Inspect Element_, kemudian memilih _Console_.
+Untuk menampilkan peringatan ini, buka laman contoh materi campuran pasif atau materi campuran aktif dan buka Konsol JavaScript Chrome. Anda bisa membuka konsol tersebut dari menu View: *View* -&gt; *Developer* -&gt; *JavaScript Console* atau dengan mengeklik kanan pada laman, memilih *Inspect Element*, kemudian memilih *Console*.
 
 [Contoh materi campuran pasif](https://googlesamples.github.io/web-fundamentals/fundamentals/security/prevent-mixed-content/passive-mixed-content.html){: .external} pada laman [Apa yang Dimaksud Dengan Materi Campuran](what-is-mixed-content#passive-mixed-content){: .external} menyebabkan peringatan materi campuran ditampilkan, seperti di bawah ini:
 
@@ -38,8 +34,7 @@ Untuk menampilkan peringatan ini, buka laman contoh materi campuran pasif atau m
 
 [Cobalah](https://googlesamples.github.io/web-fundamentals/fundamentals/security/prevent-mixed-content/passive-mixed-content.html){: target="_blank" .external }
 
-Walaupun contoh materi campuran aktif menyebabkan kesalahan materi campuran 
-ditampilkan:
+Walaupun contoh materi campuran aktif menyebabkan kesalahan materi campuran ditampilkan:
 
 <figure>
   <img src="imgs/active-mixed-content-errors.png" alt="Materi Campuran: Laman telah dimuat melalui HTTPS, namun meminta sumber daya yang tidak aman. Permintaan ini telah diblokir; materi harus disajikan melalui HTTPS.">
@@ -47,27 +42,19 @@ ditampilkan:
 
 [Cobalah](https://googlesamples.github.io/web-fundamentals/fundamentals/security/prevent-mixed-content/active-mixed-content.html){: target="_blank" .external }
 
-
-Anda perlu memperbaiki URL http:// yang dicantumkan dalam kesalahan dan peringatan ini, di sumber situs Anda. Ada baiknya membuat daftar URL ini, bersama laman tempat Anda menemukannya, untuk digunakan bila Anda memperbaikinya. 
+Anda perlu memperbaiki URL http:// yang dicantumkan dalam kesalahan dan peringatan ini, di sumber situs Anda. Ada baiknya membuat daftar URL ini, bersama laman tempat Anda menemukannya, untuk digunakan bila Anda memperbaikinya.
 
 Note: Kesalahan dan peringatan materi campuran hanya ditunjukkan untuk laman yang saat ini Anda tampilkan, dan Konsol JavaScript dikosongkan setiap kali Anda mengarah ke laman baru. Berarti Anda harus menampilkan setiap laman di situs Anda secara individual untuk menemukan kesalahan ini. Beberapa kesalahan mungkin hanya ditunjukkan setelah Anda berinteraksi dengan suatu bagian laman, lihat contoh materi campuran galeri gambar dari panduan kami sebelumnya.
 
 ### Menemukan materi campuran dalam kode sumber Anda
 
-Anda bisa menelusuri materi campuran secara langsung dalam kode sumber. Telusuri 
-`http://` dalam kode sumber Anda dan cari tag yang berisi atribut HTTP URL.
-Khususnya, cari tag yang tercantum di bagian [tipe materi campuran & ancaman keamanan yang berkaitan](what-is-mixed-content#mixed-content-types--security-threats-associated){: .external} pada panduan sebelumnya.
-Perhatikan, dengan memiliki `http://` dalam atribut href tag jangkar (`<a>`)
-sering kali bukanlah masalah materi campuran, dengan beberapa pengecualian penting yang akan didiskusikan belakangan. 
+Anda bisa menelusuri materi campuran secara langsung dalam kode sumber. Telusuri `http://` dalam kode sumber Anda dan cari tag yang berisi atribut HTTP URL. Khususnya, cari tag yang tercantum di bagian [tipe materi campuran & ancaman keamanan yang berkaitan](what-is-mixed-content#mixed-content-types--security-threats-associated){: .external} pada panduan sebelumnya. Perhatikan, dengan memiliki `http://` dalam atribut href tag jangkar (`<a>`) sering kali bukanlah masalah materi campuran, dengan beberapa pengecualian penting yang akan didiskusikan belakangan.
 
-Jika Anda memiliki daftar URL HTTP dari kesalahan dan peringatan materi campuran Chrome, 
-Anda juga bisa menelusuri URL lengkap ini di kode sumber untuk menemukan lokasi mereka 
-di situs Anda. 
+Jika Anda memiliki daftar URL HTTP dari kesalahan dan peringatan materi campuran Chrome, Anda juga bisa menelusuri URL lengkap ini di kode sumber untuk menemukan lokasi mereka di situs Anda.
 
 ### Memperbaiki materi campuran
 
-Setelah Anda menemukan lokasi materi campuran tersebut di kode sumber situs Anda, 
-ikuti langkah-langkah ini untuk memperbaikinya.
+Setelah Anda menemukan lokasi materi campuran tersebut di kode sumber situs Anda, ikuti langkah-langkah ini untuk memperbaikinya.
 
 Dengan menggunakan kesalahan materi campuran berikut di Chrome sebagai contoh:
 
@@ -76,16 +63,15 @@ Dengan menggunakan kesalahan materi campuran berikut di Chrome sebagai contoh:
 </figure>
 
 Yang Anda temukan di kode sumber di sini:
- 
-    <img src="http://googlesamples.github.io/web-fundamentals/.../puppy.jpg"> 
+
+    <img src="http://googlesamples.github.io/web-fundamentals/.../puppy.jpg">
+    
 
 #### Langkah 1
 
-Periksa apakah URL tersedia melalui HTTPS dengan membuka tab baru di 
-browser Anda, memasukkan URL di bilah alamat, dan mengubah `http://` menjadi `https://`
+Periksa apakah URL tersedia melalui HTTPS dengan membuka tab baru di browser Anda, memasukkan URL di bilah alamat, dan mengubah `http://` menjadi `https://`
 
-Jika sumber daya yang ditampilkan sama melalui **HTTP** dan **HTTPS**, berarti semuanya OKE.
-Lanjutkan ke [Langkah 2](#step-2).
+Jika sumber daya yang ditampilkan sama melalui **HTTP** dan **HTTPS**, berarti semuanya OKE. Lanjutkan ke [Langkah 2](#step-2).
 
 <div class="attempt-left">
   <figure>
@@ -95,6 +81,7 @@ Lanjutkan ke [Langkah 2](#step-2).
      </figcaption>
   </figure>
 </div>
+
 <div class="attempt-right">
   <figure>
     <img src="imgs/puppy-https.png">
@@ -106,8 +93,7 @@ Lanjutkan ke [Langkah 2](#step-2).
 
 <div style="clear:both;"></div>
 
-Jika Anda melihat peringatan sertifikat, atau jika materi tidak bisa ditampilkan melalui
-**HTTPS**, berarti sumber daya tersebut tidak tersedia secara aman.
+Jika Anda melihat peringatan sertifikat, atau jika materi tidak bisa ditampilkan melalui **HTTPS**, berarti sumber daya tersebut tidak tersedia secara aman.
 
 <div class="attempt-left">
   <figure>
@@ -117,6 +103,7 @@ Jika Anda melihat peringatan sertifikat, atau jika materi tidak bisa ditampilkan
      </figcaption>
   </figure>
 </div>
+
 <div class="attempt-right">
   <figure>
     <img src="imgs/https-cert-warning.png">
@@ -144,12 +131,7 @@ Tampilkan laman tempat Anda menemukan kesalahan semula dan verifikasi apakah kes
 
 ### Waspadailah penggunaan tag non-standar
 
-Waspadailah penggunaan tag non-standar di situs Anda. Misalnya, URL tag jangkar (`<a>`)
-tidak menyebabkan materi campuran dengan sendirinya, karena mereka menyebabkan browser 
-mengarahkan ke laman baru. Ini berarti hal itu biasanya tidak perlu diperbaiki. Akan tetapi 
-beberapa skrip galeri gambar menggantikan fungsionalitas tag `<a>` dan 
-memuat sumber daya HTTP yang ditetapkan oleh atribut `href` ke dalam tampilan lightbox 
-di laman, sehingga menyebabkan masalah materi campuran. 
+Waspadailah penggunaan tag non-standar di situs Anda. Misalnya, URL tag jangkar (`<a>`) tidak menyebabkan materi campuran dengan sendirinya, karena mereka menyebabkan browser mengarahkan ke laman baru. Ini berarti hal itu biasanya tidak perlu diperbaiki. Akan tetapi beberapa skrip galeri gambar menggantikan fungsionalitas tag `<a>` dan memuat sumber daya HTTP yang ditetapkan oleh atribut `href` ke dalam tampilan lightbox di laman, sehingga menyebabkan masalah materi campuran.
 
 <pre class="prettyprint">
 {% includecode content_path="web/fundamentals/security/prevent-mixed-content/_code/image-gallery-example.html" region_tag="snippet1" adjust_indentation="auto" %}
@@ -157,32 +139,17 @@ di laman, sehingga menyebabkan masalah materi campuran.
 
 [Cobalah](https://googlesamples.github.io/web-fundamentals/fundamentals/security/prevent-mixed-content/image-gallery-example.html){: target="_blank" .external }
 
-Dalam kode di atas, kelihatannya aman membiarkan href tag `<a>` sebagai `http://`, 
-akan tetapi jika Anda menampilkan contoh dan mengeklik gambar, Anda akan melihat bahwa ia memuat 
-sumber daya materi campuran dan menampilkannya di laman. 
+Dalam kode di atas, kelihatannya aman membiarkan href tag `<a>` sebagai `http://`, akan tetapi jika Anda menampilkan contoh dan mengeklik gambar, Anda akan melihat bahwa ia memuat sumber daya materi campuran dan menampilkannya di laman.
 
 ## Menangani materi campuran dengan mempertimbangkan skala
 
-Langkah-langkah manual di atas berfungsi dengan baik untuk situs web yang lebih kecil; namun untuk situs web besar, 
-atau situs yang memiliki beberapa tim development terpisah, boleh jadi sulit untuk memantau 
-semua materi yang sedang dimuat. Untuk membantu tugas ini, Anda bisa menggunakan 
-kebijakan keamanan materi untuk memerintahkan browser memberi tahu Anda mengenai materi campuran 
-dan memastikan laman Anda tidak akan pernah memuat sumber daya tidak aman secara tidak diharapkan.
+Langkah-langkah manual di atas berfungsi dengan baik untuk situs web yang lebih kecil; namun untuk situs web besar, atau situs yang memiliki beberapa tim development terpisah, boleh jadi sulit untuk memantau semua materi yang sedang dimuat. Untuk membantu tugas ini, Anda bisa menggunakan kebijakan keamanan materi untuk memerintahkan browser memberi tahu Anda mengenai materi campuran dan memastikan laman Anda tidak akan pernah memuat sumber daya tidak aman secara tidak diharapkan.
 
 ### Kebijakan keamanan materi
 
-[**Kebijakan keamanan materi**](/web/fundamentals/security/csp/) (CSP) adalah fitur
-browser serba guna yang bisa Anda gunakan untuk mengelola materi campuran 
-dengan skala. Mekanisme pelaporan CSP bisa digunakan untuk melacak materi campuran di
-situs Anda; dan kebijakan pemberlakuan, untuk melindungi pengguna dengan
-peningkatan versi atau pemblokiran materi campuran. 
+[**Kebijakan keamanan materi**](/web/fundamentals/security/csp/) (CSP) adalah fitur browser serba guna yang bisa Anda gunakan untuk mengelola materi campuran dengan skala. Mekanisme pelaporan CSP bisa digunakan untuk melacak materi campuran di situs Anda; dan kebijakan pemberlakuan, untuk melindungi pengguna dengan peningkatan versi atau pemblokiran materi campuran.
 
-Anda bisa mengaktifkan fitur ini untuk sebuah laman dengan menyertakan header 
-`Content-Security-Policy` atau `Content-Security-Policy-Report-Only` dalam 
-respons yang dikirim dari server Anda. Selain itu, Anda bisa menyetel `Content-Security-Policy` (namun 
-**bukan** `Content-Security-Policy-Report-Only`) dengan menggunakan tag `<meta>` di 
-bagian `<head>` pada laman Anda. Lihat contoh di bagian 
-berikut.
+Anda bisa mengaktifkan fitur ini untuk sebuah laman dengan menyertakan header `Content-Security-Policy` atau `Content-Security-Policy-Report-Only` dalam respons yang dikirim dari server Anda. Selain itu, Anda bisa menyetel `Content-Security-Policy` (namun **bukan** `Content-Security-Policy-Report-Only`) dengan menggunakan tag `<meta>` di bagian `<head>` pada laman Anda. Lihat contoh di bagian berikut.
 
 CSP berguna untuk banyak hal di luar penggunaan materi campurannya. Informasi tentang direktif CSP lainnya tersedia di sumber daya berikut:
 
@@ -191,123 +158,75 @@ CSP berguna untuk banyak hal di luar penggunaan materi campurannya. Informasi te
 * [CSP playground](http://www.cspplayground.com/){: .external }
 * [Spesifikasi CSP](//www.w3.org/TR/CSP/){: .external }
 
-Note: Beberapa browser memberlakukan <b>semua</b> kebijakan keamanan materi yang mereka terima.
-Beberapa nilai header CSP sekaligus yang diterima oleh browser di header respons atau elemen
-<code>&lt;meta&gt;</code> dikombinasikan dan diberlakukan sebagai satu kebijakan;
-sehingga melaporkan kebijakan juga dikombinasikan. Kebijakan dikombinasikan dengan mengambil
-perpotongan kebijakan; yakni, setiap kebijakan setelah yang pertama hanya bisa
-membatasi lebih jauh materi yang diizinkan, bukan memperluasnya.
+Note: Beberapa browser memberlakukan **semua** kebijakan keamanan materi yang mereka terima. Beberapa nilai header CSP sekaligus yang diterima oleh browser di header respons atau elemen
+<code>&lt;meta&gt;</code> dikombinasikan dan diberlakukan sebagai satu kebijakan; sehingga melaporkan kebijakan juga dikombinasikan. Kebijakan dikombinasikan dengan mengambil perpotongan kebijakan; yakni, setiap kebijakan setelah yang pertama hanya bisa membatasi lebih jauh materi yang diizinkan, bukan memperluasnya.
 
-### Menemukan materi campuran dengan kebijakan keamanan materi 
+### Menemukan materi campuran dengan kebijakan keamanan materi
 
-Anda bisa menggunakan kebijakan keamanan materi untuk mengumpulkan laporan materi campuran pada 
-situs Anda. Untuk mengaktifkan fitur ini, setel direktif `Content-Security-Policy-Report-Only` 
-dengan menambahkannya sebagai header respons untuk situs Anda. 
+Anda bisa menggunakan kebijakan keamanan materi untuk mengumpulkan laporan materi campuran pada situs Anda. Untuk mengaktifkan fitur ini, setel direktif `Content-Security-Policy-Report-Only` dengan menambahkannya sebagai header respons untuk situs Anda.
 
-Header respons:  
+Header respons:
 
-    Content-Security-Policy-Report-Only: default-src https: 'unsafe-inline' 'unsafe-eval'; report-uri https://example.com/reportingEndpoint 
+    Content-Security-Policy-Report-Only: default-src https: 'unsafe-inline' 'unsafe-eval'; report-uri https://example.com/reportingEndpoint
+    
 
-
-Bila pengguna mengunjungi sebuah laman di situs Anda, browser mereka akan mengirim laporan berformat JSON 
-mengenai hal-hal yang melanggar kebijakan keamanan materi ke 
-`https://example.com/reportingEndpoint`. Dalam hal ini, kapan saja 
-sub-sumber daya dimuat melalui HTTP, laporan akan dikirimkan. Laporan ini menyertakan URL 
-laman tempat terjadinya pelanggaran kebijakan dan URL sub-sumber daya yang 
-melanggar kebijakan. Jika Anda mengonfigurasi endpoint pelaporan untuk mencatat semua 
-laporan ini dalam log, Anda bisa melacak materi campuran di situs Anda tanpa mengunjungi sendiri setiap 
-laman. 
+Bila pengguna mengunjungi sebuah laman di situs Anda, browser mereka akan mengirim laporan berformat JSON mengenai hal-hal yang melanggar kebijakan keamanan materi ke `https://example.com/reportingEndpoint`. Dalam hal ini, kapan saja sub-sumber daya dimuat melalui HTTP, laporan akan dikirimkan. Laporan ini menyertakan URL laman tempat terjadinya pelanggaran kebijakan dan URL sub-sumber daya yang melanggar kebijakan. Jika Anda mengonfigurasi endpoint pelaporan untuk mencatat semua laporan ini dalam log, Anda bisa melacak materi campuran di situs Anda tanpa mengunjungi sendiri setiap laman.
 
 Dua keberatan untuk hal ini adalah:
 
-* Pengguna harus mengunjungi laman Anda di browser yang memahami header CSP.
-  Hal ini berlaku untuk sebagian besar browser modern.
-* Anda hanya mendapatkan laporan untuk laman yang telah dikunjungi oleh pengguna Anda. Jadi jika Anda memiliki beberapa laman 
-  yang tidak banyak mendapatkan lalu lintas, hal ini mungkin kadang-kadang saja sebelum Anda mendapatkan laporan untuk 
-  seluruh situs Anda.
+* Pengguna harus mengunjungi laman Anda di browser yang memahami header CSP. Hal ini berlaku untuk sebagian besar browser modern.
+* Anda hanya mendapatkan laporan untuk laman yang telah dikunjungi oleh pengguna Anda. Jadi jika Anda memiliki beberapa laman yang tidak banyak mendapatkan lalu lintas, hal ini mungkin kadang-kadang saja sebelum Anda mendapatkan laporan untuk seluruh situs Anda.
 
-Untuk informasi selengkapnya mengenai format header CSP, lihat [spesifikasi Content Security Policy](https://w3c.github.io/webappsec/specs/content-security-policy/#violation-reports){: .external}. 
+Untuk informasi selengkapnya mengenai format header CSP, lihat [spesifikasi Content Security Policy](https://w3c.github.io/webappsec/specs/content-security-policy/#violation-reports){: .external}.
 
-Jika Anda tidak ingin mengonfigurasi sendiri endpoint pelaporan, 
-[https://report-uri.io/](https://report-uri.io/){: .external} merupakan 
-alternatif yang pantas.
+Jika Anda tidak ingin mengonfigurasi sendiri endpoint pelaporan, <https://report-uri.io/>{: .external} merupakan alternatif yang pantas.
 
 ### Meningkatkan versi permintaan tidak aman
 
-Salah satu dari alat terbaru dan terbaik untuk memperbaiki materi campuran secara otomatis adalah direktif CSP
-[**`upgrade-insecure-requests`**](//www.w3.org/TR/upgrade-insecure-requests/){: .external}.
- Direktif ini memerintahkan browser untuk meningkatkan versi URL tidak aman 
-sebelum membuat permintaan jaringan.
+Salah satu dari alat terbaru dan terbaik untuk memperbaiki materi campuran secara otomatis adalah direktif CSP [**`upgrade-insecure-requests`**](//www.w3.org/TR/upgrade-insecure-requests/){: .external}. Direktif ini memerintahkan browser untuk meningkatkan versi URL tidak aman sebelum membuat permintaan jaringan.
 
 Sebagai contoh, jika laman berisi tag gambar dengan HTTP URL:
 
- 
-    <img src="http://example.com/image.jpg"> 
-
+    <img src="http://example.com/image.jpg">
+    
 
 Sebagai gantinya browser membuat permintaan aman untuk 
-<code><b>https:</b>//example.com/image.jpg</code>, sehingga melindungi pengguna dari 
-materi campuran.
+<code><b>https:</b>//example.com/image.jpg</code>, sehingga melindungi pengguna dari materi campuran.
 
-Anda bisa mengaktifkan perilaku ini baik dengan mengirim header `Content-Security-Policy` 
-dengan direktif ini.
+Anda bisa mengaktifkan perilaku ini baik dengan mengirim header `Content-Security-Policy` dengan direktif ini.
 
+    Content-Security-Policy: upgrade-insecure-requests
+    
 
-    Content-Security-Policy: upgrade-insecure-requests  
+Atau dengan menyematkan direktif yang sama secara inline dalam bagian `<head>` dokumen dengan menggunakan elemen `<meta>`:
 
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    
 
-Atau dengan menyematkan direktif yang sama secara inline dalam bagian `<head>` 
-dokumen dengan menggunakan elemen `<meta>`:
+Perlu diperhatikan, jika sumber daya tidak tersedia melalui HTTPS, permintaan yang telah ditingkatkan versinya akan gagal dan sumber daya tidak dapat dimuat. Ini akan menjaga keamanan laman Anda.
 
-  
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">  
-
-
-Perlu diperhatikan, jika sumber daya tidak tersedia melalui HTTPS, 
-permintaan yang telah ditingkatkan versinya akan gagal dan sumber daya tidak dapat dimuat. Ini akan menjaga 
-keamanan laman Anda. 
-
-Direktif `upgrade-insecure-requests` menurun ke dokumen `<iframe>`, 
-sehingga memastikan seluruh laman terlindungi.
+Direktif `upgrade-insecure-requests` menurun ke dokumen `<iframe>`, sehingga memastikan seluruh laman terlindungi.
 
 ### Memblokir semua materi campuran
 
-Tidak semua browser mendukung direktif permintaan-tidak aman-tingkatkan versi, sehingga 
-alternatif untuk melindungi pengguna adalah direktif CSP 
-[**`block-all-mixed-content`**](http://www.w3.org/TR/mixed-content/#strict-checking){: .external}.
- Direktif ini memerintahkan browser agar tidak memuat materi campuran; 
-semua permintaan sumber daya materi campuran akan diblokir, termasuk materi campuran pasif 
-maupun aktif. Opsi ini juga menurun ke dokumen `<iframe>`, 
-sehingga memastikan seluruh laman bebas dari materi campuran.
+Tidak semua browser mendukung direktif permintaan-tidak aman-tingkatkan versi, sehingga alternatif untuk melindungi pengguna adalah direktif CSP [**`block-all-mixed-content`**](http://www.w3.org/TR/mixed-content/#strict-checking){: .external}. Direktif ini memerintahkan browser agar tidak memuat materi campuran; semua permintaan sumber daya materi campuran akan diblokir, termasuk materi campuran pasif maupun aktif. Opsi ini juga menurun ke dokumen `<iframe>`, sehingga memastikan seluruh laman bebas dari materi campuran.
 
-Sebuah laman bisa menyertakan dirinya sendiri ke dalam perilaku ini, baik dengan mengirim header 
-`Content-Security-Policy` dengan direktif ini:
+Sebuah laman bisa menyertakan dirinya sendiri ke dalam perilaku ini, baik dengan mengirim header `Content-Security-Policy` dengan direktif ini:
 
-  
-    Content-Security-Policy: block-all-mixed-content  
+    Content-Security-Policy: block-all-mixed-content
+    
 
+Atau dengan menyematkan direktif yang sama secara inline dalam bagian `<head>` dokumen dengan menggunakan elemen `<meta>`:
 
-Atau dengan menyematkan direktif yang sama secara inline dalam bagian `<head>` 
-dokumen dengan menggunakan elemen `<meta>`:
-
-  
     <meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
+    
 
-
-Kelemahan dari penggunaan `block-all-mixed-content` adalah, mungkin, karena semua 
-materi diblokir. Ini adalah peningkatan keamanan, namun ini berarti sumber daya 
-ini tidak lagi tersedia di laman. Hal ini mungkin merusak fitur dan 
-materi yang diharapkan pengguna untuk tersedia. 
+Kelemahan dari penggunaan `block-all-mixed-content` adalah, mungkin, karena semua materi diblokir. Ini adalah peningkatan keamanan, namun ini berarti sumber daya ini tidak lagi tersedia di laman. Hal ini mungkin merusak fitur dan materi yang diharapkan pengguna untuk tersedia.
 
 ### Alternatif untuk CSP
 
-Jika yang menjadi host situs Anda adalah platform seperti Blogger, Anda mungkin tidak memiliki 
-akses untuk memodifikasi header & menambahkan CSP.
-Sebagai gantinya, alternatif yang memadai barangkali adalah menggunakan perayap situs web untuk menemukan masalah 
-di seluruh bagian situs untuk Anda, misalnya 
-[HTTPSChecker](https://httpschecker.net/how-it-works#httpsChecker){: .external } 
-atau 
-[Mixed Content Scan](https://github.com/bramus/mixed-content-scan){: .external }
+Jika yang menjadi host situs Anda adalah platform seperti Blogger, Anda mungkin tidak memiliki akses untuk memodifikasi header & menambahkan CSP. Sebagai gantinya, alternatif yang memadai barangkali adalah menggunakan perayap situs web untuk menemukan masalah di seluruh bagian situs untuk Anda, misalnya [HTTPSChecker](https://httpschecker.net/how-it-works#httpsChecker){: .external } atau [Mixed Content Scan](https://github.com/bramus/mixed-content-scan){: .external }
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

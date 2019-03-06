@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Considere o conteúdo, não só o layout e o design gráfico, ao criar para diversos usuários e dispositivos.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Considere o conteúdo, não só o layout e o design gráfico, ao criar para diversos usuários e dispositivos.
 
-{# wf_updated_on: 2017-07-12 #}
-{# wf_published_on: 2016-05-10 #}
+{# wf_updated_on: 2017-07-12 #} {# wf_published_on: 2016-05-10 #}
 
 # Conteúdo para vários dispositivos {: .page-title }
 
@@ -14,7 +11,7 @@ description: Considere o conteúdo, não só o layout e o design gráfico, ao cr
 O [guia de escrita do governo dos EUA](http://www.usability.gov/how-to-and-tools/methods/writing-for-the-web.html) resume o que as pessoas querem da escrita na Web:
 
 > Ao escrever para a Web, use uma linguagem simples que permita que os usuários encontrem o que precisam, entendam o que encontraram e usem isso para atender às suas necessidades.
->
+> 
 > A escrita também deve permitir ações e ser localizável e compartilhável.
 
 Pesquisas mostram que [as pessoas não leem páginas da Web, elas passam os olhos](https://www.nngroup.com/articles/concise-scannable-and-objective-how-to-write-for-the-web/). Em média, [as pessoas só leem de 20 a 28% do conteúdo de uma página da Web](https://www.nngroup.com/articles/how-little-do-users-read/). A leitura em uma tela é muito mais lenta do que em papel. As pessoas desistirão e deixarão seu site a não ser que as informações sejam fáceis de acessar e entender.
@@ -29,12 +26,9 @@ Publique apenas o que seus visitantes querem e nada mais.
 
 [Pesquisas do governo do Reino Unido](https://www.gov.uk/guidance/content-design/writing-for-gov-uk) também mostram que:
 
-> 80% das pessoas preferem frases escritas em linguagem direta — quanto mais
->complexa for a questão, maior é essa preferência (por exemplo, 97% preferem a expressão “entre
-> outros” ao latim “inter alia”).
->
-> Quanto mais instruídas as pessoas são e mais especializados são seus conhecimentos, maior
-> é sua preferência pela linguagem direta.
+> 80% das pessoas preferem frases escritas em linguagem direta — quanto mais complexa for a questão, maior é essa preferência (por exemplo, 97% preferem a expressão “entre outros” ao latim “inter alia”).
+> 
+> Quanto mais instruídas as pessoas são e mais especializados são seus conhecimentos, maior é sua preferência pela linguagem direta.
 
 Em outras palavras: use uma linguagem direta, palavras curtas e estruturas de frase simples, mesmo para um público-alvo letrado e técnico. A não ser que haja um bom motivo para não fazer isso, mantenha o tom coloquial. Uma antiga regra do jornalismo é escrever como se você estivesse conversando com uma criança de 11 anos inteligente.
 
@@ -52,7 +46,6 @@ Em resumo:
 * Elimine elementos desnecessários
 * Seja direto
 
-
 ## Elimine conteúdo desnecessário
 
 Em termos de tamanho de byte, as páginas da Web são [grandes e estão ficando cada vez maiores](http://httparchive.org/trends.php#bytesTotal&reqTotal).
@@ -60,7 +53,7 @@ Em termos de tamanho de byte, as páginas da Web são [grandes e estão ficando 
 [Técnicas de design responsivas](/web/fundamentals/design-and-ux/responsive/) possibilitam o fornecimento de diferentes conteúdo para uma janela de visualização menor, mas é interessante começar otimizando o texto, as imagens e outros conteúdos.
 
 > Usuários da Web se orientam frequentemente por ações, sempre indo em busca de respostas para suas dúvidas em vez de sentar e absorver um bom livro.
->
+> 
 > — [Jakob Nielsen](https://www.nngroup.com/articles/concise-scannable-and-objective-how-to-write-for-the-web/)
 
 Pergunte a si mesmo: qual é o objetivo das pessoas quando acessam meu site?
@@ -76,8 +69,8 @@ Muitos sites populares usam milhares de elementos HTML por página e milhares de
 Reduzir a complexidade do HTML também reduzirá o peso da página, ajudará a permitir a localização e internacionalização e tornará o design responsivo mais fácil de planejar e depurar. Para saber mais sobre como escrever um HTML mais eficiente, consulte [HTML de alto desempenho](https://samdutton.wordpress.com/2015/04/02/high-performance-html/).
 
 > Cada etapa que o usuário precisar realizar antes de obter valor com seu aplicativo custará 20% dos seus usuários
->
->— [Gabor Cselle, Twitter](http://blog.gaborcselle.com/2012/10/every-step-costs-you-20-of-users.html)
+> 
+> — [Gabor Cselle, Twitter](http://blog.gaborcselle.com/2012/10/every-step-costs-you-20-of-users.html)
 
 O mesmo se aplica ao conteúdo: ajude os usuários a obterem o que desejam o mais depressa possível.
 
@@ -99,7 +92,6 @@ Conforme a Web passa para o ambiente móvel, você deve adaptar seu conteúdo. M
 </div>
 
 Imagens podem ser bonitas, divertidas e informativas, mas elas também ocupam espaço na página, aumentam o peso da página e aumentam o número de solicitações. [A latência piora de acordo com a conectividade](https://www.igvita.com/2012/07/19/latency-the-new-web-performance-bottleneck/), o que significa que solicitações excessivas de arquivos de imagem é um problema cada vez maior conforme a Web ocupa o espaço móvel.
-
 
 <div style="clear:both;"></div>
 
@@ -130,14 +122,11 @@ Veja algumas sugestões:
 
 Para saber mais, consulte [Otimização de imagens](/web/fundamentals/performance/optimizing-content-efficiency/image-optimization) e [Eliminar e substituir imagens](/web/fundamentals/performance/optimizing-content-efficiency/image-optimization#eliminating-and-replacing-images).
 
-
 ## Crie conteúdo de forma que ele se adeque a diferentes tamanhos de janela de visualização {: #viewport }
 
-> "Crie um produto, não reimagine um existente para telas pequenas. Bons produtos
-> para dispositivos móveis são criados, nunca adaptados."
->
->— <a href="https://goo.gl/KBAXj0">Design e desenvolvimento para dispositivos móveis</a>, Brian Fling
-
+> "Crie um produto, não reimagine um existente para telas pequenas. Bons produtos para dispositivos móveis são criados, nunca adaptados."
+> 
+> — [Design e desenvolvimento para dispositivos móveis](https://goo.gl/KBAXj0), Brian Fling
 
 Grandes designers não ‘otimizam para dispositivos móveis’, mas pensam de forma responsiva para criar sites que se adequam a uma grande variedade de dispositivos. A estrutura do texto e dos demais elementos da página são essenciais para o sucesso em diferentes dispositivos.
 
@@ -153,12 +142,11 @@ Na tela menor, o navegador renderiza o layout corretamente, mas o texto fica ile
 
 ### Crie conteúdo para dispositivos móveis
 
-Ao criar conteúdo para diversas janelas de visualização, considere o conteúdo, o layout e o design gráfico,
-[crie designs com texto e imagens reais, não conteúdo fictício](http://uxmyths.com/post/718187422/myth-you-dont-need-the-content-to-design-a-website)
+Ao criar conteúdo para diversas janelas de visualização, considere o conteúdo, o layout e o design gráfico, [crie designs com texto e imagens reais, não conteúdo fictício](http://uxmyths.com/post/718187422/myth-you-dont-need-the-content-to-design-a-website)
 
 > "O conteúdo está à frente do design. Design sem conteúdo não é design, é decoração."
->
->— Jeffrey Zeldman
+> 
+> — Jeffrey Zeldman
 
 * Coloque seu conteúdo mais importante na parte superior, pois os [usuários tendem a ler páginas da Web em um padrão de F](https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/).
 * Os usuários acessam seu site para cumprir um objetivo. Pergunte-se do que eles precisam para cumprir esse objetivo e livre-se do resto. Seja rígido quanto a ornamentos visuais e textuais, conteúdo de legado, links excessivos e outros itens desnecessários.
@@ -183,11 +171,11 @@ Dispositivos móveis são cada vez mais usados para consumir conteúdo e obter i
 
 Isso faz com que seja extremamente importante planejar o conteúdo para que ele se adeque a diversos tipos de janelas de visualização e priorizar o conteúdo ao planejar o layout, a interface e o design de interação para vários dispositivos.
 
-
 ## Entenda os custos dos dados
 
-As páginas da Web estão ficando maiores. <br><br>De acordo com o <a href="http://httparchive.org/trends.php#bytesTotal&reqTotal">HTTP Archive</a>, o peso da página dos <a href="http://httparchive.org/about.php#listofurls">um milhão maiores sites</a> agora é, em média, de 2 MB.
-
+As páginas da Web estão ficando maiores.   
+  
+De acordo com o [HTTP Archive](http://httparchive.org/trends.php#bytesTotal&reqTotal), o peso da página dos [um milhão maiores sites](http://httparchive.org/about.php#listofurls) agora é, em média, de 2 MB.
 
 Usuários evitam sites ou aplicativos que parecem lentos ou caros, portanto, é essencial entender o custo de carregar os componentes da página ou do aplicativo.
 
@@ -250,10 +238,10 @@ Lembre-se de que isso não considera a renda como fator acessibilidade. Os dados
   </tr>
 </table>
 
-
 O peso da página não é um problema apenas para mercados emergentes. Em muitos países, as pessoas usam planos móveis com dados limitados e evitarão seu site ou aplicativo se perceberem que ele será pesado e caro. Mesmo planos de dados de celular e Wi-Fi "ilimitados" geralmente têm um limite de dados que, se atingido, o fluxo de dados é bloqueado ou reduzido.
 
 Resumo: o peso da página afeta o desempenho e aumenta o custo. [Otimizar a eficiência do conteúdo](/web/fundamentals/performance/optimizing-content-efficiency/) mostra como reduzir esse custo.
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

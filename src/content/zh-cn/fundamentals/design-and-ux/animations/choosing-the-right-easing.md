@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description:为项目选择合适的缓动，无论是缓入、缓出还是缓入缓出。或许还可使用弹跳方式获取更多乐趣！
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description:为项目选择合适的缓动，无论是缓入、缓出还是缓入缓出。或许还可使用弹跳方式获取更多乐趣！
 
-{# wf_updated_on: 2016-08-23 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2016-08-23 #} {# wf_published_on: 2014-08-08 #}
 
 # 选择合适的缓动 {: .page-title }
 
@@ -12,16 +9,15 @@ description:为项目选择合适的缓动，无论是缓入、缓出还是缓�
 前面已经讨论了可在动画中实现缓动的各种选项，您应当在项目中使用哪种？您的动画应采用哪种持续时间？
 
 ### TL;DR {: .hide-from-toc }
+
 * 为 UI 元素使用缓出动画；Quintic 缓出是一个非常好（虽然比较快速）的缓动。
 * 一定要使用动画持续时间；缓出和缓入应为 200 毫秒 - 500 毫秒，而弹跳和弹性缓动的持续时间应更长，为 800 毫秒 - 1200 毫秒。
 
-
-<img src="images/quintic-ease-out-markers.png" alt="Quintic 缓出动画的曲线。" style="max-width: 300px" class="attempt-right"/>
+<img src="images/quintic-ease-out-markers.png" alt="Quintic 缓出动画的曲线。" style="max-width: 300px" class="attempt-right" />
 
 一般来说，**缓出**将是正确的选择，当然也是很好的默认选择。它开头较快，使动画有反应快速的感觉，这一点很受欢迎，但在结尾有一个不错的减速。
 
 除了在 CSS 中通过 `ease-out` 关键字指定的公式之外，还有一组知名的缓出公式，它们按其“攻击性”排列。想要快速的缓出效果，请考虑 [Quintic 缓出](http://easings.net/#easeOutQuint)。
-
 
 [查看 Quintic 缓出动画](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/animations/box-move-quintic-ease-out.html){: target="_blank" .external }
 
@@ -39,7 +35,6 @@ description:为项目选择合适的缓动，无论是缓入、缓出还是缓�
 
 当然，这些只是指导原则。用您自己的缓动做试验，然后选择觉得适合于项目的缓动。
 
-
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

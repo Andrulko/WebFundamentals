@@ -1,22 +1,18 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Puedes realizar animaciones con CSS o JavaScript. ¿Cuál debes utilizar y por qué?
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Puedes realizar animaciones con CSS o JavaScript. ¿Cuál debes utilizar y por qué?
 
-{# wf_updated_on: 2017-07-12 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2017-07-12 #} {# wf_published_on: 2014-08-08 #}
 
 # Animaciones de CSS frente a JavaScript {: .page-title }
 
-{% include "web/_shared/contributors/paullewis.html" %}
-{% include "web/_shared/contributors/samthorogood.html" %}
+{% include "web/_shared/contributors/paullewis.html" %} {% include "web/_shared/contributors/samthorogood.html" %}
 
 Existen dos métodos principales para crear animaciones en la web: CSS y JavaScript. La elección de uno u otro dependerá principalmente de las otras dependencias de tu proyecto y de los tipos de efectos que intentes lograr.
 
 ### TL;DR {: .hide-from-toc }
+
 * Usa animaciones de CSS para realizar transiciones más simples de "una sola acción", como alternar los estados de los elementos de la IU.
 * Usa las animaciones de JavaScript cuando desees agregar efectos avanzados como rebotes, detenciones, pausas, rebobinados o disminuciones de velocidad.
 * Si decides realizar animaciones con JavaScript, usa la Web Animations API o un framework moderno con el que te sientas cómodo.
-
 
 La mayoría de las animaciones básicas se pueden crear con CSS o JavaScript, pero el nivel de esfuerzo y tiempo variarán (consulta también [Comparación de rendimiento entre CSS y JavaScript](animations-and-performance#css-vs-javascript-performance)). Cada uno tiene ventajas y desventajas, pero las siguientes son algunas buenas pautas:
 
@@ -40,7 +36,6 @@ Realizar animaciones con CSS es la forma más simple de lograr que un objeto se 
 
 A continuación, se muestra un fragmento de CSS que mueve un elemento 100 px en los ejes X e Y. Esto se realiza usando la transición de CSS que se configura para demorar 500 ms. Cuando se agrega la clase `move`, el valor `transform` se modifica y comienza la transición.
 
-
     .box {
       -webkit-transform: translate(0, 0);
       -webkit-transition: -webkit-transform 500ms;
@@ -54,12 +49,12 @@ A continuación, se muestra un fragmento de CSS que mueve un elemento 100 px en 
       transform: translate(100px, 100px);
     }
     
+
 [Pruébalo](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/animations/box-move-simple.html){: target="_blank" .external }
 
 Además de la duración de la transición, existen opciones para la *aceleración*, que es básicamente como se percibe la animación. Para obtener más información sobre la aceleración, consulta la guía [Aspectos básicos de la aceleración](the-basics-of-easing).
 
 Si, al igual que en el siguiente fragmento, creas clases de CSS por separado para administrar tus animaciones, puedes usar JavaScript para activar o desactivar cada animación:
-
 
     box.classList.add('move');
     
@@ -67,7 +62,6 @@ Si, al igual que en el siguiente fragmento, creas clases de CSS por separado par
 Esto proporciona un buen balance a tus apps. Puedes centrarte en administrar el estado con JavaScript y simplemente configurar las clases adecuadas en los elementos de destino, dejando así que el navegador se encargue de las animaciones. Si sigues este camino, podrás escuchar los eventos `transitionend` en el elemento, pero solo si eres capaz de renunciar a la compatibilidad con versiones anteriores de Internet Explorer. La versión 10 fue la primera en ser compatible con estos eventos. Todos los demás navegadores fueron compatibles con el evento durante algún tiempo.
 
 El JavaScript necesario para escuchar el final de una transición se ve así:
-
 
     var box = document.querySelector('.box');
     box.addEventListener('transitionend', onTransitionEnd, false);
@@ -82,7 +76,6 @@ Además de usar las transiciones de CSS, también puedes usar las animaciones de
 Note: Si es la primera vez que realizas animaciones, “marco clave” es un término antiguo de las animaciones realizadas a mano. Los animadores creaban marcos específicos para una parte de la acción, que llevaban este nombre, en los que capturaban acciones como la parte más extrema de cierto movimiento, y luego dibujaban todos los marcos individuales entre los marcos clave. En la actualidad, tenemos un proceso similar para las animaciones de CSS, en el que le indicamos al navegador los valores de las propiedades de CSS que se deben tener en determinados puntos y, luego, el navegador completa los espacios vacíos.
 
 Por ejemplo, puedes animar el cuadro del mismo modo que las transiciones, pero puedes hacer que se mueva sin la interacción del usuario, como clics, y con una cantidad infinita de repeticiones. También puedes cambiar varias propiedades al mismo tiempo:
-
 
     /**
      * This is a simplified version without
@@ -140,7 +133,6 @@ Crear animaciones con JavaScript es, en comparación, más complejo que escribir
 
 Las animaciones de JavaScript son *imperativas*, cuando las escribes de manera integrada como parte de un código. También puedes encapsularlas dentro de otros objetos. A continuación, se muestra el fragmento de JavaScript que debes escribir para recrear la transición de CSS que se menciona anteriormente.
 
-
     var target = document.querySelector('.box');
     var player = target.animate([
       {transform: 'translate(0)'},
@@ -159,5 +151,6 @@ La Web Animations API es un estándar nuevo de W3C. Es compatible de forma nativ
 
 Con las animaciones de JavaScript, puedes controlar totalmente los estilos de un elemento en cada paso. Esto significa que es posible reducir la velocidad de las animaciones, pausarlas, detenerlas, invertirlas y manipular elementos según lo creas conveniente. Esto resulta especialmente útil si creas apps complejas orientadas a objetos, ya que puedes encapsular de forma adecuada tu comportamiento.
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

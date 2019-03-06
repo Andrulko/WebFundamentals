@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Considera el contenido, el formato y el diseño gráfico al desarrollar para diferentes usuarios y dispositivos.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Considera el contenido, el formato y el diseño gráfico al desarrollar para diferentes usuarios y dispositivos.
 
-{# wf_updated_on: 2017-07-12 #}
-{# wf_published_on: 2016-05-10 #}
+{# wf_updated_on: 2017-07-12 #} {# wf_published_on: 2016-05-10 #}
 
 # Contenido para varios dispositivos {: .page-title }
 
@@ -14,7 +11,7 @@ description: Considera el contenido, el formato y el diseño gráfico al desarro
 La [guía de escritura del gobierno de EE. UU.](http://www.usability.gov/how-to-and-tools/methods/writing-for-the-web.html) resume lo que la gente quiere leer en la web:
 
 > Cuando se escribe para la web, un lenguaje simple permite a los usuarios encontrar lo que necesitan, entender lo que encontraron y luego usarlo para cumplir sus propósitos.
->
+> 
 > También debe ser interactivo, fácil de encontrar y fácil de compartir.
 
 Las investigaciones muestran que [la gente no lee las páginas web, las ojea](https://www.nngroup.com/articles/concise-scannable-and-objective-how-to-write-for-the-web/). En promedio, [la gente solo lee entre un 20 y un 28% del contenido de las páginas web](https://www.nngroup.com/articles/how-little-do-users-read/). La lectura en pantallas es mucho más lenta que en papel. La gente se rendirá y abandonará tu sitio a menos que la información sea accesible y fácil de comprender.
@@ -29,12 +26,9 @@ Publica únicamente lo que tus visitantes quieren y nada más.
 
 [Una investigación del gobierno del RU](https://www.gov.uk/guidance/content-design/writing-for-gov-uk) también demuestra lo siguiente:
 
-> El 80% de las personas prefiere oraciones escritas en un idioma claro; y mientras más
->complejo es el tema, esa preferencia crece (p. ej., el 97% prefiere expresiones
-> comunes en su idioma antes que latinismos).
->
->A mayor educación y más especializado el conocimiento de una persona,
-> mayor su preferencia por un lenguaje simple.
+> El 80% de las personas prefiere oraciones escritas en un idioma claro; y mientras más complejo es el tema, esa preferencia crece (p. ej., el 97% prefiere expresiones comunes en su idioma antes que latinismos).
+> 
+> A mayor educación y más especializado el conocimiento de una persona, mayor su preferencia por un lenguaje simple.
 
 En otras palabras: usa un lenguaje claro, con palabras más cortas y estructuras de oraciones simples; incluso para un público instruido y técnico. A menos que haya una buena razón para no hacerlo, mantén un tono coloquial. Una vieja regla del periodismo es escribir como si te dirigieras a un niño inteligente de 11 años.
 
@@ -52,7 +46,6 @@ Lo más importante:
 * Reduce la sobrecarga.
 * Sé conciso.
 
-
 ## Elimina el contenido innecesario
 
 En términos de tamaño en bytes, las páginas web son [grandes y cada vez crecen más](http://httparchive.org/trends.php#bytesTotal&reqTotal).
@@ -60,7 +53,7 @@ En términos de tamaño en bytes, las páginas web son [grandes y cada vez crece
 [Las técnicas de diseño adaptable](/web/fundamentals/design-and-ux/responsive/) hacen posible el aprovisionamiento de contenidos diferentes para ventanas de visualización más pequeñas, pero siempre será una práctica sensata comenzar por optimizar el texto, las imágenes y otros contenidos.
 
 > A menudo, los usuarios de la web se enfocan en la acción, “con una inclinación hacia” la búsqueda de respuestas para sus preguntas actuales, en lugar de recostarse y dejarse absorber por un buen libro.
->
+> 
 > — [Jakob Nielsen](https://www.nngroup.com/articles/concise-scannable-and-objective-how-to-write-for-the-web/)
 
 Pregúntate “¿qué desea conseguir la gente cuando visita mi sitio?”
@@ -76,8 +69,8 @@ En muchos sitios populares se usan varios miles de elementos HTML por página y 
 Reducir la complejidad de la carga HTML también reducirá la carga de la página ayudará a permitir la localización e internalización, y hará un diseño adaptable más fácil de planear y depurar. Para obtener información sobre cómo redactar HTML más eficiente, consulta [HTML de alto rendimiento](https://samdutton.wordpress.com/2015/04/02/high-performance-html/).
 
 > Cada paso que hagas dar a un usuario para obtener valor en tu app te costará un 20% de los usuarios
->
->— [Gabor Cselle, Twitter](http://blog.gaborcselle.com/2012/10/every-step-costs-you-20-of-users.html)
+> 
+> — [Gabor Cselle, Twitter](http://blog.gaborcselle.com/2012/10/every-step-costs-you-20-of-users.html)
 
 Lo mismo se aplica al contenido: ayuda a los usuarios a obtener lo que deseen tan pronto como sea posible.
 
@@ -95,11 +88,10 @@ En medio de la transición Web hacia los dispositivos móviles, deberás cambiar
   <figure>
     <img src="imgs/http-archive-images.png" alt="Archivo HTTP que muestra una cantidad creciente de tamaños de transferencia de imágenes y solicitudes de imágenes" />
     <figcaption>Según <a href="http://httparchive.org/trends.php#bytesImg&reqImg">los datos del archivo HTTP</a>, una página web promedio realiza 54 solicitudes de imágenes.</figcaption>
- </figure>
+  </figure>
 </div>
 
 Las imágenes pueden ser bellas, divertidas e informativas, pero también ocupan espacio real de la página, agregan volumen a esta y aumentan el número de solicitudes de archivos. [La latencia empeora cuando lo mismo sucede con la conectividad](https://www.igvita.com/2012/07/19/latency-the-new-web-performance-bottleneck/). Esto significa que un exceso de solicitudes de archivos de imagen es un problema que aumenta cuando se cambia de la Web al dispositivo móvil.
-
 
 <div style="clear:both;"></div>
 
@@ -125,19 +117,16 @@ Aquí te proporcionamos alguna sugerencias:
 * Conoce tus glifos; usa [símbolos e íconos Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) en lugar de imágenes, con fuentes web si es necesario.
 * Ten en cuenta [fuentes de íconos](http://weloveiconfonts.com/#zocial); son gráficos vectoriales que admiten escalamiento infinito, y se puede descargar un conjunto completo de imágenes en una fuente. (Ten en cuenta, no obstante, [estos asuntos](https://sarasoueidan.com/blog/icon-fonts-to-svg/)).
 * El elemento `<canvas>` se puede usar para crear imágenes en JavaScript a partir de líneas, curvas, texto y otras imágenes.
-* [Las imágenes del archivo SVG en línea o de URI de datos](http://udacity.github.io/responsive-images/examples/2-11/svgDataUri/) no reducirán el peso de la página, pero pueden disminuir la latencia mediante la reducción del número de solicitudes de recursos. El archivo SVG en línea ofrece [gran compatibilidad en dispositivos móviles y navegadores de escritorio](http://caniuse.com/#feat=svg-html5), y  las [herramientas de optimización](http://petercollingridge.appspot.com/svg-optimiser) pueden reducir de manera significativa el tamaño del archivo SVG. Del mismo modo, los URI de datos son [muy compatibles](http://caniuse.com/datauri). Ambos se pueden poner en línea en CSS.
+* [Las imágenes del archivo SVG en línea o de URI de datos](http://udacity.github.io/responsive-images/examples/2-11/svgDataUri/) no reducirán el peso de la página, pero pueden disminuir la latencia mediante la reducción del número de solicitudes de recursos. El archivo SVG en línea ofrece [gran compatibilidad en dispositivos móviles y navegadores de escritorio](http://caniuse.com/#feat=svg-html5), y las [herramientas de optimización](http://petercollingridge.appspot.com/svg-optimiser) pueden reducir de manera significativa el tamaño del archivo SVG. Del mismo modo, los URI de datos son [muy compatibles](http://caniuse.com/datauri). Ambos se pueden poner en línea en CSS.
 * Considera usar `<video>` en lugar de GIF animados. [El elemento de video es compatible con todos los navegadores de dispositivos móviles](http://caniuse.com/video) (excepto con Opera Mini).
 
 Para obtener más información, consulta [Optimización de la imagen](/web/fundamentals/performance/optimizing-content-efficiency/image-optimization) e [Eliminación y reemplazo de imágenes](/web/fundamentals/performance/optimizing-content-efficiency/image-optimization#eliminating-and-replacing-images).
 
-
 ## Diseña el contenido para que funcione correctamente en diferentes tamaños de ventana de visualización {: #viewport }
 
-> "Crea un producto, no rediseñes uno para pantallas pequeñas. Los grandes productos
-> móviles se crean, nunca se adaptan."
->
->— <a href="https://goo.gl/KBAXj0">Mobile Design and Development</a>, Brian Fling
-
+> "Crea un producto, no rediseñes uno para pantallas pequeñas. Los grandes productos móviles se crean, nunca se adaptan."
+> 
+> — [Mobile Design and Development](https://goo.gl/KBAXj0), Brian Fling
 
 Los grandes diseñadores no realizan “optimizaciones para dispositivos móviles”; piensan, de manera responsable, en crear sitios que funcionen en varios dispositivos. La estructura del texto y otros contenidos de la página es esencial para el éxito en diferentes dispositivos.
 
@@ -153,12 +142,11 @@ En la pantalla más pequeña, el diseño se representa de manera correcta en el 
 
 ### Diseñar contenido para móviles
 
-Cuando desarrolles para varias ventanas de visualización diferentes, ten en cuenta el contenido además de la disposición y el diseño gráfico,
-[diseña con textos e imágenes reales, no con contenido ficticio](http://uxmyths.com/post/718187422/myth-you-dont-need-the-content-to-design-a-website).
+Cuando desarrolles para varias ventanas de visualización diferentes, ten en cuenta el contenido además de la disposición y el diseño gráfico, [diseña con textos e imágenes reales, no con contenido ficticio](http://uxmyths.com/post/718187422/myth-you-dont-need-the-content-to-design-a-website).
 
 > "El contenido precede al diseño. El diseño sin contenido no es diseño, es decoración."
->
->— Jeffrey Zeldman
+> 
+> — Jeffrey Zeldman
 
 * Pon tu contenido más importante en la parte superior, ya que los [usuarios tienden a leer las páginas web de acuerdo a un patrón en forma de F](https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/).
 * Los usuarios visitan tu sitio en busca de un objetivo. Pregúntate qué necesitan para alcanzar ese objetivo y deshazte del resto. Sé firme respecto de los adornos visuales y textuales, el contenido heredado, los vínculos excesivos y otras sobrecargas.
@@ -183,17 +171,17 @@ Crece el uso de dispositivos móviles para el consumo de contenido y la obtenci�
 
 Esto aumenta la importancia de planear el contenido con el fin de que funcione bien en diferentes ventanas de visualización, y de priorizar el contenido al considerar un diseño, una interfaz y un bosquejo de interacción para diferentes dispositivos.
 
-
 ## Comprende el costo de los datos
 
-Las páginas web se están expandiendo. <br><br>Conforme al <a href="http://httparchive.org/trends.php#bytesTotal&reqTotal">archivo HTTP</a>, el tamaño promedio de una página para el <a href="http://httparchive.org/about.php#listofurls">millón de sitios más importantes</a> supera los 2 MB.
-
+Las páginas web se están expandiendo.   
+  
+Conforme al [archivo HTTP](http://httparchive.org/trends.php#bytesTotal&reqTotal), el tamaño promedio de una página para el [millón de sitios más importantes](http://httparchive.org/about.php#listofurls) supera los 2 MB.
 
 Los usuarios evitan sitios o apps que les resultan lentos o costosos, de modo que es crucial comprender el costo de carga de una página y de los componentes de la app.
 
 Reducir el peso de la página también puede ser rentable. [Chris Zacharias, de YouTube](http://blog.chriszacharias.com/page-weight-matters), descubrió que cuando se redujo el tamaño de la página de visualización de 1,2 MB a 250 KB:
 
->  un gran número de personas que antes no podían usar YouTube de repente pudieron hacerlo.
+> un gran número de personas que antes no podían usar YouTube de repente pudieron hacerlo.
 
 En otras palabras, la reducción del tamaño de una página **puede abrir nuevos mercados**.
 
@@ -207,11 +195,11 @@ Firefox y otros navegadores ofrecen herramientas similares.
 
 [webpagetest.org](http://webpagetest.org) ofrece la posibilidad de probar la primera carga de página y las que siguen. Puedes automatizar las pruebas con [secuencias de comandos](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/scripting) (por ejemplo, para acceder a un sitio) o con sus [API RESTful](https://sites.google.com/a/webpagetest.org/docs/advanced-features/webpagetest-restful-apis). En el siguiente ejemplo (carga de [developers.google.com/web](/web/)) se muestra que el almacenamiento en caché fue exitoso y que para las cargas de página posteriores no se necesitaron recursos adicionales.
 
-![Resultados de WebPagetest en los que se muestra el tamaño total en bytes para las primeras visitas y las repeticiones de visitas de página](imgs/webpagetest-first-and-repeat.png).
+![WebPagetest results showing total byte size for first and repeat page visits](imgs/webpagetest-first-and-repeat.png)
 
 WebPagetest también otorga un desglose de tamaños y solicitudes por tipo de MIME.
 
-![Gráficos circulares de WebPagetest en los que se muestran solicitudes y bytes a través por tipo de MIME](imgs/webpagetest-requests-and-bytes-pie-charts.png).
+![WebPagetest pie charts showing requests and bytes by MIME type](imgs/webpagetest-requests-and-bytes-pie-charts.png)
 
 ### Calcula el costo de la página
 
@@ -219,7 +207,7 @@ Para muchos usuarios, los datos no solo consumen bytes y rendimiento, sino tambi
 
 El sitio [What Does My Site Cost?](https://whatdoesmysitecost.com/){: .external } te permite estimar el costo real que supone la carga de tu sitio. En el histograma que se ofrece a continuación se muestra cuánto cuesta (con un plan de datos prepago) cargar [amazon.com](https://www.amazon.com/).
 
-![Costo estimado de los datos en 12 países para la carga de la página principal de amazon.com](imgs/what-does-my-site-cost.png).
+![Estimated data cost in 12 countries) of loading the amazon.com homepage](imgs/what-does-my-site-cost.png)
 
 Ten presente que no se tiene en cuenta la accesibilidad a cuentas conforme a los ingresos. Información de [blog.jana.com](https://blog.jana.com/2015/05/21/the-data-trap-affordable-smartphones-expensive-data/) en la que se muestra el costo de los datos.
 
@@ -250,10 +238,10 @@ Ten presente que no se tiene en cuenta la accesibilidad a cuentas conforme a los
   </tr>
 </table>
 
-
 El tamaño de la página no es solo un problema de los mercados emergentes. En muchos países, la gente usa planes de telefonía móvil con datos limitados y evitará tu sitio o tu app si percibe que son cargados y de navegación costosa. Incluso los planes de datos de datos de telefonía celular y Wi-Fi “ilimitados” tienen en general un límite de datos y al superarlo se bloquean o se regulan.
 
 Lo más importante: el tamaño de la página afecta el rendimiento y cuesta dinero. En [Optimización del ahorro del contenido](/web/fundamentals/performance/optimizing-content-efficiency/) se muestra cómo reducir ese costo.
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

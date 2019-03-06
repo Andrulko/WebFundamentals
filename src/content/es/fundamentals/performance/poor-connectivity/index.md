@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Es importante comprender cómo es usar tu app o tu sitio cuando la conectividad es deficiente o poco confiable, y cómo desarrollar en consecuencia. Varias herramientas pueden ayudarte.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Es importante comprender cómo es usar tu app o tu sitio cuando la conectividad es deficiente o poco confiable, y cómo desarrollar en consecuencia. Varias herramientas pueden ayudarte.
 
-{# wf_updated_on: 2016-08-29 #}
-{# wf_published_on: 2016-05-09 #}
+{# wf_updated_on: 2016-08-29 #} {# wf_published_on: 2016-05-09 #}
 
 # Comprensión de las implicaciones del ancho de banda bajo y de la latencia {: .page-title } alta
 
@@ -81,18 +78,17 @@ Puedes encontrar más información acerca de Charles en [codewithchris.com](http
 
 ### ¿Qué es el “Lie-Fi”?
 
-El término <a href="http://www.urbandictionary.com/define.php?term=lie-fi">Lie-Fi</a> data de al menos 2008 (cuando los teléfonos tenían este aspecto<a href="https://www.mobilegazette.com/2008-phones-wallchart.htm" title="Images of phones from 2008"></a>) y hace referencia a conectividad que no funciona como parece. Tu navegador se comporta como si tuviera conectividad cuando, por el motivo que fuere, no la tiene.
+El término [Lie-Fi](http://www.urbandictionary.com/define.php?term=lie-fi) data de al menos 2008 (cuando los teléfonos tenían este aspecto[](https://www.mobilegazette.com/2008-phones-wallchart.htm "Images of phones from 2008")) y hace referencia a conectividad que no funciona como parece. Tu navegador se comporta como si tuviera conectividad cuando, por el motivo que fuere, no la tiene.
 
 Cuando se malinterpreta, la conectividad puede generar una experiencia deficiente debido a que el navegador (o JavaScript) intenta repetidamente recuperar recursos en lugar de desistir y seleccionar un recurso de reserva sensible. El Lie-Fi puede ser incluso peor que la ausencia de conexión; por lo menos, cuando un dispositivo está completamente sin conexión, tu JavaScript puede tomar una medida evasiva adecuada.
 
 El Lie-Fi probablemente se convierta en un problema más grande a medida que más gente adopte los dispositivos móviles y deje de usarse la banda ancha fija. [Datos recientes de un censo de EE. UU.](https://www.ntia.doc.gov/blog/2016/evolving-technologies-change-nature-internet-use) muestran señales de [abandono de la banda ancha fija](https://www.washingtonpost.com/news/the-switch/wp/2016/04/18/new-data-americans-are-abandoning-wired-home-internet/). La siguiente tabla muestra el uso de Internet móvil en casa en 2015 en comparación con 2013:
 
-<img src="images/home-broadband.png" class="center" alt="Tabla de datos de censo de EE UU. que muestra el paso de banda ancha fija a móvil, particularmente en hogares de ingresos bajos">
+<img src="images/home-broadband.png" class="center" alt="Tabla de datos de censo de EE UU. que muestra el paso de banda ancha fija a móvil, particularmente en hogares de ingresos bajos" />
 
 ### Usa tiempos de espera para controlar la conectividad intermitente
 
 En el pasado, se han usado [métodos modificados usando XHR](http://stackoverflow.com/questions/189430/detect-that-the-internet-connection-is-offline) para probar las conectividades intermitentes, pero el service worker permite métodos más confiables para establecer tiempos de espera de red. Jeff Posnick explica la manera de lograr esto con tiempos de espera de [sw-toolbox](https://github.com/GoogleChrome/sw-toolbox) en su charla [Instant Loading with Service Workers](https://youtu.be/jCKZDTtUA2A?t=19m58s) (carga inmediata con procesos de trabajo):
-
 
     toolbox.router.get(
       '/path/to/image',
@@ -103,5 +99,8 @@ En el pasado, se han usado [métodos modificados usando XHR](http://stackoverflo
 
 También se planea una [opción de tiempo de espera](https://github.com/whatwg/fetch/issues/20) para la [API de extracción](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch), y la [Streams API](https://www.w3.org/TR/streams-api/) debería ayudar optimizando la entrega de contenido y evitando solicitudes monolíticas. Jake Archibald proporciona información más detallada sobre la manera de abordar el Lie-Fi en [Supercharging page load](https://youtu.be/d5_6yHixpsQ?t=6m42s) (sobrecarga de la carga de la página).
 
-
 {# wf_devsite_translation #}
+
+## Feedback {: #feedback }
+
+{% include "web/_shared/helpful.html" %}

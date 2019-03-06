@@ -1,10 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: A quantidade de dados baixados por aplicativos continua a crescer com o tempo. Para oferecer um ótimo desempenho, é necessário otimizar o máximo possível a entrega de dados.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: A quantidade de dados baixados por aplicativos continua a crescer com o tempo. Para oferecer um ótimo desempenho, é necessário otimizar o máximo possível a entrega de dados.
 
-
-{# wf_updated_on: 2015-10-05 #}
-{# wf_published_on: 2014-03-31 #}
+{# wf_updated_on: 2015-10-05 #} {# wf_published_on: 2014-03-31 #}
 
 # Otimizar eficiência do conteúdo {: .page-title }
 
@@ -14,9 +10,10 @@ Nossos aplicativos da Web continuam a crescer em escopo, ambição e funcionalid
 
 Qual a aparência de um aplicativo da Web moderno? O [HTTP Archive](http://httparchive.org/){: .external } pode nos ajudar a responder essa pergunta. O projeto acompanha a forma como a Web é criada, rastreando periodicamente os sites mais populares (mais de 300.000 da lista de um milhão de sites mais importantes do Alexa) e registrando e agregando análises sobre número de recursos, tipos de conteúdo e outros metadados para cada destino individual.
 
-<img src="images/http-archive-trends.png"  alt="Tendências do HTTP Archive">
+<img src="images/http-archive-trends.png"  alt="Tendências do HTTP Archive" />
 
 <table class="">
+  
 <colgroup><col span="1"><col span="1"><col span="1"><col span="1"></colgroup>
 <thead>
   <tr>
@@ -72,5 +69,6 @@ Ao contrário de seus equivalentes no desktop, os aplicativos da Web não exigem
 
 Alcançar essa experiência da Web instantânea, considerando esses requisitos, não é uma tarefa trivial. É por isso que a otimização da eficiência do conteúdo é crítica: eliminação de downloads desnecessários, otimização da codificação de transferência de cada recurso por meio de várias técnicas de compressão e aproveitamento de armazenamento em cache sempre que possível para eliminar downloads redundantes.
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

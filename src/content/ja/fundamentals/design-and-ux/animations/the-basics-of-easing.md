@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: アニメーションをやわらかく見せたり、重みを与えたりする方法を学習します。
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: アニメーションをやわらかく見せたり、重みを与えたりする方法を学習します。
 
-{# wf_updated_on:2016-08-23 #}
-{# wf_published_on:2014-08-08 #}
+{# wf_updated_on:2016-08-23 #} {# wf_published_on:2014-08-08 #}
 
 # イージングの基本 {: .page-title }
 
@@ -12,14 +9,14 @@ description: アニメーションをやわらかく見せたり、重みを与�
 自然界の中で、一地点から別の場所に直線的に移動するものはありません。実際には、物は移動するときに加速または減速する傾向があります。私たちの脳は、この種の動きを自然と予測するようにできているので、アニメーション化するときは、この傾向を生かします。ユーザーが快適に感じる自然な動きをアプリに取り入れることで、全体的なエクスペリエンスを向上させることができます。
 
 ### TL;DR {: .hide-from-toc }
+
 * イージングによって、アニメーションはより自然に見えます。
 * UI 要素には ease-out アニメーションを使用します。
 * ease-in または ease-in-out アニメーションはエンドユーザーに緩慢な印象を与える傾向があるため、継続時間を短くできる場合を除いては、使用を控えてください。
 
-
 従来のアニメーションでは、ゆっくりと動き出して加速する動きは「スローイン」、高速で動き出して減速する動きは「スローアウト」と呼ばれます。一般的に、ウェブの世界ではこれを「ease in」と「ease out」という専門用語で表現します。これらを組み合わせた「ease in out」という用語が使われることもあります。イージングとは、アニメーションを滑らかで自然に見せるためのプロセスです。
 
-##  イージングのキーワード
+## イージングのキーワード
 
 CSS 遷移とアニメーションではどちらも、[アニメーションに使用するイージングの種類を選択できます](choosing-the-right-easing)。また、対象とするアニメーションのイージング（`timing` とも言います）に作用するキーワードを使用することも可能です。さらに、[イージングを全面的にカスタマイズ](custom-easing)すると、より自由に独創的なアプリに仕上げることができます。
 
@@ -34,7 +31,7 @@ CSS 遷移とアニメーションではどちらも、[アニメーションに
 
 `steps` キーワードを使用すると、離散的なステップから成る遷移を構成できますが、自然に感じるアニメーションを作成する上で最も有用なキーワードは上に挙げたものです。
 
-##  リニア アニメーション
+## リニア アニメーション
 
 <div class="attempt-right">
   <figure>
@@ -46,7 +43,7 @@ CSS 遷移とアニメーションではどちらも、[アニメーションに
 
 時間に比例して、一定の割合で値が増加します。直線運動はロボットのように不自然に見えやすく、ユーザーに不快感を与える場合があります。そのため、一般的には直線運動は避けたほうがよいでしょう。
 
-CSS や JavaScript を使用してアニメーションのコーディングをする場合は、直線運動用のオプションを使用できます。 
+CSS や JavaScript を使用してアニメーションのコーディングをする場合は、直線運動用のオプションを使用できます。
 
 [リニア アニメーションを見る](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/animations/box-move-linear.html){: target="_blank" .external }
 
@@ -54,12 +51,10 @@ CSS や JavaScript を使用してアニメーションのコーディングを�
 
 CSS で上記の効果を実現するためのコードは次のようになります。
 
-
     transition: transform 500ms linear;
     
 
-
-##  ease-out アニメーション
+## ease-out アニメーション
 
 <div class="attempt-right">
   <figure>
@@ -77,12 +72,10 @@ Easing out では、アニメーションはリニアのものよりも高速で
 
 Ease out 効果を実現する方法はたくさんありますが、最も単純なのは CSS の `ease-out` キーワードを使う方法です。
 
-
     transition: transform 500ms ease-out;
     
 
-
-##  ease-in アニメーション
+## ease-in アニメーション
 
 <div class="attempt-right">
   <figure>
@@ -102,11 +95,10 @@ ease-in アニメーションは、動き始めはゆっくりで、最後に速
 
 ease-in アニメーションを使用するには、ease-out やリニア アニメーションと同様に、そのキーワードを使用します。
 
-
     transition: transform 500ms ease-in;
     
 
-##  ease-in-out アニメーション
+## ease-in-out アニメーション
 
 <div class="attempt-right">
   <figure>
@@ -122,14 +114,11 @@ Ease-in-out は、車の加速と減速に似ています。慎重に使用す�
 
 <div style="clear:both;"></div>
 
-
 ease-in-out のアニメーションには、CSS キーワードの `ease-in-out` を使用します。
-
 
     transition: transform 500ms ease-in-out;
     
 
-
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

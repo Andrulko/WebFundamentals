@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Pilih easing yang sesuai untuk proyek Anda, apakah easing ke dalam, keluar, atau keduanya. Bahkan mungkin gunakan pantulan untuk kesenangan ekstra!
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Pilih easing yang sesuai untuk proyek Anda, apakah easing ke dalam, keluar, atau keduanya. Bahkan mungkin gunakan pantulan untuk kesenangan ekstra!
 
-{# wf_updated_on: 2016-08-23 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2016-08-23 #} {# wf_published_on: 2014-08-08 #}
 
 # Memilih Easing yang Tepat {: .page-title }
 
@@ -12,16 +9,15 @@ description: Pilih easing yang sesuai untuk proyek Anda, apakah easing ke dalam,
 Setelah membahas berbagai pilihan yang tersedia untuk efek easing di animasi, apa yang harus Anda pakai dalam proyek, dan berapa durasi yang sebaiknya digunakan dalam animasi Anda?
 
 ### TL;DR {: .hide-from-toc }
+
 * Gunakan animasi ease-out untuk elemen UI; ease-out Quintic adalah ease yang sangat bagus, meskipun cepat.
 * Pastikan untuk menggunakan durasi animasi; ease-out dan ease-in harus 200 md-500 md, sedangkan easing memantul dan elastis harus memiliki durasi yang lebih lama sekitar 800 md-1200 md.
 
-
-<img src="images/quintic-ease-out-markers.png" alt="Kurva animasi ease-out Quintic" style="max-width: 300px" class="attempt-right"/>
+<img src="images/quintic-ease-out-markers.png" alt="Kurva animasi ease-out Quintic" style="max-width: 300px" class="attempt-right" />
 
 Secara umum, **ease-out** adalah keputusan tepat, dan tentu saja standar yang baik. Efek ini cepat untuk dimulai, animasi Anda memberikan kesan responsif yang disukai, tetapi dengan perlambatan yang bagus di akhir.
 
 Ada grup persamaan ease-out terkemuka selain yang ditetapkan dengan kata kunci `ease-out` di CSS, yang terentang dalam "agresivitas"-nya. Untuk efek ease-out yang cepat, pertimbangkan [ease-out Quintic](http://easings.net/#easeOutQuint).
-
 
 [Lihat animasi ease-out Quintic](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/animations/box-move-quintic-ease-out.html){: target="_blank" .external }
 
@@ -39,7 +35,6 @@ Setiap animasi yang ditambahkan ke proyek Anda harus memiliki durasi yang tepat.
 
 Tentu saja, ini hanya sekadar panduan. Lakukan percobaan dengan easing Anda sendiri dan pilih apa yang paling cocok untuk proyek Anda.
 
-
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

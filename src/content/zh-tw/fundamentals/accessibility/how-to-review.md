@@ -1,9 +1,6 @@
-project_path: /web/fundamentals/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: How to review your site for accessibility issues.
+project_path: /web/fundamentals/_project.yaml book_path: /web/fundamentals/_book.yaml description: How to review your site for accessibility issues.
 
-{# wf_updated_on: 2017-07-24 #}
-{# wf_published_on: 2017-03-12 #}
+{# wf_updated_on: 2017-07-24 #} {# wf_published_on: 2017-03-12 #}
 
 # 如何進行無障礙功能審查 {: .page-title }
 
@@ -11,21 +8,17 @@ description: How to review your site for accessibility issues.
 
 <div>
   <div class="video-wrapper">
-    <iframe class="devsite-embedded-youtube-video" data-video-id="cOmehxAU_4s" data-autohide="1" data-showinfo="0" frameborder="0" allowfullscreen="">
+    <iframe class="devsite-embedded-youtube-video" data-video-id="cOmehxAU_4s"
+            data-autohide="1" data-showinfo="0" frameborder="0" allowfullscreen>
     </iframe>
   </div>
-確定您的網站或應用程序是否有無障礙功能似乎是一項壓倒一切的任務。 如果您第一次接觸到無障礙環境，這個話題的廣度可能讓您想知道從哪裡開始 - 畢竟，致力於適應各種能力意味著需要考慮相應多樣化的問題。
-</div>
-
-在這篇文章中，我將把這些問題分解成邏輯的，循序漸進的過程，以審查現有網站的可訪問性。
-
-
-
+確定您的網站或應用程序是否有無障礙功能似乎是一項壓倒一切的任務。 如果您第一次接觸到無障礙環境，這個話題的廣度可能讓您想知道從哪裡開始 - 畢竟，致力於適應各種能力意味著需要考慮相應多樣化的問題。 </div> 
 
 ## 從鍵盤開始
 
+<img src="imgs/ic_keyboard_black_24px.svg" class="attempt-right" alt="" width="120" />
 
-<img src="imgs/ic_keyboard_black_24px.svg" class="attempt-right" alt="" width="120">對於無法使用鼠標或不使用鼠標的用戶而言，鍵盤導航是他們在屏幕上顯示所有內容的主要方法。這些受眾包括運動障礙的用戶，如重複性壓力傷害（RSI）或癱瘓，以及屏幕閱讀器用戶。為了獲得良好的鍵盤輸入體驗，您需要有一個合理的Tab鍵順序和易於辨別的對焦風格。
+對於無法使用鼠標或不使用鼠標的用戶而言，鍵盤導航是他們在屏幕上顯示所有內容的主要方法。這些受眾包括運動障礙的用戶，如重複性壓力傷害（RSI）或癱瘓，以及屏幕閱讀器用戶。為了獲得良好的鍵盤輸入體驗，您需要有一個合理的Tab鍵順序和易於辨別的對焦風格。
 
 ### 關鍵點
 
@@ -51,7 +44,7 @@ description: How to review your site for accessibility issues.
 
 ## 用屏幕閱讀器試一試
 
-<img src="imgs/ic_speaker_notes_black_24px.svg" class="attempt-right" alt="" width="100">
+<img src="imgs/ic_speaker_notes_black_24px.svg" class="attempt-right" alt="" width="100" />
 
 改進通用鍵盤支持為下一步奠定了一些基礎，即檢查頁面是否有適當的標籤和語義以及屏幕閱讀器導航的任何障礙。如果您不熟悉輔助技術如何解釋語義標記，請參閱“ [簡介”以](/web/fundamentals/accessibility/semantics-builtin/)了解更新。
 
@@ -81,9 +74,7 @@ description: How to review your site for accessibility issues.
 
 ## 利用標題和地標
 
-<img src="imgs/ic_map_black_24px.svg" class="attempt-right" alt="" width="100">
-
-標題和地標元素為您的頁面增添了語義結構，大大提高了輔助技術用戶的導航效率。許多屏幕閱讀器用戶報告說，當他們第一次登陸不熟悉的頁面時，他們通常會嘗試[按標題導航](http://www.heydonworks.com/article/responses-to-the-screen-reader-strategy-survey) 。同樣，屏幕閱讀器也可以跳轉到重要的地標如`<main>`和`<nav>` 。出於這些原因，重要的是要考慮如何使用頁面結構來指導用戶的體驗。
+Providing visual hints about what a control will do helps people operate and navigate your site. These hints are called affordances. Providing affordances makes it possible for people to use your site on a wide variety of devices.
 
 ### 關鍵點
 
@@ -91,19 +82,13 @@ description: How to review your site for accessibility issues.
 
 - 使用地標元素和角色，以便用戶可以繞過重複的內容。許多輔助技術提供了跳轉到頁面特定部分的快捷方式，例如由`<main>`或`<nav>`元素定義的那些部分。這些元素具有隱含的標誌性作用。您還可以使用ARIA `role`屬性在頁面上顯式定義區域，例如`<div role=”search”>` 。有關更多示例，請參閱[關於標題和地標的指南](/web/fundamentals/accessibility/semantics-builtin/navigating-content) 。
 
-- 避免`role=”application”`除非您有以前的使用經驗。 `application`界面角色將告訴輔助技術，禁用其快捷方式並通過所有按鍵進入頁面。這意味著屏幕閱讀器用戶通常用於在頁面上移動的鍵將不再起作用，並且您將需要自己實現*所有*鍵盤處理。
+## 使過程自動化
 
-### 用屏幕閱讀器快速檢查標題和地標
+<img src="imgs/ic_map_black_24px.svg" class="attempt-right" alt="" width="100" />
 
 像VoiceOver和NVDA這樣的屏幕閱讀器提供了一個上下文菜單，用於跳轉到頁面上的重要區域。如果您正在進行可訪問性檢查，則可以使用這些菜單快速瀏覽頁面，並確定標題級別是否合適以及正在使用哪些地標。要了解更多信息，請參閱[VoiceOver](https://www.youtube.com/watch?v=5R-6WvAihms&index=6&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g)和[NVDA](https://www.youtube.com/watch?v=Jao3s_CwdRU&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=4)基礎知識上的這些教學視頻。
 
-## 使過程自動化
-
-<img src="imgs/ic_build_black_24px.svg" class="attempt-right" alt="" width="100">
-
-手動測試站點的可訪問性可能很乏味且容易出錯。最終你會希望盡可能地自動化這個過程。這可以通過使用瀏覽器擴展和命令行可訪問性測試套件來完成。
-
-### 關鍵點
+### 用屏幕閱讀器快速檢查標題和地標
 
 - 頁面是否通過了[ax](https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd)或[WAVE](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh)瀏覽器擴展的所有測試？這些擴展只是兩個可用的選項，可以作為任何手動測試過程的有用補充，因為它們可以快速獲取微妙的問題，如失敗的對比率和缺失的ARIA屬性。如果您更喜歡從命令行執行操作， [ax-cli](https://github.com/dequelabs/axe-cli)提供的功能與ax瀏覽器擴展相同，但可以從終端輕鬆運行。
 
@@ -111,18 +96,40 @@ description: How to review your site for accessibility issues.
 
 - 如果您使用的是框架或庫，它是否提供了自己的輔助功能工具？一些示例包括Angular的[量角器可訪問性插件](https://github.com/angular/protractor-accessibility-plugin/) ，以及Polymer和Web Components的[a11ysuite](https://github.com/Polymer/web-component-tester#a11ysuite) 。盡可能利用可用的工具來避免重新發明車輪。
 
-### 如果您正在構建漸進式Web應用程序，請考慮試用Lighthouse
+### 關鍵點
 
-<img src="imgs/lighthouse.png" class="attempt-right" alt="">
-
-Lighthouse 是一種幫助衡量漸進式網絡應用性能的工具，但它也使用axe-core庫來支持一系列輔助功能測試。如果您已經在使用Lighthouse，請留意報告中的可訪問性測試失敗。修復這些將有助於改善您網站的整體用戶體驗。
+Screen readers like VoiceOver and NVDA provide a context menu for skipping to important regions on the page. If you’re doing an accessibility check, you can use these menus to get a quick overview of the page and determine if heading levels are appropriate and which landmarks are in use. To learn more check out these instructional videos on the basics of [VoiceOver](https://www.youtube.com/watch?v=5R-6WvAihms&index=6&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g) and [NVDA](https://www.youtube.com/watch?v=Jao3s_CwdRU&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=4).
 
 ## 總結
 
-將輔助功能評估作為您團隊過程的常規部分，並且儘早且經常地進行這些檢查可以幫助改善使用您的網站的整體體驗。請記住，良好的可訪問性等於良好的UX
+<img src="imgs/ic_build_black_24px.svg" class="attempt-right" alt="" width="100" />
+
+Manually testing a site for accessibility can be tedious and error prone. Eventually you’ll want to automate the process as much as possible. This can be done through the use of browser extensions, and command line accessibility test suites.
+
+### 如果您正在構建漸進式Web應用程序，請考慮試用Lighthouse
+
+- Does the page pass all the tests from either the [aXe](https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd) or [WAVE](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh) browser extensions? These extensions are just two available options and can be a useful addition to any manual test process as they can quickly pick up on subtle issues like failing contrast ratios and missing ARIA attributes. If you prefer to do things from the command line, [axe-cli](https://github.com/dequelabs/axe-cli) provides the same functionality as the aXe browser extension, but can be easily run from your terminal.
+
+- To avoid regressions, especially in a continuous integration environment, incorporate a library like [axe-core](https://github.com/dequelabs/axe-core) into your automated test suite. axe-core is the same engine that powers the aXe chrome extension, but in an easy-to-run command line utility.
+
+- If you’re using a framework or library, does it provide its own accessibility tools? Some examples include [protractor-accessibility-plugin](https://github.com/angular/protractor-accessibility-plugin/) for Angular, and [a11ysuite](https://github.com/Polymer/web-component-tester#a11ysuite) for Polymer and Web Components. Take advantage of available tools whenever possible to avoid reinventing the wheel.
 
 ### 其他資源
+
+<img src="imgs/lighthouse.png" class="attempt-right" alt="" />
+
+將輔助功能評估作為您團隊過程的常規部分，並且儘早且經常地進行這些檢查可以幫助改善使用您的網站的整體體驗。請記住，良好的可訪問性等於良好的UX
+
+## Wrapping Up
+
+Making accessibility reviews a regular part of your team process, and doing these checks early and often, can help improve the overall experience of using your site. Remember, good accessibility equals good UX!
+
+### Additional Resources
 
 - [Web Accessibility by Google](https://bit.ly/web-a11y)
 - [Accessibility Fundamentals](/web/fundamentals/accessibility/)
 - [A11ycasts](https://www.youtube.com/playlist?list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g)
+
+## Feedback {: #feedback }
+
+{% include "web/_shared/helpful.html" %}

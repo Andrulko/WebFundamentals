@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Saiba como suavizar e dar peso às suas animações.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Saiba como suavizar e dar peso às suas animações.
 
-{# wf_updated_on: 2016-08-23 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2016-08-23 #} {# wf_published_on: 2014-08-08 #}
 
 # Os conceitos básicos de easing {: .page-title }
 
@@ -12,10 +9,10 @@ description: Saiba como suavizar e dar peso às suas animações.
 Nada na natureza se move linearmente de um ponto a outro. Na realidade, as coisas tendem a acelerar ou desacelerar conforme se movem. Nossos cérebros esperam esse tipo de movimento, portanto, ao criar uma animação, use essa informação a seu favor. O movimento natural fará com que o usuário se sinta mais confortável com seus aplicativos, o que, por sua vez, levará a uma melhor experiência geral.
 
 ### TL;DR {: .hide-from-toc }
+
 * O easing deixa suas animações mais naturais.
 * Selecione animações ease-out para elementos da interface do usuário.
 * Evite animações ease-in ou ease-in-out a menos que sejam curtas; elas tendem a parecer lentas para os usuários finais.
-
 
 Na animação clássica, os termos para movimentos que começam lentamente e aceleram é “slow in” e aqueles que começam rapidamente e desaceleram são chamados de “slow out”. A terminologia mais comum na Web é “ease in” e “ease out”, respectivamente. Algumas vezes os dois são combinados, o que é chamado de "ease in out". Portanto, easing é na verdade o processo de tornar a animação menos dura ou marcada.
 
@@ -46,7 +43,7 @@ Uma animação sem nenhum tipo de easing é chamada de **linear**. Um gráfico d
 
 Conforme o tempo passa, o valor aumenta na mesma proporção. Com o movimento linear, obtém-se um aspecto robótico e não natural. Isso é algo que causa estranhamento para o usuário. De modo geral, evite movimentos lineares.
 
-Se estiver codificando suas animações usando CSS ou JavaScript, sempre há uma opção melhor do que o movimento linear. 
+Se estiver codificando suas animações usando CSS ou JavaScript, sempre há uma opção melhor do que o movimento linear.
 
 [Veja uma animação linear](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/animations/box-move-linear.html){: target="_blank" .external }
 
@@ -54,10 +51,8 @@ Se estiver codificando suas animações usando CSS ou JavaScript, sempre há uma
 
 Para obter o efeito acima com CSS, o código seria o seguinte:
 
-
     transition: transform 500ms linear;
     
-
 
 ## Animações ease-out
 
@@ -77,10 +72,8 @@ O ease out é geralmente melhor para o trabalho na interface do usuário, pois o
 
 Há várias formas de se obter um efeito ease out, mas o mais simples é a palavra-chave `ease-out` no CSS:
 
-
     transition: transform 500ms ease-out;
     
-
 
 ## Animações ease-in
 
@@ -102,7 +95,6 @@ No entanto, de um ponto de vista da interação, os ease-ins podem parecer um po
 
 Para usar uma animação ease-in, da mesma forma que as animações ease-out e lineares, você pode usar a palavra-chave:
 
-
     transition: transform 500ms ease-in;
     
 
@@ -122,14 +114,11 @@ Não crie uma animação longa demais devido à lentidão do início do ease-in 
 
 <div style="clear:both;"></div>
 
-
 Para obter uma animação ease-in-out, você pode usar a palavra-chave do CSS `ease-in-out`:
-
 
     transition: transform 500ms ease-in-out;
     
 
-
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

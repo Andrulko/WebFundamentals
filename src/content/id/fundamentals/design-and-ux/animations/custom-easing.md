@@ -1,22 +1,18 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Bertualanglah dan buat animasi yang benar-benar khusus untuk proyek Anda.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Bertualanglah dan buat animasi yang benar-benar khusus untuk proyek Anda.
 
-{# wf_updated_on: 2016-08-23 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2016-08-23 #} {# wf_published_on: 2014-08-08 #}
 
 # Easing Khusus {: .page-title }
 
-{% include "web/_shared/contributors/paullewis.html" %}
-{% include "web/_shared/contributors/samthorogood.html" %}
+{% include "web/_shared/contributors/paullewis.html" %} {% include "web/_shared/contributors/samthorogood.html" %}
 
 Terkadang Anda tidak ingin menggunakan kata kunci easing yang disertakan dengan CSS, atau Anda akan menggunakan Animasi Web atau kerangka kerja JavaScript. Dalam hal ini, Anda biasanya bisa menentukan kurva (atau persamaan), dan ini memberikan Anda banyak kontrol terhadap nuansa animasi proyek.
 
 ### TL;DR {: .hide-from-toc }
+
 * Easing khusus memungkinkan Anda untuk memberikan lebih banyak kepribadian dalam proyek Anda.
 * Anda bisa membuat kurva cubic Bézier yang menyerupai kurva animasi default (ease-out, ease-in, dll.) tapi dengan penekanan pada tempat yang berbeda.
 * Gunakan JavaScript ketika Anda membutuhkan lebih banyak kontrol atas pengaturan waktu dan perilaku animasi, misalnya, animasi elastis atau memantul.
-
 
 Jika membuat animasi dengan CSS, Anda akan mendapati bahwa Anda bisa menentukan kurva cubic Bézier untuk menetapkan waktunya. Faktanya, kata kunci `ease`, `ease-in`, `ease-out` dan `linear` memetakan ke kurva Bézier yang sudah ditetapkan, yang dijelaskan terperinci dalam [spesifikasi transisi CSS](http://www.w3.org/TR/css3-transitions/) dan [spesifikasi Animasi Web](https://w3c.github.io/web-animations/#scaling-using-a-cubic-bezier-curve).
 
@@ -31,6 +27,7 @@ Sebagai perbandingan, di sini ada dua kurva: kurva ease-in-out biasa dan kurva k
     <img src="images/ease-in-out-markers.png" alt="Kurva animasi ease-in-out." />
   </figure>
 </div>
+
 <div class="attempt-right">
   <figure>
     <img src="images/custom.png" alt="Kurva animasi khusus." />
@@ -40,7 +37,6 @@ Sebagai perbandingan, di sini ada dua kurva: kurva ease-in-out biasa dan kurva k
 [Melihat animasi dengan easing khusus](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/animations/box-move-custom-curve.html){: target="_blank" .external }
 
 CSS untuk kurva khusus adalah:
-
 
     transition: transform 500ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
     
@@ -63,12 +59,10 @@ Salah satu kerangka kerja yang efektif adalah [TweenMax dari GreenSock](https://
 
 Untuk menggunakan TweenMax, sertakan skrip berikut di laman Anda:
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
     
 
 Setelah skrip ditempatkan, Anda bisa memanggil TweenMax terhadap elemen Anda dan memberitahukan properti yang diinginkan, bersama tiap easing yang Anda inginkan. Ada banyak pilihan easing yang bisa Anda gunakan; kode di bawah menggunakan ease-out elastis:
-
 
     var box = document.getElementById('my-box');
     var animationDurationInSeconds = 1.5;
@@ -81,8 +75,6 @@ Setelah skrip ditempatkan, Anda bisa memanggil TweenMax terhadap elemen Anda dan
 
 [Dokumentasi TweenMax](https://greensock.com/docs/#/HTML5/GSAP/TweenMax/) menyoroti semua pilihan yang Anda miliki, sehingga layak dibaca.
 
-
-
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

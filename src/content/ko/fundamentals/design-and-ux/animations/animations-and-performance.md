@@ -1,23 +1,19 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: 애니메이션은 잘 실행되어야 하며 그렇지 않으면 사용자에게 거부감을 줄 수 있습니다.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: 애니메이션은 잘 실행되어야 하며 그렇지 않으면 사용자에게 거부감을 줄 수 있습니다.
 
-{# wf_updated_on: 2016-08-23 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2016-08-23 #} {# wf_published_on: 2014-08-08 #}
 
 # 애니메이션 및 성능 {: .page-title }
 
-{% include "web/_shared/contributors/paullewis.html" %}
-{% include "web/_shared/contributors/samthorogood.html" %}
+{% include "web/_shared/contributors/paullewis.html" %} {% include "web/_shared/contributors/samthorogood.html" %}
 
 애니메이션을 만들 때마다 60fps를 유지하세요. 애니메이션이 버벅거리거나 정지하면 사용자의 눈에 거슬리고 거부감을 줄 수 있습니다.
 
 ### TL;DR {: .hide-from-toc }
+
 * 애니메이션이 성능 문제를 일으키지 않도록 주의하세요. 주어진 CSS 속성 애니메이션의 영향을 숙지하세요.
 * 페이지의 기하학적 형태(레이아웃)를 변경하거나 페인트를 유발하는 애니메이션 속성은 특히 비용이 많이 듭니다.
 * 가급적 변형 및 불투명도 변경을 고수하세요.
-*  <code>will-change</code>를 사용하여 애니메이션 적용 대상을 브라우저가 알도록 하세요.
-
+* `will-change`를 사용하여 애니메이션 적용 대상을 브라우저가 알도록 하세요.
 
 애니메이션 속성은 무료가 아니며 각 속성의 비용은 다릅니다. 예를 들어, 요소의 `width` 및 `height` 애니메이션은 기하학적 형태를 변경하고, 페이지의 다른 요소를 이동하거나 크기를 변경할 수 있습니다. 이 프로세스를 *레이아웃*(Firefox와 같은 Gecko 기반 브라우저에서는 *리플로우*)이라고 하며, 페이지에 많은 요소가 있는 경우 비용이 많이 들 수 있습니다. 레이아웃이 트리거될 때마다 페이지 또는 페이지의 일부를 그려야 하며, 이는 일반적으로 레이아웃 작업 자체보다 휠씬 많은 비용이 듭니다.
 
@@ -30,7 +26,6 @@ description: 애니메이션은 잘 실행되어야 하며 그렇지 않으면 �
 [`will-change`](https://dev.w3.org/csswg/css-will-change/)를 사용하여 요소의 속성을 변경하려고 한다는 것을 브라우저가 알도록 하세요. 그러면 개발자가 변경을 수행하기 전에 브라우저를 최적화할 수 있습니다. 그러나 `will-change`를 남용하지는 마세요. 그럴 경우 브라우저가 리소스를 낭비하여 더 많은 성능 문제를 야기할 수 있습니다.
 
 일반적으로 사용자의 상호작용으로 또는 애플리케이션의 상태로 인해 그 다음 200ms 이내에 애니메이션이 트리거될 수 있는 경우, 애니메이션 요소에 `will-change`를 적용하는 것이 좋습니다. 대부분의 경우 앱의 현재 뷰에서 애니메이션을 적용할 모든 요소는 변경할 속성에 대해 `will-change`를 활성화해야 합니다. 이전 가이드에서 사용한 상자 샘플의 경우, transform 및 opacity에 `will-change`를 추가하면 다음과 같게 됩니다.
-
 
     .box {
       will-change: transform, opacity;
@@ -51,7 +46,6 @@ CSS 및 자바스크립트 애니메이션의 성능 관련 장단점을 토론�
 
 주어진 속성 애니메이션에 의해 어떤 작업이 트리거되는지에 대한 자세한 내용은 [CSS 트리거](http://csstriggers.com)를 참조하세요.
 
-
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

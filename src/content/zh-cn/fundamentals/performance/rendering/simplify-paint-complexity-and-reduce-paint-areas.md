@@ -1,17 +1,12 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description:绘制是填充像素的过程，像素最终合成到用户的屏幕上。它往往是管道中运行时间最长的任务，应尽可能避免此任务。
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description:绘制是填充像素的过程，像素最终合成到用户的屏幕上。它往往是管道中运行时间最长的任务，应尽可能避免此任务。
 
-{# wf_updated_on:2015-03-20 #}
-{# wf_published_on:2015-03-20 #}
+{# wf_updated_on:2015-03-20 #} {# wf_published_on:2015-03-20 #}
 
 # 简化绘制的复杂度、减小绘制区域 {: .page-title }
 
 {% include "web/_shared/contributors/paullewis.html" %}
 
-绘制是填充像素的过程，像素最终合成到用户的屏幕上。
-它往往是管道中运行时间最长的任务，应尽可能避免此任务。
-
+绘制是填充像素的过程，像素最终合成到用户的屏幕上。 它往往是管道中运行时间最长的任务，应尽可能避免此任务。
 
 ### TL;DR {: .hide-from-toc }
 
@@ -24,13 +19,13 @@ description:绘制是填充像素的过程，像素最终合成到用户的屏�
 
 如果您触发布局，则总是会触发绘制，因为更改任何元素的几何属性意味着其像素需要修正！
 
-<img src="images/simplify-paint-complexity-and-reduce-paint-areas/frame.jpg"  alt="完整的像素管道。">
+<img src="images/simplify-paint-complexity-and-reduce-paint-areas/frame.jpg"  alt="完整的像素管道。" />
 
 如果更改非几何属性，例如背景、文本或阴影，也可能触发绘制。在这些情况下，不需要布局，并且管道将如下所示：
 
-<img src="images/simplify-paint-complexity-and-reduce-paint-areas/frame-no-layout.jpg"  alt="无布局的像素管道。">
+<img src="images/simplify-paint-complexity-and-reduce-paint-areas/frame-no-layout.jpg"  alt="无布局的像素管道。" />
 
-##  使用 Chrome DevTools 快速确定绘制瓶颈
+## 使用 Chrome DevTools 快速确定绘制瓶颈
 
 <div class="attempt-right">
   <figure>
@@ -44,8 +39,7 @@ description:绘制是填充像素的过程，像素最终合成到用户的屏�
 
 打开此选项后，每次发生绘制时，Chrome 将让屏幕闪烁绿色。如果看到整个屏幕闪烁绿色，或看到您认为不应绘制的屏幕区域，则应当进一步研究。
 
-<img src="images/simplify-paint-complexity-and-reduce-paint-areas/show-paint-rectangles-green.jpg"  alt="每次发生绘制时页面闪烁绿色。">
-
+<img src="images/simplify-paint-complexity-and-reduce-paint-areas/show-paint-rectangles-green.jpg"  alt="每次发生绘制时页面闪烁绿色。" />
 
 <div class="attempt-right">
   <figure>
@@ -69,7 +63,7 @@ Chrome DevTools Timeline 中有一个选项为您提供更多信息：绘制分�
 
 点击绘制分析器将调出一个视图，您可以查看所绘制的元素、所花的时间，以及所需的各个绘制调用：
 
-<img src="images/simplify-paint-complexity-and-reduce-paint-areas/paint-profiler.jpg"  alt="Chrome DevTools 绘制分析器。">
+<img src="images/simplify-paint-complexity-and-reduce-paint-areas/paint-profiler.jpg"  alt="Chrome DevTools 绘制分析器。" />
 
 此分析器让您知道区域和复杂性（实际上就是绘制所花的时间），如果不能选择避免绘制，这两个都是您可以设法修正的方面。
 
@@ -77,25 +71,23 @@ Chrome DevTools Timeline 中有一个选项为您提供更多信息：绘制分�
 
 绘制并非总是绘制到内存中的单个图像。事实上，在必要时浏览器可以绘制到多个图像或合成器层。
 
-<img src="images/simplify-paint-complexity-and-reduce-paint-areas/layers.jpg"  alt="合成器层的表现。">
+<img src="images/simplify-paint-complexity-and-reduce-paint-areas/layers.jpg"  alt="合成器层的表现。" />
 
 此方法的优点是，定期重绘的或通过变形在屏幕上移动的元素，可以在不影响其他元素的情况下进行处理。Sketch、GIMP 或 Photoshop 之类的艺术文件也是如此，各个层可以在彼此的上面处理并合成，以创建最终图像。
 
 创建新层的最佳方式是使用 `will-change` CSS 属性。此方法在 Chrome、Opera 和 Firefox 上有效，并且通过 `transform` 的值将创建一个新的合成器层：
 
-
     .moving-element {
       will-change: transform;
     }
-
+    
 
 对于不支持 `will-change` 但受益于层创建的浏览器，例如 Safari 和 Mobile Safari，需要使用（滥用）3D 变形来强制创建一个新层：
-
 
     .moving-element {
       transform: translateZ(0);
     }
-
+    
 
 但需要注意的是：不要创建太多层，因为每层都需要内存和管理开销。有关此主题的更多信息，请参考[坚持仅合成器的属性和管理层计数](stick-to-compositor-only-properties-and-manage-layer-count)部分。
 
@@ -123,5 +115,6 @@ Note: 在高 DPI 屏幕上，固定位置的元素会被自动提升到其自有
 
 您要尽可能的避免绘制的发生，特别是在动画效果中。因为每帧 **10 毫秒**的时间预算一般来说是不足以完成绘制工作的，尤其是在移动设备上。
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

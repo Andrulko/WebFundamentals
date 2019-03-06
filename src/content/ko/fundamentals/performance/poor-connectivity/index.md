@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: 연결 상태가 나쁘거나 불안정한 경우 앱이나 사이트의 사용 느낌이 어떤지를 파악하여 이에 따라 빌드하는 것이 중요합니다. 다양한 도구가 도움이 될 수 있습니다.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: 연결 상태가 나쁘거나 불안정한 경우 앱이나 사이트의 사용 느낌이 어떤지를 파악하여 이에 따라 빌드하는 것이 중요합니다. 다양한 도구가 도움이 될 수 있습니다.
 
-{# wf_updated_on: 2016-08-29 #}
-{# wf_published_on: 2016-05-09 #}
+{# wf_updated_on: 2016-08-29 #} {# wf_published_on: 2016-05-09 #}
 
 # 낮은 대역폭 및 높은 지연 시간 이해 {: .page-title }
 
@@ -13,7 +10,7 @@ description: 연결 상태가 나쁘거나 불안정한 경우 앱이나 사이�
 
 ## 낮은 대역폭 및 높은 지연 시간으로 테스트 {: #testing }
 
-휴대기기에서 웹을 경험하는 사람들의 <a href="http://adwords.blogspot.co.uk/2015/05/building-for-next-moment.html">비중이 점점 더 많아지고 있습니다</a>. 심지어는 가정에서도 <a href="https://www.washingtonpost.com/news/the-switch/wp/2016/04/18/new-data-americans-are-abandoning-wired-home-internet/">많은 사람들이 자유롭게 이동하면서 사용하기 위해 고정 광대역 사용을 중지하고 있습니다</a>.
+휴대기기에서 웹을 경험하는 사람들의 [비중이 점점 더 많아지고 있습니다](http://adwords.blogspot.co.uk/2015/05/building-for-next-moment.html). 심지어는 가정에서도 [많은 사람들이 자유롭게 이동하면서 사용하기 위해 고정 광대역 사용을 중지하고 있습니다](https://www.washingtonpost.com/news/the-switch/wp/2016/04/18/new-data-americans-are-abandoning-wired-home-internet/).
 
 이러한 상황에서는 연결 상태가 나쁘거나 불안정한 경우 앱이나 사이트의 사용 느낌이 어떤지를 파악하는 것이 중요합니다. 다양한 소프트웨어 도구가 낮은 대역폭 및 높은 [지연 시간](https://www.igvita.com/2012/07/19/latency-the-new-web-performance-bottleneck/)을 [에뮬레이트 및 시뮬레이션](https://stackoverflow.com/questions/1584617/simulator-or-emulator-what-is-the-difference)하는 데 도움이 될 수 있습니다.
 
@@ -87,12 +84,11 @@ Charles에 대한 자세한 내용은 [codewithchris.com](http://codewithchris.c
 
 점점 더 많은 사람들이 모바일로 전환하여 고정 광대역 환경에서 이탈하고 있으므로 lie-fi는 더 큰 문제가 될 가능성이 큽니다. 최신 [미국 인구 조사 데이터](https://www.ntia.doc.gov/blog/2016/evolving-technologies-change-nature-internet-use)에 [고정 광대역 환경 이탈](https://www.washingtonpost.com/news/the-switch/wp/2016/04/18/new-data-americans-are-abandoning-wired-home-internet/)이 나와 있습니다. 다음 차트에서는 2015년도 가정에서의 모바일 인터넷 사용을 2013년과 비교하여 보여줍니다.
 
-<img src="images/home-broadband.png" class="center" alt="특히, 수입이 적은 가정에서 고정 광대역 환경에서 모바일 환경으로의 전환을 보여주는 미국 인구 조사 데이터 기반 차트">
+<img src="images/home-broadband.png" class="center" alt="특히, 수입이 적은 가정에서 고정 광대역 환경에서 모바일 환경으로의 전환을 보여주는 미국 인구 조사 데이터 기반 차트" />
 
 ### 제한 시간을 사용하여 간헐적인 연결 처리
 
 과거에는, [XHR을 사용한 해킹 방법](http://stackoverflow.com/questions/189430/detect-that-the-internet-connection-is-offline)이 간헐적인 연결을 테스트하는 데 사용되었습니다. 하지만, 서비스 워커는 네트워크 제한 시간을 설정하기 위한 더 안정적인 방법을 지원합니다. Jeff Posnick은 [Instant Loading with Service Workers](https://youtu.be/jCKZDTtUA2A?t=19m58s)에서 [sw-toolbox](https://github.com/GoogleChrome/sw-toolbox) 제한 시간을 사용하여 이를 실현하는 방법을 설명하고 있습니다.
-
 
     toolbox.router.get(
       '/path/to/image',
@@ -103,5 +99,8 @@ Charles에 대한 자세한 내용은 [codewithchris.com](http://codewithchris.c
 
 [제한 시간 옵션](https://github.com/whatwg/fetch/issues/20)은 [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch)에 제공될 예정이며, [Streams API](https://www.w3.org/TR/streams-api/)는 콘텐츠 제공을 최적화하고 획일적인 요청을 피하는 방식으로 도움을 줍니다. Jake Archibald는 [Supercharging page load](https://youtu.be/d5_6yHixpsQ?t=6m42s)에서 lie-fi를 해결하는 방법에 대해 자세한 정보를 제공합니다.
 
-
 {# wf_devsite_translation #}
+
+## Feedback {: #feedback }
+
+{% include "web/_shared/helpful.html" %}

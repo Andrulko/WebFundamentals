@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description:在针对各类用户和设备进行构建时，要考虑内容以及布局和图形设计。
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description:在针对各类用户和设备进行构建时，要考虑内容以及布局和图形设计。
 
-{# wf_updated_on: 2016-05-10 #}
-{# wf_published_on: 2016-05-10 #}
+{# wf_updated_on: 2016-05-10 #} {# wf_published_on: 2016-05-10 #}
 
 # 多设备内容 {: .page-title }
 
@@ -14,8 +11,8 @@ description:在针对各类用户和设备进行构建时，要考虑内容以�
 [美国政府写作指南](http://www.usability.gov/how-to-and-tools/methods/writing-for-the-web.html)总结了人们对网页写作的需求：
 
 > 进行网页写作时，使用通俗易懂的语言有利于用户找到他们需要的内容、理解他们找到的内容，然后利用这些内容来满足自己的需求。>> 网页写作应可操作、可查找并且可分享。
-
-
+> 
+> It should also be actionable, findable, and shareable.
 
 研究显示，[人们不会阅读网页，他们只是浏览一下](https://www.nngroup.com/articles/concise-scannable-and-objective-how-to-write-for-the-web/)。一般来说，[人们只阅读网页内容的 20–28%](https://www.nngroup.com/articles/how-little-do-users-read/)。从屏幕上阅读的速度比从纸上阅读的速度要慢。除非信息易于获取和理解，否则人们会放弃阅读并退出您的网站。
 
@@ -30,11 +27,8 @@ description:在针对各类用户和设备进行构建时，要考虑内容以�
 [英国政府调查](https://www.gov.uk/guidance/content-design/writing-for-gov-uk)还表明：
 
 > 80% 的人偏好使用浅显英语书写的句子，并且问题越复杂，这种偏好就越明显（例如，97% 的人在“among > other things”与拉丁文“inter alia”之间更偏好前者）。>> 人们的受教育程度越高，他们的知识就越专业，也 > 越倾向于使用简明的英文。
-
-
-
-
-
+> 
+> The more educated the person and the more specialist their knowledge, the greater their preference for plain English.
 
 换句话说：应使用通俗易懂的语言、较短的词语和简单的句子结构，即使是针对有文化懂技术的受众。始终使用交谈式语气，除非有非常好的理由不这么做。新闻业的一个老规则是以像是在与一个聪明的 11 岁孩子交流的方式进行写作。
 
@@ -52,7 +46,6 @@ description:在针对各类用户和设备进行构建时，要考虑内容以�
 * 减少杂乱无章
 * 直接切入重点
 
-
 ## 消除不必要的内容
 
 就字节大小而言，网页[很大并且越来越大](http://httparchive.org/trends.php#bytesTotal&reqTotal)。
@@ -60,8 +53,8 @@ description:在针对各类用户和设备进行构建时，要考虑内容以�
 利用[自适应设计技巧](/web/fundamentals/design-and-ux/responsive/)，可以为多个较小视口提供不同的内容，但先精简文本、图像和其他内容始终是明智之举。
 
 > 网络用户通常以行动为导向，在寻找他们当前问题的答案时“身体向前倾”而不是向后倾，以消化一本好书。>> — [Jakob Nielsen](https://www.nngroup.com/articles/concise-scannable-and-objective-how-to-write-for-the-web/)
-
-
+> 
+> — [Jakob Nielsen](https://www.nngroup.com/articles/concise-scannable-and-objective-how-to-write-for-the-web/)
 
 问问您自己：用户在访问我的网站时尝试获得什么？
 
@@ -76,8 +69,8 @@ description:在针对各类用户和设备进行构建时，要考虑内容以�
 降低 HTML 复杂性也将减少页面重量，帮助实现本地化和国际化，并使响应式设计更容易计划和调试。有关编写更多有效 HTML 的信息，请参阅[高性能 HTML](https://samdutton.wordpress.com/2015/04/02/high-performance-html/)。
 
 > 在用户通过您的应用获得价值之前，让用户执行的每一个步骤都会让您失去 20% 的用户 >>— [Gabor Cselle，来自 Twitter](http://blog.gaborcselle.com/2012/10/every-step-costs-you-20-of-users.html)
-
-
+> 
+> — [Gabor Cselle, Twitter](http://blog.gaborcselle.com/2012/10/every-step-costs-you-20-of-users.html)
 
 这同样适用于内容：尽快帮助用户获得他们需要的内容。
 
@@ -92,22 +85,21 @@ description:在针对各类用户和设备进行构建时，要考虑内容以�
 ### 移除冗余图像
 
 <div class="attempt-right">
-<figure>
+  <figure>
     <img src="imgs/http-archive-images.png" alt="HTTP Archive 数据显示图像传输大小和图像请求" />
     <figcaption>根据 <a href="http://httparchive.org/trends.php#bytesImg&reqImg">HTTP Archive 数据</a>，网页平均发送 54 次图像请求。</figcaption>
-</figure>
+  </figure>
 </div>
 
 图像很美观、有趣并且可以提供丰富的信息，但是它们也在使用页面空间，增加页面重量，并增加文件请求的数量。[当连接性变得糟糕时，延迟也变得更严重](https://www.igvita.com/2012/07/19/latency-the-new-web-performance-bottleneck/)，这意味着随着网络走向移动化，过多的图片文件请求成为日益严重的问题。
 
-
 <div style="clear:both;"></div>
 
 <div class="attempt-right">
-<figure>
+  <figure>
     <img src="imgs/http-archive-content-type-pie-chart.png" alt="HTTP Archive 饼图按内容类型显示平均每页面字节数，其中图像大约占 60%。">
     <figcaption>图像构成页面重量的 60% 以上。</figcaption>
-</figure>
+  </figure>
 </div>
 
 图像也会耗电。继屏幕之后，无线电成为第二大耗电项目。图像请求越多，无线电使用就越多，需要的电量也就越多。即使只呈现图像也会耗电，且与大小和数量成比例。请参阅 Stanford 报告[谁谋杀了我的电池？(Who Killed My Battery?)](http://cdn.oreillystatic.com/en/assets/1/event/79/Who%20Killed%20My%20Battery_%20Analyzing%20Mobile%20Browser%20Energy%20Consumption%20Presentation.pdf)
@@ -130,14 +122,11 @@ description:在针对各类用户和设备进行构建时，要考虑内容以�
 
 如需了解详细信息，请参阅[图像优化](/web/fundamentals/performance/optimizing-content-efficiency/image-optimization)和[消除并替换图像](/web/fundamentals/performance/optimizing-content-efficiency/image-optimization#eliminating-and-replacing-images)。
 
-
 ## 可以在不同视口尺寸上良好显示的设计内容{: #viewport }
 
->“创造适用于小屏幕的产品，而不是针对小屏幕重新设想一个。出色的移动 > 产品是创造出来的，而绝不是移植出来的。
-
->>— <a href="https://goo.gl/KBAXj0">移动设计与开发</a>，Brian Fling
-
-
+> “创造适用于小屏幕的产品，而不是针对小屏幕重新设想一个。出色的移动 > 产品是创造出来的，而绝不是移植出来的。
+> 
+> — [Mobile Design and Development](https://goo.gl/KBAXj0), Brian Fling
 
 "伟大的设计者不会“专门为移动设备进行优化”，而是考虑以自适应方式构建可在各种设备上使用的网站。文本结构和其他页面内容对于成功构建跨设备网站非常重要。
 
@@ -155,10 +144,9 @@ description:在针对各类用户和设备进行构建时，要考虑内容以�
 
 在针对各种视口进行构建时，要考虑内容以及布局和图形设计，[使用真实文本和图像进行设计，而不是使用虚拟内容](http://uxmyths.com/post/718187422/myth-you-dont-need-the-content-to-design-a-website)。
 
-
->“内容比设计重要。缺乏内容的设计不能叫设计，只能叫装饰。”
->>— Jeffrey Zeldman
-
+> “内容比设计重要。缺乏内容的设计不能叫设计，只能叫装饰。”
+> 
+> — Jeffrey Zeldman
 
 * 将最重要的内容置于顶部，因为[用户往往以 F 形模式阅读网页](https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/)。
 * 用户访问您的网站以实现一个目标。问问您自己，为实现该目标他们需要什么，并去除其他内容。果断去除视觉和文本装饰、老旧的内容、过多的链接和其他杂乱无章的内容。
@@ -183,11 +171,11 @@ Success: 不管做什么，**一定要测试**！
 
 这使得在考虑跨设备布局、界面和交互设计时，计划可在各种视口上顺畅运行的内容并确定内容的优先级变得越来越重要。
 
-
 ## 了解数据成本
 
-网页变得越来越大。<br><br>根据 <a href="http://httparchive.org/trends.php#bytesTotal&reqTotal">HTTP Archive</a>，<a href="http://httparchive.org/about.php#listofurls">前一百万网站</a>的平均页面重量现已超过 2MB。
-
+网页变得越来越大。  
+  
+根据 [HTTP Archive](http://httparchive.org/trends.php#bytesTotal&reqTotal)，[前一百万网站](http://httparchive.org/about.php#listofurls)的平均页面重量现已超过 2MB。
 
 用户会避免访问他们认为较慢或非常消耗流量的网站或应用，因此，了解加载页面和应用组件的成本至关重要。
 
@@ -224,36 +212,36 @@ WebPagetest 还可以按 MIME 类型提供大小和请求的详细分析。
 请记住，这没有考虑相对于收入的支付能力。来自 [blog.jana.com](https://blog.jana.com/2015/05/21/the-data-trap-affordable-smartphones-expensive-data/) 的数据展示了数据的成本。
 
 <table>
-<tr>
+  <tr>
     <td></td>
     <td><strong>500MB 数据计划<br>成本（美元）</strong></td>
     <td><strong>每小时最低<br>工资（美元）</strong></td>
     <td><strong>为支付 <br>500MB 数据计划需要工作的小时数</strong></td>
-</tr>
-<tr>
+  </tr>
+  <tr>
     <td>印度</td>
     <td>3.38 美元</td>
     <td>0.20 美元</td>
     <td>17 小时</td>
-</tr>
-<tr>
+  </tr>
+  <tr>
     <td>印度尼西亚</td>
     <td>2.39 美元</td>
     <td>0.43 美元</td>
     <td>6 小时</td>
-</tr>
-<tr>
+  </tr>
+  <tr>
     <td>巴西</td>
     <td>13.77 美元</td>
     <td>1.04 美元</td>
     <td>13 小时</td>
-</tr>
+  </tr>
 </table>
-
 
 页面重量不只是新兴市场的问题。在许多国家/地区，人们使用数据有限的移动计划，如果他们认为您的网站或应用很重并且非常耗费流量，则会避免使用它们。即使“无限”蜂窝网络和 WiFi 数据计划也通常会有数据限制，超出这个限制就会被阻止或被节流。
 
 根本问题：页面重量会影响性能并且费钱。[优化内容效率](/web/fundamentals/performance/optimizing-content-efficiency/)介绍了如何降低该成本。
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

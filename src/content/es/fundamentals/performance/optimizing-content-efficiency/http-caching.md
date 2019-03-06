@@ -1,10 +1,6 @@
-project_path: /web/fundamentals/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Almacenar en caché y reutilizar recursos obtenidos previamente es un aspecto crítico de la optimización para lograr un buen rendimiento.
+project_path: /web/fundamentals/_project.yaml book_path: /web/fundamentals/_book.yaml description: Almacenar en caché y reutilizar recursos obtenidos previamente es un aspecto crítico de la optimización para lograr un buen rendimiento.
 
-{# wf_updated_on: 2019-02-06 #}
-{# wf_published_on: 2013-12-31 #}
-{# wf_blink_components: Blink>Network #}
+{# wf_updated_on: 2019-02-06 #} {# wf_published_on: 2013-12-31 #} {# wf_blink_components: Blink>Network #}
 
 # Almacenamiento en caché de HTTP {: .page-title }
 
@@ -12,47 +8,45 @@ description: Almacenar en caché y reutilizar recursos obtenidos previamente es 
 
 El proceso de obtención a través de la red es lento y costoso: las respuestas de gran volumen requieren muchos recorridos entre el cliente y el servidor, de lo cual surgen demoras cuando están disponibles y pueden ser procesadas por el navegador, y también genera costos por consumo de datos para el visitante. Como consecuencia, la capacidad de almacenamiento en caché y reutilización de recursos obtenidos previamente es un aspecto crítico de la optimización para lograr un buen rendimiento.
 
-
 Buenas noticias, en todos los navegadores se incluye una implementación de un caché HTTP. Lo único que debes hacer es asegurarte de que cada respuesta del servidor proporcione las directivas de encabezado HTTP correctas para indicar al navegador cuándo y durante cuánto tiempo puede almacenar la respuesta en caché.
 
 Note: Si usas una WebView para obtener y mostrar contenido web en tu app, es posible que necesites proporcionar marcadores de configuración adicionales para garantizar que la caché HTTP esté habilitado, que su tamaño se fije en un número razonable para tu caso de uso y que la caché se mantenga. Lee la documentación de la plataforma y confirma tu configuración.
 
-<img src="images/http-request.png"  alt="Solicitud HTTP">
+<img src="images/http-request.png"  alt="Solicitud HTTP" />
 
 Cuando el servidor muestra una respuesta, también emite un conjunto de encabezados HTTP que describen el tipo de contenido, la extensión, las directivas de almacenamiento en caché y el token de validación, entre otros aspectos. Por ejemplo, en el intercambio anterior, en el servidor se muestra una respuesta de 1,024 bytes, se indica al cliente que la almacene en caché durante un plazo de hasta 120 segundos y se proporciona un token de validación (“x234dff”) que se puede usar después de que la respuesta caduca para verificar si se modificó el recurso.
-
 
 ## Validación de respuestas almacenadas en caché con ETags
 
 ### TL;DR {: .hide-from-toc }
+
 * El servidor usa el encabezado ETag de HTTP para comunicar un token de validación.
 * El token de validación permite comprobar actualizaciones de los recursos de manera eficaz, sin transferencia de datos si el recurso no se ha modificado.
-
 
 Supongamos que ya pasaron 120 segundos desde la obtención inicial y el navegador inició una nueva solicitud para el mismo recurso. Primero, el navegador revisa la caché local y encuentra la respuesta anterior. Desafortunadamente, no puede usarla porque la respuesta caducó. En este momento, el navegador podría simplemente enviar una solicitud nueva y obtener la nueva respuesta completa. Pero eso no resulta eficiente, ya que si el recurso no se modificó, no hay motivo para descargar exactamente los mismos bytes que ya están en la caché.
 
 Ese es el problema que pueden resolver los tokens de validación, tal como se especifica en el encabezado ETag: el servidor genera y muestra un token arbitrario que normalmente es un hash o alguna otra huella digital del contenido del archivo. No es necesario que el cliente conozca la forma en que se genera la huella digital; solo debe enviársela al servidor en la próxima solicitud. Si la huella digital aún es la misma, el recurso no se habrá modificado y puede omitir la descarga.
 
-<img src="images/http-cache-control.png"  alt="Ejemplo de Cache-Control HTTP">
+<img src="images/http-cache-control.png"  alt="Ejemplo de Cache-Control HTTP" />
 
 En el ejemplo anterior, el cliente proporciona automáticamente el token ETag en el encabezado de la solicitud HTTP “If-None-Match”, el servidor compara el token con el recurso actual. Si el token no ha cambiado, muestra una respuesta “304 Not Modified” en la cual se indica al navegador que la respuesta que tiene en la caché no cambió y puede renovarse durante otros 120 segundos. Ten en cuenta que no es necesario volver a descargar la respuesta; esto nos ahorra tiempo y ancho de banda.
 
 Como desarrollador web, ¿cómo aprovechas una revalidación eficaz? El navegador hace todo el trabajo por nosotros. El navegador detecta de manera automática si se especificó un token de validación previamente, lo anexa a la solicitud en curso y actualiza las marcas de tiempo de la caché según sea necesario en función de la respuesta recibida desde el servidor. **Lo único que queda por hacer es asegurarse de que el servidor proporcione los tokens ETag necesarios. Consulta la documentación de tu servidor para obtener los marcadores de configuración requeridos.**
 
-Note: Sugerencia: El proyecto HTML5 Boilerplate contiene <a href='https://github.com/h5bp/server-configs'>ejemplos de archivos de configuración</a> para los servidores más populares con comentarios detallados para cada marcador de configuración y cada ajuste: encuentra tu servidor favorito en la lista, busca los ajustes correspondientes, copia tu servidor y confirma que esté configurado con los ajustes recomendados.
+Note: Sugerencia: El proyecto HTML5 Boilerplate contiene [ejemplos de archivos de configuración](https://github.com/h5bp/server-configs) para los servidores más populares con comentarios detallados para cada marcador de configuración y cada ajuste: encuentra tu servidor favorito en la lista, busca los ajustes correspondientes, copia tu servidor y confirma que esté configurado con los ajustes recomendados.
 
 ## Cache-Control
 
 ### TL;DR {: .hide-from-toc }
+
 * Cada recurso puede definir su política de almacenamiento en caché mediante el encabezado HTTP Cache-Control.
 * Las directivas Cache-Control determinan quiénes pueden almacenar en caché la respuesta, en qué circunstancias y durante cuánto tiempo.
-
 
 Desde el punto de vista de la optimización del rendimiento, la mejor solicitud es aquella que no necesita comunicarse con el servidor: una copia local de la respuesta te permite eliminar toda la latencia de la red y evitar cargos por datos para la transferencia de datos. Para lograr esto, la especificación HTTP permite que el servidor muestre [directivas Cache-Control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) que controlan la manera en que el navegador y otros cachés intermedios pueden almacenar la respuesta individual en la caché y el tiempo durante el cual pueden hacerlo.
 
 Note: El encabezado Cache-Control se definió como parte de la especificación HTTP/1.1 y reemplaza encabezados anteriores (por ejemplo, Expires) empleados para definir políticas de almacenamiento de respuestas en caché. Todos los navegadores modernos son compatibles con Cache-Control, así que es todo lo que necesitas.
 
-<img src="images/http-cache-control-highlight.png"  alt="Ejemplo de Cache-Control HTTP">
+<img src="images/http-cache-control-highlight.png"  alt="Ejemplo de Cache-Control HTTP" />
 
 ### "no-cache" y "no-store"
 
@@ -72,11 +66,12 @@ Esta directiva especifica el tiempo máximo en segundos durante el cual la respu
 
 ## Definición de la política óptima de Cache-Control
 
-<img src="images/http-cache-decision-tree.png"  alt="Árbol de decisión de la caché">
+<img src="images/http-cache-decision-tree.png"  alt="Árbol de decisión de la caché" />
 
 Usa el árbol de decisión anterior a fin de determinar la política óptima de almacenamiento en caché para un recurso específico o un conjunto de recursos utilizado por tu app. Idealmente, debes intentar almacenar en caché en el cliente la mayor cantidad de respuestas posible durante el período más extenso posible, y proporcionar tokens de validación para cada respuesta a fin de permitir una revalidación eficaz.
 
 <table class="responsive">
+  
 <thead>
   <tr>
     <th colspan="2">Directivas de Cache-Control y explicación</th>
@@ -103,10 +98,10 @@ Según HTTP Archive, entre los 300,000 sitios principales (conforme a la clasifi
 ## Invalidación y actualización de respuestas almacenadas en caché
 
 ### TL;DR {: .hide-from-toc }
+
 * Las respuestas almacenadas en caché localmente se usan hasta que el recurso "caduca".
 * La incorporación de la huella digital del contenido de un archivo en la URL permite hacer que el cliente deba realizar una actualización a una nueva versión de la respuesta.
 * Cada app debe definir su propia jerarquía de caché para alcanzar un rendimiento óptimo.
-
 
 Todas las solicitudes HTTP que realiza el navegador primero se direccionan a la caché del navegador para comprobar si hay una respuesta válida almacenada en caché que pueda usarse para responder a la solicitud. Si hay una coincidencia, se lee la respuesta desde la caché y, de esta manera, se eliminan la latencia de la red y los costos por datos de la transferencia.
 
@@ -116,7 +111,7 @@ Una vez que el navegador almacene la respuesta en caché, se usará la versión 
 
 **¿Cómo obtienes lo mejor de ambos mundos (almacenamiento en caché en el cliente y actualizaciones rápidas)?** Es simple. Puedes cambiar la URL del recurso y hacer que el usuario deba descargar la nueva respuesta cada vez que cambie su contenido. Generalmente, esto se logra incorporando una huella digital del archivo, o un número de versión, en el nombre de archivo; por ejemplo, style.**x234dff**.css.
 
-<img src="images/http-cache-hierarchy.png"  alt="Jerarquía de la caché">
+<img src="images/http-cache-hierarchy.png"  alt="Jerarquía de la caché" />
 
 La capacidad de definir políticas de almacenamiento en caché para cada recurso te permite definir “jerarquías de la caché” con las cuales puedes controlar no solo la duración del almacenamiento en caché, sino también la rapidez con la que los visitantes ven las nuevas versiones. Para ilustrar esto, analiza el ejemplo anterior:
 

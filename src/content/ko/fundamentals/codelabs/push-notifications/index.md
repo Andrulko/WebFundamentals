@@ -1,21 +1,12 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: 이 코드랩에서는 웹 앱에 푸시 알림을 추가하는 방법을 배워봅니다.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: 이 코드랩에서는 웹 앱에 푸시 알림을 추가하는 방법을 배워봅니다.
 
-{# wf_updated_on: 2017-10-06 #}
-{# wf_published_on: 2016-01-01 #}
-
+{# wf_updated_on: 2017-10-06 #} {# wf_published_on: 2016-01-01 #}
 
 # 웹 앱에 푸시 알림 추가 {: .page-title }
 
 {% include "web/_shared/contributors/mattgaunt.html" %}
 
-
-
 ## 개요
-
-
-
 
 푸시 메시지는 사용자가 다시 참여하도록 유도하는 간단하면서도 효과적인 방법입니다. 이 코드랩에서는 자신의 개발한 웹 앱에 푸시 알림을 추가하는 방법을 배워보겠습니다.
 
@@ -29,16 +20,12 @@ description: 이 코드랩에서는 웹 앱에 푸시 알림을 추가하는 방
 ### 필요한 사항
 
 * Chrome 52 이상
-*  [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb) 또는 자신이 직접 선택한 웹 서버
+* [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb) 또는 자신이 직접 선택한 웹 서버
 * 텍스트 편집기
 * HTML, CSS, 자바스크립트 및 Chrome DevTools에 대한 기본적인 지식
 * 샘플 코드(설치하기 참조)
 
-
 ## 설치하기
-
-
-
 
 ### 샘플 코드 다운로드
 
@@ -49,6 +36,7 @@ description: 이 코드랩에서는 웹 앱에 푸시 알림을 추가하는 방
 또는 다음 git 저장소를 복제해도 됩니다.
 
     git clone https://github.com/GoogleChrome/push-notifications.git
+    
 
 소스를 zip으로 다운로드한 경우 zip 파일을 풀면 루트 폴더가 `push-notifications-master`로 압축 해제되어야 합니다.
 
@@ -70,7 +58,7 @@ Web Server for Chrome 앱을 설치한 후 북마크바에서 Apps 단축키를 
 
 ![433870360ad308d4.png](img/433870360ad308d4.png)
 
-__choose folder__ 버튼을 클릭하고 앱 폴더를 선택하세요. 그러면 웹 서버 대화상자에 강조표시된 URL을 통해(__Web Server URL(s)__ 섹션) 진행 중인 작업을 제공할 수 있습니다.
+**choose folder** 버튼을 클릭하고 앱 폴더를 선택하세요. 그러면 웹 서버 대화상자에 강조표시된 URL을 통해(**Web Server URL(s)** 섹션) 진행 중인 작업을 제공할 수 있습니다.
 
 아래 그림과 같이, Options 아래에서 'Automatically show index.html' 옆에 있는 확인란을 선택하세요.
 
@@ -88,15 +76,11 @@ __choose folder__ 버튼을 클릭하고 앱 폴더를 선택하세요. 그러�
 
 개발 중에 서비스 워커가 항상 최신 버전이고 최신 변경 사항이 적용된 상태인지 확인하는 것이 유용합니다.
 
-Chrome에서 이를 설정하려면 DevTools(마우스 오른쪽 버튼 클릭 > Inspect)를 열고 __Application__ 패널로 이동하고 __Service Workers__ 탭을 클릭한 후 __Update on Reload__ 확인란을 선택하세요. 이 확인란을 선택하면 페이지를 새로 고칠 때마다 서비스 워커가 강제로 업데이트됩니다.
+Chrome에서 이를 설정하려면 DevTools(마우스 오른쪽 버튼 클릭 > Inspect)를 열고 **Application** 패널로 이동하고 **Service Workers** 탭을 클릭한 후 **Update on Reload** 확인란을 선택하세요. 이 확인란을 선택하면 페이지를 새로 고칠 때마다 서비스 워커가 강제로 업데이트됩니다.
 
 ![6b698d7c7bbf1bc0.png](img/6b698d7c7bbf1bc0.png)
 
-
 ## 서비스 워커 등록
-
-
-
 
 `app` 디렉토리에는 `sw.js`로 명명된 빈 파일이 있습니다. 이 파일이 자신의 서비스 워커이며 지금은 빈 상태로 있을 수 있습니다. 이후에 코드를 추가해나갈 것입니다.
 
@@ -106,30 +90,29 @@ Chrome에서 이를 설정하려면 DevTools(마우스 오른쪽 버튼 클릭 >
 
 다음 코드를 `scripts/main.js`에 추가하세요.
 
-```
-if ('serviceWorker' in navigator && 'PushManager' in window) {
-  console.log('Service Worker and Push is supported');
-
-  navigator.serviceWorker.register('sw.js')
-  .then(function(swReg) {
-    console.log('Service Worker is registered', swReg);
-
-    swRegistration = swReg;
-  })
-  .catch(function(error) {
-    console.error('Service Worker Error', error);
-  });
-} else {
-  console.warn('Push messaging is not supported');
-  pushButton.textContent = 'Push Not Supported';
-}
-```
+    if ('serviceWorker' in navigator && 'PushManager' in window) {
+      console.log('Service Worker and Push is supported');
+    
+      navigator.serviceWorker.register('sw.js')
+      .then(function(swReg) {
+        console.log('Service Worker is registered', swReg);
+    
+        swRegistration = swReg;
+      })
+      .catch(function(error) {
+        console.error('Service Worker Error', error);
+      });
+    } else {
+      console.warn('Push messaging is not supported');
+      pushButton.textContent = 'Push Not Supported';
+    }
+    
 
 이 코드는 현재 브라우저에서 서비스 워커와 푸시 메시지를 지원하는지 확인하며, 지원한다면 `sw.js` 파일을 등록합니다.
 
 #### 실습
 
-브라우저에서 URL __127.0.0.1:8887__을 열어 변경 내용을 확인하세요.
+브라우저에서 URL **127.0.0.1:8887**을 열어 변경 내용을 확인하세요.
 
 다음과 같이 Chrome DevTools를 열어 `Service Worker is registered`용 콘솔을 확인하세요.
 
@@ -137,7 +120,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 
 ### 애플리케이션 서버 키 가져오기
 
-이 코드랩으로 작업하려면 애플리케이션 서버 키를 몇 개 생성할 필요가 있는데, 도우미 사이트인 [https://web-push-codelab.glitch.me/](https://web-push-codelab.glitch.me/)에서 생성할 수 있습니다.
+이 코드랩으로 작업하려면 애플리케이션 서버 키를 몇 개 생성할 필요가 있는데, 도우미 사이트인 <https://web-push-codelab.glitch.me/>에서 생성할 수 있습니다.
 
 여기서 공개 키 쌍과 비공개 키 쌍을 생성할 수 있습니다.
 
@@ -145,17 +128,12 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 
 다음과 같이 `scripts/main.js`로 공개 키를 복사하여 `<Your Public Key>` 값을 바꾸세요.
 
-```
-const applicationServerPublicKey = '<Your Public Key>';
-```
+    const applicationServerPublicKey = '<Your Public Key>';
+    
 
 참고: 절대로 비공개 키를 웹 앱에 두면 안 됩니다!
 
-
 ## 상태 초기화
-
-
-
 
 지금은 웹 앱의 버튼이 비활성화되어 있어 클릭할 수 없습니다. 이는 푸시 버튼을 기본적으로 비활성화하고 푸시가 지원되는 사실을 알고 사용자가 현재 구독한 상태인지 알 수 있을 때 활성화하는 것이 좋은 방법이기 때문입니다.
 
@@ -163,53 +141,50 @@ const applicationServerPublicKey = '<Your Public Key>';
 
 `initialiseUI` 함수를 다음과 같이 작성하려고 합니다.
 
-```
-function initialiseUI() {
-  // Set the initial subscription value
-  swRegistration.pushManager.getSubscription()
-  .then(function(subscription) {
-    isSubscribed = !(subscription === null);
-
-    if (isSubscribed) {
-      console.log('User IS subscribed.');
-    } else {
-      console.log('User is NOT subscribed.');
+    function initialiseUI() {
+      // Set the initial subscription value
+      swRegistration.pushManager.getSubscription()
+      .then(function(subscription) {
+        isSubscribed = !(subscription === null);
+    
+        if (isSubscribed) {
+          console.log('User IS subscribed.');
+        } else {
+          console.log('User is NOT subscribed.');
+        }
+    
+        updateBtn();
+      });
     }
-
-    updateBtn();
-  });
-}
-```
+    
 
 새 메서드는 이전 단계에서 `swRegistration`을 사용하고 `pushManager`에서 `getSubscription()`을 호출합니다. `getSubscription()`은 구독이 있는 경우 현재 구독으로 확인되는 프라미스를 반환하고 그렇지 않으면 `null`을 반환하는 메서드입니다. 이 메서드로 사용자가 이미 구독한 상태인지 확인하고 몇 가지 상태를 설정하고 `updateBtn()`을 호출하여 도움말 역할을 하는 텍스트와 함께 버튼을 활성화할 수 있습니다.
 
 다음 코드를 추가하여 `updateBtn()` 함수를 구현하세요.
 
-```
-function updateBtn() {
-  if (isSubscribed) {
-    pushButton.textContent = 'Disable Push Messaging';
-  } else {
-    pushButton.textContent = 'Enable Push Messaging';
-  }
-
-  pushButton.disabled = false;
-}
-```
+    function updateBtn() {
+      if (isSubscribed) {
+        pushButton.textContent = 'Disable Push Messaging';
+      } else {
+        pushButton.textContent = 'Enable Push Messaging';
+      }
+    
+      pushButton.disabled = false;
+    }
+    
 
 이 함수는 사용자가 구독하는지 여부에 따라 단순히 텍스트를 변경한 후 버튼을 활성화합니다.
 
 마지막으로 할 일은 서비스 워커가 등록될 때 `initialiseUI()`를 호출하는 것입니다.
 
-```
-navigator.serviceWorker.register('sw.js')
-.then(function(swReg) {
-  console.log('Service Worker is registered', swReg);
-
-  swRegistration = swReg;
-  initialiseUI();
-})
-```
+    navigator.serviceWorker.register('sw.js')
+    .then(function(swReg) {
+      console.log('Service Worker is registered', swReg);
+    
+      swRegistration = swReg;
+      initialiseUI();
+    })
+    
 
 #### 실습
 
@@ -219,71 +194,65 @@ navigator.serviceWorker.register('sw.js')
 
 코드랩의 나머지 부분으로 계속 진행하면서 사용자가 구독/구독 취소할 때 버튼 텍스트가 바뀌는 것을 볼 수 있을 것입니다.
 
-
 ## 사용자 구독
-
-
-
 
 지금은 ‘Enable Push Messaging' 버튼의 역할이 미미합니다. 이제 그 부분을 고쳐봅시다.
 
 다음과 같이 `initialiseUI()` 함수에서 버튼에 클릭 리스너를 추가하세요.
 
-```
-function initialiseUI() {
-  pushButton.addEventListener('click', function() {
-    pushButton.disabled = true;
-    if (isSubscribed) {
-      // TODO: Unsubscribe user
-    } else {
-      subscribeUser();
+    function initialiseUI() {
+      pushButton.addEventListener('click', function() {
+        pushButton.disabled = true;
+        if (isSubscribed) {
+          // TODO: Unsubscribe user
+        } else {
+          subscribeUser();
+        }
+      });
+    
+      // Set the initial subscription value
+      swRegistration.pushManager.getSubscription()
+      .then(function(subscription) {
+        isSubscribed = !(subscription === null);
+    
+        updateSubscriptionOnServer(subscription);
+    
+        if (isSubscribed) {
+          console.log('User IS subscribed.');
+        } else {
+          console.log('User is NOT subscribed.');
+        }
+    
+        updateBtn();
+      });
     }
-  });
-
-  // Set the initial subscription value
-  swRegistration.pushManager.getSubscription()
-  .then(function(subscription) {
-    isSubscribed = !(subscription === null);
-
-    updateSubscriptionOnServer(subscription);
-
-    if (isSubscribed) {
-      console.log('User IS subscribed.');
-    } else {
-      console.log('User is NOT subscribed.');
-    }
-
-    updateBtn();
-  });
-}
-```
+    
 
 사용자가 푸시 버튼을 클릭할 때 푸시를 구독하는 데 시간이 좀 걸릴 수 있으므로 먼저 버튼을 비활성화하여 구독하는 동안 사용자가 버튼을 다시 클릭할 수 없도록 합니다.
 
 그런 다음, 사용자가 현재 구독하지 않은 상태임을 알 때 `subscribeUser()`를 호출하여 다음 코드를 복사해 `scripts/main.js`로 붙여넣습니다.
 
-```
-function subscribeUser() {
-  const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
-  swRegistration.pushManager.subscribe({
-    userVisibleOnly: true,
-    applicationServerKey: applicationServerKey
-  })
-  .then(function(subscription) {
-    console.log('User is subscribed:', subscription);
-
-    updateSubscriptionOnServer(subscription);
-
-    isSubscribed = true;
-
-    updateBtn();
-  })
-  .catch(function(err) {
-    console.log('Failed to subscribe the user: ', err);
-    updateBtn();
-  });
-}
-```
+    function subscribeUser() {
+      const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
+      swRegistration.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: applicationServerKey
+      })
+      .then(function(subscription) {
+        console.log('User is subscribed:', subscription);
+    
+        updateSubscriptionOnServer(subscription);
+    
+        isSubscribed = true;
+    
+        updateBtn();
+      })
+      .catch(function(err) {
+        console.log('Failed to subscribe the user: ', err);
+        updateBtn();
+      });
+    }
+    
 
 단계별로 진행하면서 이 코드가 수행하는 작업과 어떻게 사용자에 대해 푸시 메시지를 구독하는지 살펴보세요.
 
@@ -291,13 +260,12 @@ function subscribeUser() {
 
 값을 변환한 후 서비스 워커의 `pushManager`에서 `subscribe()` 메서드를 호출하여 애플리케이션 서버의 공개 키와 `userVisibleOnly: true` 값을 제출합니다.
 
-```
-const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
-swRegistration.pushManager.subscribe({
-  userVisibleOnly: true,
-  applicationServerKey: applicationServerKey
-})
-```
+    const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
+    swRegistration.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: applicationServerKey
+    })
+    
 
 `userVisibleOnly` 매개변수는 기본적으로 푸시가 전송될 때마다 알림을 표시하도록 허용하는 것입니다. 작성 시점에서는 이 값이 필수이고 true여야 합니다.
 
@@ -308,47 +276,45 @@ swRegistration.pushManager.subscribe({
 
 이런 단계를 성공적으로 수행한 경우 `subscribe()` 프라미스는 `PushSubscription`으로 확인됩니다. 사용자가 권한을 허용하지 않거나 사용자 구독에 문제가 있는 경우 프라미스는 오류와 함께 거부합니다. 이에 따라 코드랩에 다음과 같은 프라미스 체인이 생깁니다.
 
-```
-swRegistration.pushManager.subscribe({
-  userVisibleOnly: true,
-  applicationServerKey: applicationServerKey
-})
-.then(function(subscription) {
-  console.log('User is subscribed:', subscription);
-
-  updateSubscriptionOnServer(subscription);
-
-  isSubscribed = true;
-
-  updateBtn();
-
-})
-.catch(function(err) {
-  console.log('Failed to subscribe the user: ', err);
-  updateBtn();
-});
-```
+    swRegistration.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: applicationServerKey
+    })
+    .then(function(subscription) {
+      console.log('User is subscribed:', subscription);
+    
+      updateSubscriptionOnServer(subscription);
+    
+      isSubscribed = true;
+    
+      updateBtn();
+    
+    })
+    .catch(function(err) {
+      console.log('Failed to subscribe the user: ', err);
+      updateBtn();
+    });
+    
 
 이를 이용해 구독을 받고 사용자를 구독 상태로 처리하거나 오류를 파악해 콘솔로 출력합니다. 두 경우 모두 `updateBtn()`을 호출하여 버튼이 다시 활성화되고 알맞은 텍스트가 있는지 확인합니다.
 
 메서드 `updateSubscriptionOnServer`는 실제 애플리케이션에서 백엔드로 구독을 보내는 메서드이지만, 이 코드랩에서는 나중에 도움이 되도록 UI에 구독을 출력하겠습니다. 다음과 같이 `scripts/main.js`에 이 메서드를 추가하세요.
 
-```
-function updateSubscriptionOnServer(subscription) {
-  // TODO: Send subscription to application server
-
-  const subscriptionJson = document.querySelector('.js-subscription-json');
-  const subscriptionDetails =
-    document.querySelector('.js-subscription-details');
-
-  if (subscription) {
-    subscriptionJson.textContent = JSON.stringify(subscription);
-    subscriptionDetails.classList.remove('is-invisible');
-  } else {
-    subscriptionDetails.classList.add('is-invisible');
-  }
-}
-```
+    function updateSubscriptionOnServer(subscription) {
+      // TODO: Send subscription to application server
+    
+      const subscriptionJson = document.querySelector('.js-subscription-json');
+      const subscriptionDetails =
+        document.querySelector('.js-subscription-details');
+    
+      if (subscription) {
+        subscriptionJson.textContent = JSON.stringify(subscription);
+        subscriptionDetails.classList.remove('is-invisible');
+      } else {
+        subscriptionDetails.classList.add('is-invisible');
+      }
+    }
+    
 
 #### 실습
 
@@ -360,40 +326,35 @@ function updateSubscriptionOnServer(subscription) {
 
 ![8fe2b1b110f87b34.png](img/8fe2b1b110f87b34.png)
 
-
 ## 거부된 권한 처리
-
-
-
 
 우리가 아직 처리하지 않은 한 가지가 있는데, 그것은 사용자가 권한 요청을 차단할 경우에 발생하는 일입니다. 이 문제는 특별히 잘 생각해야 합니다. 왜냐하면 사용자가 권한을 차단하면 웹 앱이 권한 프롬프트를 다시 표시할 수 없고 사용자가 구독할 수 없게 되므로 사용자가 푸시 버튼을 사용할 수 없음을 알도록 최소한 버튼을 비활성화할 필요가 있기 때문입니다.
 
 이런 상황을 다루어야 할 분명한 위치는 바로 `updateBtn()` 함수 내에 있습니다. 다음과 같이 `Notification.permission` 값을 확인하기만 하면 됩니다.
 
-```
-function updateBtn() {
-  if (Notification.permission === 'denied') {
-    pushButton.textContent = 'Push Messaging Blocked.';
-    pushButton.disabled = true;
-    updateSubscriptionOnServer(null);
-    return;
-  }
-
-  if (isSubscribed) {
-    pushButton.textContent = 'Disable Push Messaging';
-  } else {
-    pushButton.textContent = 'Enable Push Messaging';
-  }
-
-  pushButton.disabled = false;
-}
-```
+    function updateBtn() {
+      if (Notification.permission === 'denied') {
+        pushButton.textContent = 'Push Messaging Blocked.';
+        pushButton.disabled = true;
+        updateSubscriptionOnServer(null);
+        return;
+      }
+    
+      if (isSubscribed) {
+        pushButton.textContent = 'Disable Push Messaging';
+      } else {
+        pushButton.textContent = 'Enable Push Messaging';
+      }
+    
+      pushButton.disabled = false;
+    }
+    
 
 권한이 `denied`인 경우 사용자 구독이 불가능해서 우리가 할 수 있는 일은 더 이상 없으므로, 버튼을 영구적으로 비활성화하는 것이 최선의 방법입니다.
 
 #### 실습
 
-이전 단계에서 웹 앱에 대한 권한을 이미 허용했으므로 URL 표시줄의 원 안에 표시된 __i__를 클릭하고 알림 권한을 *Use global default (Ask)*로 변경해야 합니다.
+이전 단계에서 웹 앱에 대한 권한을 이미 허용했으므로 URL 표시줄의 원 안에 표시된 **i**를 클릭하고 알림 권한을 *Use global default (Ask)*로 변경해야 합니다.
 
 ![8775071d7fd66432.png](img/8775071d7fd66432.png)
 
@@ -403,11 +364,7 @@ function updateBtn() {
 
 이렇게 변경하면 사용자 구독이 가능하고 가능한 권한 관련 시나리오를 처리할 수 있게 됩니다.
 
-
 ## 푸시 이벤트 처리
-
-
-
 
 백엔드에서 푸시 메시지를 보내는 방법을 다루기 전에 먼저 구독한 사용자가 푸시 메시지를 받을 때 실제로 어떤 일이 일어날지 생각해볼 필요가 있습니다.
 
@@ -415,50 +372,46 @@ function updateBtn() {
 
 `sw.js` 파일에 다음 코드를 추가하세요.
 
-```
-self.addEventListener('push', function(event) {
-  console.log('[Service Worker] Push Received.');
-  console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
-
-  const title = 'Push Codelab';
-  const options = {
-    body: 'Yay it works.',
-    icon: 'images/icon.png',
-    badge: 'images/badge.png'
-  };
-
-  event.waitUntil(self.registration.showNotification(title, options));
-});
-```
+    self.addEventListener('push', function(event) {
+      console.log('[Service Worker] Push Received.');
+      console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
+    
+      const title = 'Push Codelab';
+      const options = {
+        body: 'Yay it works.',
+        icon: 'images/icon.png',
+        badge: 'images/badge.png'
+      };
+    
+      event.waitUntil(self.registration.showNotification(title, options));
+    });
+    
 
 이 코드를 단계별로 진행해봅시다. 서비스 워커에 이벤트 리스너(아래의 코드)를 추가하여 서비스 워커에서 발생하는 푸시 이벤트를 수신할 수 있도록 합니다.
 
-```
-self.addEventListener('push', ...... );
-```
+    self.addEventListener('push', ...... );
+    
 
 이전에 웹 워커를 다루어본 적이 없다면 아마 `self`를 처음 접하실 것입니다. `self`는 서비스 워커 자체를 참조하므로 서비스 워커에 이벤트 리스너를 추가합니다.
 
 푸시 메시지가 수신되면 이벤트 리스너가 실행되고, 등록 시 `showNotification()`을 호출하여 알림을 생성합니다. `showNotification()`은 `title`을 예상할 것이며 `options` 객체를 제공할 수 있습니다. 여기서는 옵션에서 본문 메시지, 아이콘 및 배지를 설정해보겠습니다(직성 시점에서 배지는 Android에서만 사용됨).
 
-```
-const title = 'Push Codelab';
-const options = {
-  body: 'Yay it works.',
-  icon: 'images/icon.png',
-  badge: 'images/badge.png'
-};
-self.registration.showNotification(title, options);
-```
+    const title = 'Push Codelab';
+    const options = {
+      body: 'Yay it works.',
+      icon: 'images/icon.png',
+      badge: 'images/badge.png'
+    };
+    self.registration.showNotification(title, options);
+    
 
 푸시 이벤트에서 마지막으로 다룰 사항은 `event.waitUntil()`입니다. 이 메서드는 프라미스를 취하며 브라우저는 전달된 프라미스가 확인될 때까지 서비스 워커를 활성화 및 실행 상태로 유지할 것입니다.
 
 위의 코드를 좀 더 쉽게 이해할 수 있도록, 다음과 같이 다시 작성할 수 있습니다.
 
-```
-const notificationPromise = self.registration.showNotification(title, options);
-event.waitUntil(notificationPromise);
-```
+    const notificationPromise = self.registration.showNotification(title, options);
+    event.waitUntil(notificationPromise);
+    
 
 푸시 이벤트를 단계별로 진행해봤으므로, 이제 푸시 이벤트를 테스트해봅시다.
 
@@ -476,41 +429,34 @@ event.waitUntil(notificationPromise);
 
 참고: 이 단계를 수행했는데 원하는 결과가 나오지 않으면 DevTools Application 패널에서 *Unregister* 링크를 통해 서비스 작업을 등록 취소하고 서비스 워커가 중지되기를 기다렸다가 페이지를 새로 고쳐 보세요.
 
-
 ## 알림 클릭
-
-
-
 
 이런 알림 중 하나를 클릭해도 아무런 일도 일어나지 않는다는 사실을 알 수 있을 것입니다. 서비스 워커에서 `notificationclick` 이벤트를 수신 대기하는 방법으로 알림 클릭을 처리할 수 있습니다.
 
 다음과 같이 `sw.js`에서 `notificationclick` 리스너를 추가하는 단계부터 시작합니다.
 
-```
-self.addEventListener('notificationclick', function(event) {
-  console.log('[Service Worker] Notification click Received.');
-
-  event.notification.close();
-
-  event.waitUntil(
-    clients.openWindow('https://developers.google.com/web/')
-  );
-});
-```
+    self.addEventListener('notificationclick', function(event) {
+      console.log('[Service Worker] Notification click Received.');
+    
+      event.notification.close();
+    
+      event.waitUntil(
+        clients.openWindow('https://developers.google.com/web/')
+      );
+    });
+    
 
 사용자가 알림을 클릭하면 `notificationclick` 이벤트 리스너가 호출됩니다.
 
 이 코드랩에서는 먼저 클릭한 알림부터 닫습니다.
 
-```
-event.notification.close();
-```
+    event.notification.close();
+    
 
 그런 다음, [developers.google.com](/web/) URL을 로드하는 새 창/탭을 엽니다. 이 URL은 마음대로 바꿔도 됩니다.
 
-```
-clients.openWindow('https://developers.google.com/web/')
-```
+    clients.openWindow('https://developers.google.com/web/')
+    
 
 `event.waitUntil()`을 다시 호출하여 새 창이 표시되기 전에는 브라우저가 서비스 워커를 종료하지 못하게 합니다.
 
@@ -518,17 +464,13 @@ clients.openWindow('https://developers.google.com/web/')
 
 DevTools에서 푸시 메시지를 다시 트리거하고 알림을 클릭해보세요. 그러면 알림이 닫히고 새 탭이 열리는 것을 확인할 수 있을 것입니다.
 
-
 ## 푸시 메시지 보내기
-
-
-
 
 우리가 만든 웹 앱이 DevTools를 사용하여 알림을 표시할 수 있다는 점을 살펴보았고 클릭 알림을 닫는 방법도 알아보았습니다. 다음 단계는 실제 푸시 메시지를 보낼 차례입니다.
 
 보통 이를 위한 프로세스는 웹페이지에서 백엔드로 구독을 전송하면 백엔드가 구독에서 엔드포인트에 대한 API 호출을 실행하여 푸시 메시지를 트리거하는 것입니다.
 
-이 내용은 본 코드랩의 범위를 벗어나지만, 이 코드랩의 도우미 사이트([https://web-push-codelab.glitch.me/](https://web-push-codelab.glitch.me/))를 통해 실제 푸시 메시지를 트리거할 수 있습니다. 다음과 같이 구독 정보를 복사해 페이지 하단에 붙여넣으세요.
+이 내용은 본 코드랩의 범위를 벗어나지만, 이 코드랩의 도우미 사이트(<https://web-push-codelab.glitch.me/>)를 통해 실제 푸시 메시지를 트리거할 수 있습니다. 다음과 같이 구독 정보를 복사해 페이지 하단에 붙여넣으세요.
 
 ![cf0e71f76cb79cc4.png](img/cf0e71f76cb79cc4.png)
 
@@ -548,123 +490,106 @@ DevTools에서 푸시 메시지를 다시 트리거하고 알림을 클릭해보
 
 도우미 앱은 실제로는 [웹 푸시 라이브러리](https://github.com/web-push-libs/web-push)를 사용하여 메시지를 보내는 노드 서버일 뿐입니다. [Github의 web-push-libs org](https://github.com/web-push-libs/)를 확인해 어떤 라이브러리를 사용하여 자동으로 푸시 메시지를 보낼 수 있는지 알아보면 도움이 될 것입니다. 푸시 메시지를 트리거하기 위한 핵심적인 세부 사항을 많이 다루고 있기 때문입니다.
 
+우리가 한 가지 놓치고 있는 점은 사용자가 푸시 알림 구독을 취소할 수 있도록 하는 기능입니다. 이를 위해 `PushSubscription`에서 `unsubscribe()`를 호출해야 합니다.
 
 ## 사용자 구독 취소
 
-
-
-
-우리가 한 가지 놓치고 있는 점은 사용자가 푸시 알림 구독을 취소할 수 있도록 하는 기능입니다. 이를 위해 `PushSubscription`에서 `unsubscribe()`를 호출해야 합니다.
-
 `scripts/main.js` 파일로 다시 돌아가서 `initialiseUI()`에서 `pushButton`의 클릭 리스너를 아래 코드로 변경하세요.
-
-```
-pushButton.addEventListener('click', function() {
-  pushButton.disabled = true;
-  if (isSubscribed) {
-    unsubscribeUser();
-  } else {
-    subscribeUser();
-  }
-});
-```
 
 우리는 이제 새로운 함수인 `unsubscribeUser()`를 호출하려고 합니다. 이 메서드에서는 현재 구독을 가져와 이에 대해 구독 취소를 호출할 것입니다. 다음 코드를 `scripts/main.js`에 추가하세요.
 
-```
-function unsubscribeUser() {
-  swRegistration.pushManager.getSubscription()
-  .then(function(subscription) {
-    if (subscription) {
-      return subscription.unsubscribe();
-    }
-  })
-  .catch(function(error) {
-    console.log('Error unsubscribing', error);
-  })
-  .then(function() {
-    updateSubscriptionOnServer(null);
-
-    console.log('User is unsubscribed.');
-    isSubscribed = false;
-
-    updateBtn();
-  });
-}
-```
+    pushButton.addEventListener('click', function() {
+      pushButton.disabled = true;
+      if (isSubscribed) {
+        unsubscribeUser();
+      } else {
+        subscribeUser();
+      }
+    });
+    
 
 이 함수를 단계별로 진행해봅시다.
 
-먼저 `getSubscription()`을 호출하여 현재 구독을 가져옵니다.
+    function unsubscribeUser() {
+      swRegistration.pushManager.getSubscription()
+      .then(function(subscription) {
+        if (subscription) {
+          return subscription.unsubscribe();
+        }
+      })
+      .catch(function(error) {
+        console.log('Error unsubscribing', error);
+      })
+      .then(function() {
+        updateSubscriptionOnServer(null);
+    
+        console.log('User is unsubscribed.');
+        isSubscribed = false;
+    
+        updateBtn();
+      });
+    }
+    
 
-```
-swRegistration.pushManager.getSubscription()
-```
+먼저 `getSubscription()`을 호출하여 현재 구독을 가져옵니다.
 
 이때 `PushSubscription`으로 확인되는 프라미스가 존재할 경우 이런 프라미스가 반환되고, 존재하지 않으면 `null`이 반환됩니다. 구독이 있을 경우 그 구독에 대해 `unsubscribe()`를 호출하여 `PushSubscription`을 무효로 만듭니다.
 
-```
-swRegistration.pushManager.getSubscription()
-.then(function(subscription) {
-  if (subscription) {
-    // TODO: Tell application server to delete subscription
-    return subscription.unsubscribe();
-  }
-})
-.catch(function(error) {
-  console.log('Error unsubscribing', error);
-})
-```
+    swRegistration.pushManager.getSubscription()
+    
 
 `unsubscribe()`를 호출하면 프라미스가 반환됩니다. 이 과정이 완료되기까지 어느 정도 시간이 걸릴 수 있으므로, 체인에서 그 다음 `then()`이 `unsubscribe()`가 작업을 마칠 때까지 대기하도록 해당 프라미스를 반환합니다. 또한, `unsubscribe()` 호출 시 오류가 발생하는 경우 catch 핸들러를 추가합니다. 그 후에 UI를 업데이트할 수 있습니다.
 
-```
-.then(function() {
-  updateSubscriptionOnServer(null);
-
-  console.log('User is unsubscribed.');
-  isSubscribed = false;
-
-  updateBtn();
-})
-```
-
-#### 실습
+    swRegistration.pushManager.getSubscription()
+    .then(function(subscription) {
+      if (subscription) {
+        // TODO: Tell application server to delete subscription
+        return subscription.unsubscribe();
+      }
+    })
+    .catch(function(error) {
+      console.log('Error unsubscribing', error);
+    })
+    
 
 웹 앱에서 *Enable Push Messaging* / *Disable Push Messaging*을 누를 수 있어야 하며 로그에는 사용자의 구독 여부가 표시됩니다.
 
+    .then(function() {
+      updateSubscriptionOnServer(null);
+    
+      console.log('User is unsubscribed.');
+      isSubscribed = false;
+    
+      updateBtn();
+    })
+    
+
+#### 실습
+
+You should be able to press the *Enable Push Messaging* / *Disable Push Messaging* in your web app and the logs will show the user being subscribed and unsubscribed.
+
 ![33dd89c437c17c97.png](img/33dd89c437c17c97.png)
 
-
 ## 완성
-
-
-
-
-드디어 코드랩을 완성했습니다!
 
 이 코드랩에서는 웹 앱에 푸시를 추가하여 활성화하고 실행하는 방법을 알 수 있었습니다. 웹 알림으로 무엇을 할 수 있을지 좀 더 자세히 알아보고 싶으면 [이 문서를 확인해보세요](/web/fundamentals/push-notifications).
 
 사이트에 푸시를 배포할 방법을 찾고 있다면, GCM을 사용하는 과거의 브라우저나 표준을 준수하지 않는 브라우저를 위한 지원을 추가하는 데도 관심이 있을지 모르겠습니다. [자세한 내용은 여기서 확인할 수 있습니다](https://web-push-book.gauntface.com/chapter-06/01-non-standards-browsers/).
 
+언제든 망설이지 말고 [문제](https://github.com/googlechrome/push-notifications/issues)를 제출해 주시면 코드랩에서 더욱 나은 서비스를 제공하는 데 큰 도움이 될 것입니다. 감사합니다!
+
 ### 추가 자료
 
-*  Web__Fundamentals__의 [웹 푸시 알림](/web/fundamentals/push-notifications) 문서
-*  [웹 푸시 라이브러리](https://github.com/web-push-libs/) - Node.js, PHP, 자바 및 Python을 포함한 웹 푸시 라이브러리
+* Web__Fundamentals__의 [웹 푸시 알림](/web/fundamentals/push-notifications) 문서
+* [웹 푸시 라이브러리](https://github.com/web-push-libs/) - Node.js, PHP, 자바 및 Python을 포함한 웹 푸시 라이브러리
 
 #### 관련 블로그 게시물
 
-*  [웹 푸시 페이로드 암호화](/web/updates/2016/03/web-push-encryption)
-*  [애플리케이션 서버 키와 웹 푸시](/web/updates/2016/07/web-push-interop-wins)
-*  [알림 작업](/web/updates/2016/01/notification-actions)
-*  [아이콘, 이벤트 닫기, 다시 알림 기본 설정 및 타임스탬프](/web/updates/2016/03/notifications)
-
-
-
-
+* [웹 푸시 페이로드 암호화](/web/updates/2016/03/web-push-encryption)
+* [애플리케이션 서버 키와 웹 푸시](/web/updates/2016/07/web-push-interop-wins)
+* [알림 작업](/web/updates/2016/01/notification-actions)
+* [아이콘, 이벤트 닫기, 다시 알림 기본 설정 및 타임스탬프](/web/updates/2016/03/notifications)
 
 ## 문제가 있거나 의견이 있으세요? {: .hide-from-toc }
-언제든 망설이지 말고
-[문제](https://github.com/googlechrome/push-notifications/issues)를 제출해 주시면 코드랩에서 더욱 나은 서비스를 제공하는 데 큰 도움이 될 것입니다. 감사합니다!
 
 {# wf_devsite_translation #}

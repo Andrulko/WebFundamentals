@@ -1,22 +1,18 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: 프로젝트에 대한 사용자설정 easing 애니메이션을 만듭니다.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: 프로젝트에 대한 사용자설정 easing 애니메이션을 만듭니다.
 
-{# wf_updated_on: 2016-08-23 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2016-08-23 #} {# wf_published_on: 2014-08-08 #}
 
 # 사용자설정 easing {: .page-title }
 
-{% include "web/_shared/contributors/paullewis.html" %}
-{% include "web/_shared/contributors/samthorogood.html" %}
+{% include "web/_shared/contributors/paullewis.html" %} {% include "web/_shared/contributors/samthorogood.html" %}
 
 CSS에 포함된 easing 키워드를 사용하지 않거나, 웹 애니메이션 또는 자바스크립트 프레임워크를 사용할 수 있습니다. 이 경우에 고유한 곡선(또는 방정식)을 일반적으로 정의할 수 있으며 프로젝트에서 애니메이션의 느낌을 세밀하게 제어할 수 있습니다.
 
 ### TL;DR {: .hide-from-toc }
+
 * 사용자설정 easing을 사용하여 프로젝트의 개성을 강화할 수 있습니다.
 * 기본 애니메이션 곡선(ease-out, ease-in 등)과 닮았지만 여러 장소를 강조하는 3차원 베지어 곡선을 만들 수 있습니다.
 * 탄성 또는 바운스 애니메이션 등 애니메이션 타이밍과 동작을 더욱 세밀하게 제어해야 하는 경우 자바스크립트를 사용합니다.
-
 
 CSS로 애니메이션을 만드는 경우, 3차원 베지어 곡선을 정의하여 타이밍을 정의할 수 있다는 것을 알게 될 것입니다. 실제로 `ease`, `ease-in`, `ease-out` 및 `linear` 키워드는 사전 정의된 베지어 곡선에 매핑됩니다. 이에 대한 자세한 내용은 [CSS 전환 사양](http://www.w3.org/TR/css3-transitions/) 및 [웹 애니메이션 사양](https://w3c.github.io/web-animations/#scaling-using-a-cubic-bezier-curve)을 참조하세요.
 
@@ -31,6 +27,7 @@ CSS로 애니메이션을 만드는 경우, 3차원 베지어 곡선을 정의�
     <img src="images/ease-in-out-markers.png" alt="Ease-in-out 애니메이션 곡선" />
   </figure>
 </div>
+
 <div class="attempt-right">
   <figure>
     <img src="images/custom.png" alt="사용자설정 애니메이션 곡선" />
@@ -40,7 +37,6 @@ CSS로 애니메이션을 만드는 경우, 3차원 베지어 곡선을 정의�
 [사용자설정 easing 애니메이션 참조](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/animations/box-move-custom-curve.html){: target="_blank" .external }
 
 다음은 사용자설정 곡선용 CSS입니다.
-
 
     transition: transform 500ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
     
@@ -63,12 +59,10 @@ CSS로 애니메이션을 만드는 경우, 3차원 베지어 곡선을 정의�
 
 TweenMax를 사용하려면 페이지에 이 스크립트를 포함해야 합니다.
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
     
 
 스크립트가 포함된 후, 요소에 대해 TweenMax를 호출하고 원하는 easing과 원하는 속성을 알려줄 수 있습니다. 다양한 easing 옵션을 사용할 수 있습니다. 아래 코드는 elastic ease-out을 사용합니다.
-
 
     var box = document.getElementById('my-box');
     var animationDurationInSeconds = 1.5;
@@ -81,8 +75,6 @@ TweenMax를 사용하려면 페이지에 이 스크립트를 포함해야 합니
 
 여기서 설명한 모든 옵션에 대한 자세한 내용은 [TweenMax 설명서](https://greensock.com/docs/#/HTML5/GSAP/TweenMax/)를 참조하세요.
 
-
-
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

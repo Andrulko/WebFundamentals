@@ -1,64 +1,60 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: 每個應用程式所下載的資料數量不斷增加。為了提供卓越的效能，我們需要從小處著手，確保每一個位元組的放送過程最佳化！
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: 每個應用程式所下載的資料數量不斷增加。為了提供卓越的效能，我們需要從小處著手，確保每一個位元組的放送過程最佳化！
 
-{# wf_updated_on: 2014-04-28 #}
-{# wf_published_on: 2014-03-31 #}
+{# wf_updated_on: 2014-04-28 #} {# wf_published_on: 2014-03-31 #}
 
 # 最佳化內容效率 {: .page-title }
 
 {% include "web/_shared/contributors/ilyagrigorik.html" %}
 
-
-
 我們的網路應用程式在範圍、目標和功能上都在不斷增長。這是值得開心的現象！ 但是在邁向內容日趨豐富的網路時代時，過程中也產生了另一種趨勢：每個應用程式所下載的資料量也在持續穩步增長。為了提供卓越的效能，我們需要從小處著手，確保每一個位元組的放送過程最佳化！
-
 
 現代網路應用程式是什麼呢？ [HTTP Archive](http://httparchive.org/){: .external } 可以協助我們回答這個問題。這項專案的用意在於追蹤網路的建構過程，方法是透過定期檢索最受歡迎的網站 (Alexa 百萬熱門網站清單中的前 30 萬個)， 並記錄及匯總每個單獨目標的資源數量、內容類型和其他中繼資料的分析資料。
 
-<img src="images/http-archive-trends.png" class="center" alt="HTTP Archive 趨勢">
+<img src="images/http-archive-trends.png"  alt="HTTP Archive 趨勢" />
 
-<table>
+<table class="">
+  
+<colgroup><col span="1"><col span="1"><col span="1"><col span="1"></colgroup>
 <thead>
   <tr>
     <th></th>
-    <th>第 50 百分位</th>
-    <th>第 75 百分位</th>
-    <th>第 90 百分位</th>
+    <th>50th percentile</th>
+    <th>75th percentile</th>
+    <th>90th percentile</th>
   </tr>
 </thead>
 <tr>
-  <td data-th="類型">HTML</td>
+  <td data-th="type">HTML</td>
   <td data-th="50%">13 KB</td>
   <td data-th="75%">26 KB</td>
   <td data-th="90%">54 KB</td>
 </tr>
 <tr>
-  <td data-th="類型">圖片</td>
+  <td data-th="type">Images</td>
   <td data-th="50%">528 KB</td>
   <td data-th="75%">1213 KB</td>
   <td data-th="90%">2384 KB</td>
 </tr>
 <tr>
-  <td data-th="類型">JavaScript</td>
+  <td data-th="type">JavaScript</td>
   <td data-th="50%">207 KB</td>
   <td data-th="75%">385 KB</td>
   <td data-th="90%">587 KB</td>
 </tr>
 <tr>
-  <td data-th="類型">CSS</td>
+  <td data-th="type">CSS</td>
   <td data-th="50%">24 KB</td>
   <td data-th="75%">53 KB</td>
   <td data-th="90%">108 KB</td>
 </tr>
 <tr>
-  <td data-th="類型">其他</td>
+  <td data-th="type">Other</td>
   <td data-th="50%">282 KB</td>
   <td data-th="75%">308 KB</td>
   <td data-th="90%">353 KB</td>
 </tr>
 <tr>
-  <td data-th="類型"><strong>總計</strong></td>
+  <td data-th="type"><strong>Total</strong></td>
   <td data-th="50%"><strong>1054 KB</strong></td>
   <td data-th="75%"><strong>1985 KB</strong></td>
   <td data-th="90%"><strong>3486 KB</strong></td>
@@ -73,4 +69,6 @@ description: 每個應用程式所下載的資料數量不斷增加。為了提�
 
 看看這些要件，要實現即時搜尋網路體驗確實是不小的壯舉，這也正是為什麼最佳化內容效率如此關鍵：消除不必要的下載，透過各種壓縮技術來最佳化資源的傳輸編碼，並利用快取來消除多餘的下載。
 
+## Feedback {: #feedback }
 
+{% include "web/_shared/helpful.html" %}

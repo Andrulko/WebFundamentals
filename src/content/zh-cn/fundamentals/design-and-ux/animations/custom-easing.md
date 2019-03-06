@@ -1,22 +1,18 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description:不走寻常路，为项目创建完全自定义的动画。
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description:不走寻常路，为项目创建完全自定义的动画。
 
-{# wf_updated_on: 2016-08-23 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2016-08-23 #} {# wf_published_on: 2014-08-08 #}
 
 # 自定义缓动 {: .page-title }
 
-{% include "web/_shared/contributors/paullewis.html" %}
-{% include "web/_shared/contributors/samthorogood.html" %}
+{% include "web/_shared/contributors/paullewis.html" %} {% include "web/_shared/contributors/samthorogood.html" %}
 
 有时您不想使用 CSS 随附的缓动关键字，或者要使用 Web Animations 或 JavaScript 框架。在这些情况下，一般可以定义自己的曲线（或公式），这让您能更好地控制项目动画的感觉。
 
 ### TL;DR {: .hide-from-toc }
+
 * 自定义缓动使您能够给项目提供更多个性。
 * 您可以创建与默认动画曲线（缓出、缓入等）相似的三次贝塞尔曲线，只是重点放在不同的地方。
 * 当需要对动画时间和行为（例如弹性或弹跳动画）进行更多控制时，请使用 JavaScript。
-
 
 如果使用 CSS 编写动画，您将发现可以通过定义三次贝塞尔曲线来定义时间。事实上，关键字 `ease`、`ease-in`、`ease-out` 和 `linear` 映射到预定义的贝塞尔曲线，详细说明请参考 [CSS 变换规范](http://www.w3.org/TR/css3-transitions/) 和 [Web Animations 规范](https://w3c.github.io/web-animations/#scaling-using-a-cubic-bezier-curve)。
 
@@ -31,6 +27,7 @@ description:不走寻常路，为项目创建完全自定义的动画。
     <img src="images/ease-in-out-markers.png" alt="缓入缓出动画的曲线。" />
   </figure>
 </div>
+
 <div class="attempt-right">
   <figure>
     <img src="images/custom.png" alt="自定义动画的曲线。" />
@@ -40,7 +37,6 @@ description:不走寻常路，为项目创建完全自定义的动画。
 [查看自定义缓动的动画](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/animations/box-move-custom-curve.html){: target="_blank" .external }
 
 此自定义曲线的 CSS 为：
-
 
     transition: transform 500ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
     
@@ -63,12 +59,10 @@ description:不走寻常路，为项目创建完全自定义的动画。
 
 要使用 TweenMax，请在页面中包括此脚本：
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
     
 
 将该脚本放到合适位置后，您可以对元素调用 TweenMax，并且告诉它您想要的任何缓动，以及您想要哪些属性。有大量缓动选项可供使用；以下代码使用一个弹性缓出：
-
 
     var box = document.getElementById('my-box');
     var animationDurationInSeconds = 1.5;
@@ -81,8 +75,6 @@ description:不走寻常路，为项目创建完全自定义的动画。
 
 [TweenMax 文档](https://greensock.com/docs/#/HTML5/GSAP/TweenMax/)重点说明了您使用的所有选项，非常值得一读。
 
-
-
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

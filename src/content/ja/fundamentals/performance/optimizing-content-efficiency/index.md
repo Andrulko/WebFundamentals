@@ -1,12 +1,8 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: アプリでダウンロードするデータの量は増え続けています。優れたパフォーマンスを実現するには、データ配信をできるだけ最適化する必要があります。
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: アプリでダウンロードするデータの量は増え続けています。優れたパフォーマンスを実現するには、データ配信をできるだけ最適化する必要があります。
 
+{# wf_updated_on: 2015-10-05 #} {# wf_published_on: 2014-03-31 #}
 
-{# wf_updated_on: 2015-10-05 #}
-{# wf_published_on: 2014-03-31 #}
-
-#  コンテンツの効率の最適化 {: .page-title }
+# コンテンツの効率の最適化 {: .page-title }
 
 {% include "web/_shared/contributors/ilyagrigorik.html" %}
 
@@ -14,9 +10,10 @@ description: アプリでダウンロードするデータの量は増え続け�
 
 最近のウェブ アプリケーションの現状を知るには、[HTTP Archive](http://httparchive.org/){: .external } のデータが役立つでしょう。このプロジェクトでは、人気のあるサイト（Alexa の上位 100 万のサイトリストから 300,000 サイト以上）を定期的にクロールし、サイト別にリソースの数、コンテンツの種類、その他のメタデータに関する分析を記録し集約することで、ウェブの構築方法を追跡しています。
 
-<img src="images/http-archive-trends.png"  alt="HTTP Archive のトレンド">
+<img src="images/http-archive-trends.png"  alt="HTTP Archive のトレンド" />
 
 <table class="">
+  
 <colgroup><col span="1"><col span="1"><col span="1"><col span="1"></colgroup>
 <thead>
   <tr>
@@ -72,5 +69,6 @@ description: アプリでダウンロードするデータの量は増え続け�
 
 これらの要件を踏まえて瞬時のウェブ エクスペリエンスを実現するのは並大抵のことではありません。これが、コンテンツの効率を最適化することが重要である理由です。不要なダウンロードを回避し、さまざまな圧縮技術で各リソースの転送エンコードを最適化し、可能な場合に必ずキャッシュを利用することで、ダウンロードをの冗長性を排除するのです。
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

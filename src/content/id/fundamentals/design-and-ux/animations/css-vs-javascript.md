@@ -1,22 +1,18 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Anda bisa menganimasikan dengan CSS atau JavaScript. Mana yang harus Anda gunakan, dan mengapa?
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Anda bisa menganimasikan dengan CSS atau JavaScript. Mana yang harus Anda gunakan, dan mengapa?
 
-{# wf_updated_on: 2017-07-12 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2017-07-12 #} {# wf_published_on: 2014-08-08 #}
 
 # Animasi CSS Versus JavaScript {: .page-title }
 
-{% include "web/_shared/contributors/paullewis.html" %}
-{% include "web/_shared/contributors/samthorogood.html" %}
+{% include "web/_shared/contributors/paullewis.html" %} {% include "web/_shared/contributors/samthorogood.html" %}
 
 Ada dua cara utama untuk membuat animasi di web: dengan CSS dan dengan JavaScript. Mana yang Anda pilih sangat tergantung pada dependensi lain dari proyek, dan jenis efek yang ingin coba dicapai.
 
 ### TL;DR {: .hide-from-toc }
+
 * Gunakan animasi CSS untuk transisi "satu-kali" yang lebih sederhana, seperti mengubah status elemen UI.
 * Gunakan animasi JavaScript ketika Anda ingin menggunakan efek lanjutan seperti memantul, berhenti, jeda, memutar mundur atau memperlambat.
 * Jika Anda memilih untuk membuat animasi dengan JavaScript, gunakan Web Animations API atau kerangka kerja modern yang sesuai bagi Anda.
-
 
 Kebanyakan animasi dasar bisa dibuat dengan CSS atau JavaScript, namun besaran tenaga dan waktu bisa berbeda (lihat juga [Kinerja CSS vs JavaScript](animations-and-performance#css-vs-javascript-performance)). Masing-masing memiliki kelebihan dan kekurangan, tetapi ini bisa dijadikan panduan yang bagus:
 
@@ -40,7 +36,6 @@ Menganimasikan dengan CSS adalah cara paling sederhana untuk menggerakkan sesuat
 
 Di bawah ini adalah beberapa CSS yang memindahkan elemen 100 px pada sumbu X dan Y. Hal ini dilakukan dengan menggunakan transisi CSS yang disetel 500 md. Ketika kelas `move` ditambahkan, nilai `transform` berubah dan transisi dimulai.
 
-
     .box {
       -webkit-transform: translate(0, 0);
       -webkit-transition: -webkit-transform 500ms;
@@ -54,12 +49,12 @@ Di bawah ini adalah beberapa CSS yang memindahkan elemen 100 px pada sumbu X dan
       transform: translate(100px, 100px);
     }
     
+
 [Cobalah](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/animations/box-move-simple.html){: target="_blank" .external }
 
 Selain durasi transisi, ada beberapa pilihan untuk *easing*, yaitu bagaimana animasi terasa. Untuk informasi selengkapnya tentang easing, lihat panduan [Dasar-Dasar Easing](the-basics-of-easing).
 
 Jika, seperti dalam cuplikan di atas, Anda membuat kelas CSS yang terpisah untuk mengelola animasi, maka Anda bisa menggunakan JavaScript untuk menghidupkan dan mematikan setiap animasi:
-
 
     box.classList.add('move');
     
@@ -67,7 +62,6 @@ Jika, seperti dalam cuplikan di atas, Anda membuat kelas CSS yang terpisah untuk
 Melakukan hal ini memberikan keseimbangan yang baik bagi aplikasi Anda. Anda bisa fokus dalam mengelola status dengan JavaScript, dan hanya menyetel kelas yang sesuai pada elemen sasaran, mempercayakan browser untuk menangani animasi. Jika menggunakan cara ini, Anda bisa mendengarkan kejadian `transitionend` pada elemen, namun hanya jika Anda mampu melepaskan dukungan pada versi Internet Explorer lama; versi 10 adalah versi pertama yang mendukung kejadian ini. Semua browser lain telah lama mendukung kejadian ini.
 
 JavaScript yang diperlukan untuk mendengarkan akhir transisi terlihat seperti ini:
-
 
     var box = document.querySelector('.box');
     box.addEventListener('transitionend', onTransitionEnd, false);
@@ -82,7 +76,6 @@ Selain menggunakan transisi CSS, Anda juga bisa menggunakan animasi CSS, yang me
 Note: Jika Anda baru dalam dunia animasi, keyframe adalah istilah lama dari animasi yang digambar tangan. Animator akan membuat bingkai khusus untuk bagian dari tindakan, disebut bingkai kunci, yang akan merekam beberapa hal seperti bagian paling ekstrem dari beberapa gerakan, dan kemudian mereka akan menggambar semua bingkai secara tersendiri di antara keyframe. Kita menjalankan proses yang sama saat ini dengan animasi CSS, kita menginstruksikan browser tentang nilai yang harus dimiliki properti CSS pada titik tertentu, dan keyframe mengisi celahnya.
 
 Misalnya, Anda bisa menganimasikan kotak dengan cara yang sama seperti transisi, namun menganimasikannya tanpa interaksi pengguna seperti klik, dan dengan pengulangan tak terbatas. Anda juga bisa mengubah beberapa properti sekaligus:
-
 
     /**
      * This is a simplified version without
@@ -140,7 +133,6 @@ Membuat animasi dengan JavaScript, jika dibandingkan, lebih kompleks daripada me
 
 Animasi JavaScript *sangat penting*, ketika Anda menulisnya secara inline sebagai bagian dari kode Anda. Anda juga bisa membungkusnya dalam objek lain. Berikut adalah JavaScript yang harus Anda tulis untuk membuat ulang transisi CSS yang sudah dijelaskan sebelumnya:
 
-
     var target = document.querySelector('.box');
     var player = target.animate([
       {transform: 'translate(0)'},
@@ -159,5 +151,6 @@ Web Animations API adalah standar baru dari W3C. Didukung secara native di Chrom
 
 Dengan animasi JavaScript, Anda memiliki kontrol penuh dari gaya elemen ini dalam setiap langkahnya. Ini berarti Anda bisa memperlambat animasi, melakukan jeda, menghentikan, membalikkan, dan memanipulasi elemen animasi sesuai keinginan Anda. Hal ini sangat berguna jika membangun aplikasi berorientasi objek yang kompleks, karena Anda bisa membungkus perilaku dengan baik.
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

@@ -1,25 +1,18 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: JavaScript memungkinkan kita untuk memodifikasi hampir semua aspek laman: materi, penataan gaya, dan responsnya terhadap interaksi pengguna. Namun demikian, JavaScript juga bisa memblokir konstruksi DOM dan menunda waktu laman di-render. Untuk menghasilkan kinerja yang optimal, jadikan JavaScript Anda asinkron dan tiadakan setiap JavaScript yang tidak penting dari jalur rendering penting.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: JavaScript memungkinkan kita untuk memodifikasi hampir semua aspek laman: materi, penataan gaya, dan responsnya terhadap interaksi pengguna. Namun demikian, JavaScript juga bisa memblokir konstruksi DOM dan menunda waktu laman di-render. Untuk menghasilkan kinerja yang optimal, jadikan JavaScript Anda asinkron dan tiadakan setiap JavaScript yang tidak penting dari jalur rendering penting.
 
-{# wf_updated_on: 2014-09-17 #}
-{# wf_published_on: 2013-12-31 #}
+{# wf_updated_on: 2014-09-17 #} {# wf_published_on: 2013-12-31 #}
 
 # Menambahkan Interaktivitas dengan JavaScript {: .page-title }
 
 {% include "web/_shared/contributors/ilyagrigorik.html" %}
 
-JavaScript memungkinkan kita untuk memodifikasi hampir semua aspek laman: materi,
-penataan gaya, dan responsnya terhadap interaksi pengguna. Akan tetapi, JavaScript juga
-bisa memblokir konstruksi DOM dan menunda waktu laman dirender. Untuk menghasilkan kinerja
-yang optimal, jadikan JavaScript Anda asinkron dan tiadakan setiap JavaScript yang tidak penting
-dari jalur rendering penting.
+JavaScript memungkinkan kita untuk memodifikasi hampir semua aspek laman: materi, penataan gaya, dan responsnya terhadap interaksi pengguna. Akan tetapi, JavaScript juga bisa memblokir konstruksi DOM dan menunda waktu laman dirender. Untuk menghasilkan kinerja yang optimal, jadikan JavaScript Anda asinkron dan tiadakan setiap JavaScript yang tidak penting dari jalur rendering penting.
 
 ### TL;DR {: .hide-from-toc }
-- JavaScript bisa melakukan kueri dan memodifikasi DOM dan CSSOM.
-- Eksekusi JavaScript akan memblokir di CSSOM.
-- JavaScript memblokir konstruksi DOM kecuali secara tegas dideklarasikan sebagai asinkron.
 
+* JavaScript bisa melakukan kueri dan memodifikasi DOM dan CSSOM.
+* Eksekusi JavaScript akan memblokir di CSSOM.
+* JavaScript memblokir konstruksi DOM kecuali secara tegas dideklarasikan sebagai asinkron.
 
 JavaScript adalah bahasa dinamis yang berjalan di browser dan memungkinkan kita untuk mengubah hampir setiap aspek dari cara kerja laman: kita bisa memodifikasi materi dengan menambahkan atau membuang elemen dari pohon DOM; kita bisa memodifikasi properti CSSOM setiap elemen, kita bisa menangani masukan pengguna; dan banyak lagi. Untuk mengilustrasikan hal ini, mari kita perkaya contoh "Hello World" sebelumnya dengan skrip inline sederhana:
 
@@ -33,13 +26,13 @@ JavaScript adalah bahasa dinamis yang berjalan di browser dan memungkinkan kita 
 
 * JavaScript juga memungkinkan kita untuk membuat, menata gaya, menambahkan, dan membuang elemen baru di DOM. Secara teknis, keseluruhan laman kita bisa berupa satu file JavaScript besar saja yang membuat dan menata gaya elemen satu per satu. Walau itu bisa dilakukan, dalam praktiknya menggunakan HTML dan CSS jauh lebih mudah. Dalam bagian kedua fungsi JavaScript, kita membuat elemen div yang baru, menetapkan materi teksnya, menggayakannya, dan menambahkannya ke tubuh.
 
-<img src="images/device-js-small.png"  alt="pratinjau laman">
+<img src="images/device-js-small.png"  alt="pratinjau laman" />
 
 Dengan hal itu, kita telah memodifikasi materi dan gaya CSS dari simpul DOM saat ini, dan menambahkan seluruh simpul yang baru ke dokumen. Laman kita tidak akan memenangkan penghargaan desain, namun laman menggambarkan kemampuan dan fleksibilitas yang ditawarkan JavaScript kepada kita.
 
 Akan tetapi, walaupun JavaScript menawarkan banyak kemampuan kepada kita, banyak batasan tambahan yang ditimbulkan dalam hal bagaimana dan kapan laman dirender.
 
-Pertama, perhatikan bahwa dalam contoh di atas, skrip inline kita ada di bagian bawah laman. Mengapa? Anda harus mencobanya sendiri, namun jika kita memindahkan skrip di atas elemen _span_, Anda akan melihat bahwa skrip akan gagal dan mengeluh bahwa ia tidak bisa menemukan referensi ke elemen _span_ dalam dokumen - yaitu, _getElementsByTagName(‘span')_ akan mengembalikan _null_. Ini mendemonstrasikan properti penting: skrip kita dieksekusi pada titik penyisipan yang tepat di dalam dokumen. Bila parser HTML menemukan tag skrip, parser akan menghentikan sementara proses konstruksi DOM dan memperoleh kontrol ke mesin JavaScript; setelah mesin JavaScript selesai dijalankan, browser kemudian mengambilnya dari tempat terakhir meninggalkannya dan melanjutkan konstruksi DOM.
+Pertama, perhatikan bahwa dalam contoh di atas, skrip inline kita ada di bagian bawah laman. Mengapa? Anda harus mencobanya sendiri, namun jika kita memindahkan skrip di atas elemen *span*, Anda akan melihat bahwa skrip akan gagal dan mengeluh bahwa ia tidak bisa menemukan referensi ke elemen *span* dalam dokumen - yaitu, *getElementsByTagName(‘span')* akan mengembalikan *null*. Ini mendemonstrasikan properti penting: skrip kita dieksekusi pada titik penyisipan yang tepat di dalam dokumen. Bila parser HTML menemukan tag skrip, parser akan menghentikan sementara proses konstruksi DOM dan memperoleh kontrol ke mesin JavaScript; setelah mesin JavaScript selesai dijalankan, browser kemudian mengambilnya dari tempat terakhir meninggalkannya dan melanjutkan konstruksi DOM.
 
 Dengan kata lain, blok skrip kita tidak dapat menemukan elemen apa pun di bagian bawah laman karena belum diproses! Atau, dengan kata lain: **mengeksekusi skrip inline akan memblokir konstruksi DOM, yang juga akan menunda render awal.**
 
@@ -74,17 +67,11 @@ Bagaimana dengan skrip yang disertakan lewat tag skrip? Mari kita ambil contoh s
 
 [Cobalah](https://googlesamples.github.io/web-fundamentals/fundamentals/performance/critical-rendering-path/split_script.html){: target="_blank" .external }
 
-Baik kita menggunakan tag &lt;script&gt; atau cuplikan JavaScript inline, Anda
-diharapkan untuk bertindak dengan cara yang sama. Di kedua kasus, browser akan berhenti sementara dan
-mengeksekusi skrip sebelum bisa memproses bagian selebihnya dalam dokumen.
-Akan tetapi, **untuk kasus file JavaScript eksternal, browser juga harus berhenti sementara dan menunggu
-skrip diambil dari disk, cache, atau server jarak jauh, yang
-bisa menambah penundaan dari puluhan hingga ribuan milidetik pada jalur rendering
-penting.**
+Baik kita menggunakan tag &lt;script&gt; atau cuplikan JavaScript inline, Anda diharapkan untuk bertindak dengan cara yang sama. Di kedua kasus, browser akan berhenti sementara dan mengeksekusi skrip sebelum bisa memproses bagian selebihnya dalam dokumen. Akan tetapi, **untuk kasus file JavaScript eksternal, browser juga harus berhenti sementara dan menunggu skrip diambil dari disk, cache, atau server jarak jauh, yang bisa menambah penundaan dari puluhan hingga ribuan milidetik pada jalur rendering penting.**
 
-Secara default, semua JavaScript memblokir parser. Browser tidak tahu apa yang akan dilakukan skrip pada laman, sehingga harus beranggapan dengan skenario terburuk dan memblokir parser. Sebuah petunjuk bagi browser bahwa skrip tidak perlu dieksekusi pada titik yang persis dengan yang direferensikan akan memungkinkan browser melanjutkan konstruksi DOM dan membiarkan skrip dieksekusi bila sudah siap; misalnya, setelah file diambil dari cache atau server jauh.  
+Secara default, semua JavaScript memblokir parser. Browser tidak tahu apa yang akan dilakukan skrip pada laman, sehingga harus beranggapan dengan skenario terburuk dan memblokir parser. Sebuah petunjuk bagi browser bahwa skrip tidak perlu dieksekusi pada titik yang persis dengan yang direferensikan akan memungkinkan browser melanjutkan konstruksi DOM dan membiarkan skrip dieksekusi bila sudah siap; misalnya, setelah file diambil dari cache atau server jauh.
 
-Untuk mencapai hal ini, kita menandai skrip kita sebagai _async_:
+Untuk mencapai hal ini, kita menandai skrip kita sebagai *async*:
 
 <pre class="prettyprint">
 {% includecode content_path="web/fundamentals/performance/critical-rendering-path/_code/split_script_async.html" region_tag="full" adjust_indentation="auto" %}
@@ -94,10 +81,6 @@ Untuk mencapai hal ini, kita menandai skrip kita sebagai _async_:
 
 Penambahan kata kunci async ke tag skrip akan memberi tahu browser agar tidak memblokir konstruksi DOM selagi menunggu skrip tersedia, yang secara signifikan bisa meningkatkan kinerja.
 
-<a href="measure-crp" class="gc-analytics-event" data-category="CRP"
-    data-label="Next / Measuring CRP">
-  <button>Berikutnya: Mengukur Jalur Rendering Penting</button>
-</a>
+## Feedback {: #feedback }
 
-
-{# wf_devsite_translation #}
+{% include "web/_shared/helpful.html" %}

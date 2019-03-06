@@ -1,10 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Os elementos personalizados permitem que desenvolvedores da Web definam novas tags HTML, ampliem as já existentes e criem componentes da Web reutilizáveis.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Os elementos personalizados permitem que desenvolvedores da Web definam novas tags HTML, ampliem as já existentes e criem componentes da Web reutilizáveis.
 
-{# wf_updated_on: 2018-02-12 #}
-{# wf_published_on: 2016-06-28 #}
-{# wf_blink_components: Blink>DOM #}
+{# wf_updated_on: 2018-02-12 #} {# wf_published_on: 2016-06-28 #} {# wf_blink_components: Blink>DOM #}
 
 # Custom Elements v1: Componentes de Web Reutilizáveis {: .page-title }
 
@@ -12,33 +8,23 @@ description: Os elementos personalizados permitem que desenvolvedores da Web def
 
 ### TL;DR {: #tldr .hide-from-toc }
 
-O [Custom Elements][spec] permite que os desenvolvedores da Web **criem novas tags HTML**,
-aprimorem as tags HTML existentes ou ampliem componentes criados por outros desenvolvedores.
-A API é a fundação dos [componentes da Web](http://webcomponents.org/){: .external }. Ela disponibiliza
-uma forma de criar componentes reutilizáveis baseada em padrões da Web, usando nada mais que
-JS/HTML/CSS comuns. Os resultados são menos código, código modular e mais reutilização nos aplicativos.
+O [Custom Elements](https://html.spec.whatwg.org/multipage/scripting.html#custom-elements) permite que os desenvolvedores da Web **criem novas tags HTML**, aprimorem as tags HTML existentes ou ampliem componentes criados por outros desenvolvedores. A API é a fundação dos [componentes da Web](http://webcomponents.org/){: .external }. Ela disponibiliza uma forma de criar componentes reutilizáveis baseada em padrões da Web, usando nada mais que JS/HTML/CSS comuns. Os resultados são menos código, código modular e mais reutilização nos aplicativos.
 
 ## Introdução {: #intro}
 
-Observação: Este artigo descreve a nova <a href="https://html.spec.whatwg.org/multipage/scripting.html#custom-elements" target="_blank">especificação Custom Elements v1</a>. Se você já usou elementos personalizados, é provável que conheça a <a href="https://www.chromestatus.com/features/4642138092470272">versão v0, fornecida no Chrome 33</a>. Os conceitos são os mesmos, mas a especificação v1 tem diferenças importantes de API. Continue a ler para ver quais são as novidades ou confira a seção <a href="#historysupport">Histórico e compatibilidade de navegadores</a> para obter mais informações.
+Observação: Este artigo descreve a nova <a href="https://html.spec.whatwg.org/multipage/scripting.html#custom-elements" target="_blank">especificação Custom Elements v1</a>. Se você já usou elementos personalizados, é provável que conheça a [versão v0, fornecida no Chrome 33](https://www.chromestatus.com/features/4642138092470272). Os conceitos são os mesmos, mas a especificação v1 tem diferenças importantes de API. Continue a ler para ver quais são as novidades ou confira a seção [Histórico e compatibilidade de navegadores](#historysupport) para obter mais informações.
 
-O navegador nos proporciona uma ferramenta excelente para estruturar aplicativos da Web.
-Essa ferramenta é o HTML.  Talvez você já tenha ouvido falar dele. O HTML é declarativo, portátil, amplamente compatível e fácil de trabalhar. O HTML é ótimo. No entanto, seu vocabulário e sua capacidade de extensão são limitados. O [padrão atual do HTML](https://html.spec.whatwg.org/multipage/){: .external } não dispõe de uma forma de associar automaticamente o comportamento do JS à marcação... até agora.
+O navegador nos proporciona uma ferramenta excelente para estruturar aplicativos da Web. Essa ferramenta é o HTML. Talvez você já tenha ouvido falar dele. O HTML é declarativo, portátil, amplamente compatível e fácil de trabalhar. O HTML é ótimo. No entanto, seu vocabulário e sua capacidade de extensão são limitados. O [padrão atual do HTML](https://html.spec.whatwg.org/multipage/){: .external } não dispõe de uma forma de associar automaticamente o comportamento do JS à marcação... até agora.
 
-Os elementos personalizados são a resposta para a modernização do HTML, completando as partes faltantes
-e agrupando estrutura e comportamentos. Se o HTML não fornecer a solução para um problema,
-poderemos criar um elemento personalizado que faça isso. **Os elementos personalizados ensinam novas funcionalidades ao navegador, sem deixar de preservar os benefícios do HTML**.
+Os elementos personalizados são a resposta para a modernização do HTML, completando as partes faltantes e agrupando estrutura e comportamentos. Se o HTML não fornecer a solução para um problema, poderemos criar um elemento personalizado que faça isso. **Os elementos personalizados ensinam novas funcionalidades ao navegador, sem deixar de preservar os benefícios do HTML**.
 
 ## Definir um novo elemento {: #define}
 
 Para definir um novo elemento do HTML, precisamos dos recursos do JavaScript.
 
-O objeto global `customElements` é usado para definir um elemento personalizado e para ensinar
-a nova tag ao navegador. Chame `customElements.define()` com o nome da tag que quer
-criar e uma `class` do JavaScript que estenda a base `HTMLElement`.
+O objeto global `customElements` é usado para definir um elemento personalizado e para ensinar a nova tag ao navegador. Chame `customElements.define()` com o nome da tag que quer criar e uma `class` do JavaScript que estenda a base `HTMLElement`.
 
 **Exemplo** - definir um painel de gaveta para dispositivos móveis, `<app-drawer>`:
-
 
     class AppDrawer extends HTMLElement {...}
     window.customElements.define('app-drawer', AppDrawer);
@@ -49,7 +35,6 @@ criar e uma `class` do JavaScript que estenda a base `HTMLElement`.
 
 Exemplo de uso:
 
-
     <app-drawer></app-drawer>
     
 
@@ -57,13 +42,9 @@ Exemplo de uso:
 
 ### Definir a JavaScript API de um elemento {: #jsapi}
 
-A funcionalidade de um elemento personalizado é definida usando um ES2015 [`class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), que estende `HTMLElement`.
-A extensão de `HTMLElement` garante que o elemento personalizado herde toda a DOM API e
-significa que todas as propriedades/métodos adicionados à classe se tornam parte da interface DOM do elemento.
-Essencialmente, use a classe para criar uma **JavaScript API pública** para a tag.
+A funcionalidade de um elemento personalizado é definida usando um ES2015 [`class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), que estende `HTMLElement`. A extensão de `HTMLElement` garante que o elemento personalizado herde toda a DOM API e significa que todas as propriedades/métodos adicionados à classe se tornam parte da interface DOM do elemento. Essencialmente, use a classe para criar uma **JavaScript API pública** para a tag.
 
 **Exemplo** - definir a interface do DOM de `<app-drawer>`:
-
 
     class AppDrawer extends HTMLElement {
     
@@ -120,29 +101,87 @@ Essencialmente, use a classe para criar uma **JavaScript API pública** para a t
     customElements.define('app-drawer', AppDrawer);
     
 
-Nesse exemplo, criamos uma gaveta que tem uma propriedade `open`, uma propriedade `disabled`
-e um método `toggleDrawer()`. Além disso, [reflete propriedades como atributos do HTML](#reflectattr).
+Nesse exemplo, criamos uma gaveta que tem uma propriedade `open`, uma propriedade `disabled` e um método `toggleDrawer()`. Além disso, [reflete propriedades como atributos do HTML](#reflectattr).
 
-Um recurso elegante dos elementos personalizados é que **`this`, dentro de uma definição de classe, é uma referência ao
-próprio elemento do DOM**, ou seja, à instância da classe. No nosso exemplo, `this` é uma referência a `<app-drawer>`. É assim (😉) que o elemento pode anexar um ouvinte `click` a si mesmo. E você não está limitado a ouvintes de eventos. Toda a DOM API está disponível dentro do código do elemento. Use `this` para acessar as propriedades dos elementos, inspecionar seus filhos (`this.children`), consultar nós (`this.querySelectorAll('.items')`), etc.
+Um recurso elegante dos elementos personalizados é que **`this`, dentro de uma definição de classe, é uma referência ao próprio elemento do DOM**, ou seja, à instância da classe. No nosso exemplo, `this` é uma referência a `<app-drawer>`. É assim (😉) que o elemento pode anexar um ouvinte `click` a si mesmo. E você não está limitado a ouvintes de eventos. Toda a DOM API está disponível dentro do código do elemento. Use `this` para acessar as propriedades dos elementos, inspecionar seus filhos (`this.children`), consultar nós (`this.querySelectorAll('.items')`), etc.
 
 **Regras para a criação de elementos personalizados**
 
 1. O nome de um elemento personalizado **deve conter um traço (-)**. Portanto `<x-tags>`, `<my-element>` e `<my-awesome-app>` são nomes válidos, mas `<tabs>` e `<foo_bar>` não. O motivo desse requisito é que o analisador HTML possa distinguir entre elementos personalizados e elementos normais. Além disso, garante compatibilidade futura quando novos tags forem adicionados ao HTML.
 2. Não é possível registrar a mesma tag mais de uma vez. Se você tentar fazer isso, será acionada uma `DOMException`. Informe o navegador sobre uma nova tag. É só isso. Sem devoluções.
-3. Os elementos personalizados não podem se fechar automaticamente, pois o HTML permite isso [somente para alguns elementos](https://html.spec.whatwg.org/multipage/syntax.html#void-elements). Escreva sempre uma tag de fechamento (<code>&lt;app-drawer&gt;&lt;/app-drawer&gt;</code>).
+3. Os elementos personalizados não podem se fechar automaticamente, pois o HTML permite isso [somente para alguns elementos](https://html.spec.whatwg.org/multipage/syntax.html#void-elements). Escreva sempre uma tag de fechamento (`<app-drawer></app-drawer>`).
 
 ## Estender elementos {: #extend}
 
-Além de ser útil para criar novos elementos HTML, a Custom Elements API também
-pode ampliar outros elementos personalizados ou até mesmo o HTML integrado no navegador.
+Além de ser útil para criar novos elementos HTML, a Custom Elements API também pode ampliar outros elementos personalizados ou até mesmo o HTML integrado no navegador.
 
-### Estender um elemento personalizado {: #extendcustomeel}
+<table>
+  <tr>
+    <th>
+      Nome
+    </th>
+    
+    <th>
+      Chamado quando
+    </th>
+  </tr>
+  
+  <tr>
+    <td>
+      <code>constructor</code>
+    </td>
+    
+    <td>
+      Uma instância do elemento é criada ou <a href="#upgrades">atualizada</a>. Útil para inicializar um estado, configurar escutas de eventos ou <a href="#shadowdom">criar o Shadow DOM</a>. Consulte a <a href="https://html.spec.whatwg.org/multipage/scripting.html#custom-element-conformance">especificação</a> para ver as restrições sobre o que é possível fazer no <code>constructor</code>.
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <code>connectedCallback</code>
+    </td>
+    
+    <td>
+      Chamado todas as vezes que o elemento é inserido no DOM. Útil para executar código de instalação, como recuperação de recursos ou renderização. Normalmente, você deve tentar retardar o trabalho até esse momento.
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <code>disconnectedCallback</code>
+    </td>
+    
+    <td>
+      Chamado todas as vezes que o elemento é removido do DOM. Útil para executar código de limpeza (remoção de ouvintes de eventos, etc.).
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <code>attributeChangedCallback(attrName, oldVal, newVal)</code>
+    </td>
+    
+    <td>
+      Um atributo foi adicionado, removido, atualizado ou substituído. Também chamado para valores iniciais quando um elemento é criado ou <a href="#upgrades">atualizado</a> pelo analisador. <b>Observação:</b> somente os atributos listados na propriedade <code>observedAttributes</code> receberão esse retorno de chamada.
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <code>adoptedCallback()</code>
+    </td>
+    
+    <td>
+      O elemento personalizado foi movido para um novo <code>document</code> (por exemplo, alguém chamou <code>document.adoptNode(el)</code>).
+    </td>
+  </tr>
+</table>
 
 A extensão de outro elemento personalizado é efetuada estendendo sua definição de classe.
 
 **Exemplo** - criar `<fancy-app-drawer>`, que estende `<app-drawer>`:
 
+Vamos supor que você queira criar um `<button>` mais elegante. Em vez de replicar o comportamento e a funcionalidade de `<button>`, é melhor aprimorar progressivamente o elemento existente usando elementos personalizados.
 
     class FancyDrawer extends AppDrawer {
       constructor() {
@@ -164,22 +203,13 @@ A extensão de outro elemento personalizado é efetuada estendendo sua definiç�
     customElements.define('fancy-app-drawer', FancyDrawer);
     
 
-### Estender elementos HTML nativos {: #extendhtml}
+Um **elemento personalizado incorporado** é um elemento personalizado que estende uma das tags HTML incorporadas do navegador. A principal vantagem da extensão de um elemento existente é obter todos os seus recursos (propriedades do DOM, métodos, acessibilidade). A melhor forma de criar um [Progressive Web App](/web/progressive-web-apps/) é **aprimorar progressivamente elementos HTML existentes**.
 
-Vamos supor que você queira criar um `<button>` mais elegante. Em vez de replicar o comportamento e a
-funcionalidade de `<button>`, é melhor aprimorar progressivamente o elemento existente usando elementos personalizados.
+## Reações do elemento personalizado {: #reactions}
 
-Um **elemento personalizado incorporado** é um elemento personalizado que estende uma das tags HTML
-incorporadas do navegador. A principal vantagem da extensão de um elemento existente é
-obter todos os seus recursos (propriedades do DOM, métodos, acessibilidade). A melhor forma de criar um [Progressive Web App](/web/progressive-web-apps/) é **aprimorar progressivamente elementos HTML existentes**.
+### Estender um elemento personalizado {: #extendcustomeel}
 
-Para estender um elemento, será necessário criar uma definição de classe que herde
-da interface DOM correta. Por exemplo, um elemento personalizado que estende `<button>`
-precisa herdar de `HTMLButtonElement` em vez de `HTMLElement`. De forma semelhante, um
-elemento que estende `<img>` precisa estender `HTMLImageElement`.
-
-**Exemplo** - estender `<button>`:
-
+Para estender um elemento, será necessário criar uma definição de classe que herde da interface DOM correta. Por exemplo, um elemento personalizado que estende `<button>` precisa herdar de `HTMLButtonElement` em vez de `HTMLElement`. De forma semelhante, um elemento que estende `<img>` precisa estender `HTMLImageElement`.
 
     // See https://html.spec.whatwg.org/multipage/indices.html#element-interfaces
     // for the list of other DOM interfaces.
@@ -205,21 +235,17 @@ elemento que estende `<img>` precisa estender `HTMLImageElement`.
     customElements.define('fancy-button', FancyButton, {extends: 'button'});
     
 
-Observe que a chamada a `define()` é um pouco diferente na extensão de um elemento nativo. O terceiro parâmetro, obrigatório, informa ao navegador qual tag está sendo estendida. Isso é necessário porque muitas tags HTML compartilham a mesma interface do DOM. `<section>`, `<address>` e `<em>` (entre outros) compartilham `HTMLElement`; `<q>` e `<blockquote>` compartilham `HTMLQuoteElement`; etc.. A especificação de `{extends: 'blockquote'}` permite que o navegador saiba que você está criando um `<blockquote>` aperfeiçoado, em vez de um `<q>`. Consulte [a especificação do HTML](https://html.spec.whatwg.org/multipage/indices.html#element-interfaces) para
-obter a lista completa das interfaces do DOM do HTML.
-
-Observação: A extensão de `HTMLButtonElement` aprimora nosso botão elegante com todas as propriedades/métodos do DOM de `<button>`. Com isso, não precisamos fazer nossa própria implementação de muitas coisas: propriedade `disabled`, método `click()`, ouvintes `keydown`, gerenciamento de `tabindex`. Em vez disso, podemos nos concentrar no aprimoramento progressivo de `<button>` com funcionalidades personalizadas, ou seja, o método `drawRipple()`. Menos código, mais reutilização!
-
-Os clientes de um elemento personalizado incorporado podem usá-lo de diversas formas.
-O elemento pode ser declarado adicionando o atributo `is=""` à tag nativa:
-
+**Exemplo** - estender `<button>`:
 
     <!-- This <button> is a fancy button. -->
     <button is="fancy-button" disabled>Botão bonito!</button>
     
 
-Ou criando uma instância no JavaScript:
+Observe que a chamada a `define()` é um pouco diferente na extensão de um elemento nativo. O terceiro parâmetro, obrigatório, informa ao navegador qual tag está sendo estendida. Isso é necessário porque muitas tags HTML compartilham a mesma interface do DOM. `<section>`, `<address>` e `<em>` (entre outros) compartilham `HTMLElement`; `<q>` e `<blockquote>` compartilham `HTMLQuoteElement`; etc.. A especificação de `{extends: 'blockquote'}` permite que o navegador saiba que você está criando um `<blockquote>` aperfeiçoado, em vez de um `<q>`. Consulte [a especificação do HTML](https://html.spec.whatwg.org/multipage/indices.html#element-interfaces) para obter a lista completa das interfaces do DOM do HTML.
 
+Observação: A extensão de `HTMLButtonElement` aprimora nosso botão elegante com todas as propriedades/métodos do DOM de `<button>`. Com isso, não precisamos fazer nossa própria implementação de muitas coisas: propriedade `disabled`, método `click()`, ouvintes `keydown`, gerenciamento de `tabindex`. Em vez disso, podemos nos concentrar no aprimoramento progressivo de `<button>` com funcionalidades personalizadas, ou seja, o método `drawRipple()`. Menos código, mais reutilização!
+
+Os clientes de um elemento personalizado incorporado podem usá-lo de diversas formas. O elemento pode ser declarado adicionando o atributo `is=""` à tag nativa:
 
     // Custom elements overload createElement() to support the is="" attribute.
     let button = document.createElement('button', {is: 'fancy-button'});
@@ -228,18 +254,16 @@ Ou criando uma instância no JavaScript:
     document.body.appendChild(button);
     
 
-Ou usando o operador `new`:
-
+Ou criando uma instância no JavaScript:
 
     let button = new FancyButton();
     button.textContent = 'Fancy button!';
     button.disabled = true;
     
 
-Veja a seguir outro exemplo que estende `<img>`:
+### Estender elementos HTML nativos {: #extendhtml}
 
-**Exemplo** - estender `<img>`:
-
+Ou usando o operador `new`:
 
     customElements.define('bigger-img', class extends Image {
       // Give img default size if users don't specify.
@@ -249,15 +273,25 @@ Veja a seguir outro exemplo que estende `<img>`:
     }, {extends: 'img'});
     
 
-Os usuários declaram esse componente como:
-
+Veja a seguir outro exemplo que estende `<img>`:
 
     <!-- This <img> is a bigger img. -->
     <img is="bigger-img" width="15" height="20">
     
 
+**Exemplo** - estender `<img>`:
+
+## Propriedades e atributos
+
+### Refletir propriedades para atributos {: #reflectattr}
+
+Os usuários declaram esse componente como:
+
 Ou criam uma instância no JavaScript:
 
+Observação: Alguns navegadores demonstraram aversão à implementação da sintaxe `is=""`. Isso é uma má notícia para a acessibilidade e os aprimoramentos progressivos. Se você acha que a extensão de elementos nativos do HTML é útil, divulgue sua opinião no [509](https://github.com/w3c/webcomponents/issues/509) e [662](https://github.com/w3c/webcomponents/issues/662) no GitHub.
+
+Um elemento personalizado pode definir ganchos de ciclo de vida especiais para a execução de código durante momentos interessante de sua existência. Esses ganchos são denominados **reações do elemento personalizado**.
 
     const BiggerImage = customElements.get('bigger-img');
     const image = new BiggerImage(15, 20); // pass constructor values like so.
@@ -265,56 +299,7 @@ Ou criam uma instância no JavaScript:
     console.assert(image.height === 200);
     
 
-Observação: Alguns navegadores demonstraram aversão à implementação da sintaxe  <code>is=""</code>. Isso é uma má notícia para a acessibilidade e os aprimoramentos progressivos. Se você acha que a extensão de elementos nativos do HTML é útil, divulgue sua opinião no <a href='https://github.com/w3c/webcomponents/issues/509'>509</a> e <a href='https://github.com/w3c/webcomponents/issues/662'>662</a> no GitHub.
-
-## Reações do elemento personalizado {: #reactions}
-
-Um elemento personalizado pode definir ganchos de ciclo de vida especiais para a execução de código durante
-momentos interessante de sua existência. Esses ganchos são denominados **reações do elemento personalizado**.
-
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Chamado quando</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>constructor</code></td>
-      <td>Uma instância do elemento é criada ou <a href="#upgrades">atualizada</a>. Útil para inicializar um estado, configurar escutas de eventos ou <a href="#shadowdom">criar o Shadow DOM</a>. Consulte a <a href="https://html.spec.whatwg.org/multipage/scripting.html#custom-element-conformance">especificação</a> para ver as restrições sobre o que é possível fazer no  <code>constructor</code>.</td>
-    </tr>
-    <tr>
-      <td><code>connectedCallback</code></td>
-      <td>Chamado todas as vezes que o elemento é inserido no DOM. Útil para executar código de instalação, como recuperação de recursos ou renderização. Normalmente, você deve tentar retardar o trabalho até esse momento.</td>
-    </tr>
-    <tr>
-      <td><code>disconnectedCallback</code></td>
-      <td>Chamado todas as vezes que o elemento é removido do DOM. Útil para executar código de limpeza (remoção de ouvintes de eventos, etc.).</td>
-    </tr>
-    <tr>
-      <td><code>attributeChangedCallback(attrName, oldVal, newVal)</code></td>
-      <td>Um atributo foi adicionado, removido, atualizado ou substituído. Também chamado para valores iniciais quando um elemento é criado ou <a href="#upgrades">atualizado</a> pelo analisador. <b>Observação:</b> somente os atributos listados na propriedade  <code>observedAttributes</code> receberão esse retorno de chamada.</td>
-    </tr>
-    <tr>
-      <td><code>adoptedCallback()</code></td>
-      <td>O elemento personalizado foi movido para um novo <code>document</code> (por exemplo, alguém chamou <code>document.adoptNode(el)</code>).</td>
-    </tr>
-  </tbody>
-</table>
-
-O navegador chama o `attributeChangedCallback()` para todos os atributos que constam na lista de permissões
-na matriz `observedAttributes` (consulte [Observar alterações em atributos](#attrchanges)).
-Essencialmente, é uma otimização de desempenho. Quando os usuários alteram um atributo
-comum como `style` ou `class`, você não quer receber toneladas de retornos de chamada.
-
-**Retornos de chamada de reação são síncronos**. Se alguém chamar `el.setAttribute(...)`
-no elemento, o navegador chamará imediatamente `attributeChangedCallback()`. De forma semelhante,
-você receberá um `disconnectedCallback()` logo após a remoção do elemento do
-DOM (por exemplo, o usuário chama `el.remove()`).
-
-**Exemplo:** adicionar reações de elemento personalizado ao `<app-drawer>`:
-
+O navegador chama o `attributeChangedCallback()` para todos os atributos que constam na lista de permissões na matriz `observedAttributes` (consulte [Observar alterações em atributos](#attrchanges)). Essencialmente, é uma otimização de desempenho. Quando os usuários alteram um atributo comum como `style` ou `class`, você não quer receber toneladas de retornos de chamada.
 
     class AppDrawer extends HTMLElement {
       constructor() {
@@ -333,10 +318,13 @@ DOM (por exemplo, o usuário chama `el.remove()`).
     }
     
 
+**Retornos de chamada de reação são síncronos**. Se alguém chamar `el.setAttribute(...)` no elemento, o navegador chamará imediatamente `attributeChangedCallback()`. De forma semelhante, você receberá um `disconnectedCallback()` logo após a remoção do elemento do DOM (por exemplo, o usuário chama `el.remove()`).
+
+## Atualizações de elementos {: #upgrades}
+
+**Exemplo:** adicionar reações de elemento personalizado ao `<app-drawer>`:
+
 Defina reações se/quando isso fizer sentido. Se o elemento for bastante complexo e abrir uma conexão ao IndexedDB em `connectedCallback()`, faça o trabalho de limpeza necessário em `disconnectedCallback()`. Mas tome cuidado! Você não pode depender do elemento sendo removido do DOM em todas as circunstâncias. Por exemplo, `disconnectedCallback()` nunca será chamado se o usuário fechar a guia.
-
-**Exemplo:** mover um elemento personalizado para outro documento, observando seu `adoptedCallback()`:
-
 
     function createWindow(srcdoc) {
       let p = new Promise(resolve => {
@@ -366,34 +354,61 @@ Defina reações se/quando isso fizer sentido. Se o elemento for bastante comple
       });
     
 
-## Propriedades e atributos
-
-### Refletir propriedades para atributos {: #reflectattr}
-
-É comum que as propriedades do HTML reflitam seu valor no DOM como um atributo do HTML.
-Por exemplo, quando os valores de `hidden` ou `id` são alterados no JS:
-
+**Exemplo:** mover um elemento personalizado para outro documento, observando seu `adoptedCallback()`:
 
     div.id = 'my-id';
     div.hidden = true;
     
 
+É comum que as propriedades do HTML reflitam seu valor no DOM como um atributo do HTML. Por exemplo, quando os valores de `hidden` ou `id` são alterados no JS: 
+
+<style>
+  .demoarea {
+    padding: 8px; border: 1px dashed #ccc;
+  }
+  .demoarea::before {
+    display: block; content: 'DEMO';
+  }
+</style>
+
+ 
+
+<div class="demoarea">
+  <x-foo-with-markup></x-foo-with-markup>
+</div> 
+
+<script>
+  const supportsCustomElementsV1 = 'customElements' in window;
+
+  if(supportsCustomElementsV1) {
+    customElements.define('x-foo-with-markup', class extends HTMLElement {
+      connectedCallback() {
+        this.innerHTML = "<b>I'm an x-foo-with-markup!</b>";
+      }
+    });
+  } else {
+    if (self.frameElement) {
+      self.frameElement.style.display = 'none';
+    }
+  }
+</script>
+
+ 
+
 Os valores são aplicados ao DOM em execução como atributos:
 
+Isso é chamado "[refletir propriedades para atributos](https://html.spec.whatwg.org/multipage/infrastructure.html#reflecting-content-attributes-in-idl-attributes)". Praticamente todas as propriedades do HTML fazem isso. Por quê? Os atributos também são úteis para configurar um elemento de forma declarativa, e algumas APIs, como acessibilidade e seletores CSS, dependem desses atributos para funcionar.
+
+### Observar alterações em atributos {: #attrchanges}
+
+A reflexão de uma propriedade será útil sempre que você quiser **manter a representação do elemento no DOM em sincronia com seu estado no JavaScript**. Um motivo para refletir uma propriedade é aplicar estilos definidos pelo usuário quando o estado do JS muda.
+
+Lembre-se de nossa `<app-drawer>`. Um consumidor desse componente pode querer esmaecê-lo e/ou evitar interações do usuário enquanto o componente estiver desativado:
 
     <div id="my-id" hidden>
     
 
-Isso é chamado "[refletir propriedades para atributos](https://html.spec.whatwg.org/multipage/infrastructure.html#reflecting-content-attributes-in-idl-attributes)". Praticamente todas as propriedades do HTML fazem isso. Por quê? Os atributos também são úteis para configurar um
-elemento de forma declarativa, e algumas APIs, como acessibilidade e seletores CSS, dependem desses atributos para funcionar.
-
-A reflexão de uma propriedade será útil sempre que você quiser **manter a representação do elemento
-no DOM em sincronia com seu estado no JavaScript**. Um motivo para
-refletir uma propriedade é aplicar estilos definidos pelo usuário quando o estado do JS muda.
-
-Lembre-se de nossa `<app-drawer>`. Um consumidor desse componente pode querer esmaecê-lo
-e/ou evitar interações do usuário enquanto o componente estiver desativado:
-
+Quando a propriedade `disabled` é alterada no JS, queremos que esse atributo seja adicionado ao DOM para que o seletor do usuário corresponda. O elemento pode fornecer esse comportamento refletindo o valor para um atributo do mesmo nome:
 
     app-drawer[disabled] {
       opacity: 0.5;
@@ -401,10 +416,9 @@ e/ou evitar interações do usuário enquanto o componente estiver desativado:
     }
     
 
-Quando a propriedade `disabled` é alterada no JS, queremos que esse atributo seja adicionado
-ao DOM para que o seletor do usuário corresponda. O elemento pode fornecer esse comportamento
-refletindo o valor para um atributo do mesmo nome:
+Os atributos do HTML são uma forma conveniente de declaração do estado inicial pelos usuários:
 
+Os elementos podem reagir às mudanças de atributos definindo um `attributeChangedCallback`. O navegador chama esse método para cada mudança nos atributos listados na matriz `observedAttributes`.
 
     ...
     
@@ -423,17 +437,122 @@ refletindo o valor para um atributo do mesmo nome:
     }
     
 
-### Observar alterações em atributos {: #attrchanges}
+No exemplo, estamos definindo atributos adicionais no `<app-drawer>` quando um atributo `disabled` é alterado. Embora não façamos isso aqui, você também poderia **usar `attributeChangedCallback` para manter uma propriedade do JS sincronizada com seu atributo**. 
 
-Os atributos do HTML são uma forma conveniente de declaração do estado inicial pelos usuários:
+<style>
+  .demoarea {
+    padding: 8px; border: 1px dashed #ccc;
+  }
 
+  .demoarea::before {
+    content: 'DEMO'; display: block;
+  }
+</style>
+
+ 
+
+<div class="demoarea">
+  <x-foo-shadowdom> 
+  
+  <p>
+    Texto personalizado do <b>usuário</b>
+  </p></x-foo-shadowdom>
+</div> 
+
+<script>
+  const supportsCustomElementsV1 = 'customElements' in window;
+
+  if(supportsCustomElementsV1) {
+    let tmpl = document.createElement('template');
+    tmpl.innerHTML = `
+      <b>I'm in shadow dom!</b>
+      <slot></slot>
+    `;
+
+    customElements.define('x-foo-shadowdom', class extends HTMLElement {
+      constructor() {
+        super(); // always call super() first in the constructor.
+        let shadowRoot = this.attachShadow({mode: 'open'});
+        shadowRoot.appendChild(tmpl.content.cloneNode(true));
+      }
+    });
+  } else {
+    if (self.frameElement) {
+      self.frameElement.style.display = 'none';
+    }
+  }
+</script>
+
+ 
+
+Já vimos que os elementos personalizados são definidos chamando `customElements.define()`. Mas isso não significa que você tem de definir e registrar um elemento personalizado de uma só vez.
+
+### HTML aprimorado progressivamente
+
+**Os elementos personalizados podem ser usados *antes* do registro de sua definição**.
+
+O aprimoramento progressivo é um recurso dos elementos personalizados. Em outras palavras, você pode declarar vários elementos `<app-drawer>` na página e somente invocar `customElements.define('app-drawer', ...)` muito depois. O motivo é que o navegador trata possíveis elementos personalizados de forma diferente graças a [tags desconhecidas](#unknown). O processo de chamar `define()` e aprimorar um elemento existente com uma definição de classe é denominado "atualização de elementos".
 
     <app-drawer open disabled></app-drawer>
     
 
-Os elementos podem reagir às mudanças de atributos definindo um `attributeChangedCallback`.
-O navegador chama esse método para cada mudança nos atributos listados na matriz `observedAttributes`.
+Para saber quando uma tag é definida, você pode usar `window.customElements.whenDefined()`. Ele disponibiliza uma promessa que será resolvida quando o elemento se tornar definido.
 
+1. Definimos um novo elemento no HTML: `<x-foo-from-template>`
+2. O Shadow DOM do elemento é criado usando um `<template>`
+3. O DOM do elemento é local em relação ao elemento, graças ao Shadow DOM
+4. O CSS interno do elemento tem o escopo do elemento, graças ao Shadow DOM
+
+**Exemplo** - retardar o trabalho até que um conjunto de elementos filho seja atualizado 
+
+<style>
+.demoarea {
+  padding: 8px; border: 1px dashed #ccc;
+}
+
+.demoarea::before {
+  content: 'DEMO'; display: block;
+}
+</style>
+
+ 
+
+<div class="demoarea">
+  <x-foo-from-template></x-foo-from-template>
+</div>
+
+<template id="x-foo-from-template"> <style>:host p { color: green; }</style>
+
+Os elementos personalizados podem gerenciar seu próprio conteúdo usando as DOM APIs dentro do código do elemento. As [reações](#reactions) são úteis para essa finalidade.
+
+</template> 
+
+<script>
+  const supportsCustomElementsV1 = 'customElements' in window;
+
+  if(supportsCustomElementsV1) {
+    customElements.define('x-foo-from-template', class extends HTMLElement {
+      constructor() {
+        super();
+        let shadowRoot = this.attachShadow({mode: 'open'});
+        const t = document.querySelector('#x-foo-from-template');
+        shadowRoot.appendChild(t.content.cloneNode(true));
+      }
+    });
+  } else {
+    if (self.frameElement) {
+      self.frameElement.style.display = 'none';
+    }
+  }
+</script>
+
+ 
+
+Declaring this tag will produce:
+
+## Conteúdo definido pelo elemento {: #addingmarkup}
+
+{% framebox height="70px" %}
 
     class AppDrawer extends HTMLElement {
       ...
@@ -469,32 +588,30 @@ O navegador chama esse método para cada mudança nos atributos listados na matr
     }
     
 
-No exemplo, estamos definindo atributos adicionais no `<app-drawer>` quando um
-atributo `disabled` é alterado. Embora não façamos isso aqui, você também poderia
-**usar `attributeChangedCallback` para manter uma propriedade do JS sincronizada com seu atributo**.
+{% endframebox %}
 
-## Atualizações de elementos {: #upgrades}
+### Criar um elemento que usa o Shadow DOM {: #shadowdom}
 
-### HTML aprimorado progressivamente
+Observação: Normalmente, a substituição dos filhos de um elemento com novo conteúdo não é uma boa ideia, por ser algo inesperado. Os usuários ficariam surpresos com o descarte das marcações. Uma maneira melhor para adicionar conteúdo definido no elemento é usar o shadow DOM. É sobre isso que falaremos a seguir.
 
-Já vimos que os elementos personalizados são definidos chamando `customElements.define()`.
-Mas isso não significa que você tem de definir e registrar um elemento personalizado de uma só vez.
-
-**Os elementos personalizados podem ser usados _antes_ do registro de sua definição**.
-
-O aprimoramento progressivo é um recurso dos elementos personalizados. Em outras palavras, você pode declarar vários elementos `<app-drawer>` na página e somente invocar `customElements.define('app-drawer', ...)` muito depois. O motivo é que o navegador trata possíveis elementos personalizados de forma diferente graças a [tags desconhecidas](#unknown). O processo de chamar `define()` e aprimorar um elemento existente com uma definição de classe é denominado "atualização de elementos".
-
-Para saber quando uma tag é definida, você pode usar `window.customElements.whenDefined()`.
-Ele disponibiliza uma promessa que será resolvida quando o elemento se tornar definido.
-
+Observação: Não vou descrever os recursos do [Shadow DOM](http://w3c.github.io/webcomponents/spec/shadow/) neste artigo, mas ele é uma API avançada que pode ser combinada com elementos personalizados. Por si só, o Shadow DOM é uma ferramenta de composição. Quando usado com elementos personalizados, coisas incríveis acontecem.
 
     customElements.whenDefined('app-drawer').then(() => {
       console.log('app-drawer defined');
     });
     
 
-**Exemplo** - retardar o trabalho até que um conjunto de elementos filho seja atualizado
+O Shadow DOM permite que um elemento tenha, renderize e estilize um bloco de DOM separado do resto da página. Você pode até ocultar todo o aplicativo em uma única tag:
 
+## Aplicar um estilo a um elemento personalizado {: #styling}
+
+Para usar o Shadow DOM em um elemento personalizado, chame `this.attachShadow` dentro do `constructor`:
+
+### Criar elementos usando um `<template>` {: #fromtemplate}
+
+Exemplo de uso:
+
+{% framebox height="130px" %}
 
     <share-buttons>
       <social-button type="twitter"><a href="...">Twitter</a></social-button>
@@ -502,8 +619,8 @@ Ele disponibiliza uma promessa que será resolvida quando o elemento se tornar d
       <social-button type="plus"><a href="...">G+</a></social-button>
     </share-buttons>
     
-
-
+    
+    
     // Fetch all the children of <share-buttons> that are not defined yet.
     let undefinedButtons = buttons.querySelectorAll(':not(:defined)');
     
@@ -517,13 +634,17 @@ Ele disponibiliza uma promessa que será resolvida quando o elemento se tornar d
     });
     
 
-Observação: Eu imagino os elementos personalizados como estando em um limbo antes de serem definidos. A [especificação](https://dom.spec.whatwg.org/#concept-element-custom-element-state) define o estado de um elemento como "indefinido", "não personalizado" ou "personalizado". Elementos incorporados, como `<div>`, têm sempre o status "definido".
+### Aplicar estilo predefinido elementos não registrados {: #prestyle}
 
-## Conteúdo definido pelo elemento {: #addingmarkup}
+{% endframebox %}
 
-Os elementos personalizados podem gerenciar seu próprio conteúdo usando as DOM APIs dentro do código do elemento. As [reações](#reactions) são úteis para essa finalidade.
+Para os que não sabem, o [elemento `<template>`](https://html.spec.whatwg.org/multipage/scripting.html#the-template-element) (modelo) permite declarar fragmentos do DOM que são analisados, ficam inertes na carga da página e podem ser ativados posteriormente em tempo de execução. É outro primitivo de API na família de componentes da Web. **Os modelos são um marcador ideal para declarar a estrutura de um elemento personalizado**.
 
-**Exemplo** - criar um elemento com algum HTML padrão:
+**Exemplo:** registrar um elemento com conteúdo do Shadow DOM criado usando um `<template>`:
+
+Essas poucas linhas de código fazem muita coisa. Vamos entender suas principais atividades:
+
+{% framebox height="100px" %}
 
     customElements.define('x-foo-with-markup', class extends HTMLElement {
       connectedCallback() {
@@ -532,69 +653,30 @@ Os elementos personalizados podem gerenciar seu próprio conteúdo usando as DOM
       ...
     });
     
-Declaring this tag will produce:
+
+Notice that the call to `define()` changes slightly when extending a native element. The required third parameter tells the browser which tag you're extending. This is necessary because many HTML tags share the same DOM interface. `<section>`, `<address>`, and `<em>` (among others) all share `HTMLElement`; both `<q>` and `<blockquote>` share `HTMLQuoteElement`; etc.. Specifying `{extends: 'blockquote'}` lets the browser know you're creating a souped-up `<blockquote>` instead of a `<q>`. See [the HTML spec](https://html.spec.whatwg.org/multipage/indices.html#element-interfaces) for the full list of HTML's DOM interfaces.
+
+Estou no Shadow DOM. Minha marcação foi copiada de um &lt;template&gt;.
+
+Consumers of a customized built-in element can use it in several ways. They can declare it by adding the `is=""` attribute on the native tag:
 
     <x-foo-with-markup>
      <b>Sou um x-foo-com-marcação!</b>
     </x-foo-with-markup>
+    
 
-{% framebox height="70px" %}
-<style>
-.demoarea {
-  padding: 8px;
-  border: 1px dashed #ccc;
-}
-.demoarea::before {
-  display: block;
-  content: 'DEMO';
-}
-</style>
-
-<div class="demoarea">
-  <x-foo-with-markup></x-foo-with-markup>
-</div>
-
-<script>
-const supportsCustomElementsV1 = 'customElements' in window;
-
-if (supportsCustomElementsV1) {
-  customElements.define('x-foo-with-markup', class extends HTMLElement {
-    connectedCallback() {
-      this.innerHTML = "<b>I'm an x-foo-with-markup!</b>";
-    }
-  });
-} else {
-  if (self.frameElement) {
-    self.frameElement.style.display = 'none';
-  }
-}
-</script>
 {% endframebox %}
-
-Observação: Normalmente, a substituição dos filhos de um elemento com novo conteúdo não é uma boa ideia, por ser algo inesperado. Os usuários ficariam surpresos com o descarte das marcações. Uma maneira melhor para adicionar conteúdo definido no elemento é usar o shadow DOM. É sobre isso que falaremos a seguir.
-
-### Criar um elemento que usa o Shadow DOM {: #shadowdom}
-
-Observação: Não vou descrever os recursos do [Shadow DOM][sd_spec] neste artigo, mas
-ele é uma API avançada que pode ser combinada com elementos personalizados. Por si só, o Shadow DOM é
-uma ferramenta de composição. Quando usado com elementos personalizados, coisas incríveis acontecem.
-
-
-O Shadow DOM permite que um elemento tenha, renderize e estilize um bloco de DOM
-separado do resto da página. Você pode até ocultar todo
-o aplicativo em uma única tag:
-
 
     <!-- chat-app's implementation details are hidden away in Shadow DOM. -->
     <chat-app></chat-app>
     
 
-Para usar o Shadow DOM em um elemento personalizado, chame `this.attachShadow` dentro do `constructor`:
+Mesmo se o elemento definir seu próprio estilo usando o Shadow DOM, os usuários poderão usar a página para aplicar estilo ao elemento personalizado. Esses estilos são denominados "estilos definidos pelo usuário".
 
     customElements.define('x-foo-shadowdom', class extends HTMLElement {
       constructor() {
         super(); // always call super() first in the constructor.
-
+    
         // Attach a shadow root to the element.
         let shadowRoot = this.attachShadow({mode: 'open'});
         shadowRoot.innerHTML = `
@@ -605,8 +687,11 @@ Para usar o Shadow DOM em um elemento personalizado, chame `this.attachShadow` d
       }
       ...
     });
+    
 
-Exemplo de uso:
+Você pode estar se perguntando como funcionará a especificidade do CSS se o elemento tiver estilos definidos no Shadow DOM. Em termos de especificidade, os estilos do usuário predominam. Eles sempre modificarão os estilos definidos no elemento. Veja a seção sobre [Criar um elemento que usa o Shadow DOM](#shadowdom).
+
+Antes que um elemento seja [atualizado](#upgrades), você poderá fazer referência a ele no CSS usando a pseudoclasse `:defined`. Isso é útil para aplicar estilo predefinido a um componente. Por exemplo, para evitar layout ou outro flash de conteúdo sem estilo (FOUC) visual, oculte componentes indefinidos e exiba-os quando forem definidos.
 
     <x-foo-shadowdom>
       <p>Texto personalizado do <b>usuário</b></p>
@@ -617,53 +702,9 @@ Exemplo de uso:
       <b>Sou um Shadow DOM!</b>
       <slot></slot>
     </x-foo-shadowdom>
+    
 
-{% framebox height="130px" %}
-<style>
-.demoarea {
-  padding: 8px;
-  border: 1px dashed #ccc;
-}
-
-.demoarea::before {
-  content: 'DEMO';
-  display: block;
-}
-</style>
-
-<div class="demoarea">
-  <x-foo-shadowdom>
-    <p>Texto personalizado do <b>usuário</b></p>
-  </x-foo-shadowdom>
-</div>
-
-<script>
-const supportsCustomElementsV1 = 'customElements' in window;
-
-if (supportsCustomElementsV1) {
-  customElements.define('x-foo-shadowdom', class extends HTMLElement {
-    constructor() {
-      super(); // always call super() first in the constructor.
-      let shadowRoot = this.attachShadow({mode: 'open'});
-      shadowRoot.innerHTML = `
-        <b>I'm in shadow dom!</b>
-        <slot></slot>
-      `;
-    }
-  });
-} else {
-  if (self.frameElement) {
-    self.frameElement.style.display = 'none';
-  }
-}
-</script>
-{% endframebox %}
-
-### Criar elementos usando um `<template>` {: #fromtemplate}
-
-Para os que não sabem, o [elemento `<template>`](https://html.spec.whatwg.org/multipage/scripting.html#the-template-element) (modelo) permite declarar fragmentos do DOM que são analisados, ficam inertes na carga da página e podem ser ativados posteriormente em tempo de execução. É outro primitivo de API na família de componentes da Web. **Os modelos são um marcador ideal para declarar a estrutura de um elemento personalizado**.
-
-**Exemplo:** registrar um elemento com conteúdo do Shadow DOM criado usando um `<template>`:
+**Exemplo** - oculte `<app-drawer>` antes de ser definido:
 
     <template id="x-foo-from-template">
       <style>
@@ -686,60 +727,7 @@ Para os que não sabem, o [elemento `<template>`](https://html.spec.whatwg.org/m
     </script>
     
 
-Essas poucas linhas de código fazem muita coisa. Vamos entender suas principais atividades:
-
-1. Definimos um novo elemento no HTML: `<x-foo-from-template>`
-2. O Shadow DOM do elemento é criado usando um `<template>`
-3. O DOM do elemento é local em relação ao elemento, graças ao Shadow DOM
-4. O CSS interno do elemento tem o escopo do elemento, graças ao Shadow DOM
-
-{% framebox height="100px" %}
-<style>
-.demoarea {
-  padding: 8px;
-  border: 1px dashed #ccc;
-}
-
-.demoarea::before {
-  content: 'DEMO';
-  display: block;
-}
-</style>
-
-<div class="demoarea">
-  <x-foo-from-template></x-foo-from-template>
-</div>
-
-<template id="x-foo-from-template">
-  <style>:host p { color: orange; }</style>
-  <p>Estou no Shadow DOM. Minha marcação foi copiada de um &lt;template&gt;.</p>
-</template>
-
-<script>
-const supportsCustomElementsV1 = 'customElements' in window;
-
-if (supportsCustomElementsV1) {
-  customElements.define('x-foo-from-template', class extends HTMLElement {
-    constructor() {
-      super();
-      let shadowRoot = this.attachShadow({mode: 'open'});
-      const t = document.querySelector('#x-foo-from-template');
-      shadowRoot.appendChild(t.content.cloneNode(true));
-    }
-  });
-} else {
-  if (self.frameElement) {
-    self.frameElement.style.display = 'none';
-  }
-}
-</script>
-{% endframebox %}
-
-## Aplicar um estilo a um elemento personalizado {: #styling}
-
-Mesmo se o elemento definir seu próprio estilo usando o Shadow DOM, os usuários poderão
-usar a página para aplicar estilo ao elemento personalizado. Esses estilos são denominados "estilos definidos pelo usuário".
-
+Depois que `<app-drawer>` for definido, o seletor (`app-drawer:not(:defined)`) deixa de corresponder.
 
     <!-- user-defined styling -->
     <style>
@@ -772,19 +760,13 @@ usar a página para aplicar estilo ao elemento personalizado. Esses estilos são
     </app-drawer>
     
 
-Você pode estar se perguntando como funcionará a especificidade do CSS se o elemento tiver
-estilos definidos no Shadow DOM. Em termos de especificidade, os estilos do usuário predominam.
-Eles sempre modificarão os estilos definidos no elemento. Veja a seção sobre [Criar um elemento que usa o Shadow DOM](#shadowdom).
+## Detalhes diversos {: #details}
 
-### Aplicar estilo predefinido elementos não registrados {: #prestyle}
+### Elementos desconhecidos vs. elementos personalizados indefinidos {: #unknown}
 
-Antes que um elemento seja [atualizado](#upgrades), você poderá fazer referência a ele no CSS usando a pseudoclasse `:defined`.
-Isso é útil para aplicar estilo predefinido a um componente. Por exemplo, para evitar
-layout ou outro flash de conteúdo sem estilo (FOUC) visual, oculte componentes indefinidos e exiba-os
-quando forem definidos.
+O HTML pode ser usado de forma leniente e flexível. Por exemplo, declare `<randomtagthatdoesntexist>` em uma página e navegador aceitará isso sem qualquer problema. Por que as tags não padrão funcionam? A resposta é que isso é permitido pela [especificação do HTML](https://html.spec.whatwg.org/multipage/dom.html#htmlunknownelement). Elementos não definidos na especificação são analisados como `HTMLUnknownElement`.
 
-**Exemplo** - oculte `<app-drawer>` antes de ser definido:
-
+O mesmo não acontece com elementos personalizados. Os possíveis elementos personalizados são analisados como um `HTMLElement`, se criados com um nome válido (incluindo um "-"). Você pode verificar isso em um navegador compatível com elementos personalizados. Acione o console: <span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">J</span> (ou <span class="kbd">Cmd</span>+<span class="kbd">Opt</span>+<span class="kbd">J</span> no Mac) e cole as linhas de código a seguir:
 
     app-drawer:not(:defined) {
       /* Pre-style, give layout, replicate app-drawer's eventual styles, etc. */
@@ -793,26 +775,6 @@ quando forem definidos.
       opacity: 0;
       transition: opacity 0.3s ease-in-out;
     }
-    
-
-Depois que `<app-drawer>` for definido, o seletor (`app-drawer:not(:defined)`)
-deixa de corresponder.
-
-## Detalhes diversos {: #details}
-
-### Elementos desconhecidos vs. elementos personalizados indefinidos {: #unknown}
-
-O HTML pode ser usado de forma leniente e flexível. Por exemplo, declare `<randomtagthatdoesntexist>` em uma página e navegador aceitará isso sem qualquer problema. Por que as tags não padrão funcionam? A resposta é que isso é permitido pela [especificação do HTML](https://html.spec.whatwg.org/multipage/dom.html#htmlunknownelement). Elementos não definidos na especificação são analisados como `HTMLUnknownElement`.
-
-O mesmo não acontece com elementos personalizados. Os possíveis elementos personalizados são analisados como
-um `HTMLElement`, se criados com um nome válido (incluindo um "-"). Você pode verificar isso em um navegador compatível com elementos personalizados. Acione o console: <span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">J</span> (ou <span class="kbd">Cmd</span>+<span class="kbd">Opt</span>+<span class="kbd">J</span> no Mac) e cole as linhas de código a seguir:
-
-
-    // "tabs" is not a valid custom element name
-    document.createElement('tabs') instanceof HTMLUnknownElement === true
-    
-    // "x-tabs" is a valid custom element name
-    document.createElement('x-tabs') instanceof HTMLElement === true
     
 
 ## Referência da API
@@ -825,45 +787,37 @@ Define um novo elemento personalizado no navegador.
 
 Exemplo
 
+    // "tabs" is not a valid custom element name
+    document.createElement('tabs') instanceof HTMLUnknownElement === true
+    
+    // "x-tabs" is a valid custom element name
+    document.createElement('x-tabs') instanceof HTMLElement === true
+    
+
+**`get(tagName)`**
+
+Dado um nome de tag de elemento personalizado válido, retorna o construtor do elemento. Retorna `undefined` se nenhuma definição de elemento foi registrada.
+
+Exemplo
 
     customElements.define('my-app', class extends HTMLElement { ... });
     customElements.define(
       'fancy-button', class extends HTMLButtonElement { ... }, {extends: 'button'});
     
 
-**`get(tagName)`**
+**`whenDefined(tagName)`**
 
-Dado um nome de tag de elemento personalizado válido, retorna o construtor do elemento. Retorna `undefined`
-se nenhuma definição de elemento foi registrada.
+Retorna uma promessa, que será resolvida quando o elemento personalizado for definido. Se o elemento já foi definido, resolve a promessa imediatamente. Rejeita a solicitação de promessa se o nome da tag não é um nome de elemento personalizado válido
 
 Exemplo
-
 
     let Drawer = customElements.get('app-drawer');
     let drawer = new Drawer();
     
 
-**`whenDefined(tagName)`**
-
-Retorna uma promessa, que será resolvida quando o elemento personalizado for definido. Se o elemento
-já foi definido, resolve a promessa imediatamente. Rejeita a solicitação de promessa se o nome da tag não é um nome
-de elemento personalizado válido
-
-Exemplo
-
-
-    customElements.whenDefined('app-drawer').then(() => {
-      console.log('ready!');
-    });
-    
-
 ## Histórico e compatibilidade de navegadores {: #historysupport}
 
-Se você acompanhou os componentes da Web nos últimos dois anos, sabe que o
-Chrome 36+ implementou uma versão da Custom Elements API que usa `document.registerElement()`
-em vez de `customElements.define()`. Hoje, é considerada uma versão suspensa do
-padrão, denominada v0. `customElements.define()` é mais moderna e é
-o que os fornecedores de navegador estão começando a implementar. É a versão Custom Elements v1.
+Se você acompanhou os componentes da Web nos últimos dois anos, sabe que o Chrome 36+ implementou uma versão da Custom Elements API que usa `document.registerElement()` em vez de `customElements.define()`. Hoje, é considerada uma versão suspensa do padrão, denominada v0. `customElements.define()` é mais moderna e é o que os fornecedores de navegador estão começando a implementar. É a versão Custom Elements v1.
 
 Se você ainda estiver interessado na antiga especificação v0, confira o [artigo de html5rocks](http://www.html5rocks.com/en/tutorials/webcomponents/customelements/){: .external }.
 
@@ -873,47 +827,32 @@ O Chrome 54 ([status](https://www.chromestatus.com/features/4696261944934400)) t
 
 Para detectar elementos personalizados, verifique a existência de `window.customElements`:
 
-
-    const supportsCustomElementsV1 = 'customElements' in window;
+    customElements.whenDefined('app-drawer').then(() => {
+      console.log('ready!');
+    });
     
 
 #### Polyfill {: #polyfill}
 
-Até que uma ampla compatibilidade de navegadores esteja disponível, há um [polyfill](https://github.com/webcomponents/custom-elements/blob/master/custom-elements.min.js) disponível. 
+Até que uma ampla compatibilidade de navegadores esteja disponível, há um [polyfill](https://github.com/webcomponents/custom-elements/blob/master/custom-elements.min.js) disponível.
 
 **Observação**: a pseudo-classe CSS `:defined` não permite o polyfill.
 
 Instale:
 
-    bower install --save webcomponents/custom-elements
+    const supportsCustomElementsV1 = 'customElements' in window;
+    
 
 Uso:
 
+    bower install --save webcomponents/custom-elements
+    
 
-    function loadScript(src) {
-     return new Promise(function(resolve, reject) {
-       const script = document.createElement('script');
-       script.src = src;
-       script.onload = resolve;
-       script.onerror = reject;
-       document.head.appendChild(script);
-     });
-    }
-    
-    // Lazy load the polyfill if necessary.
-    if (!supportsCustomElementsV1) {
-      loadScript('/bower_components/custom-elements/custom-elements.min.js').then(e => {
-        // Polyfill loaded.
-      });
-    } else {
-      // Native support. Pronto.
-    }
-    
+Os elementos personalizados nos oferecem uma nova ferramenta para definir novas tags HTML no navegador e criar componentes reutilizáveis. Combine-os com outros novos primitivos da plataforma, como Shadow DOM e `<template>`, para começar a perceber a abrangência geral dos Web Components:
 
 ## Conclusão
 
-Os elementos personalizados nos oferecem uma nova ferramenta para definir novas tags HTML no navegador e criar componentes
-reutilizáveis. Combine-os com outros novos primitivos da plataforma, como Shadow DOM e `<template>`, para começar a perceber a abrangência geral dos Web Components:
+{# wf_devsite_translation #}
 
 - Compatível com todos os navegadores (padrão da Web) para criar e estender componentes reutilizáveis.
 - Não exige biblioteca ou framework para começar a usar. JS/HTML comum... fantástico!
@@ -922,8 +861,6 @@ reutilizáveis. Combine-os com outros novos primitivos da plataforma, como Shado
 - Estreitamente integrado ao DevTools do navegador.
 - Use recursos de acessibilidade atuais.
 
-[spec]: https://html.spec.whatwg.org/multipage/scripting.html#custom-elements
-[sd_spec]: http://w3c.github.io/webcomponents/spec/shadow/
+## Feedback {: #feedback }
 
-
-{# wf_devsite_translation #}
+{% include "web/_shared/helpful.html" %}

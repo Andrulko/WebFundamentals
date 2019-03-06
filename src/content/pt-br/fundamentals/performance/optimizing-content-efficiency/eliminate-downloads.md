@@ -1,15 +1,13 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Você deve auditar seus recursos periodicamente para garantir que cada recurso esteja ajudando a proporcionar uma experiência melhor ao usuário.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Você deve auditar seus recursos periodicamente para garantir que cada recurso esteja ajudando a proporcionar uma experiência melhor ao usuário.
 
-{# wf_updated_on: 2016-08-29 #}
-{# wf_published_on: 2014-03-31 #}
+{# wf_updated_on: 2016-08-29 #} {# wf_published_on: 2014-03-31 #}
 
 # Eliminar Downloads Desnecessários {: .page-title }
 
 {% include "web/_shared/contributors/ilyagrigorik.html" %}
 
 ### TL;DR {: .hide-from-toc }
+
 * Faça um inventário de todos os ativos próprios e de terceiros em suas páginas.
 * Meça o desempenho de cada ativo: seu valor e seu desempenho técnico.
 * Determine se os recursos fornecem valor suficiente.
@@ -22,12 +20,13 @@ O recurso mais rápido e melhor otimizado é o recurso que não é enviado. Voc�
 
 Muitas frequentemente, páginas contêm recursos que são desnecessários, ou pior, que dificultam o desempenho da página sem entregar muito valor para o visitante ou para o site onde está hospedada. Isso se aplica igualmente a recursos e widgets próprios e de terceiros.
 
-* O site A decidiu exibir um carrossel de fotografias na página inicial para permitir que o visitante veja várias fotografias com um clique rápido. Todas as fotografias são carregadas quando a página é carregada e são percorridas pelo usuário.
+* O site A decidiu exibir um carrossel de fotografias na página inicial para permitir que o visitante veja várias fotografias com um clique rápido. Todas as fotografias são carregadas quando a página é carregada e são percorridas pelo usuário. 
     * **Pergunta:** Você já mediu quantos usuários visualizam várias fotos no carrossel? Você pode estar gerando uma sobrecarga alta com o download de recursos desnecessários que nunca são visualizados pela maioria dos visitantes.
-* O site B decidiu instalar um widget de terceiros para exibir conteúdo relacionado, aprimorar a interação social ou fornecer algum outro serviço.
+* O site B decidiu instalar um widget de terceiros para exibir conteúdo relacionado, aprimorar a interação social ou fornecer algum outro serviço. 
     * **Pergunta:** Você rastreou quantos visitantes usam o widget ou clicam no conteúdo fornecido pelo widget? O engajamento que este widget gera é suficiente para justificar a sua sobrecarga?
 
 Determinar a eliminação ou não de downloads desnecessários muitas vezes requer um muita consideração e medição cuidadosas. Para obter os melhores resultados, você deve fazer periodicamente um inventário e refazer essas perguntas para todos os ativos em suas páginas.
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

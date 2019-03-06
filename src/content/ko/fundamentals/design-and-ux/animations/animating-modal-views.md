@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: 앱에서 모달 뷰에 애니메이션을 적용하는 방법을 알아봅니다.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: 앱에서 모달 뷰에 애니메이션을 적용하는 방법을 알아봅니다.
 
-{# wf_updated_on: 2016-08-24 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2016-08-24 #} {# wf_published_on: 2014-08-08 #}
 
 # 모달 뷰 애니메이션 {: .page-title }
 
@@ -21,6 +18,7 @@ description: 앱에서 모달 뷰에 애니메이션을 적용하는 방법을 �
 모달 뷰는 중요한 메시지를 전달하고 사용자 인터페이스를 차단해야 하는 경우에 적합합니다. 이 뷰는 남용할 경우 사용자에게 방해가 되고 쉽게 거부감을 줄 수 있으므로 사용 시 주의해야 합니다. 하지만 일부 경우에는 이 뷰를 사용하는 것이 합리적이고 애니메이션을 추가하면 생명력을 불어넣을 수 있습니다.
 
 ### TL;DR {: .hide-from-toc }
+
 * 모달 뷰는 드물게 사용해야 하며, 불필요한 방해는 사용자를 성가시게 만들 수 있습니다.
 * 애니메이션에 배율을 추가하면 멋진 '낙하' 효과가 발생합니다.
 * 사용자가 모달 뷰를 해제할 때 재빨리 모달 뷰를 제거합니다. 하지만 사용자가 놀라지 않도록 약간 더 느리게 모달 뷰를 화면으로 가져옵니다.
@@ -28,7 +26,6 @@ description: 앱에서 모달 뷰에 애니메이션을 적용하는 방법을 �
 <div class="clearfix"></div>
 
 모달 오버레이는 뷰포트에 정렬해야 하므로, `position`을 `fixed`로 설정합니다.
-
 
     .modal {
       position: fixed;
@@ -48,7 +45,6 @@ description: 앱에서 모달 뷰에 애니메이션을 적용하는 방법을 �
 
 뷰가 표시되면 상호작용을 허용해야 하며 `opacity`가 1이어야 합니다.
 
-
     .modal.visible {
       pointer-events: auto;
       opacity: 1;
@@ -57,13 +53,10 @@ description: 앱에서 모달 뷰에 애니메이션을 적용하는 방법을 �
 
 이제 모달 뷰가 필요할 때마다 자바스크립트를 사용하여 'visible' 클래스를 전환할 수 있습니다.
 
-
     modal.classList.add('visible');
     
 
-이 시점에서 모달 뷰는 애니메이션이 없이 나타나므로 이제 추가가 가능합니다
-([사용자설정 Easing](custom-easing) 참조).
-
+이 시점에서 모달 뷰는 애니메이션이 없이 나타나므로 이제 추가가 가능합니다 ([사용자설정 Easing](custom-easing) 참조).
 
     .modal {
       -webkit-transform: scale(1.15);
@@ -84,7 +77,6 @@ description: 앱에서 모달 뷰에 애니메이션을 적용하는 방법을 �
 
 기간은 아주 짧지만, 사용자가 뷰를 종료하고 앱으로 돌아가려는 경우에 적합합니다. 단점은 모달 뷰가 나타날 때 너무 공격적이라는 점입니다. 이를 해결하려면 `visible` 클래스의 전환 값을 재정의합니다.
 
-
     .modal.visible {
     
       -webkit-transform: scale(1);
@@ -103,8 +95,6 @@ description: 앱에서 모달 뷰에 애니메이션을 적용하는 방법을 �
 
 이제 모달 뷰가 화면에 표시되는 데 0.3초가 걸리고 덜 공격적이지만 빠르게 해제되므로, 사용자가 높이 평가할 것입니다.
 
-
-
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

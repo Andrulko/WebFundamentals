@@ -1,22 +1,18 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description:您可以通过 CSS 或 JavaScript 编写动画。应使用哪种方式，为什么？
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description:您可以通过 CSS 或 JavaScript 编写动画。应使用哪种方式，为什么？
 
-{# wf_updated_on: 2016-08-25 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2016-08-25 #} {# wf_published_on: 2014-08-08 #}
 
 # CSS 对比 JavaScript 动画 {: .page-title }
 
-{% include "web/_shared/contributors/paullewis.html" %}
-{% include "web/_shared/contributors/samthorogood.html" %}
+{% include "web/_shared/contributors/paullewis.html" %} {% include "web/_shared/contributors/samthorogood.html" %}
 
 在网页上创建动画有两种主要方法：使用 CSS 和使用 JavaScript。您选择哪种方法实际上取决于项目的其他依赖关系，以及您尝试实现什么类型的效果。
 
 ### TL;DR {: .hide-from-toc }
+
 * 使用 CSS 动画来实现较简单的“一次性”转换，例如切换 UI 元素状态。
 * 当您需要高级效果（例如弹跳、停止、暂停、倒退或减速）时，请使用 JavaScript 动画。
 * 如果选择使用 JavaScript 来编写动画，可选用 Web Animations API 或用起来顺手的现代框架。
-
 
 大多数基本动画可以使用 CSS 或 JavaScript 来创建，但工作量和时间将有所不同（另请参考 [CSS 对比 JavaScript 的性能](animations-and-performance#css-vs-javascript-performance)）。每一种方法都有其优点和缺点，但以下内容是很好的指导原则：
 
@@ -40,7 +36,6 @@ description:您可以通过 CSS 或 JavaScript 编写动画。应使用哪种方
 
 以下是一些 CSS 代码，让一个元素同时在 X 轴和 Y 轴上移动 100px。其实现方法是使用 CSS 变换，用时设置为 500 毫秒。当添加了 `move` 类时，`transform` 值被改变并且变换开始。
 
-
     .box {
       -webkit-transform: translate(0, 0);
       -webkit-transition: -webkit-transform 500ms;
@@ -54,12 +49,12 @@ description:您可以通过 CSS 或 JavaScript 编写动画。应使用哪种方
       transform: translate(100px, 100px);
     }
     
+
 [试一下](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/animations/box-move-simple.html){: target="_blank" .external }
 
 除了变换的持续时间之外，还有针对*缓动*的选项，缓动基本上是动画表现的方式。如需详细了解关于缓动的信息，请参阅[缓动基础知识](the-basics-of-easing)指南。
 
 如果在上述代码段中，您创建单独的 CSS 类来管理动画，则可以使用 JavaScript 来打开和关闭每个动画：
-
 
     box.classList.add('move')；
     
@@ -67,7 +62,6 @@ description:您可以通过 CSS 或 JavaScript 编写动画。应使用哪种方
 此操作将给您的应用带来良好的平衡。您可以侧重于使用 JavaScript 来管理状态，只需在目标元素上设置相应的类，让浏览器去处理动画。如果您按照这种方法，则可以侦听元素的 `transitionend` 事件，但前提是您能够放弃对 Internet Explorer 较旧版本的支持；IE 10 是支持这些事件的首个版本。所有其他浏览器均已支持此事件有一段时间了。
 
 侦听变换结束所需的 JavaScript 如下所示：
-
 
     var box = document.querySelector('.box');
     box.addEventListener('transitionend', onTransitionEnd, false);
@@ -82,7 +76,6 @@ description:您可以通过 CSS 或 JavaScript 编写动画。应使用哪种方
 Note: 如果您是动画初学者，那么说明一下，关键帧是来自手绘动画的老术语。动画设计者为一个片段创建多个特定帧，称为关键帧，关键帧将提供某个动作的起止状态，然后它们开始绘出关键帧之间的所有单个帧。现在我们使用 CSS 动画也有相似的过程，我们指示浏览器，CSS 属性在指定时点需要什么值，然后浏览器填充其中的间隔。
 
 例如，可以使用与变换相同的方式为方框设置动画，但是设置动画时没有任何用户交互（例如点击），而是采用无限重复。还可以同时更改多个属性：
-
 
     /**
      * This is a simplified version without
@@ -140,7 +133,6 @@ CSS 动画在某种程度上仍采用供应商前缀，在 Safari、Safari Mobil
 
 JavaScript 动画是*命令式*，因为您将它们作为代码的一部分嵌入代码中。您还可以将它们封装在其他对象内。以下是在重新创建我们之前所讨论的 CSS 变换时需要编写的 JavaScript：
 
-
     var target = document.querySelector('.box');
     var player = target.animate([
       {transform: 'translate(0)'},
@@ -159,5 +151,6 @@ Web Animations API 是来自 W3C 的新标准，在 Chrome 和 Opera 中受原�
 
 使用 JavaScript 动画，您可以完全控制元素在每个步骤的样式。这意味着您可以在您认为合适时减慢动画、暂停动画、停止动画、倒退动画和操纵元素。如果您正在构建复杂的对象导向型应用，则此方法特别有用，因为您可以正确封装您的行为。
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}

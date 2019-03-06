@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Pelajari cara menganimasikan tampilan modal di aplikasi Anda.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Pelajari cara menganimasikan tampilan modal di aplikasi Anda.
 
-{# wf_updated_on: 2016-08-24 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2016-08-24 #} {# wf_published_on: 2014-08-08 #}
 
 # Menganimasikan Tampilan Modal {: .page-title }
 
@@ -21,6 +18,7 @@ description: Pelajari cara menganimasikan tampilan modal di aplikasi Anda.
 Tampilan modal hanya untuk pesan penting, dan Anda memiliki alasan yang sangat baik kenapa memblokir antarmuka pengguna. Gunakan dengan hati-hati, karena tampilan modal mengganggu dan bisa dengan mudah merusak pengalaman pengguna jika terlalu sering digunakan. Namun, dalam beberapa keadaan, tampilan modal adalah pilihan tampilan yang tepat, dan menambahkan beberapa animasi akan membuatnya semakin hidup.
 
 ### TL;DR {: .hide-from-toc }
+
 * Gunakan tampilan modal secukupnya; pengguna akan merasa frustrasi jika Anda mengganggu pengalaman mereka degan hal-hal yang tidak penting.
 * Menambahkan skala ke animasi memberikan efek "drop on" yang bagus.
 * Singkirkan tampilan modal dengan cepat bila pengguna menutupnya. Namun, munculkan tampilan modal sedikit lebih lambat ke layar sehingga tidak mengejutkan pengguna.
@@ -28,7 +26,6 @@ Tampilan modal hanya untuk pesan penting, dan Anda memiliki alasan yang sangat b
 <div class="clearfix"></div>
 
 Overlay modal harus selaras dengan tampilan yang terlihat, jadi setel `position`-nya ke `fixed`:
-
 
     .modal {
       position: fixed;
@@ -48,7 +45,6 @@ Contoh ini memiliki `opacity` awal 0 sehingga tersembunyi dari tampilan, dan `po
 
 Ketika terlihat, tampilan harus menerima interaksi dan memiliki `opacity` bernilai 1:
 
-
     .modal.visible {
       pointer-events: auto;
       opacity: 1;
@@ -57,13 +53,10 @@ Ketika terlihat, tampilan harus menerima interaksi dan memiliki `opacity` bernil
 
 Sekarang, setiap kali tampilan modal diperlukan, Anda bisa menggunakan JavaScript untuk mengaktifkan kelas "visible":
 
-
     modal.classList.add('visible');
     
 
-Pada titik ini, tampilan modal muncul tanpa animasi apa pun, jadi sekarang Anda bisa menambahkannya dalam
-(lihat juga [Easing Khusus](custom-easing)):
-
+Pada titik ini, tampilan modal muncul tanpa animasi apa pun, jadi sekarang Anda bisa menambahkannya dalam (lihat juga [Easing Khusus](custom-easing)):
 
     .modal {
       -webkit-transform: scale(1.15);
@@ -84,7 +77,6 @@ Menambahkan `scale` dalam transformasi membuat tampilan tampak turun sedikit ke 
 
 Durasi ini cukup singkat, tetapi merupakan durasi yang ideal saat pengguna menutup tampilan dan ingin kembali ke aplikasi Anda. Kekurangannya adalah bahwa ketika tampilan modal muncul mungkin terlalu agresif. Untuk memperbaiki ini, ganti nilai-nilai transisi untuk kelas `visible`:
 
-
     .modal.visible {
     
       -webkit-transform: scale(1);
@@ -103,8 +95,6 @@ Durasi ini cukup singkat, tetapi merupakan durasi yang ideal saat pengguna menut
 
 Sekarang tampilan modal membutuhkan waktu 0,3 detik untuk ditampilkan ke layar, sedikit kurang agresif, tetapi bisa ditutup dengan cepat, yang akan lebih disukai pengguna.
 
-
-
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
