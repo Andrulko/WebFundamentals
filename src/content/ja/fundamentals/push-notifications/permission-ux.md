@@ -1,8 +1,6 @@
-project_path: /web/fundamentals/_project.yaml
-book_path: /web/fundamentals/_book.yaml
+project_path: /web/fundamentals/_project.yaml book_path: /web/fundamentals/_book.yaml
 
-{# wf_updated_on: 2017-03-03 #}
-{# wf_published_on: 2016-06-30 #}
+{# wf_updated_on: 2017-03-03 #} {# wf_published_on: 2016-06-30 #}
 
 # パーミッションの UX {: .page-title }
 
@@ -66,8 +64,7 @@ Owen のデモのもう一つの良い点は、ユーザーが通知を有効に
 
 設定画面に通知の項目を用意することで、Web アプリケーションの UI を煩雑にすることなく、ユーザーにプッシュ通知の有効または無効を変更する方法を提供することができます。
 
-[Google I / O の 2016 サイト](https://events.google.com/io2016/)が良い例です。最初に Google I / O
- サイトを読み込んだ時点では、特に何も求められません。ユーザーは自由にサイトを閲覧することができます。
+[Google I / O の 2016 サイト](https://events.google.com/io2016/)が良い例です。最初に Google I / O サイトを読み込んだ時点では、特に何も求められません。ユーザーは自由にサイトを閲覧することができます。
 
 ![When you first load the page, no prompt, just calm on Google IO.](./images/ux-examples/google-io/google-io-first-load.png){: .device-image .center-image }
 
@@ -118,5 +115,7 @@ enabled.](./images/ux-examples/gauntface/gauntface-enabled.png)
 ページが読み込まれた後すぐにパーミッションを求め、プッシュ通知を無効にする UI を提供しないサイトの数は驚異的です。
 
 サイトは、プッシュを無効にする方法をユーザーに説明する必要があります。さもなければ、あなたのサイトは永久にパーミッションをブロックされてしまうでしょう。
+
+## Feedback {: #feedback }
 
 Translated by {% include "web/_shared/contributors/agektmr.html" %}
