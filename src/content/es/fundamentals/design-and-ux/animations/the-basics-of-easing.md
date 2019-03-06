@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Aprende a suavizar tus animaciones y lograr que sean interesantes.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Aprende a suavizar tus animaciones y lograr que sean interesantes.
 
-{# wf_updated_on: 2016-08-23 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2016-08-23 #} {# wf_published_on: 2014-08-08 #}
 
 # Aspectos básicos de la aceleración {: .page-title }
 
@@ -12,10 +9,10 @@ description: Aprende a suavizar tus animaciones y lograr que sean interesantes.
 Nada de lo que se encuentra en la naturaleza se mueve de forma lineal de un punto a otro. En la realidad, los objetos tienden a acelerar o desacelerar a medida que se mueven. Nuestros cerebros están configurados para esperar este tipo de movimiento. Por ello, al realizar animaciones debes sacar provecho a esto. Si los movimientos son naturales, los usuarios se sentirán más cómodos con tus apps, lo que a su vez derivará en una mejor experiencia general.
 
 ### TL;DR {: .hide-from-toc }
+
 * Gracias a la aceleración, tus animaciones se ven más naturales.
 * Selecciona animaciones de salida lenta para los elementos de las IU.
 * Evita las animaciones de entrada lenta o de entrada y salida lentas, a menos que puedas hacer que sean breves, ya que generalmente resultan muy lentas para los usuarios finales.
-
 
 En la animación clásica, para el movimiento que comienza lentamente y luego se acelera se usa el término “aceleración”, y para el movimiento que comienza rápidamente y luego se desacelera, “desaceleración”. Los términos más usados en la web para estos conceptos son “entrada lenta” y “salida lenta”, respectivamente. A veces, ambos se combinan y se a esto se lo denomina “entrada y salida lentas”. Por consiguiente, la aceleración es el proceso de hacer que la animación sea menos intensa o pronunciada.
 
@@ -46,7 +43,7 @@ Las animaciones sin ningún tipo de aceleración se conocen como **lineales**. L
 
 A medida que pasa el tiempo, el valor aumenta en cantidades iguales. Con el movimiento lineal, las animaciones tienden a verse robóticas y poco naturales, y esto es algo que resulta chocante para los usuarios. En términos generales, debes evitar el movimiento lineal.
 
-Independientemente de que programes tus animaciones mediante CSS o JavaScript, descubrirás que siempre existe una opción alternativa al movimiento lineal. 
+Independientemente de que programes tus animaciones mediante CSS o JavaScript, descubrirás que siempre existe una opción alternativa al movimiento lineal.
 
 [Ver una animación lineal](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/animations/box-move-linear.html){: target="_blank" .external }
 
@@ -54,10 +51,8 @@ Independientemente de que programes tus animaciones mediante CSS o JavaScript, d
 
 Para lograr el efecto que se mostró antes con las CSS, el código deberá tener el siguiente aspecto:
 
-
     transition: transform 500ms linear;
     
-
 
 ## Animaciones de salida lenta
 
@@ -77,10 +72,8 @@ Por lo general, la salida lenta es la mejor opción para las interfaces de usuar
 
 Existen muchas maneras diferentes de lograr un efecto de salida lenta, pero la más simple es usar la palabra clave `ease-out` en la CSS:
 
-
     transition: transform 500ms ease-out;
     
-
 
 ## Animaciones de entrada lenta
 
@@ -102,7 +95,6 @@ Sin embargo, desde el punto de vista de la interacción, las entradas lentas pue
 
 Para usar una animación de entrada lenta, como en el caso de las animaciones lineales y de salida lenta, puedes aplicar las palabras claves correspondientes:
 
-
     transition: transform 500ms ease-in;
     
 
@@ -122,14 +114,11 @@ Evita que la duración de la animación sea demasiado prolongada, debido a la le
 
 <div style="clear:both;"></div>
 
-
 Para lograr una animación de entrada y salida lentas, puedes usar la palabra clave `ease-in-out` de CSS:
-
 
     transition: transform 500ms ease-in-out;
     
 
-
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
