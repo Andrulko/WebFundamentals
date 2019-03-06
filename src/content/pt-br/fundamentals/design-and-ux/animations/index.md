@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Entenda melhor as animações e sua utilização em aplicativos e sites modernos.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Entenda melhor as animações e sua utilização em aplicativos e sites modernos.
 
-{# wf_updated_on: 2016-08-23 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2016-08-23 #} {# wf_published_on: 2014-08-08 #}
 
 # Animações {: .page-title }
 
@@ -11,12 +8,11 @@ description: Entenda melhor as animações e sua utilização em aplicativos e s
 
 As animações são uma parte significativa do que torna aplicativos da Web e sites atraentes. O usuário espera interfaces altamente responsivas e interativas. No entanto, animar sua interface não é necessariamente simples. O que deve ser animado, quando e qual tipo de efeito a animação deve produzir?
 
-
 ### TL;DR {: .hide-from-toc }
+
 * Use animações como uma forma de dar vida aos seus projetos.
 * As animações devem auxiliar na interação do usuário.
 * Tenha cuidado com quais propriedades animar; algumas são mais caras do que outras.
-
 
 ## Selecione os elementos certos para animar
 
@@ -24,7 +20,7 @@ As animações são uma parte significativa do que torna aplicativos da Web e si
 
 ## Use animações para apoiar interações
 
-Não crie uma animação desnecessária; isso incomoda os usuários e é obstrutivo. Em vez disso, use animações estrategicamente para _reforçar_ as interações do usuário. Se ele tocar no ícone de menu, deslizar para revelar uma gaveta de navegação ou tocar em um botão, você pode usar um brilho ou bounce sutil para confirmar a interação. Evite animações que interrompam ou obstruam desnecessariamente a atividade do usuário.
+Não crie uma animação desnecessária; isso incomoda os usuários e é obstrutivo. Em vez disso, use animações estrategicamente para *reforçar* as interações do usuário. Se ele tocar no ícone de menu, deslizar para revelar uma gaveta de navegação ou tocar em um botão, você pode usar um brilho ou bounce sutil para confirmar a interação. Evite animações que interrompam ou obstruam desnecessariamente a atividade do usuário.
 
 ## Evite animar propriedades caras
 
@@ -34,5 +30,6 @@ Algumas propriedades são mais caras para mudar do que outras e, portanto, prova
 
 Saiba mais sobre o desempenho das animações no guia [Animações e desempenho](animations-and-performance), mas, caso queira que o TL;DR permaneça para mudanças de transformações e opacidades, utilize `will-change`. Para saber exatamente qual trabalho é acionado com a animação de uma determinada propriedade, consulte [Acionadores CSS](http://csstriggers.com).
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
