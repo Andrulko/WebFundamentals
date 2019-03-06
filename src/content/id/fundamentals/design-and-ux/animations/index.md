@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Memahami animasi dan penggunaannya dengan lebih baik dalam aplikasi dan situs modern.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Memahami animasi dan penggunaannya dengan lebih baik dalam aplikasi dan situs modern.
 
-{# wf_updated_on: 2016-08-23 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2016-08-23 #} {# wf_published_on: 2014-08-08 #}
 
 # Animasi {: .page-title }
 
@@ -11,12 +8,11 @@ description: Memahami animasi dan penggunaannya dengan lebih baik dalam aplikasi
 
 Animasi adalah bagian penting saat membuat aplikasi web dan situs yang menarik. Pengguna mengharapkan antarmuka pengguna yang sangat responsif dan interaktif. Namun, menganimasikan antarmuka Anda bukanlah hal yang mudah. Apa yang harus dianimasikan, kapan, dan apa jenis nuansa yang dimiliki animasi tersebut?
 
-
 ### TL;DR {: .hide-from-toc }
+
 * Gunakan animasi sebagai cara untuk menambahkan jiwa ke proyek Anda.
 * Animasi harus mendukung interaksi pengguna.
 * Hati-hati dengan properti yang Anda animasikan; beberapa lebih berat dibanding yang lain.
-
 
 ## Memilih hal yang tepat untuk dianimasikan
 
@@ -34,5 +30,6 @@ Beberapa properti lebih sulit untuk diubah dibanding yang lain, dan hal inilah y
 
 Anda bisa membaca selengkapnya mengenai perhitungan kinerja animasi dalam panduan [Animasi dan Kinerja](animations-and-performance), namun jika Anda menginginkan TL;DR, tetaplah konsisten pada ubahan transform dan opacity, serta menggunakan `will-change`. Jika Anda ingin mengetahui secara pasti pekerjaan mana yang dipicu karena menganimasikan properti yang diberikan, lihat [Pemicu CSS](http://csstriggers.com).
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
