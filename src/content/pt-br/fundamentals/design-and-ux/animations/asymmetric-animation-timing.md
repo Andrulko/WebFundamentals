@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: A quebra de simetria proporciona contraste aos seus projetos e os torna mais atraentes. Saiba quando e como aplicar esse recurso aos seus projetos.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: A quebra de simetria proporciona contraste aos seus projetos e os torna mais atraentes. Saiba quando e como aplicar esse recurso aos seus projetos.
 
-{# wf_updated_on: 2014-10-21 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2014-10-21 #} {# wf_published_on: 2014-08-08 #}
 
 # Precisão de animação assimétrica {: .page-title }
 
@@ -12,9 +9,9 @@ description: A quebra de simetria proporciona contraste aos seus projetos e os t
 A precisão de animação assimétrica melhora a experiência do usuário, permitindo que você expresse personalidade ao mesmo tempo em que responde rapidamente às interações do usuário. Ela também proporciona um sensação de contraste, o que torna a interface mais visualmente atraente.
 
 ### TL;DR {: .hide-from-toc }
+
 * Use a precisão de animação assimétrica para proporcionar personalidade e contraste ao seu trabalho.
 * Sempre dê preferência à interação do usuário; use durações curtas ao responder a toques ou cliques e reserve durações mais longas para quando não houver resposta.
-
 
 Como na maioria das "regras" de animação, você deve testar para descobrir o que funciona para o seu aplicativo, mas, quando o assunto é a experiência do usuário, eles são sempre muito impacientes. A regra geral é sempre **responder à interação do usuário rapidamente**. Dito isso, na maioria dos casos, a ação do usuário é assimétrica e, portanto, a animação também pode ser.
 
@@ -27,5 +24,6 @@ A regra geral é a seguinte:
 * Animações da interface do usuário acionadas por uma interação do usuário, como as transições de visualização ou a exibição de um elemento, têm introdução rápida (curta duração) e saída lenta (duração mais longa).
 * Animações da interface do usuário acionadas pelo seu código, como erros ou exibições modais, têm introdução mais lenta (duração mais longa) e saída rápida (duração curta).
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
