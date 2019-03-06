@@ -1,10 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description:应用下载的数据量会随时间推移而持续增加。为提供卓越的性能，您必须对数据传送做尽可能多的优化。
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description:应用下载的数据量会随时间推移而持续增加。为提供卓越的性能，您必须对数据传送做尽可能多的优化。
 
-
-{# wf_updated_on: 2015-10-05 #}
-{# wf_published_on: 2014-03-31 #}
+{# wf_updated_on: 2015-10-05 #} {# wf_published_on: 2014-03-31 #}
 
 # 优化内容效率 {: .page-title }
 
@@ -14,9 +10,10 @@ description:应用下载的数据量会随时间推移而持续增加。为提�
 
 现代网络应用是什么样子？[HTTP Archive](http://httparchive.org/){: .external } 可帮助我们回答这个问题。该项目追踪网络的构建方式，具体方法是：定期抓取最受欢迎的网站（Alexa 百万热门网站列表中的超过 300,000 个网站）的信息，并记录和汇总每个单独目标的数字资源、内容类型以及其他元数据的分析数据。
 
-<img src="images/http-archive-trends.png"  alt="HTTP Archive 趋势">
+<img src="images/http-archive-trends.png"  alt="HTTP Archive 趋势" />
 
 <table class="">
+  
 <colgroup><col span="1"><col span="1"><col span="1"><col span="1"></colgroup>
 <thead>
   <tr>
@@ -72,5 +69,6 @@ description:应用下载的数据量会随时间推移而持续增加。为提�
 
 在满足上述要求的前提下实现即时网络体验绝非易事，优化内容效率至关重要的原因就在于此：避免不必要的下载、通过各种压缩技术优化每个资源的传送编码以及尽可能利用缓存来避免多余的下载。
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
