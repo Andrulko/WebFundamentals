@@ -1,19 +1,14 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Paint adalah proses pengisian piksel yang pada akhirnya akan dikomposisikan ke layar pengguna. Sering kali ini yang paling lama berjalan dari semua tugas di pipeline, dan harus dihindari jika memungkinkan.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Paint adalah proses pengisian piksel yang pada akhirnya akan dikomposisikan ke layar pengguna. Sering kali ini yang paling lama berjalan dari semua tugas di pipeline, dan harus dihindari jika memungkinkan.
 
-{# wf_updated_on: 2017-07-12 #}
-{# wf_published_on: 2015-03-20 #}
+{# wf_updated_on: 2017-07-12 #} {# wf_published_on: 2015-03-20 #}
 
 # Menyederhanakan Kompleksitas Paint dan Mengurangi Area Paint {: .page-title }
 
 {% include "web/_shared/contributors/paullewis.html" %}
 
-Paint adalah proses pengisian piksel yang pada akhirnya akan dikomposisikan ke 
-layar pengguna. Sering kali ini yang paling lama berjalan dari semua tugas 
-di pipeline, dan harus dihindari jika memungkinkan.
+Paint adalah proses pengisian piksel yang pada akhirnya akan dikomposisikan ke layar pengguna. Sering kali ini yang paling lama berjalan dari semua tugas di pipeline, dan harus dihindari jika memungkinkan.
 
-### TL;DR {: .hide-from-toc } 
+### TL;DR {: .hide-from-toc }
 
 * Mengubah properti selain transform dan opacity akan selalu memicu paint.
 * Paint sering kali merupakan bagian paling berat dari pipeline piksel; hindari bila Anda bisa.
@@ -22,13 +17,13 @@ di pipeline, dan harus dihindari jika memungkinkan.
 
 ## Memicu Layout atau Paint.
 
-Jika Anda memicu layout, Anda akan _selalu memicu paint_, karena mengubah geometri elemen berarti pikselnya perlu diperbaiki!
+Jika Anda memicu layout, Anda akan *selalu memicu paint*, karena mengubah geometri elemen berarti pikselnya perlu diperbaiki!
 
-<img src="images/simplify-paint-complexity-and-reduce-paint-areas/frame.jpg"  alt="Pipeline piksel penuh.">
+<img src="images/simplify-paint-complexity-and-reduce-paint-areas/frame.jpg"  alt="Pipeline piksel penuh." />
 
 Anda juga bisa memicu paint jika mengubah properti non-geometrik, seperti latar belakang, warna teks, atau bayangan. Dalam hal itu, layout tidak akan diperlukan dan pipeline akan terlihat seperti ini:
 
-<img src="images/simplify-paint-complexity-and-reduce-paint-areas/frame-no-layout.jpg"  alt="Pipeline piksel tanpa layout.">
+<img src="images/simplify-paint-complexity-and-reduce-paint-areas/frame-no-layout.jpg"  alt="Pipeline piksel tanpa layout." />
 
 ## Gunakan Chrome DevTools untuk mengidentifikasi bottleneck paint dengan cepat
 
@@ -44,8 +39,7 @@ Anda bisa menggunakan Chrome DevTools untuk mengidentifikasi dengan cepat area y
 
 Mengaktifkan opsi ini di Chrome akan mengisi layar dengan warna hijau bila terjadi penggambaran. Jika Anda melihat seluruh layar berisi warna hijau, atau area layar yang menurut Anda seharusnya tidak digambar, berarti Anda harus menyelidiki sedikit lebih jauh lagi.
 
-<img src="images/simplify-paint-complexity-and-reduce-paint-areas/show-paint-rectangles-green.jpg"  alt="Laman berkedip hijau bila penggambaran terjadi.">
-
+<img src="images/simplify-paint-complexity-and-reduce-paint-areas/show-paint-rectangles-green.jpg"  alt="Laman berkedip hijau bila penggambaran terjadi." />
 
 <div class="attempt-right">
   <figure>
@@ -53,7 +47,7 @@ Mengaktifkan opsi ini di Chrome akan mengisi layar dengan warna hijau bila terja
   </figure>
 </div>
 
-Ada opsi di Timeline di Chrome DevTools yang akan memberi Anda informasi lebih banyak: paint profiler. Untuk mengaktifkannya, masuk ke Timeline dan centang kotak “Paint” di bagian atas. Anda perlu _mengaktifkannya hanya saat mencoba membuat profil masalah paint_, karena ini menimbulkan overhead dan akan membuat proses pembuatan profil kinerja Anda melenceng. Ini paling baik digunakan saat Anda menginginkan wawasan lebih banyak mengenai apa yang sebenarnya sedang digambar.
+Ada opsi di Timeline di Chrome DevTools yang akan memberi Anda informasi lebih banyak: paint profiler. Untuk mengaktifkannya, masuk ke Timeline dan centang kotak “Paint” di bagian atas. Anda perlu *mengaktifkannya hanya saat mencoba membuat profil masalah paint*, karena ini menimbulkan overhead dan akan membuat proses pembuatan profil kinerja Anda melenceng. Ini paling baik digunakan saat Anda menginginkan wawasan lebih banyak mengenai apa yang sebenarnya sedang digambar.
 
 <div style="clear:both;"></div>
 
@@ -69,7 +63,7 @@ Dari sini Anda sekarang dapat menjalankan perekaman Timeline, dan catatan paint 
 
 Mengeklik paint profiler akan memberikan tampilan tempat Anda bisa melihat apa yang digambar, waktu yang diperlukan, dan panggilan setiap paint yang diperlukan:
 
-<img src="images/simplify-paint-complexity-and-reduce-paint-areas/paint-profiler.jpg"  alt="Chrome DevTools Paint Profiler.">
+<img src="images/simplify-paint-complexity-and-reduce-paint-areas/paint-profiler.jpg"  alt="Chrome DevTools Paint Profiler." />
 
 Profiler ini memungkinkan Anda mengetahui area maupun kompleksitas (yakni waktu yang sebenarnya diperlukan untuk menggambar), dan keduanya merupakan area yang bisa Anda lihat untuk diperbaiki jika tidak bisa menghindari paint.
 
@@ -77,25 +71,23 @@ Profiler ini memungkinkan Anda mengetahui area maupun kompleksitas (yakni waktu 
 
 Penggambaran tidak selalu dilakukan ke dalam satu gambar di memori. Sebenarnya, browser bisa saja menggambar ke dalam beberapa gambar, atau layer compositor, jika perlu.
 
-<img src="images/simplify-paint-complexity-and-reduce-paint-areas/layers.jpg"  alt="Representasi layer compositor.">
+<img src="images/simplify-paint-complexity-and-reduce-paint-areas/layers.jpg"  alt="Representasi layer compositor." />
 
 Manfaat pendekatan ini adalah elemen rutin digambar ulang, atau berpindah pada layar dengan transformasi, bisa ditangani tanpa memengaruhi elemen lain. Ini sama seperti pada paket aplikasi seni seperti Sketch, GIMP atau Photoshop, di mana masing-masing layer bisa ditangani dan dikomposisikan di atas layer lain untuk membuat gambar akhir.
 
 Cara terbaik untuk membuat layer baru adalah menggunakan properti CSS `will-change`. Ini akan berfungsi di Chrome, Opera, dan Firefox, dan, dengan nilai `transform`, akan membuat layer compositor baru:
 
-
     .moving-element {
       will-change: transform;
     }
-
+    
 
 Untuk browser yang tidak mendukung `will-change`, namun memanfaatkan pembuatan layer, seperti Safari dan Mobile Safari, Anda perlu (salah)gunakan transformasi 3D untuk memaksa layer baru:
-
 
     .moving-element {
       transform: translateZ(0);
     }
-
+    
 
 Berhati-hatilah agar tidak terlalu banyak membuat layer, karena setiap layer memerlukan memori dan manajemen. Ada informasi selengkapnya mengenai hal ini di bagian [Berpeganglah pada properti compositor-saja dan kelola jumlah layer](stick-to-compositor-only-properties-and-manage-layer-count).
 
@@ -123,5 +115,6 @@ Paint profiler di atas akan memungkinkan Anda menentukan apakah perlu mencari ca
 
 Bila bisa, Anda selalu ingin menghindari paint khususnya selama animasi, karena **10 md** yang Anda miliki per bingkai biasanya tidak cukup lama untuk menyelesaikan pekerjaan paint, terlebih pada perangkat seluler.
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
