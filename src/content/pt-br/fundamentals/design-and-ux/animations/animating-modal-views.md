@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Saiba como animar visualizações modais em seus aplicativos.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Saiba como animar visualizações modais em seus aplicativos.
 
-{# wf_updated_on: 2016-08-24 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2016-08-24 #} {# wf_published_on: 2014-08-08 #}
 
 # Animar visualizações modais {: .page-title }
 
@@ -21,6 +18,7 @@ description: Saiba como animar visualizações modais em seus aplicativos.
 As visualizações modais são destinadas a mensagens importantes e, por isso, você tem bons motivos para bloquear a interface do usuário. Use-as com cuidado, pois elas são disruptivas e podem facilmente prejudicar a experiência do usuário, se usadas em excesso. Mas, em algumas situações, elas são a alternativa correta e um pouco de animação dará vida às visualizações.
 
 ### TL;DR {: .hide-from-toc }
+
 * Use visualizações modais de forma moderada; os usuários ficam frustrados se suas experiências são interrompidas desnecessariamente.
 * Adicionar escala à animação proporciona um bom efeito de "queda".
 * Remova a visualização modal rapidamente quando o usuário a dispensar. Entretanto, exiba a visualização modal na tela um pouco mais devagar, para evitar surpreender o usuário.
@@ -28,7 +26,6 @@ As visualizações modais são destinadas a mensagens importantes e, por isso, v
 <div class="clearfix"></div>
 
 A sobreposição modal deve estar linhada à janela de visualização, portanto, defina sua `position` como `fixed`:
-
 
     .modal {
       position: fixed;
@@ -48,7 +45,6 @@ Ela tem um valor inicial de `opacity` de 0, portanto, está oculta na visualiza�
 
 Quando a visualização estiver visível, as interações precisarão ser aceitas e um valor de `opacity` de 1 será necessário:
 
-
     .modal.visible {
       pointer-events: auto;
       opacity: 1;
@@ -57,13 +53,10 @@ Quando a visualização estiver visível, as interações precisarão ser aceita
 
 Agora, sempre que a visualização modal for necessária, você poderá usar o JavaScript para ativar a classe "visible":
 
-
     modal.classList.add('visible');
     
 
-Nesse momento, a visualização modal será exibida sem animações, portanto, você pode adicioná-las em
-(veja também [Easing personalizado](custom-easing)):
-
+Nesse momento, a visualização modal será exibida sem animações, portanto, você pode adicioná-las em (veja também [Easing personalizado](custom-easing)):
 
     .modal {
       -webkit-transform: scale(1.15);
@@ -84,7 +77,6 @@ Adicionar `scale` à transformação faz com que a visualização pareça cair n
 
 A duração é muito curta, mas é ideal para quando o usuário dispensar a visualização e desejar voltar para seu aplicativo. O ponto negativo é que essa transição pode ser muito agressiva para quando a visualização modal for exibida. Para corrigir isso, substitua os valores de transição para a classe `visible`:
 
-
     .modal.visible {
     
       -webkit-transform: scale(1);
@@ -103,8 +95,6 @@ A duração é muito curta, mas é ideal para quando o usuário dispensar a visu
 
 Agora, a visualização modal leva 0,3 segundo para aparecer na tela, o que é um pouco menos agressivo, e será dispensada rapidamente, o que agradará o usuário.
 
-
-
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
