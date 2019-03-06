@@ -1,10 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: La cantidad de datos que descargan las apps continúa aumentando con el tiempo. Para proporcionar un excelente rendimiento, debes optimizar la entrega de datos tanto como sea posible.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: La cantidad de datos que descargan las apps continúa aumentando con el tiempo. Para proporcionar un excelente rendimiento, debes optimizar la entrega de datos tanto como sea posible.
 
-
-{# wf_updated_on: 2015-10-05 #}
-{# wf_published_on: 2014-03-31 #}
+{# wf_updated_on: 2015-10-05 #} {# wf_published_on: 2014-03-31 #}
 
 # Optimización del ahorro de contenido {: .page-title }
 
@@ -14,9 +10,10 @@ Nuestras aplicaciones web continúan creciendo en términos de alcance, ambició
 
 ¿Qué aspecto tiene una app web moderna? [HTTP Archive](http://httparchive.org/){: .external } nos puede ayudar a responder esta pregunta. En el proyecto se realiza un seguimiento de la forma en que está constituida la Web mediante el rastreo periódico de los sitios más populares (más de 300 000 en la lista del millón de sitios principales de Alexa), el registro y la adición de análisis sobre la cantidad de recursos, los tipos de contenido y otros metadatos para cada destino individual.
 
-<img src="images/http-archive-trends.png"  alt="Tendencias de HTTP Archive">
+<img src="images/http-archive-trends.png"  alt="Tendencias de HTTP Archive" />
 
 <table class="">
+  
 <colgroup><col span="1"><col span="1"><col span="1"><col span="1"></colgroup>
 <thead>
   <tr>
@@ -72,5 +69,6 @@ A diferencia de lo que sucede en los equipos de escritorio, las aplicaciones web
 
 Lograr una experiencia web instantánea en vista de estos requisitos no es un tema menor y por ello es fundamental optimizar la eficacia del contenido: eliminar descargas innecesarias, optimizar la codificación de transferencia de cada recurso mediante diferentes técnicas de compresión y aprovechar el almacenamiento en caché, siempre que sea posible, para eliminar descargas redundantes.
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
