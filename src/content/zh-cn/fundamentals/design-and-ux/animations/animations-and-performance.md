@@ -1,23 +1,19 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description:动画必须表现良好，否则将对用户体验产生负面影响。
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description:动画必须表现良好，否则将对用户体验产生负面影响。
 
-{# wf_updated_on: 2016-08-23 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2016-08-23 #} {# wf_published_on: 2014-08-08 #}
 
 # 动画与性能 {: .page-title }
 
-{% include "web/_shared/contributors/paullewis.html" %}
-{% include "web/_shared/contributors/samthorogood.html" %}
+{% include "web/_shared/contributors/paullewis.html" %} {% include "web/_shared/contributors/samthorogood.html" %}
 
 在设置动画时应保持 60fps，因为任何卡顿或停顿都会引起用户注意，并对其体验产生负面影响。
 
 ### TL;DR {: .hide-from-toc }
+
 * 注意您的动画不能导致性能问题；确保了解对指定 CSS 属性设置动画的影响。
 * 改变页面（布局）结构或导致绘图的动画属性特别消耗资源。
 * 尽可能坚持改变变形和透明度。
-* 使用  <code>will-change</code> 来确保浏览器知道您打算对什么设置动画。
-
+* 使用 `will-change` 来确保浏览器知道您打算对什么设置动画。
 
 给属性设置动画不是不受约束的，不过，给某些属性设置动画的开销比其他属性要小。例如，给元素的 `width` 和 `height` 设置动画会改变其几何形状，并且可能导致页面上的其他元素移动或改变大小。此过程称为*布局*（在 Firefox 等基于 Gecko 的浏览器中称为*自动重排*），如果页面有很多元素，则可能开销很大。每当触发布局时，页面或其一部分通常需要进行绘制，这一般比布局操作本身更消耗资源。
 
@@ -30,7 +26,6 @@ description:动画必须表现良好，否则将对用户体验产生负面影�
 使用 [`will-change`](https://dev.w3.org/csswg/css-will-change/) 来确保浏览器知道您打算改变元素的属性。这使浏览器能够在您做出更改之前进行最合适的优化。但是，请勿过度使用 `will-change`，因为过度使用可能导致浏览器浪费资源，进而引起其他性能问题。
 
 一般经验法则是，如果动画可能在接下来的 200 毫秒内触发（由用户交互触发或由应用的状态触发），则对动画元素使用 `will-change` 是个好主意。对于大多数情况，在应用的当前视图中您打算设置动画的任何元素都应启用 `will-change`，无论您打算改变哪个属性。在我们在之前的指南中一直使用的方框示例中，为变形和透明度加上 `will-change` 属性将产生如下结果：
-
 
     .box {
       will-change: transform, opacity;
@@ -51,7 +46,6 @@ description:动画必须表现良好，否则将对用户体验产生负面影�
 
 有关对指定的属性设置动画会触发哪个动作的详细信息，请参阅 [CSS 触发器](http://csstriggers.com)。
 
-
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
