@@ -1,64 +1,60 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Her bir uygulama tarafindan indirilen veri miktari artmaya devam etmektedir. Harika bir performans saglamak için her baytin teslimini optimize etmemiz gerekir!
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Her bir uygulama tarafindan indirilen veri miktari artmaya devam etmektedir. Harika bir performans saglamak için her baytin teslimini optimize etmemiz gerekir!
 
-{# wf_updated_on: 2014-04-28 #}
-{# wf_published_on: 2014-03-31 #}
+{# wf_updated_on: 2014-04-28 #} {# wf_published_on: 2014-03-31 #}
 
 # Içerik Verimliligini Optimize Etme {: .page-title }
 
 {% include "web/_shared/contributors/ilyagrigorik.html" %}
 
-
-
 Web uygulamalarimiz kapsam, tutku ve islevsellik açisindan büyümeye devam eder. Bu iyi bir seydir. Ancak, daha zengin bir web'e dogru araliksiz yapilan bu yürüyüs baska bir trendi de beraberinde getirir: Her bir uygulama tarafindan indirilen veri miktari sabit bir hizla artmaya devam etmektedir. Harika bir performans saglamak için her bayt verinin teslimini optimize etmemiz gerekir!
-
 
 Modern bir web uygulamasi nasil görünür? [HTTP Archive](http://httparchive.org/){: .external }, bu sorunun yanitini bulmamiza yardim edebilir. Proje, en popüler siteleri (Aleksa Ilk 1M listesindeki 300.000'den fazla site) periyodik bir sekilde tarayip kaydederek ve bagimsiz her bir hedefe iliskin kaynak sayisi, içerik türleri ve diger meta verilerle ilgili analizleri toplayarak web'in nasil olusturuldugunu izlemektedir.
 
-<img src="images/http-archive-trends.png" class="center" alt="HTTP Archive trendleri">
+<img src="images/http-archive-trends.png"  alt="HTTP Archive trendleri" />
 
-<table>
+<table class="">
+  
+<colgroup><col span="1"><col span="1"><col span="1"><col span="1"></colgroup>
 <thead>
   <tr>
     <th></th>
-    <th>%50</th>
-    <th>%75</th>
-    <th>%90</th>
+    <th>50th percentile</th>
+    <th>75th percentile</th>
+    <th>90th percentile</th>
   </tr>
 </thead>
 <tr>
-  <td data-th="tür">HTML</td>
+  <td data-th="type">HTML</td>
   <td data-th="50%">13 KB</td>
   <td data-th="75%">26 KB</td>
   <td data-th="90%">54 KB</td>
 </tr>
 <tr>
-  <td data-th="tür">Resimler</td>
+  <td data-th="type">Images</td>
   <td data-th="50%">528 KB</td>
   <td data-th="75%">1213 KB</td>
   <td data-th="90%">2384 KB</td>
 </tr>
 <tr>
-  <td data-th="tür">JavaScript</td>
+  <td data-th="type">JavaScript</td>
   <td data-th="50%">207 KB</td>
   <td data-th="75%">385 KB</td>
   <td data-th="90%">587 KB</td>
 </tr>
 <tr>
-  <td data-th="tür">CSS</td>
+  <td data-th="type">CSS</td>
   <td data-th="50%">24 KB</td>
   <td data-th="75%">53 KB</td>
   <td data-th="90%">108 KB</td>
 </tr>
 <tr>
-  <td data-th="tür">Diger</td>
+  <td data-th="type">Other</td>
   <td data-th="50%">282 KB</td>
   <td data-th="75%">308 KB</td>
   <td data-th="90%">353 KB</td>
 </tr>
 <tr>
-  <td data-th="tür"><strong>Toplam</strong></td>
+  <td data-th="type"><strong>Total</strong></td>
   <td data-th="50%"><strong>1054 KB</strong></td>
   <td data-th="75%"><strong>1985 KB</strong></td>
   <td data-th="90%"><strong>3486 KB</strong></td>
@@ -73,4 +69,6 @@ Masaüstü benzerlerinden farkli olarak, web uygulamalari ayri bir yükleme sür
 
 Bu gereksinimlerin isiginda bir aninda web deneyimini gerçeklestirmek küçük bir is degildir, bu yüzden de içerik verimliliginin optimize edilmesi kritik öneme sahiptir: Gereksiz indirmelerin çikarilmasi, çesitli sikistirma teknikleriyle her bir kaynagin aktarim kodlamasinin optimize edilmesi ve yedek indirmeleri ortadan kaldirmak için mümkün oldugunda önbellege almadan yararlanilmasi.
 
+## Feedback {: #feedback }
 
+{% include "web/_shared/helpful.html" %}
