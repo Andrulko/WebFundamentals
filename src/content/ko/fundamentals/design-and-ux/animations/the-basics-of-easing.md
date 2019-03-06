@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: 애니메이션을 부드럽게 하고 가중치를 주는 방법을 배웁니다.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: 애니메이션을 부드럽게 하고 가중치를 주는 방법을 배웁니다.
 
-{# wf_updated_on: 2016-08-23 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2016-08-23 #} {# wf_published_on: 2014-08-08 #}
 
 # easing의 기본 사항 {: .page-title }
 
@@ -12,10 +9,10 @@ description: 애니메이션을 부드럽게 하고 가중치를 주는 방법�
 본질적으로 어떤 것도 한 지점에서 다른 지점으로 선형 이동하지 않습니다. 실제로, 물건이 이동할 때 가속하거나 감속하는 경향이 있습니다. 우리의 뇌는 이러한 종류의 모션을 예상하므로 애니메이션을 만들 때 이러한 모션을 활용해야 합니다. 자연스러운 모션은 앱 사용자에게 편안한 느낌을 주고 전반적인 사용 환경을 개선해 줍니다.
 
 ### TL;DR {: .hide-from-toc }
+
 * easing은 애니메이션을 자연스럽게 만듭니다.
 * UI 요소에 대해 ease-out 애니메이션을 선택합니다.
 * 짧게 유지할 수 있는 경우를 제외하고 ease-in 또는 ease-in-out 애니메이션을 피하세요. 최종 사용자에게 굼뜬 느낌을 줄 수 있습니다.
-
 
 전통적인 애니메이션에서 느린 시작 후 가속하는 모션을 'slow in'이라고 하고 빠른 시작 후 감속하는 모션을 'slow out'이라고 합니다. 웹에서는 각 모션에 대해 'ease in' 및 'ease out'이라는 용어를 주로 사용합니다. 두 모션이 조합된 경우는 'ease in out'이라고 합니다. easing은 실제로 애니메이션을 더욱 부드럽고 편안한 느낌이 들게 만드는 프로세스입니다.
 
@@ -46,7 +43,7 @@ easing을 사용하지 않은 애니메이션을 **선형**이라고 합니다. 
 
 시간 경과에 따라, 값이 균일하게 증가합니다. 선형 모션을 사용할 경우, 로봇처럼 부자연스러운 느낌을 주므로 사용자가 불편함을 느낄 수 있습니다. 일반적으로, 선형 모션을 피해야 합니다.
 
-애니메이션 코딩에 CSS를 사용하든 자바스크립트를 사용하든 상관없이 항상 선형 모션에 대한 옵션이 있습니다. 
+애니메이션 코딩에 CSS를 사용하든 자바스크립트를 사용하든 상관없이 항상 선형 모션에 대한 옵션이 있습니다.
 
 [선형 애니메이션 참조](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/animations/box-move-linear.html){: target="_blank" .external }
 
@@ -54,10 +51,8 @@ easing을 사용하지 않은 애니메이션을 **선형**이라고 합니다. 
 
 CSS로 위의 효과를 달성하려면 다음과 같은 코드를 작성해야 합니다.
 
-
     transition: transform 500ms linear;
     
-
 
 ## Ease-out 애니메이션
 
@@ -77,10 +72,8 @@ Easing out은 빠른 시작으로 애니메이션에 반응 효과를 주면서�
 
 ease out 효과를 달성하는 많은 방법이 있지만 가장 간단한 방법은 CSS의 `ease-out` 키워드입니다.
 
-
     transition: transform 500ms ease-out;
     
-
 
 ## Ease-in 애니메이션
 
@@ -102,7 +95,6 @@ Ease-in 애니메이션은 ease-out 애니메이션과 반대로 느리게 시�
 
 ease-in 애니메이션을 사용하려면 ease-out 및 선형 애니메이션과 유사하게 다음 키워드를 사용할 수 있습니다.
 
-
     transition: transform 500ms ease-in;
     
 
@@ -122,14 +114,11 @@ ease-in은 애니메이션을 더디게 시작하기 때문에 애니메이션 �
 
 <div style="clear:both;"></div>
 
-
 Ease-in-out 애니메이션을 구현하려면, 다음 `ease-in-out` CSS 키워드를 사용할 수 있습니다.
-
 
     transition: transform 500ms ease-in-out;
     
 
-
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
