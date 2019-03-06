@@ -1,41 +1,32 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Gerakan perangkat dan kejadian orientasi menyediakan akses ke akselerometer, giroskop, dan kompas terintegrasi di perangkat seluler.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Gerakan perangkat dan kejadian orientasi menyediakan akses ke akselerometer, giroskop, dan kompas terintegrasi di perangkat seluler.
 
-{# wf_updated_on: 2016-08-22 #}
-{# wf_published_on: 2014-06-17 #}
+{# wf_updated_on: 2016-08-22 #} {# wf_published_on: 2014-06-17 #}
 
 # Orientasi Perangkat & Gerakan {: .page-title }
 
 {% include "web/_shared/contributors/petelepage.html" %}
 
-Kejadian orientasi dan gerakan perangkat menyediakan akses ke akselerometer,
-giroskop, dan kompas terintegrasi di perangkat seluler.
+Kejadian orientasi dan gerakan perangkat menyediakan akses ke akselerometer, giroskop, dan kompas terintegrasi di perangkat seluler.
 
-Kejadian ini bisa digunakan untuk berbagai tujuan; dalam game, misalnya, untuk
-mengontrol arah atau aksi lakon. Bila digunakan bersama geolokasi, kejadian ini bisa
-membantu menciptakan navigasi belokan-demi-belokan yang lebih akurat atau
-memberikan informasi tentang lokasi tertentu.
+Kejadian ini bisa digunakan untuk berbagai tujuan; dalam game, misalnya, untuk mengontrol arah atau aksi lakon. Bila digunakan bersama geolokasi, kejadian ini bisa membantu menciptakan navigasi belokan-demi-belokan yang lebih akurat atau memberikan informasi tentang lokasi tertentu.
 
 Perhatian: Tidak semua browser menggunakan sistem koordinat yang sama, dan mungkin melaporkan nilai yang berbeda pada situasi yang serupa. Hal ini telah diperbaiki dari waktu ke waktu, namun pastikan menguji situasi Anda.
 
-##TL;DR
+## TL;DR
 
 * Deteksilah sisi mana pada perangkat yang di atas dan bagaimana rotasi perangkat.
 * Ketahui kapan dan bagaimana merespons kejadian gerakan dan orientasi.
 
-
 ## Sisi mana yang di atas?
 
-Untuk menggunakan data yang dikembalikan oleh kejadian gerakan dan orientasi perangkat,
-maka penting untuk memahami nilai-nilai yang disediakan.  
+Untuk menggunakan data yang dikembalikan oleh kejadian gerakan dan orientasi perangkat, maka penting untuk memahami nilai-nilai yang disediakan.
 
 ### Bingkai koordinat Earth.
 
-Kerangka koordinat Bumi, yang dijelaskan oleh nilai-nilai `X`, `Y`, dan `Z`, diluruskan
-berdasar gravitasi dan orientasi magnetik standar.
+Kerangka koordinat Bumi, yang dijelaskan oleh nilai-nilai `X`, `Y`, dan `Z`, diluruskan berdasar gravitasi dan orientasi magnetik standar.
 
 <table class="responsive">
+  
 <tr><th colspan="2">Sistem koordinat</th></tr>
 <tr>
   <td><code>X</code></td>
@@ -67,10 +58,10 @@ berdasar gravitasi dan orientasi magnetik standar.
 <!-- Special thanks to Sheppy (https://developer.mozilla.org/en-US/profiles/Sheppy)
   for his images which are in the public domain. -->
 
-Bingkai koordinat perangkat, yang dijelaskan melalui nilai-nilai `x`, `y` dan `z`, diluruskan
-berdasarkan pusat perangkat.
+Bingkai koordinat perangkat, yang dijelaskan melalui nilai-nilai `x`, `y` dan `z`, diluruskan berdasarkan pusat perangkat.
 
 <table class="responsive">
+  
 <tr><th colspan="2">Sistem koordinat</th></tr>
 <tr>
   <td><code>X</code></td>
@@ -88,16 +79,11 @@ berdasarkan pusat perangkat.
 </tr>
 </table>
 
-Pada ponsel atau tablet, orientasi perangkat didasarkan pada orientasi
-umumnya layar. Untuk ponsel dan tablet, didasarkan saat perangkat
-berada di mode potret. Untuk komputer desktop atau laptop, orientasi
-dipertimbangkan berkaitan dengan keyboard.
+Pada ponsel atau tablet, orientasi perangkat didasarkan pada orientasi umumnya layar. Untuk ponsel dan tablet, didasarkan saat perangkat berada di mode potret. Untuk komputer desktop atau laptop, orientasi dipertimbangkan berkaitan dengan keyboard.
 
 ### Data rotasi
 
-Data rotasi dikembalikan sebagai [sudut Euler](https://en.wikipedia.org/wiki/Euler_angles),
-yang menyatakan jumlah derajat perbedaan antara bingkai
-koordinat perangkat dan bingkai koordinat Bumi.
+Data rotasi dikembalikan sebagai [sudut Euler](https://en.wikipedia.org/wiki/Euler_angles), yang menyatakan jumlah derajat perbedaan antara bingkai koordinat perangkat dan bingkai koordinat Bumi.
 
 #### Alpha
 
@@ -110,9 +96,7 @@ koordinat perangkat dan bingkai koordinat Bumi.
   </figure>
 </div>
 
-Rotasi di sekeliling sumbu z. Nilai `alpha` adalah 0&deg; bila bagian atas
-perangkat mengarah langsung ke utara. Saat perangkat diputar berlawanan arah jarum jam,
-nilai `alpha` akan bertambah.
+Rotasi di sekeliling sumbu z. Nilai `alpha` adalah 0&deg; bila bagian atas perangkat mengarah langsung ke utara. Saat perangkat diputar berlawanan arah jarum jam, nilai `alpha` akan bertambah.
 
 <div style="clear:both;"></div>
 
@@ -127,9 +111,7 @@ nilai `alpha` akan bertambah.
   </figure>
 </div>
 
-Rotasi sekeliling sumbu x. Nilai `beta` adalah 0&deg; bila bagian atas dan
-bawah perangkat memiliki jarak yang sama dari permukaan bumi. Nilainya
-bertambah saat bagian atas perangkat dimiringkan ke arah permukaan bumi.
+Rotasi sekeliling sumbu x. Nilai `beta` adalah 0&deg; bila bagian atas dan bawah perangkat memiliki jarak yang sama dari permukaan bumi. Nilainya bertambah saat bagian atas perangkat dimiringkan ke arah permukaan bumi.
 
 <div style="clear:both;"></div>
 
@@ -144,21 +126,15 @@ bertambah saat bagian atas perangkat dimiringkan ke arah permukaan bumi.
   </figure>
 </div>
 
-Rotasi sekeliling sumbu y. Nilai `gamma` adalah 0&deg; bila tepi kiri dan
-kanan perangkat memiliki jarak yang sama dari permukaan bumi.  Nilainya
-bertambah saat sisi kanan dimiringkan ke arah permukaan bumi.
+Rotasi sekeliling sumbu y. Nilai `gamma` adalah 0&deg; bila tepi kiri dan kanan perangkat memiliki jarak yang sama dari permukaan bumi. Nilainya bertambah saat sisi kanan dimiringkan ke arah permukaan bumi.
 
 <div style="clear:both;"></div>
 
 ## Orientasi perangkat
 
-Kejadian orientasi perangkat mengembalikan data rotasi, yang memuat seberapa
-besar perangkat miring depan-ke-belakang, sisi-ke-sisi, dan, jika ponsel atau laptop
-memiliki kompas, arahnya ke hadapan perangkat.
+Kejadian orientasi perangkat mengembalikan data rotasi, yang memuat seberapa besar perangkat miring depan-ke-belakang, sisi-ke-sisi, dan, jika ponsel atau laptop memiliki kompas, arahnya ke hadapan perangkat.
 
-Gunakan sekadarnya.
-Uji dukungannya.
-Jangan perbarui UI pada setiap kejadian orientasi; melainkan sinkronkan ke `requestAnimationFrame`.
+Gunakan sekadarnya. Uji dukungannya. Jangan perbarui UI pada setiap kejadian orientasi; melainkan sinkronkan ke `requestAnimationFrame`.
 
 ### Kapan menggunakan kejadian orientasi perangkat
 
@@ -170,35 +146,25 @@ Ada beberapa penggunaan kejadian orientasi perangkat. Contohnya antara lain beri
 
 ### Memeriksa dukungan dan mendengarkan kejadian
 
-Untuk mendengarkan `DeviceOrientationEvent`, pertama, periksa apakah browser mendukung kejadian tersebut. Kemudian, sematkan event listener ke objek `window` untuk mendengarkan kejadian `deviceorientation`. 
+Untuk mendengarkan `DeviceOrientationEvent`, pertama, periksa apakah browser mendukung kejadian tersebut. Kemudian, sematkan event listener ke objek `window` untuk mendengarkan kejadian `deviceorientation`.
 
     if (window.DeviceOrientationEvent) {
       window.addEventListener('deviceorientation', deviceOrientationHandler, false);
       document.getElementById("doeSupported").innerText = "Supported!";
     }
+    
 
 ### Menangani kejadian orientasi perangkat
 
-Kejadian orientasi perangkat terpicu bila perangkat bergerak atau berubah 
-orientasi. Kejadian itu mengembalikan data tentang perbedaan antara perangkat di 
-posisi saat ini dibandingkan dengan 
-[bingkai koordinat Bumi](#earth-coordinate-frame).
+Kejadian orientasi perangkat terpicu bila perangkat bergerak atau berubah orientasi. Kejadian itu mengembalikan data tentang perbedaan antara perangkat di posisi saat ini dibandingkan dengan [bingkai koordinat Bumi](#earth-coordinate-frame).
 
-Kejadian ini biasanya mengembalikan tiga properti: [`alpha`](#alpha), 
-[`beta`](#beta), dan [`gamma`](#gamma). Pada Mobile Safari, parameter tambahan
-[`webkitCompassHeading`](https://developer.apple.com/library/ios/documentation/SafariDOMAdditions/Reference/DeviceOrientationEventClassRef/){: .external }
-dikembalikan bersama arah kompas.
+Kejadian ini biasanya mengembalikan tiga properti: [`alpha`](#alpha), [`beta`](#beta), dan [`gamma`](#gamma). Pada Mobile Safari, parameter tambahan [`webkitCompassHeading`](https://developer.apple.com/library/ios/documentation/SafariDOMAdditions/Reference/DeviceOrientationEventClassRef/){: .external } dikembalikan bersama arah kompas.
 
-## Gerakan perangkat 
+## Gerakan perangkat
 
-Kejadian orientasi perangkat mengembalikan data rotasi, yang memuat seberapa
-besar perangkat miring depan-ke-belakang, sisi-ke-sisi, dan, jika ponsel atau laptop
-memiliki kompas, arahnya ke hadapan perangkat.
+Kejadian orientasi perangkat mengembalikan data rotasi, yang memuat seberapa besar perangkat miring depan-ke-belakang, sisi-ke-sisi, dan, jika ponsel atau laptop memiliki kompas, arahnya ke hadapan perangkat.
 
-Gunakan gerakan perangkat ketika memerlukan gerakan perangkat saat ini.
-`rotationRate` disediakan dalam &deg;/dtk.
-`acceleration` dan `accelerationWithGravity` disediakan dalam m/dtk<sup>2</sup>.
-Perhatikan perbedaan antar implementasi browser.
+Gunakan gerakan perangkat ketika memerlukan gerakan perangkat saat ini. `rotationRate` disediakan dalam &deg;/dtk. `acceleration` dan `accelerationWithGravity` disediakan dalam m/dtk<sup>2</sup>. Perhatikan perbedaan antar implementasi browser.
 
 ### Kapan menggunakan kejadian gerakan perangkat
 
@@ -208,32 +174,23 @@ Ada beberapa kegunaan kejadian gerakan perangkat. Contohnya antara lain berikut 
 * Untuk menyebabkan lakon melompat atau bergerak dalam game.
 * Untuk aplikasi kesehatan dan kebugaran.
 
-
 ### Memeriksa dukungan dan mendengarkan kejadian
 
-Untuk mendengarkan `DeviceMotionEvent`, pertama, periksa apakah kejadian
-tersebut didukung dalam browser.  Kemudian, sematkan listener kejadian ke objek `window` 
-untuk mendengarkan kejadian `devicemotion`. 
+Untuk mendengarkan `DeviceMotionEvent`, pertama, periksa apakah kejadian tersebut didukung dalam browser. Kemudian, sematkan listener kejadian ke objek `window` untuk mendengarkan kejadian `devicemotion`.
 
     if (window.DeviceMotionEvent) {
       window.addEventListener('devicemotion', deviceMotionHandler);
       setTimeout(stopJump, 3*1000);
     }
+    
 
 ### Menangani kejadian gerakan perangkat
 
-Kejadian gerakan perangkat dipicu pada interval waktu yang teratur dan mengembalikan data tentang
-rotasi (dalam &deg;/detik) dan akselerasi (dalam m/detik<sup>2</sup>)
-dari perangkat, pada saat tersebut. Beberapa perangkat tidak memiliki perangkat keras
-sehingga mengecualikan efek gravitasi.
+Kejadian gerakan perangkat dipicu pada interval waktu yang teratur dan mengembalikan data tentang rotasi (dalam &deg;/detik) dan akselerasi (dalam m/detik<sup>2</sup>) dari perangkat, pada saat tersebut. Beberapa perangkat tidak memiliki perangkat keras sehingga mengecualikan efek gravitasi.
 
-Kejadian mengembalikan empat properti, 
-[`accelerationIncludingGravity`](#device-coordinate-frame), 
-[`acceleration`](#device-coordinate-frame), yang mengecualikan efek
-gravitasi, [`rotationRate`](#rotation-data), dan `interval`.
+Kejadian mengembalikan empat properti, [`accelerationIncludingGravity`](#device-coordinate-frame), [`acceleration`](#device-coordinate-frame), yang mengecualikan efek gravitasi, [`rotationRate`](#rotation-data), dan `interval`.
 
-Misalnya, mari kita lihat sebuah ponsel, tergeletak di atas meja datar,
-dengan layar menghadap ke atas.
+Misalnya, mari kita lihat sebuah ponsel, tergeletak di atas meja datar, dengan layar menghadap ke atas.
 
 <table>
   <thead>
@@ -272,8 +229,7 @@ dengan layar menghadap ke atas.
   </tbody>
 </table>
 
-Sebaliknya, jika ponsel dipegang sehingga layar tegak lurus dengan
-tanah, dan langsung terlihat oleh pengguna:
+Sebaliknya, jika ponsel dipegang sehingga layar tegak lurus dengan tanah, dan langsung terlihat oleh pengguna:
 
 <table>
   <thead>
@@ -314,9 +270,7 @@ tanah, dan langsung terlihat oleh pengguna:
 
 ### Contoh: Menghitung percepatan maksimum objek
 
-Salah satu cara menggunakan kejadian gerakan perangkat adalah untuk menghitung akselerasi maksimum
-sebuah objek. Misalnya, berapa akselerasi maksimum orang yang 
-melompat?
+Salah satu cara menggunakan kejadian gerakan perangkat adalah untuk menghitung akselerasi maksimum sebuah objek. Misalnya, berapa akselerasi maksimum orang yang melompat?
 
     if (evt.acceleration.x > jumpMax.x) {
       jumpMax.x = evt.acceleration.x;
@@ -327,11 +281,10 @@ melompat?
     if (evt.acceleration.z > jumpMax.z) {
       jumpMax.z = evt.acceleration.z;
     }
+    
 
+Setelah mengetuk tombol Go!, pengguna diberi tahu untuk melompat. Selama waktu tersebut, laman menyimpan nilai percepatan maksimum (dan minimum), dan setelah melompat, memberi tahu pengguna percepatan maksimum mereka.
 
-Setelah mengetuk tombol Go!, pengguna diberi tahu untuk melompat. Selama waktu tersebut,
-laman menyimpan nilai percepatan maksimum (dan minimum), dan setelah
-melompat, memberi tahu pengguna percepatan maksimum mereka.
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
