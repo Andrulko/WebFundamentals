@@ -1,23 +1,16 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: 주요 렌더링 경로 최적화와 관련된 핵심 요소에 대해 알아봅니다.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: 주요 렌더링 경로 최적화와 관련된 핵심 요소에 대해 알아봅니다.
 
-{# wf_updated_on: 2015-10-05 #}
-{# wf_published_on: 2014-03-31 #}
+{# wf_updated_on: 2015-10-05 #} {# wf_published_on: 2014-03-31 #}
 
 # 주요 렌더링 경로 최적화 {: .page-title }
 
 {% include "web/_shared/contributors/ilyagrigorik.html" %}
 
+최초 렌더링 시 최대한 빠르게 렌더링하려면 다음 세 가지 변수를 최소화해야 합니다.
 
-  최초 렌더링 시 최대한 빠르게 렌더링하려면
-다음 세 가지 변수를 최소화해야 합니다.
-
-  <ul>
-    <li>주요 리소스의 수.</li>
-    <li>주요 경로 길이.</li>
-    <li>주요 바이트의 수.</li>
-  </ul>
+- 주요 리소스의 수.
+- 주요 경로 길이.
+- 주요 바이트의 수.
 
 주요 리소스는 페이지의 초기 렌더링을 차단할 수 있는 리소스입니다. 이러한 리소스가 적을수록 브라우저, CPU 및 기타 리소스의 작업이 줄어듭니다.
 
@@ -28,14 +21,10 @@ description: 주요 렌더링 경로 최적화와 관련된 핵심 요소에 대
 **주요 렌더링 경로를 최적화하기 위한 일반적인 단계는 다음과 같습니다.**
 
 1. 주요 경로(리소스 수, 바이트 수, 길이)를 분석하고 파악합니다.
-1. 주요 리소스를 제거하거나 이에 대한 다운로드를 연기하거나 비동기로 표시하는 등의 방법으로 주요 리소스 수를 최소화합니다.
-1. 주요 바이트 수를 최적화하여 다운로드 시간(왕복 수)을 단축합니다.
-1. 나머지 주요 리소스가 로드되는 순서를 최적화합니다. 주요 경로 길이를 단축하려면 가능한 한 빨리 모든 주요 자산을 다운로드합니다.
+2. 주요 리소스를 제거하거나 이에 대한 다운로드를 연기하거나 비동기로 표시하는 등의 방법으로 주요 리소스 수를 최소화합니다.
+3. 주요 바이트 수를 최적화하여 다운로드 시간(왕복 수)을 단축합니다.
+4. 나머지 주요 리소스가 로드되는 순서를 최적화합니다. 주요 경로 길이를 단축하려면 가능한 한 빨리 모든 주요 자산을 다운로드합니다.
 
-<a href="page-speed-rules-and-recommendations" class="gc-analytics-event"
-    data-category="CRP" data-label="Next / PageSpeed">
-  <button>다음 차례: PageSpeed 규칙 및 권장 사항</button>
-</a>
+## Feedback {: #feedback }
 
-
-{# wf_devsite_translation #}
+{% include "web/_shared/helpful.html" %}
