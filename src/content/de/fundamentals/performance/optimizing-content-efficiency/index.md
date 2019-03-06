@@ -1,64 +1,60 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Die Menge der Daten, die von den einzelnen Anwendungen heruntergeladen wird, steigt beständig an. Im Sinne einer hohen Leistungsfähigkeit muss die Bereitstellung eines jeden Bytes optimiert werden!
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Die Menge der Daten, die von den einzelnen Anwendungen heruntergeladen wird, steigt beständig an. Im Sinne einer hohen Leistungsfähigkeit muss die Bereitstellung eines jeden Bytes optimiert werden!
 
-{# wf_updated_on: 2014-04-28 #}
-{# wf_published_on: 2014-03-31 #}
+{# wf_updated_on: 2014-04-28 #} {# wf_published_on: 2014-03-31 #}
 
 # Effizienz der Inhalte optimieren {: .page-title }
 
 {% include "web/_shared/contributors/ilyagrigorik.html" %}
 
-
-
 Die Webanwendungen werden immer umfangreicher, ehrgeiziger und funktionsreicher - das ist eine gute Sache. Allerdings bewirkt die ungebremste Entwicklung hin zu einem üppigerem Web einen weiteren Trend: die Datenmengen, die von den einzelnen Anwendungen heruntergeladen werden, nehmen kontinuierlich zu. Im Sinne einer hohen Leistungsfähigkeit muss die Bereitstellung eines jeden Datenbytes optimiert werden!
-
 
 Wie sieht eine moderne Webanwendung aus? Das [HTTP Archive](http://httparchive.org/) kann uns bei der Beantwortung dieser Frage helfen. Mit dem Projekt wird die Entwicklung des Internet verfolgt. Dazu werden die beliebtesten Websites (mehr als 300.000 aus der Liste `Alexa Top 1M`) durchsucht und Analysen zur Anzahl der Ressourcen, zu den Inhaltstypen und zu anderen Metadaten aufgezeichnet und zusammengetragen.
 
-<img src="images/http-archive-trends.png" class="center" alt="Trends laut HTTP Archive">
+<img src="images/http-archive-trends.png"  alt="Trends laut HTTP Archive" />
 
-<table>
+<table class="">
+  
+<colgroup><col span="1"><col span="1"><col span="1"><col span="1"></colgroup>
 <thead>
   <tr>
     <th></th>
-    <th>50. Perzentil</th>
-    <th>75. Perzentil</th>
-    <th>90. Perzentil</th>
+    <th>50th percentile</th>
+    <th>75th percentile</th>
+    <th>90th percentile</th>
   </tr>
 </thead>
 <tr>
-  <td data-th="Typ">HTML</td>
+  <td data-th="type">HTML</td>
   <td data-th="50%">13 KB</td>
   <td data-th="75%">26 KB</td>
   <td data-th="90%">54 KB</td>
 </tr>
 <tr>
-  <td data-th="Typ">Bilder</td>
+  <td data-th="type">Images</td>
   <td data-th="50%">528 KB</td>
   <td data-th="75%">1213 KB</td>
   <td data-th="90%">2384 KB</td>
 </tr>
 <tr>
-  <td data-th="Typ">JavaScript</td>
+  <td data-th="type">JavaScript</td>
   <td data-th="50%">207 KB</td>
   <td data-th="75%">385 KB</td>
   <td data-th="90%">587 KB</td>
 </tr>
 <tr>
-  <td data-th="Typ">CSS</td>
+  <td data-th="type">CSS</td>
   <td data-th="50%">24 KB</td>
   <td data-th="75%">53 KB</td>
   <td data-th="90%">108 KB</td>
 </tr>
 <tr>
-  <td data-th="Typ">Sonstige</td>
+  <td data-th="type">Other</td>
   <td data-th="50%">282 KB</td>
   <td data-th="75%">308 KB</td>
   <td data-th="90%">353 KB</td>
 </tr>
 <tr>
-  <td data-th="Typ"><strong>Gesamt</strong></td>
+  <td data-th="type"><strong>Total</strong></td>
   <td data-th="50%"><strong>1054 KB</strong></td>
   <td data-th="75%"><strong>1985 KB</strong></td>
   <td data-th="90%"><strong>3486 KB</strong></td>
@@ -73,4 +69,6 @@ Im Gegensatz zu ihren Desktop-Pendants erfordern Webanwendungen keine Installati
 
 Angesichts dieser Anforderungen ist die Umsetzung einer unmittelbaren Weberfahrung keine einfache Aufgabe und deshalb ist die Optimierung der Effizienz der Inhalte entscheidend, die folgende Maßnahmen umfasst: Vermeidung unnötiger Downloads, Optimierung der Übertragungscodierung der einzelnen Ressourcen über diverse Komprimierungstechniken und die Nutzung des Cachespeichers wann immer möglich, um redundante Downloads zu eliminieren.
 
+## Feedback {: #feedback }
 
+{% include "web/_shared/helpful.html" %}
