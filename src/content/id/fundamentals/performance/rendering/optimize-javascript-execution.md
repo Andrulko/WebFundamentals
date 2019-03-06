@@ -1,23 +1,16 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: JavaScript seringkali memicu perubahan visual. Kadang-kadang hal itu secara langsung melalui manipulasi gaya, dan kadang-kadang penghitungannya, yang akan mengakibatkan perubahan visual, seperti menelusuri atau mengurutkan data. JavaScript yang berjalan lama atau jelek pengaturan waktunya bisa menjadi penyebab umum masalah kinerja. Anda harus berusaha sebisa mungkin meminimalkan dampaknya.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: JavaScript seringkali memicu perubahan visual. Kadang-kadang hal itu secara langsung melalui manipulasi gaya, dan kadang-kadang penghitungannya, yang akan mengakibatkan perubahan visual, seperti menelusuri atau mengurutkan data. JavaScript yang berjalan lama atau jelek pengaturan waktunya bisa menjadi penyebab umum masalah kinerja. Anda harus berusaha sebisa mungkin meminimalkan dampaknya.
 
-{# wf_updated_on: 2017-07-12 #}
-{# wf_published_on: 2015-03-20 #}
+{# wf_updated_on: 2017-07-12 #} {# wf_published_on: 2015-03-20 #}
 
 # Optimalkan Eksekusi JavaScript {: .page-title }
 
 {% include "web/_shared/contributors/paullewis.html" %}
 
-JavaScript seringkali memicu perubahan visual. Kadang-kadang itu secara langsung
-melalui manipulasi gaya, dan kadang-kadang penghitungannya yang akan
-mengakibatkan perubahan visual, seperti menelusuri atau mengurutkan sejumlah data. JavaScript yang berjalan lama
-atau jelek pengaturan waktunya bisa menjadi penyebab umum masalah kinerja.
-Anda harus berusaha sebisa mungkin meminimalkan dampaknya.
+JavaScript seringkali memicu perubahan visual. Kadang-kadang itu secara langsung melalui manipulasi gaya, dan kadang-kadang penghitungannya yang akan mengakibatkan perubahan visual, seperti menelusuri atau mengurutkan sejumlah data. JavaScript yang berjalan lama atau jelek pengaturan waktunya bisa menjadi penyebab umum masalah kinerja. Anda harus berusaha sebisa mungkin meminimalkan dampaknya.
 
 Membuat profil kinerja JavaScript merupakan seni tersendiri, karena JavaScript yang Anda tulis bukanlah seperti kode yang sebenarnya dieksekusi. Browser modern menggunakan compiler JIT dan semua cara optimalisasi dan trik untuk dicoba dan memberi Anda eksekusi yang secepat mungkin, dan ini pada dasarnya akan mengubah dinamika kode.
 
-Note: Jika benar-benar ingin melihat aksi JIT, Anda harus melihat <a href='http://mrale.ph/irhydra/2/'>IRHydra<sup>2</sup> oleh Vyacheslav Egorov</a>. Ini menampilkan suatu keadaan-antara untuk kode JavaScript bila mesin JavaScript di Chrome, V8, mengoptimalkannya.
+Note: Jika benar-benar ingin melihat aksi JIT, Anda harus melihat [IRHydra<sup>2</sup> oleh Vyacheslav Egorov](http://mrale.ph/irhydra/2/). Ini menampilkan suatu keadaan-antara untuk kode JavaScript bila mesin JavaScript di Chrome, V8, mengoptimalkannya.
 
 Berdasarkan semua itu, bagaimana pun juga, ada beberapa hal yang pasti bisa Anda lakukan untuk membantu aplikasi mengeksekusi JavaScript dengan baik.
 
@@ -32,7 +25,6 @@ Berdasarkan semua itu, bagaimana pun juga, ada beberapa hal yang pasti bisa Anda
 
 Bila perubahan visual terjadi di layar yang Anda inginkan untuk melakukan pekerjaan pada waktu yang tepat untuk browser, persis saat memulai bingkai. Satu-satunya cara memastikan JavaScript Anda berjalan saat memulai bingkai adalah menggunakan `requestAnimationFrame`.
 
-
     /**
      * If run as a requestAnimationFrame callback, this
      * will be run at the start of the frame.
@@ -40,13 +32,13 @@ Bila perubahan visual terjadi di layar yang Anda inginkan untuk melakukan pekerj
     function updateScreen(time) {
       // Make visual updates here.
     }
-
+    
     requestAnimationFrame(updateScreen);
+    
 
+Kerangka kerja atau contoh dapat menggunakan `setTimeout` atau `setInterval` untuk melakukan perubahan visual seperti animasi, namun masalahnya adalah callback akan berjalan pada *beberapa titik* di bingkai, mungkin tepat di akhir, dan sering kali pengaruhnya bisa menyebabkan kita kehilangan bingkai, sehingga mengakibatkan jank.
 
-Kerangka kerja atau contoh dapat menggunakan `setTimeout` atau `setInterval` untuk melakukan perubahan visual seperti animasi, namun masalahnya adalah callback akan berjalan pada _beberapa titik_ di bingkai, mungkin tepat di akhir, dan sering kali pengaruhnya bisa menyebabkan kita kehilangan bingkai, sehingga mengakibatkan jank.
-
-<img src="images/optimize-javascript-execution/settimeout.jpg" alt="setTimeout menyebabkan browser kehilangan bingkai.">
+<img src="images/optimize-javascript-execution/settimeout.jpg" alt="setTimeout menyebabkan browser kehilangan bingkai." />
 
 Kenyataannya, perilaku `animate` default jQuery sekarang ini adalah menggunakan `setTimeout`! Anda bisa [menambalnya untuk menggunakan `requestAnimationFrame`](https://github.com/gnarf/jquery-requestAnimationFrame), dan ini sangat dianjurkan.
 
@@ -58,44 +50,41 @@ Anda harus bersikap taktis tentang kapan JavaScript dijalankan, dan berapa lama.
 
 Dalam banyak kasus, Anda bisa memindahkan pekerjaan komputasi murni ke [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/basic_usage), misalnya jika tidak memerlukan akses DOM. Manipulasi data atau traversal, seperti pengurutan atau pencarian, sering kali cocok untuk model ini, sebagai pemuatan dan pembuatan model.
 
-
     var dataSortWorker = new Worker("sort-worker.js");
     dataSortWorker.postMesssage(dataToSort);
-
+    
     // The main thread is now free to continue working on other things...
-
+    
     dataSortWorker.addEventListener('message', function(evt) {
        var sortedData = evt.data;
        // Update data on screen...
     });
-
-
+    
 
 Tidak semua pekerjaan cocok dengan model ini: Web Workers tidak memiliki akses DOM. Bila pekerjaan Anda harus berada di thread utama, pertimbangkan pendekatan batch, di mana Anda memecah tugas yang lebih besar menjadi tugas-tugas mikro, masing-masing memerlukan waktu tidak lebih dari beberapa milidetik, dan berjalan di dalam penangan `requestAnimationFrame` di setiap bingkai.
 
-
     var taskList = breakBigTaskIntoMicroTasks(monsterTaskList);
     requestAnimationFrame(processTaskList);
-
+    
     function processTaskList(taskStartTime) {
       var taskFinishTime;
-
+    
       do {
         // Assume the next task is pushed onto a stack.
         var nextTask = taskList.pop();
-
+    
         // Process nextTask.
         processTask(nextTask);
-
+    
         // Go again if there’s enough time to do the next task.
         taskFinishTime = window.performance.now();
       } while (taskFinishTime - taskStartTime < 3);
-
+    
       if (taskList.length > 0)
         requestAnimationFrame(processTaskList);
-
+    
     }
-
+    
 
 Ada konsekuensi UX dan UI pada pendekatan ini, dan Anda perlu memastikan pengguna mengetahui bahwa tugas sedang diproses, baik dengan [menggunakan indikator kemajuan atau indikator aktivitas](https://www.google.com/design/spec/components/progress-activity.html). Setidak-tidaknya pendekatan ini akan membuat thread utama aplikasi Anda tetap bebas, sehingga membantunya tetap responsif terhadap interaksi pengguna.
 
@@ -105,25 +94,23 @@ Saat mengakses kerangka kerja, pustaka, atau kode Anda sendiri, kita perlu menil
 
 Cara terbaik untuk mengukur profil kinerja dan biaya JavaScript Anda adalah menggunakan Chrome DevTools. Biasanya Anda akan mendapatkan catatan yang kurang detail seperti ini:
 
-<img src="images/optimize-javascript-execution/low-js-detail.jpg" alt="Timeline di Chrome DevTools menyediakan detail eksekusi JS yang rendah.">
+<img src="images/optimize-javascript-execution/low-js-detail.png"
+     alt="Timeline di Chrome DevTools menyediakan detail eksekusi JS yang rendah." />
 
 Jika Anda merasa memiliki JavaScript yang berjalan lama, Anda bisa mengaktifkan profiler JavaScript di atas antarmuka pengguna DevTools:
 
-<img src="images/optimize-javascript-execution/js-profiler-toggle.jpg" alt="Mengaktifkan profiler JS di DevTools.">
+Armed with this information you can assess the performance impact of the JavaScript on your application, and begin to find and fix any hotspots where functions are taking too long to execute. As mentioned earlier you should seek to either remove long-running JavaScript, or, if that’s not possible, move it to a Web Worker freeing up the main thread to continue on with other tasks.
 
 Ada overhead untuk membuat profil JavaScript dengan cara ini, jadi pastikan hanya mengaktifkannya bila Anda ingin lebih memahami karakteristik waktu proses JavaScript. Dengan kotak centang diaktifkan, Anda kini bisa melakukan tindakan yang sama dan akan mendapatkan informasi yang jauh lebih banyak mengenai fungsi apa saja yang dipanggil di JavaScript Anda:
 
-<img src="images/optimize-javascript-execution/high-js-detail.jpg" alt="Timeline di Chrome DevTools menyediakan detail eksekusi JS yang tinggi.">
+## Hindari optimalisasi mikro pada JavaScript Anda
+
+It may be cool to know that the browser can execute one version of a thing 100 times faster than another thing, like that requesting an element’s `offsetTop` is faster than computing `getBoundingClientRect()`, but it’s almost always true that you’ll only be calling functions like these a small number of times per frame, so it’s normally wasted effort to focus on this aspect of JavaScript’s performance. You'll typically only save fractions of milliseconds.
 
 Berbekal informasi ini, Anda bisa mengakses dampak kinerja JavaScript pada aplikasi Anda, dan mulai menemukan serta memperbaiki hotspot di mana fungsi perlu waktu terlalu lama untuk dieksekusi. Sebagaimana disebutkan sebelumnya, Anda harus berusaha membuang JavaScript yang berjalan lama, atau, jika tidak memungkinkan, memindahkannya ke Web Worker sehingga membebaskan thread utama untuk melanjutkan tugas yang lain.
 
-## Hindari optimalisasi mikro pada JavaScript Anda
-
 Mungkin menyenangkan bila tahu bahwa browser bisa mengeksekusi satu versi sesuatu 100 kali lebih cepat dari versi yang lain, misalnya meminta `offsetTop` elemen lebih cepat daripada menghitung `getBoundingClientRect()`, namun kenyataannya, hampir selalu Anda hanya memanggil fungsi seperti ini sejarang mungkin per bingkai, jadi biasanya ini menyia-nyiakan upaya untuk memfokuskan pada aspek kinerja JavaScript. Biasanya Anda hanya akan menghemat sepersekian milidetik.
 
+## Feedback {: #feedback }
+
 Jika Anda sedang membuat game, atau aplikasi yang mahal secara komputasi, maka mungkin Anda merupakan pengecualian dari arahan ini, karena biasanya Anda akan mengepaskan banyak komputasi ke dalam satu bingkai, dan jika demikian barulah hal ini berguna.
-
-Singkat kata, Anda harus sangat berhati-hati dengan optimalisasi mikro karena biasanya itu tidak akan memetakan ke jenis aplikasi yang sedang Anda bangun.
-
-
-{# wf_devsite_translation #}
