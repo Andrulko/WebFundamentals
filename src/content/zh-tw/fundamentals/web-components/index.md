@@ -1,10 +1,6 @@
-project_path: /web/fundamentals/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: 網頁元件（Components）是現代網頁應用程式的基礎。你該如何建構你的網頁元件使得他們經得起時間的考驗呢？
+project_path: /web/fundamentals/_project.yaml book_path: /web/fundamentals/_book.yaml description: 網頁元件（Components）是現代網頁應用程式的基礎。你該如何建構你的網頁元件使得他們經得起時間的考驗呢？
 
-{# wf_updated_on: 2017-08-14 #}
-{# wf_published_on: 2017-08-14 #}
-{# wf_blink_components: Blink>DOM #}
+{# wf_updated_on: 2017-08-14 #} {# wf_published_on: 2017-08-14 #} {# wf_blink_components: Blink>DOM #}
 
 <style>
 nav.devsite-page-nav, .devsite-rating-container {display:none;}
@@ -12,8 +8,7 @@ nav.devsite-page-nav, .devsite-rating-container {display:none;}
 
 # Building Components {: .page-title }
 
-網頁元件(Components)是現代網頁應用程式的基礎。你該如何建構你的網頁元件使得他們經
-得起時間的考驗呢？
+網頁元件(Components)是現代網頁應用程式的基礎。你該如何建構你的網頁元件使得他們經 得起時間的考驗呢？
 
 <div class="attempt-left">
   <h2><a href="./customelements">Custom Elements</a></h2>
@@ -75,3 +70,7 @@ nav.devsite-page-nav, .devsite-rating-container {display:none;}
 </div>
 
 <div style="clear:both;"></div>
+
+## Feedback {: #feedback }
+
+{% include "web/_shared/helpful.html" %}
