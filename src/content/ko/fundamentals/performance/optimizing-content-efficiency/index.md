@@ -1,10 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: 앱에서 다운로드하는 데이터의 양은 시간이 지날수록 계속 늘어납니다. 최적의 성능을 제공하기 위해서는 최대한 많이 데이터 전달 과정을 최적화해야 합니다.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: 앱에서 다운로드하는 데이터의 양은 시간이 지날수록 계속 늘어납니다. 최적의 성능을 제공하기 위해서는 최대한 많이 데이터 전달 과정을 최적화해야 합니다.
 
-
-{# wf_updated_on: 2015-10-05 #}
-{# wf_published_on: 2014-03-31 #}
+{# wf_updated_on: 2015-10-05 #} {# wf_published_on: 2014-03-31 #}
 
 # 콘텐츠 효율성 최적화 {: .page-title }
 
@@ -14,9 +10,10 @@ description: 앱에서 다운로드하는 데이터의 양은 시간이 지날�
 
 최신 웹 애플리케이션은 어떤 모습일까요? [HTTP Archive](http://httparchive.org/){: .external }에서 이에 대한 답을 얻을 수 있습니다. 이 프로젝트는 가장 인기 있는 사이트(Alexa Top 1M 목록에 등재된 300,000개 이상 사이트)를 주기적으로 크롤링하고 각 개별 대상에 대한 리소스 수, 콘텐츠 유형 및 기타 메타데이터에 대한 분석 정보를 기록하고 취합함으로써 웹이 어떻게 빌드되었는지 추적합니다.
 
-<img src="images/http-archive-trends.png"  alt="HTTP Archive 동향">
+<img src="images/http-archive-trends.png"  alt="HTTP Archive 동향" />
 
 <table class="">
+  
 <colgroup><col span="1"><col span="1"><col span="1"><col span="1"></colgroup>
 <thead>
   <tr>
@@ -72,5 +69,6 @@ description: 앱에서 다운로드하는 데이터의 양은 시간이 지날�
 
 이러한 요구사항을 반영하여 즉각적인 웹 환경을 실현하는 것은 쉬운 일이 아닙니다. 불필요한 다운로드를 제거하고, 다양한 압축 기술을 통해 각 리소스의 전송 인코딩을 최적화하고, 중복되는 다운로드를 제거할 수 있는 경우 항상 캐싱을 활용함으로써 콘텐츠 효율성을 최적화해야 하기 때문입니다.
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
