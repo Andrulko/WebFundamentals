@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: easing in, easing out 및 easing in out 중에 프로젝트에 적합한 easing을 선택합니다. 더 많은 재미를 원하시면 바운스를 사용하세요!
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: easing in, easing out 및 easing in out 중에 프로젝트에 적합한 easing을 선택합니다. 더 많은 재미를 원하시면 바운스를 사용하세요!
 
-{# wf_updated_on: 2016-08-23 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2016-08-23 #} {# wf_published_on: 2014-08-08 #}
 
 # 적합한 Easing 선택 {: .page-title }
 
@@ -12,16 +9,15 @@ description: easing in, easing out 및 easing in out 중에 프로젝트에 적�
 애니메이션에 사용할 수 있는 다양한 easing 옵션을 살펴보고 프로젝트에 어떤 종류를 사용하고 애니메이션에 어떤 종류의 기간을 사용해야 하는지 설명합니다.
 
 ### TL;DR {: .hide-from-toc }
+
 * UI 요소에 ease-out 애니메이션을 사용합니다. Quintic ease-out은 빠르고 매우 멋진 ease입니다.
 * 애니메이션 기간을 사용합니다. ease-out 및 ease-in은 200ms - 500ms여야 하며, 바운스 및 elastic ease는 800ms - 1200ms여야 합니다.
 
-
-<img src="images/quintic-ease-out-markers.png" alt="Quintic ease-out 애니메이션 곡선" style="max-width: 300px" class="attempt-right"/>
+<img src="images/quintic-ease-out-markers.png" alt="Quintic ease-out 애니메이션 곡선" style="max-width: 300px" class="attempt-right" />
 
 일반적으로, **ease-out**은 적합한 호출이며 훌륭한 기본값입니다. 빠른 시작으로, 애니메이션에 바람직한 반응성을 제공한 후에 끝에서 감속합니다.
 
 CSS에서 `ease-out` 키워드로 지정된 방정식을 넘어, '공격성'의 범위에 드는 잘 알려진 ease-out 방정식 그룹이 있습니다. 빠른 ease-out 효과를 내려면 [Quintic ease-out](http://easings.net/#easeOutQuint)을 고려하세요.
-
 
 [Quintic ease-out 애니메이션 참조](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/animations/box-move-quintic-ease-out.html){: target="_blank" .external }
 
@@ -39,7 +35,6 @@ CSS에서 `ease-out` 키워드로 지정된 방정식을 넘어, '공격성'의 
 
 물론, 이는 가이드라인에 불과합니다. 다양한 ease를 시도해 보고 프로젝트에 적합한 것을 선택하세요.
 
-
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
