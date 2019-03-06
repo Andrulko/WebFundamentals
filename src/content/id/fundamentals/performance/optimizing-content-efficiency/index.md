@@ -1,10 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Jumlah data yang telah diunduh aplikasi terus meningkat dari waktu ke waktu. Untuk menghasilkan kinerja terbaik, Anda harus mengoptimalkan pengiriman data semaksimal mungkin.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Jumlah data yang telah diunduh aplikasi terus meningkat dari waktu ke waktu. Untuk menghasilkan kinerja terbaik, Anda harus mengoptimalkan pengiriman data semaksimal mungkin.
 
-
-{# wf_updated_on: 2015-10-05 #}
-{# wf_published_on: 2014-03-31 #}
+{# wf_updated_on: 2015-10-05 #} {# wf_published_on: 2014-03-31 #}
 
 # Mengoptimalkan Efisiensi Materi {: .page-title }
 
@@ -14,9 +10,10 @@ Aplikasi web kita terus berkembang dalam cakupan, ambisi, dan fungsionalitasnya 
 
 Seperti apa aplikasi web modern? [Arsip HTTP](http://httparchive.org/){: .external } bisa membantu kita menjawab pertanyaan ini. Proyek ini melacak bagaimana web dibangun dengan merayapi situs terpopuler secara berkala (lebih dari 300.000 situs dari daftar Alexa Top 1M) dan merekam serta mengumpulkan analisis mengenai jumlah sumber daya, tipe materi, dan metadata lainnya untuk masing-masing destinasi.
 
-<img src="images/http-archive-trends.png"  alt="Tren Arsip HTTP">
+<img src="images/http-archive-trends.png"  alt="Tren Arsip HTTP" />
 
 <table class="">
+  
 <colgroup><col span="1"><col span="1"><col span="1"><col span="1"></colgroup>
 <thead>
   <tr>
@@ -72,5 +69,6 @@ Tidak seperti aplikasi desktop, aplikasi web tidak membutuhkan proses pemasangan
 
 Mencapai pengalaman web instan dengan mempertimbangkan semua keharusan ini bukanlah hal yang mudah, itulah mengapa mengoptimalkan efisiensi materi sangat penting: meniadakan unduhan tak perlu, mengoptimalkan enkode transfer dari setiap sumber daya melalui berbagai teknik kompresi, dan pemanfaatan cache jika memungkinkan untuk meniadakan unduhan yang tak perlu.
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
