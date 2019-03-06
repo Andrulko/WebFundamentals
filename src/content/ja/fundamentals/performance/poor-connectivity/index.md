@@ -1,19 +1,16 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: 接続状態が悪く不安定なときのアプリまたはサイトの操作性を把握して、それに応じてアプリやサイトを構築することが重要です。これに役立つさまざまなツールがあります。
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: 接続状態が悪く不安定なときのアプリまたはサイトの操作性を把握して、それに応じてアプリやサイトを構築することが重要です。これに役立つさまざまなツールがあります。
 
-{# wf_updated_on: 2016-08-29 #}
-{# wf_published_on: 2016-05-09 #}
+{# wf_updated_on: 2016-08-29 #} {# wf_published_on: 2016-05-09 #}
 
-#  低帯域幅と高レイテンシの理解 {: .page-title }
+# 低帯域幅と高レイテンシの理解 {: .page-title }
 
 {% include "web/_shared/contributors/samdutton.html" %}
 
 接続状態が悪く不安定なときのアプリまたはサイトの操作性を把握して、それに応じてアプリやサイトを構築することが重要です。これに役立つさまざまなツールがあります。
 
-##  低帯域幅と高レイテンシでのテスト {: #testing }
+## 低帯域幅と高レイテンシでのテスト {: #testing }
 
-モバイル端末でウェブを利用する人の割合は<a href="http://adwords.blogspot.co.uk/2015/05/building-for-next-moment.html">ますます増えています</a>。自宅でも、<a href="https://www.washingtonpost.com/news/the-switch/wp/2016/04/18/new-data-americans-are-abandoning-wired-home-internet/">多くの人が固定ブロードバンドからモバイルに移行しています</a>。
+モバイル端末でウェブを利用する人の割合は[ますます増えています](http://adwords.blogspot.co.uk/2015/05/building-for-next-moment.html)。自宅でも、[多くの人が固定ブロードバンドからモバイルに移行しています](https://www.washingtonpost.com/news/the-switch/wp/2016/04/18/new-data-americans-are-abandoning-wired-home-internet/)。
 
 これに関連して、接続が不安定な場合のアプリまたはサイトの操作性を理解しておくことが重要です。低帯域幅と高[レイテンシ](https://www.igvita.com/2012/07/19/latency-the-new-web-performance-bottleneck/)を[エミュレートおよびシミュレート](https://stackoverflow.com/questions/1584617/simulator-or-emulator-what-is-the-difference)するためのさまざまなソフトウェア ツールが用意されています。
 
@@ -69,30 +66,30 @@ Facebook の [Augmented Traffic Control](http://facebook.github.io/augmented-tra
 
 ![Facebook の Augmented Traffic Control](images/augmented-traffic-control.png)
 
+> Facebook even instituted [2G Tuesdays](https://code.facebook.com/posts/1556407321275493/building-for-emerging-markets-the-story-behind-2g-tuesdays/) to help understand how people on 2G use their product. On Tuesdays, employees get a pop-up that gives them the option to simulate a 2G connection.
+
 Facebook は [2G Tuesdays](https://code.facebook.com/posts/1556407321275493/building-for-emerging-markets-the-story-behind-2g-tuesdays/) を設けて、2G を利用するユーザーが自社製品を使用する方法を理解できるようにもしています。毎週火曜日に、従業員にポップアップが表示され、2G 接続をシミュレートするためのオプションが示されます。
 
-[Charles](https://www.charlesproxy.com/){: .external } HTTP/HTTPS プロキシを使用すると、[帯域幅とレイテンシを調整](http://www.charlesproxy.com/documentation/proxying/throttling/)できます。Charles は商用ソフトウェアですが、無料トライアルを利用できます。
+![Charles proxy bandwidth and latency settings](images/charles.png)
 
-![Charles プロキシの帯域幅とレイテンシの設定](images/charles.png)
+More information about Charles is available from [codewithchris.com](http://codewithchris.com/tutorial-using-charles-proxy-with-your-ios-development-and-http-debugging/).
 
-Charles の詳細については、[codewithchris.com](http://codewithchris.com/tutorial-using-charles-proxy-with-your-ios-development-and-http-debugging/) を参照してください。
-
-##  不安定な接続や "lie-fi" への対応 {: #lie-fi }
+## 不安定な接続や "lie-fi" への対応 {: #lie-fi }
 
 ### lie-fi とは
+
+Charles の詳細については、[codewithchris.com](http://codewithchris.com/tutorial-using-charles-proxy-with-your-ios-development-and-http-debugging/) を参照してください。
 
 <a href="http://www.urbandictionary.com/define.php?term=lie-fi">lie-fi</a> という用語は、少なくとも 2008 年（電話が<a href="https://www.mobilegazette.com/2008-phones-wallchart.htm" title="Images of phones from 2008">このような</a>形だった頃です）から使用されており、見た目の振る舞いと実状が異なる接続を指します。ブラウザは、なんらかの理由で実際には接続されていないのに、接続されているかのように振る舞います。
 
 接続されていると間違って解釈すると、ブラウザ（または JavaScript）はリソースを取得しようとし続け、諦めて現実的な代替手段を選ぶことがないため、エクスペリエンスが低下します。実際、lie-fi はオフラインより問題である場合があります。少なくとも端末が完全にオフラインであれば、JavaScript は適切な回避策をとることができます。
 
-モバイルに移行し、固定ブロードバンドから離れる人が増えるのに伴い、lie-fi はより大きな問題となる可能性があります。最近の[米国での調査データ](https://www.ntia.doc.gov/blog/2016/evolving-technologies-change-nature-internet-use)は、[固定ブロードバンドからの移行](https://www.washingtonpost.com/news/the-switch/wp/2016/04/18/new-data-americans-are-abandoning-wired-home-internet/)を示しています。次のグラフは、2015 年と 2013 年における自宅でのモバイル インターネットの使用を示しています。
-
-<img src="images/home-broadband.png" class="center" alt="固定ブロードバンドからモバイルへの移行（特に低所得層で顕著）を示す米国での調査データのグラフ">
+<img src="images/home-broadband.png" class="center" alt="Chart from US census data
+showing the move to mobile away from fixed broadband, particularly in lower-income households" />
 
 ### タイムアウトを使用した断続的な接続の処理
 
-過去には、断続的な接続のテストに [XHR を使用したお粗末な方法](http://stackoverflow.com/questions/189430/detect-that-the-internet-connection-is-offline) が使用されていましたが、Service Worker を使用すれば、より信頼性の高い方法でネットワーク タイムアウトを設定できます。Jeff Posnick が、[sw-toolbox](https://github.com/GoogleChrome/sw-toolbox) のタイムアウトを使用してこれを実現する方法について、プレゼンテーション [Instant Loading with Service Workers](https://youtu.be/jCKZDTtUA2A?t=19m58s) で説明しています。
-
+In the past, [hacky methods using XHR](http://stackoverflow.com/questions/189430/detect-that-the-internet-connection-is-offline) have been used to test for intermittent connectivity, but service worker enables more reliable methods to set network timeouts. This can be achieved using [Workbox](/web/tools/workbox/) with only a few lines of code:
 
     toolbox.router.get(
       '/path/to/image',
@@ -101,7 +98,10 @@ Charles の詳細については、[codewithchris.com](http://codewithchris.com/
     );
     
 
+過去には、断続的な接続のテストに [XHR を使用したお粗末な方法](http://stackoverflow.com/questions/189430/detect-that-the-internet-connection-is-offline) が使用されていましたが、Service Worker を使用すれば、より信頼性の高い方法でネットワーク タイムアウトを設定できます。Jeff Posnick が、[sw-toolbox](https://github.com/GoogleChrome/sw-toolbox) のタイムアウトを使用してこれを実現する方法について、プレゼンテーション [Instant Loading with Service Workers](https://youtu.be/jCKZDTtUA2A?t=19m58s) で説明しています。
+
 [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch) でも、[タイムアウト オプション](https://github.com/whatwg/fetch/issues/20) が計画されています。また、[Streams API](https://www.w3.org/TR/streams-api/) は、コンテンツ配信を最適化して、モノリシック リクエストを回避するのに役立ちます。[Supercharging page load](https://youtu.be/d5_6yHixpsQ?t=6m42s) で、Jake Archibald が lie-fi の追跡方法について詳しく説明しています。
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
