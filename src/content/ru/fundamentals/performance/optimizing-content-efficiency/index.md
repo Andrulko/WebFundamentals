@@ -1,67 +1,63 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Объем скачиваемых приложениями данных постоянно растет. Чтобы их производительность оставалась высокой, нужно оптимизировать каждый байт.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Объем скачиваемых приложениями данных постоянно растет. Чтобы их производительность оставалась высокой, нужно оптимизировать каждый байт.
 
-{# wf_updated_on: 2014-04-28 #}
-{# wf_published_on: 2014-03-31 #}
+{# wf_updated_on: 2014-04-28 #} {# wf_published_on: 2014-03-31 #}
 
 # Оптимизация контента {: .page-title }
 
 {% include "web/_shared/contributors/ilyagrigorik.html" %}
 
-
-
 У веб-приложений появляется все больше возможностей, задач и функций. Однако чем разнообразнее контент, тем больше данных приходится скачивать. Чтобы производительность приложений оставалась высокой, нужно стараться оптимизировать каждый байт.
-
 
 На что похоже современное приложение? Ответ на этот вопрос может дать [HTTP Archive](http://httparchive.org/){: .external }. Этот проект отслеживает, из чего состоит Интернет, периодически сканируя самые популярные сайты (более 300 000 из списка Alexa Top 1M), а после запоминая и объединяя аналитические материалы о количестве ресурсов, типах контента и других метаданных для каждого сайта.
 
-<img src="images/http-archive-trends.png" class="center" alt="Тенденции HTTP Archive">
+<img src="images/http-archive-trends.png"  alt="Тенденции HTTP Archive" />
 
-<table>
+<table class="">
+  
+<colgroup><col span="1"><col span="1"><col span="1"><col span="1"></colgroup>
 <thead>
   <tr>
     <th></th>
-    <th>50-й персентиль</th>
-    <th>75-й персентиль</th>
-    <th>90-й персентиль</th>
+    <th>50th percentile</th>
+    <th>75th percentile</th>
+    <th>90th percentile</th>
   </tr>
 </thead>
 <tr>
-  <td data-th="тип">HTML</td>
-  <td data-th="50%">13 КБ</td>
-  <td data-th="75%">26 КБ</td>
-  <td data-th="90%">54 КБ</td>
+  <td data-th="type">HTML</td>
+  <td data-th="50%">13 KB</td>
+  <td data-th="75%">26 KB</td>
+  <td data-th="90%">54 KB</td>
 </tr>
 <tr>
-  <td data-th="тип">Изображения</td>
-  <td data-th="50%">528 КБ</td>
-  <td data-th="75%">1213 КБ</td>
-  <td data-th="90%">2384 КБ</td>
+  <td data-th="type">Images</td>
+  <td data-th="50%">528 KB</td>
+  <td data-th="75%">1213 KB</td>
+  <td data-th="90%">2384 KB</td>
 </tr>
 <tr>
-  <td data-th="тип">JavaScript</td>
-  <td data-th="50%">207 КБ</td>
-  <td data-th="75%">385 КБ</td>
-  <td data-th="90%">587 КБ</td>
+  <td data-th="type">JavaScript</td>
+  <td data-th="50%">207 KB</td>
+  <td data-th="75%">385 KB</td>
+  <td data-th="90%">587 KB</td>
 </tr>
 <tr>
-  <td data-th="тип">CSS</td>
-  <td data-th="50%">24 КБ</td>
-  <td data-th="75%">53 КБ</td>
-  <td data-th="90%">108 КБ</td>
+  <td data-th="type">CSS</td>
+  <td data-th="50%">24 KB</td>
+  <td data-th="75%">53 KB</td>
+  <td data-th="90%">108 KB</td>
 </tr>
 <tr>
-  <td data-th="тип">Другое</td>
-  <td data-th="50%">282 КБ</td>
-  <td data-th="75%">308 КБ</td>
-  <td data-th="90%">353 КБ</td>
+  <td data-th="type">Other</td>
+  <td data-th="50%">282 KB</td>
+  <td data-th="75%">308 KB</td>
+  <td data-th="90%">353 KB</td>
 </tr>
 <tr>
-  <td data-th="тип"><strong>Всего</strong></td>
-  <td data-th="50%"><strong>1054 КБ</strong></td>
-  <td data-th="75%"><strong>1985 КБ</strong></td>
-  <td data-th="90%"><strong>3486 КБ</strong></td>
+  <td data-th="type"><strong>Total</strong></td>
+  <td data-th="50%"><strong>1054 KB</strong></td>
+  <td data-th="75%"><strong>1985 KB</strong></td>
+  <td data-th="90%"><strong>3486 KB</strong></td>
 </tr>
 </table>
 
@@ -73,4 +69,6 @@ description: Объем скачиваемых приложениями данн
 
 Учитывая все эти условия, поддерживать высокую производительность достаточно сложно. Именно поэтому нам необходима оптимизация контента: удаление ненужных ресурсов, их сжатие при передаче и кеширование.
 
+## Feedback {: #feedback }
 
+{% include "web/_shared/helpful.html" %}
