@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description:了解如何缓和或加强您的动画。
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description:了解如何缓和或加强您的动画。
 
-{# wf_updated_on:2016-08-23 #}
-{# wf_published_on:2014-08-08 #}
+{# wf_updated_on:2016-08-23 #} {# wf_published_on:2014-08-08 #}
 
 # 缓动的基础知识 {: .page-title }
 
@@ -12,10 +9,10 @@ description:了解如何缓和或加强您的动画。
 自然界中没有东西是从一点呈线性地移动到另一点。现实中，物体在移动时往往会加速或减速。我们的大脑习惯于期待这种运动，因此在做动画时，应利用此规律。自然的运动会让用户对您的应用感觉更舒适，从而产生更好的总体体验。
 
 ### TL;DR {: .hide-from-toc }
+
 * 缓动使您的动画感觉更自然。
 * 为 UI 元素选择缓出动画。
 * 避免缓入或缓入缓出动画，除非可以使其保持简短；这类动画可能让最终用户觉得很迟钝。
-
 
 在经典动画中，缓慢开始然后加速的动画术语是“慢入”，快速开始然后减速的动画被称为“慢出”。网络上对于这些动画最常用的术语分别是“缓入”和“缓出”。有时两种动画相组合，称为“缓入缓出”。缓动实际上是使动画不再那么尖锐或生硬的过程。
 
@@ -46,7 +43,7 @@ CSS 变换和动画都允许您[选择要为动画使用的缓动类型](choosin
 
 随着时间推移，其值以等量增加。采用线性运动时，动画内容往往显得很僵硬，不自然，让用户觉得不协调。一般来说，应避免线性运动。
 
-不管通过 CSS 还是 JavaScript 来编写动画代码，您将发现始终有线性运动的选项。 
+不管通过 CSS 还是 JavaScript 来编写动画代码，您将发现始终有线性运动的选项。
 
 [查看线性动画](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/animations/box-move-linear.html){: target="_blank" .external }
 
@@ -54,10 +51,8 @@ CSS 变换和动画都允许您[选择要为动画使用的缓动类型](choosin
 
 要通过 CSS 实现上述效果，代码将类似下面这样：
 
-
     transition: transform 500ms linear;
     
-
 
 ## 缓出动画
 
@@ -77,16 +72,14 @@ CSS 变换和动画都允许您[选择要为动画使用的缓动类型](choosin
 
 有很多方法来实现缓出效果，但最简单的方法是 CSS 中的 `ease-out` 关键字：
 
-
     transition: transform 500ms ease-out;
     
-
 
 ## 缓入动画
 
 <div class="attempt-right">
   <figure>
-     <img src="images/ease-in.png" alt="缓入动画的曲线。" />
+    <img src="images/ease-in.png" alt="缓入动画的曲线。" />
   </figure>
 </div>
 
@@ -101,7 +94,6 @@ CSS 变换和动画都允许您[选择要为动画使用的缓动类型](choosin
 <div style="clear:both;"></div>
 
 要使用缓入动画，与缓出和线性动画类似，可以使用其关键字：
-
 
     transition: transform 500ms ease-in;
     
@@ -122,14 +114,11 @@ CSS 变换和动画都允许您[选择要为动画使用的缓动类型](choosin
 
 <div style="clear:both;"></div>
 
-
 要设置缓入缓出动画，可以使用 `ease-in-out` CSS 关键字：
-
 
     transition: transform 500ms ease-in-out;
     
 
-
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
