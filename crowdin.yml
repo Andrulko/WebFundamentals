@@ -1,3 +1,4 @@
 files:
   - source: /src/content/en/fundamentals/**/*.md
     translation: /src/content/%locale%/fundamentals/**/%original_file_name%
+    content_segmentation: 0
