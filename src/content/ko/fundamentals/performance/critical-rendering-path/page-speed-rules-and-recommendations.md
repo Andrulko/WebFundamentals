@@ -1,16 +1,12 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: 이 가이드에서는 PageSpeed Insights 규칙에 대해 살펴보고, 주요 렌더링 경로를 최적화할 때 주의해야 할 사항과 그 이유에 대해 알아봅니다.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: 이 가이드에서는 PageSpeed Insights 규칙에 대해 살펴보고, 주요 렌더링 경로를 최적화할 때 주의해야 할 사항과 그 이유에 대해 알아봅니다.
 
-{# wf_updated_on: 2015-10-05 #}
-{# wf_published_on: 2014-03-31 #}
+{# wf_updated_on: 2015-10-05 #} {# wf_published_on: 2014-03-31 #}
 
 # PageSpeed 규칙 및 권장 사항 {: .page-title }
 
 {% include "web/_shared/contributors/ilyagrigorik.html" %}
 
 이 가이드에서는 PageSpeed Insights 규칙에 대해 살펴보고, 주요 렌더링 경로를 최적화할 때 주의해야 할 사항과 그 이유에 대해 알아봅니다.
-
 
 ## 렌더링 차단 자바스크립트 및 CSS 제거
 
@@ -26,12 +22,7 @@ description: 이 가이드에서는 PageSpeed Insights 규칙에 대해 살펴�
 
 ### 동기식 서버 호출 금지
 
-`navigator.sendBeacon()` 메서드를 사용하여 `unload` 핸들러의 XMLHttpRequests에서
-전송하는 데이터를 제한합니다. 많은 브라우저에서 이러한 요청이
-동기식으로 처리되어야 하므로 페이지 전환이 때로는 현저하게 느려질 수 있습니다. 다음
-코드는 `navigator.sendBeacon()`을 사용하여 `unload` 핸들러 대신
-`pagehide` 핸들러에서 데이터를 서버로 보내는 방법을 보여줍니다.
-
+`navigator.sendBeacon()` 메서드를 사용하여 `unload` 핸들러의 XMLHttpRequests에서 전송하는 데이터를 제한합니다. 많은 브라우저에서 이러한 요청이 동기식으로 처리되어야 하므로 페이지 전환이 때로는 현저하게 느려질 수 있습니다. 다음 코드는 `navigator.sendBeacon()`을 사용하여 `unload` 핸들러 대신 `pagehide` 핸들러에서 데이터를 서버로 보내는 방법을 보여줍니다.
 
     <script>
       function() {
@@ -45,8 +36,7 @@ description: 이 가이드에서는 PageSpeed Insights 규칙에 대해 살펴�
     </script>
     
 
-새 `fetch()` 메서드를 사용하면 데이터를 비동기식으로 쉽게 요청할 수 있습니다. 이 메서드는 아직 모든 경우에 사용할 수 없으므로 사용하기 전에 기능 검색을 통해 이 메서드가 지원되는지 테스트해야 합니다. 이 메서드는 여러 이벤트 핸들러를 사용하지 않고 Promise로 응답을 처리합니다. XMLHttpRequest에 대한 응답과 달리, fetch 응답은 Chrome 43부터 지원되는 스트림 객체입니다. 이는 `json()` 호출도 Promise를 반환함을 의미합니다. 
-
+새 `fetch()` 메서드를 사용하면 데이터를 비동기식으로 쉽게 요청할 수 있습니다. 이 메서드는 아직 모든 경우에 사용할 수 없으므로 사용하기 전에 기능 검색을 통해 이 메서드가 지원되는지 테스트해야 합니다. 이 메서드는 여러 이벤트 핸들러를 사용하지 않고 Promise로 응답을 처리합니다. XMLHttpRequest에 대한 응답과 달리, fetch 응답은 Chrome 43부터 지원되는 스트림 객체입니다. 이는 `json()` 호출도 Promise를 반환함을 의미합니다.
 
     <script>
     fetch('./api/some.json')  
@@ -69,7 +59,6 @@ description: 이 가이드에서는 PageSpeed Insights 규칙에 대해 살펴�
     
 
 `fetch()` 메서드는 POST 요청을 처리할 수도 있습니다.
-
 
     <script>
     fetch(url, {
@@ -106,6 +95,6 @@ CSS 가져오기(`@import`) 지시문을 사용하면 하나의 스타일시트�
 
 최상의 성능을 위해 주요 CSS를 HTML 문서에 직접 인라인으로 추가하는 것을 고려해야 합니다. 이 경우 주요 경로에 발생하는 추가적인 왕복이 제거되고, (제대로 처리된 경우) HTML만 차단 리소스인 '1회 왕복' 주요 경로 길이를 전달할 수 있습니다.
 
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
