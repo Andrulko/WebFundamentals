@@ -1,22 +1,18 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Desvíate de lo común y crea animaciones totalmente personalizadas para tus proyectos.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Desvíate de lo común y crea animaciones totalmente personalizadas para tus proyectos.
 
-{# wf_updated_on: 2016-08-23 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2016-08-23 #} {# wf_published_on: 2014-08-08 #}
 
 # Aceleración personalizada {: .page-title }
 
-{% include "web/_shared/contributors/paullewis.html" %}
-{% include "web/_shared/contributors/samthorogood.html" %}
+{% include "web/_shared/contributors/paullewis.html" %} {% include "web/_shared/contributors/samthorogood.html" %}
 
 En algunos casos, no te convendrá usar las palabras claves de aceleración que se incluyan con CSS, o usarás animaciones web o un framework de JavaScript. Generalmente, en estos casos puedes definir tus propias curvas (o ecuaciones), y esto te proporciona mucho control sobre el aspecto de las animaciones de tu proyecto.
 
 ### TL;DR {: .hide-from-toc }
+
 * La aceleración personalizada te permite darles más personalidad a tus proyectos.
 * Puedes crear curvas Bézier cúbicas similares a las curvas de animación predeterminadas (salida lenta, entrada lenta, etc.), pero con énfasis en diferentes lugares.
 * Usa JavaScript cuando necesites tener más control sobre la duración y el comportamiento de las animaciones; por ejemplo, animaciones elásticas o de rebote.
-
 
 Si realizas animaciones con CSS, descubrirás que puedes definir curvas Bézier cúbicas para definir la duración. De hecho, las palabras claves `ease`, `ease-in`, `ease-out` y `linear` se asignan a curvas Bézier predefinidas, las cuales se detallan en la [especificación de transiciones de CSS](http://www.w3.org/TR/css3-transitions/) y la [especificación de animaciones web](https://w3c.github.io/web-animations/#scaling-using-a-cubic-bezier-curve).
 
@@ -31,6 +27,7 @@ A modo de comparación, presentamos dos curvas: una típica de entrada y salida 
     <img src="images/ease-in-out-markers.png" alt="Curva de animación de entrada y salida lentas." />
   </figure>
 </div>
+
 <div class="attempt-right">
   <figure>
     <img src="images/custom.png" alt="Curva de animación personalizada." />
@@ -40,7 +37,6 @@ A modo de comparación, presentamos dos curvas: una típica de entrada y salida 
 [Ver una animación con aceleración personalizada](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/animations/box-move-custom-curve.html){: target="_blank" .external }
 
 La CSS para la curva personalizada es la siguiente:
-
 
     transition: transform 500ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
     
@@ -63,12 +59,10 @@ Un framework potente es [TweenMax de Greensock](https://github.com/greensock/Gre
 
 Para usar TweenMax, incluye la siguiente secuencia de comandos en tu página:
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
     
 
 Luego de que la secuencia de comandos esté lista, podrás llamar a TweenMax para tu elemento e indicarle qué propiedades te gustaría aplicar, junto con cualquier tipo de aceleración que desees usar. Puedes usar muchísimas opciones de aceleración. En el siguiente código se usa una salida lenta elástica:
-
 
     var box = document.getElementById('my-box');
     var animationDurationInSeconds = 1.5;
@@ -81,8 +75,6 @@ Luego de que la secuencia de comandos esté lista, podrás llamar a TweenMax par
 
 En la [documentación de TweenMax](https://greensock.com/docs/#/HTML5/GSAP/TweenMax/) se mencionan todas las opciones disponibles, por lo que te recomendamos leerla.
 
-
-
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
