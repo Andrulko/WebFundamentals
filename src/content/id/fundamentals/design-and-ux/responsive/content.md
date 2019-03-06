@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Perhatikan materi serta layout dan desain grafis ketika membangun untuk berbagai pengguna dan perangkat.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Perhatikan materi serta layout dan desain grafis ketika membangun untuk berbagai pengguna dan perangkat.
 
-{# wf_updated_on: 2016-05-10 #}
-{# wf_published_on: 2016-05-10 #}
+{# wf_updated_on: 2016-05-10 #} {# wf_published_on: 2016-05-10 #}
 
 # Materi Multi-Perangkat {: .page-title }
 
@@ -14,7 +11,7 @@ description: Perhatikan materi serta layout dan desain grafis ketika membangun u
 [Panduan penulisan pemerintah AS](http://www.usability.gov/how-to-and-tools/methods/writing-for-the-web.html) merangkum apa yang orang inginkan dari menulis di web:
 
 > Ketika menulis untuk web, menggunakan bahasa sederhana yang memungkinkan pengguna untuk menemukan apa yang mereka butuhkan, memahami apa yang mereka temukan, dan kemudian menggunakannya sesuai dengan kebutuhan.
->
+> 
 > Ini juga harus bisa ditindaklanjuti, bisa ditemukan, dan bisa dibagikan.
 
 Penelitian menunjukkan bahwa [orang tidak membaca laman web, tetapi mereka memindainya](https://www.nngroup.com/articles/concise-scannable-and-objective-how-to-write-for-the-web/). Rata-rata, [orang hanya membaca 20-28% dari materi laman web](https://www.nngroup.com/articles/how-little-do-users-read/). Membaca di layar jauh lebih lambat dibandingkan membaca di kertas. Orang akan bosan dan meninggalkan situs Anda kecuali informasi mudah untuk diakses dan dipahami.
@@ -29,12 +26,9 @@ Hanya mempublikasikan apa yang diinginkan pengunjung, tidak lebih.
 
 [Penelitian pemerintah UK ](https://www.gov.uk/guidance/content-design/writing-for-gov-uk) juga menunjukkan bahwa:
 
-> 80% orang lebih suka kalimat yang ditulis dalam bahasa Inggris yang jelas — dan semakin
->kompleks masalahnya, semakin besar preferensi-nya (mis., 97% memilih "among
-> other things" dibandingkan bahasa Latin "inter alia").
->
-> Semakin tinggi tingkat pendidikan orang dan lebih spesialis pengetahuannya,
-> semakin besar preferensi mereka untuk bahasa Inggris sederhana.
+> 80% orang lebih suka kalimat yang ditulis dalam bahasa Inggris yang jelas — dan semakin kompleks masalahnya, semakin besar preferensi-nya (mis., 97% memilih "among other things" dibandingkan bahasa Latin "inter alia").
+> 
+> Semakin tinggi tingkat pendidikan orang dan lebih spesialis pengetahuannya, semakin besar preferensi mereka untuk bahasa Inggris sederhana.
 
 Dengan kata lain: gunakan bahasa sederhana, kata-kata pendek dan struktur kalimat sederhana — bahkan untuk pengguna teknis dan terpelajar. Jagalah nada suara agar selalu enak didengarkan, kecuali ada alasan untuk tidak melakukannya. Aturan lawas jurnalisme adalah menulis seolah-olah Anda sedang berbicara dengan seorang anak yang cerdas berusia 11 tahun.
 
@@ -52,7 +46,6 @@ Intinya:
 * Kurangi kesemrawutan
 * Langsung ke intinya
 
-
 ## Menghapus materi yang tidak perlu
 
 Dari segi ukuran byte, laman web menjadi [besar dan semakin besar](http://httparchive.org/trends.php#bytesTotal&reqTotal).
@@ -60,7 +53,7 @@ Dari segi ukuran byte, laman web menjadi [besar dan semakin besar](http://httpar
 [Teknik desain responsif](/web/fundamentals/design-and-ux/responsive/) memungkinkan untuk menyajikan materi berbeda dalam tampilan yang terlihat yang lebih kecil, tapi akan lebih bijak jika memulai dengan merampingkan teks, gambar dan materi lainnya.
 
 > Pengguna web sering kali berorientasi tindakan, cenderung aktif memburu jawaban atas pertanyaan mereka saat ini, daripada diam mempelajari buku yang bagus.
->
+> 
 > — [Jakob Nielsen](https://www.nngroup.com/articles/concise-scannable-and-objective-how-to-write-for-the-web/)
 
 Tanyakan pada diri sendiri: apa yang orang ingin dapatkan ketika mereka mengunjungi situs saya?
@@ -76,8 +69,8 @@ Banyak situs populer menggunakan beberapa ribu elemen HTML per laman, dan bebera
 Mengurangi kompleksitas HTML juga akan mengurangi besar laman, membantu pelokalan serta internasionalisasi dan membuat desain responsif agar lebih mudah untuk direncanakan dan di-debug. Untuk informasi tentang cara menulis HTML yang lebih efisien, lihat [HTML berkinerja tinggi](https://samdutton.wordpress.com/2015/04/02/high-performance-html/).
 
 > Setiap langkah tambahan yang dilakukan pengguna sebelum mereka mendapatkan nilai dari aplikasi, akan membuat Anda dikenai penalti 20% dari pengguna
->
->— [Gabor Cselle, Twitter](http://blog.gaborcselle.com/2012/10/every-step-costs-you-20-of-users.html)
+> 
+> — [Gabor Cselle, Twitter](http://blog.gaborcselle.com/2012/10/every-step-costs-you-20-of-users.html)
 
 Hal yang sama berlaku untuk materi: bantu pengguna mendapatkan apa yang mereka inginkan secepat mungkin.
 
@@ -99,7 +92,6 @@ Karena web semakin populer di perangkat seluler, Anda harus mengubah cara Anda m
 </div>
 
 Gambar bisa indah, menyenangkan dan informatif — namun gambar juga menggunakan properti laman, menambah ukuran laman, dan meningkatkan jumlah permintaan file. [Latensi semakin buruk ketika konektivitas memburuk](https://www.igvita.com/2012/07/19/latency-the-new-web-performance-bottleneck/), yang berarti bahwa permintaan file gambar yang berlebihan adalah masalah yang semakin meningkat ketika web digunakan di perangkat seluler.
-
 
 <div style="clear:both;"></div>
 
@@ -130,14 +122,11 @@ Berikut adalah beberapa sarannya:
 
 Untuk informasi selengkapnya, silakan lihat [Optimalisasi Gambar](/web/fundamentals/performance/optimizing-content-efficiency/image-optimization) serta [Menghilangkan dan mengganti gambar](/web/fundamentals/performance/optimizing-content-efficiency/image-optimization#eliminating-and-replacing-images).
 
-
 ## Merancang materi agar bekerja dengan baik pada ukuran tampilan yang terlihat berbeda {: #viewport }
 
-> "Create a product, don't re-imagine one for small screens. Great mobile
-> products are created, never ported."
->
->— <a href="https://goo.gl/KBAXj0">Mobile Design and Development</a>, Brian Fling
-
+> "Create a product, don't re-imagine one for small screens. Great mobile products are created, never ported."
+> 
+> — [Mobile Design and Development](https://goo.gl/KBAXj0), Brian Fling
 
 "Perancang hebat tidak hanya "mengoptimalkan untuk perangkat seluler" — mereka berpikir tanggap untuk membangun situs yang bekerja di berbagai perangkat. Struktur teks dan materi laman lainnya sangat penting untuk keberhasilan lintas-perangkat.
 
@@ -153,12 +142,11 @@ Pada layar yang lebih kecil, browser merender layout dengan benar, namun teks ti
 
 ### Mendesain materi untuk perangkat seluler
 
-Ketika membangun untuk berbagai tampilan yang terlihat, pertimbangkan materi serta layout dan desain grafis,
-[rancang dengan teks dan gambar nyata, jangan hanya materi dummy](http://uxmyths.com/post/718187422/myth-you-dont-need-the-content-to-design-a-website).
+Ketika membangun untuk berbagai tampilan yang terlihat, pertimbangkan materi serta layout dan desain grafis, [rancang dengan teks dan gambar nyata, jangan hanya materi dummy](http://uxmyths.com/post/718187422/myth-you-dont-need-the-content-to-design-a-website).
 
 > "Materi mengawali desain. Desain tanpa materi bukanlah desain, tetapi hanya dekorasi."
->
->— Jeffrey Zeldman
+> 
+> — Jeffrey Zeldman
 
 * Tempatkan materi Anda yang paling penting di atas, karena [pengguna cenderung membaca laman web dalam pola berbentuk-F](https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/).
 * Pengguna mengunjungi situs Anda untuk mencapai sebuah tujuan. Tanyakan pada diri sendiri apa yang mereka butuhkan untuk mencapai tujuan tersebut dan buang segala sesuatu yang lain. Lakukan tindakan tegas pada hiasan visual dan tekstual, materi lawas, tautan terlalu banyak, dan kesemrawutan lainnya.
@@ -183,11 +171,11 @@ Perangkat seluler semakin banyak dipakai untuk menggunakan materi dan memperoleh
 
 Hal ini membuat perencanaan materi semakin penting agar bisa bekerja dengan baik pada berbagai tampilan yang terlihat, dan untuk memprioritaskan materi ketika mempertimbangkan layout, antarmuka dan desain interaksi lintas-perangkat.
 
-
 ## Memahami biaya data
 
-Laman web semakin besar. <br><br>Menurut <a href="http://httparchive.org/trends.php#bytesTotal&reqTotal">Arsip HTTP</a>, ukuran rata-rata laman untuk <a href="http://httparchive.org/about.php#listofurls">sejuta situs teratas</a> sekarang melampaui 2 MB.
-
+Laman web semakin besar.   
+  
+Menurut [Arsip HTTP](http://httparchive.org/trends.php#bytesTotal&reqTotal), ukuran rata-rata laman untuk [sejuta situs teratas](http://httparchive.org/about.php#listofurls) sekarang melampaui 2 MB.
 
 Pengguna menghindari situs atau aplikasi yang dianggap lambat atau mahal biaya datanya, jadi penting untuk memahami biaya pemuatan laman dan komponen aplikasi.
 
@@ -250,10 +238,10 @@ Ingatlah bahwa ini tidak memperhitungkan keterjangkauan harga relatif terhadap p
   </tr>
 </table>
 
-
 Ukuran laman bukan hanya masalah bagi pasar negara berkembang. Di banyak negara, orang menggunakan paket data seluler dengan data terbatas, dan akan menghindari situs atau aplikasi Anda jika mereka menganggap hal itu berat dan mahal. Bahkan paket data seluler dan wifi "tak terbatas" biasanya memiliki batas data yang apabila terlewati, data akan diblokir atau dibatasi kecepatannya.
 
 Intinya: ukuran laman memengaruhi kinerja dan biaya. [Mengoptimalkan efisiensi materi](/web/fundamentals/performance/optimizing-content-efficiency/) menunjukkan cara mengurangi biaya tersebut.
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
