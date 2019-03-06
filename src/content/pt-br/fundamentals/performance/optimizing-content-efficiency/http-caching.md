@@ -1,10 +1,6 @@
-project_path: /web/fundamentals/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: O armazenamento em cache e a reutilização de recursos buscados anteriormente é um aspecto crítico da otimização do desempenho.
+project_path: /web/fundamentals/_project.yaml book_path: /web/fundamentals/_book.yaml description: O armazenamento em cache e a reutilização de recursos buscados anteriormente é um aspecto crítico da otimização do desempenho.
 
-{# wf_updated_on: 2019-02-06 #}
-{# wf_published_on: 2013-12-31 #}
-{# wf_blink_components: Blink>Network #}
+{# wf_updated_on: 2019-02-06 #} {# wf_published_on: 2013-12-31 #} {# wf_blink_components: Blink>Network #}
 
 # Cache de HTTP {: .page-title }
 
@@ -12,47 +8,45 @@ description: O armazenamento em cache e a reutilização de recursos buscados an
 
 A recuperação de algo pela rede é lenta e dispendiosa. Respostas grandes exigem várias idas e voltas entre o cliente e o servidor, o que retarda sua disponibilidade e processamento pelo navegador, além de gerar custos de dados para o visitante. Como resultado, a capacidade de armazenar em cache e reusar recursos previamente recuperados é um aspecto crítico da otimização do desempenho.
 
-
 A boa notícia é que todo navegador é fornecido com uma implementação de um cache de HTTP. Tudo que você tem que fazer é garantir que cada resposta de servidor forneça as diretivas de cabeçalho HTTP corretas para instruir o navegador sobre quando e por quanto tempo ele pode armazenar a resposta em cache.
 
 Note: se você usar uma WebView para recuperar e exibir conteúdo da Web no seu aplicativo, talvez seja necessário informar sinalizadores de configuração adicionais para garantir que o cache HTTP esteja ativado, que seu tamanho seja definido de acordo com o caso de uso e o cache seja persistido. Verifique a documentação da plataforma e confirme suas configurações!
 
-<img src="images/http-request.png"  alt="Solicitação HTTP">
+<img src="images/http-request.png"  alt="Solicitação HTTP" />
 
 Quando o servidor retorna uma resposta, também emite uma coleção de cabeçalhos HTTP, descrevendo o tipo de conteúdo, o comprimento, as diretivas de armazenamento em cache, o token de validação e outras informações. Por exemplo, na troca acima, o servidor retorna uma resposta de 1.024 bytes, instrui o cliente a armazená-la em cache por até 120 segundos e fornece um token de validação ("x234dff") que pode ser usado após a expiração da resposta para verificar se o recurso foi modificado.
-
 
 ## Validar respostas armazenadas em cache com ETags
 
 ### TL;DR {: .hide-from-toc }
+
 * O servidor usa a ETag de cabeçalho HTTP para comunicar um token de validação.
 * O token de validação permite verificações eficientes de atualização de recursos: nenhum dado é transferido se o recurso não foi alterado.
-
 
 Suponha que se passaram 120 segundos desde nossa recuperação inicial e o navegador iniciou uma nova solicitação para o mesmo recurso. Primeiro, o navegador verifica o cache local e encontra a resposta anterior. O navegador não pode usar a resposta anterior porque ela está expirada. Nesse ponto, o navegador pode despachar uma nova solicitação e recuperar uma nova resposta completa. No entanto, isso é ineficiente porque não há motivo para fazer o download da mesma informação que já está no cache.
 
 Esse é o problema que os tokens de validação, conforme especificado no cabeçalho ETag, foram projetados para resolver. O servidor gera e retorna um token arbitrário, que é normalmente um hash ou outra impressão digital do conteúdo do arquivo. O cliente não precisa saber como a impressão digital é gerada, basta enviá-la ao servidor na próxima solicitação. Caso a impressão digital ainda seja a mesma, isso significa que o recurso não mudou e você pode pular o download.
 
-<img src="images/http-cache-control.png"  alt="Exemplo de Cache-Control de HTTP">
+<img src="images/http-cache-control.png"  alt="Exemplo de Cache-Control de HTTP" />
 
 No exemplo anterior, o cliente fornece automaticamente o token ETag no cabeçalho de solicitação HTTP "If-None-Match". O servidor verifica o token em relação ao recurso atual. Se não houver alteração no token, o servidor retornará uma resposta "304 Not Modified", que informa ao navegador que a resposta no cache não foi alterada e pode ser renovada por outros 120 segundos. Não é necessário fazer o download da resposta novamente, o que economiza tempo e largura de banda.
 
 Como desenvolvedor Web, como você pode aproveitar a revalidação eficiente? O navegador faz todo o trabalho por nós. O navegador detecta automaticamente se um token de validação já foi especificado antes, anexa o token de validação a uma solicitação de saída e atualiza os carimbos de data e hora do cache conforme a necessidade de acordo com a resposta recebida do servidor. **A única ação que resta fazer é garantir que o servidor esteja fornecendo os tokens ETag necessários. Verifique a documentação do seu servidor para consultar os sinalizadores de configuração necessários.**
 
-Note: Dica: o projeto HTML5 Boilerplate contém <a href='https://github.com/h5bp/server-configs'>exemplos de arquivos de configuração</a> de todos os servidores mais usados, com comentários detalhados para cada sinalizador e definição da configuração. Encontre seu servidor favorito na lista, procure as configurações adequadas e copie as definições recomendadas ou verifique se seu servidor já as usa.
+Note: Dica: o projeto HTML5 Boilerplate contém [exemplos de arquivos de configuração](https://github.com/h5bp/server-configs) de todos os servidores mais usados, com comentários detalhados para cada sinalizador e definição da configuração. Encontre seu servidor favorito na lista, procure as configurações adequadas e copie as definições recomendadas ou verifique se seu servidor já as usa.
 
 ## Cache-Control
 
 ### TL;DR {: .hide-from-toc }
+
 * Cada recurso pode definir usar sua política de armazenamento em cache por meio do cabeçalho Cache-Control do HTTP.
 * As diretivas do Cache-Control controlam quem pode armazenar a resposta em cache e em que condições e por quanto tempo isso ocorre.
-
 
 De uma perspectiva de otimização de desempenho, a melhor solicitação é a que não precisa se comunicar com o servidor: uma cópia local da resposta permite eliminar toda a latência de rede e evitar os custos de dados na transferência de dados. Para isso, a especificação HTTP permite que o servidor retorne [diversas diretivas Cache-Control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) que controlam como e por quanto tempo o navegador e outros caches intermediários podem armazenar a resposta individual em cache.
 
 Note: o cabeçalho Cache-Control foi definido como parte da especificação HTTP/1.1 e substitui os cabeçalhos anteriores (por exemplo, Expires) usados para definir políticas de armazenamento de respostas em cache. Todos os navegadores modernos são compatíveis com Cache-Control, então isso é tudo que você precisa.
 
-<img src="images/http-cache-control-highlight.png"  alt="Exemplo de Cache-Control de HTTP">
+<img src="images/http-cache-control-highlight.png"  alt="Exemplo de Cache-Control de HTTP" />
 
 ### "no-cache" e "no-store"
 
@@ -72,11 +66,12 @@ Essa diretiva especifica o tempo máximo, em segundos, que a resposta recuperada
 
 ## Definir a política ideal de Cache-Control
 
-<img src="images/http-cache-decision-tree.png"  alt="Árvore de decisão do cache">
+<img src="images/http-cache-decision-tree.png"  alt="Árvore de decisão do cache" />
 
 Siga a árvore de decisão acima para determinar a política ideal de armazenamento em cache para um determinado recurso ou conjunto de recursos que seu aplicativo usa. Idealmente, você deve tentar armazenar no cache do cliente o maior número de respostas possível pelo maior período possível, bem como fornecer tokens de validação para cada resposta, permitindo uma revalidação eficiente.
 
 <table class="responsive">
+  
 <thead>
   <tr>
     <th colspan="2">Diretivas de Cache-Control &amp; Explicação</th>
@@ -103,10 +98,10 @@ De acordo com o HTTP Archive, entre os 300.000 sites principais (pela classifica
 ## Invalidar e atualizar respostas armazenadas em cache
 
 ### TL;DR {: .hide-from-toc }
+
 * As respostas armazenadas em cache local são usadas até que o recurso "expire".
 * A incorporação de uma impressão digital de conteúdo de arquivo no URL permite forçar a atualização para uma nova versão da resposta no cliente.
 * Cada aplicativo precisa definir a própria hierarquia de cache para ter o desempenho ideal.
-
 
 Todas as solicitações HTTP efetuadas pelo navegador são antes encaminhadas ao cache do navegador, para verificar se há uma resposta válida armazenada no cache que possa ser usada para atender à solicitação. Se houver, a resposta será lida do cache, o que elimina a latência de rede e os custos de dados gerados pela transferência.
 
@@ -116,7 +111,7 @@ Depois que uma resposta é armazenada em cache pelo navegador, a versão do cach
 
 **Como podemos ter a melhor das opções: cache do lado do cliente e atualizações rápidas?** Você pode alterar o URL do recurso e forçar o usuário a fazer o download da nova resposta sempre que seu conteúdo for alterado. Tipicamente, isso é feito incorporando uma impressão digital do arquivo, ou um número de versão, no nome do arquivo. Por exemplo, style.**x234dff**.css.
 
-<img src="images/http-cache-hierarchy.png"  alt="Hierarquia do cache">
+<img src="images/http-cache-hierarchy.png"  alt="Hierarquia do cache" />
 
 Com a capacidade de definir políticas de armazenamento em cache por recurso, é possível definir "hierarquias de cache" que permitem controlar não apenas o tempo de armazenamento em cache, mas também a rapidez com que novas versões são vistas pelos visitantes. Para ilustrar isso, analise o exemplo acima:
 
