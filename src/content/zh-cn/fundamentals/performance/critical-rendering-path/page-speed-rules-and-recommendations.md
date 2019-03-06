@@ -1,16 +1,12 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description:本指南审视 PageSpeed Insights 规则背景：优化关键渲染路径时的注意事项以及原因。
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description:本指南审视 PageSpeed Insights 规则背景：优化关键渲染路径时的注意事项以及原因。
 
-{# wf_updated_on:2015-10-05 #}
-{# wf_published_on:2014-03-31 #}
+{# wf_updated_on:2015-10-05 #} {# wf_published_on:2014-03-31 #}
 
 # PageSpeed 规则和建议 {: .page-title }
 
 {% include "web/_shared/contributors/ilyagrigorik.html" %}
 
 本指南审视 PageSpeed Insights 规则背景：优化关键渲染路径时的注意事项以及原因。
-
 
 ## 消除阻塞渲染的 JavaScript 和 CSS
 
@@ -26,12 +22,7 @@ description:本指南审视 PageSpeed Insights 规则背景：优化关键渲染
 
 ### 避免同步服务器调用
 
-使用 `navigator.sendBeacon()` 方法来限制 XMLHttpRequests 在 `unload` 处理程序中发送的数据。
-因为许多浏览器都对此类请求有同步要求，所以可能减慢网页转换速度，有时还很明显。
-以下代码展示了如何利用 `navigator.sendBeacon()` 向 `pagehide` 处理程序而不是 `unload` 处理程序中的服务器发送数据。
-
-
-
+使用 `navigator.sendBeacon()` 方法来限制 XMLHttpRequests 在 `unload` 处理程序中发送的数据。 因为许多浏览器都对此类请求有同步要求，所以可能减慢网页转换速度，有时还很明显。 以下代码展示了如何利用 `navigator.sendBeacon()` 向 `pagehide` 处理程序而不是 `unload` 处理程序中的服务器发送数据。
 
     <script>
       function() {
@@ -45,8 +36,7 @@ description:本指南审视 PageSpeed Insights 规则背景：优化关键渲染
     </script>
     
 
-新增的 `fetch()` 方法提供了一种方便的数据异步请求方式。由于它尚未做到随处可用，因此您应该利用功能检测来测试其是否存在，然后再使用。该方法通过 Promise 而非多个事件处理程序来处理响应。不同于对 XMLHttpRequest 的响应，从 Chrome 43 开始，fetch 响应将是 stream 对象。这意味着调用 `json()` 也会返回 Promise。 
-
+新增的 `fetch()` 方法提供了一种方便的数据异步请求方式。由于它尚未做到随处可用，因此您应该利用功能检测来测试其是否存在，然后再使用。该方法通过 Promise 而非多个事件处理程序来处理响应。不同于对 XMLHttpRequest 的响应，从 Chrome 43 开始，fetch 响应将是 stream 对象。这意味着调用 `json()` 也会返回 Promise。
 
     <script>
     fetch('./api/some.json')  
@@ -69,7 +59,6 @@ description:本指南审视 PageSpeed Insights 规则背景：优化关键渲染
     
 
 `fetch()` 方法也可处理 POST 请求。
-
 
     <script>
     fetch(url, {
@@ -106,6 +95,6 @@ CSS 是构建渲染树的必备元素，首次构建网页时，JavaScript 常�
 
 为获得最佳性能，您可能会考虑将关键 CSS 直接内联到 HTML 文档内。这样做不会增加关键路径中的往返次数，并且如果实现得当，在只有 HTML 是阻塞渲染的资源时，可实现“一次往返”关键路径长度。
 
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
