@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: É importante entender como é usar o seu aplicativo ou site quando a conectividade é ruim ou pouco confiável e considerar isso quando for programar. Há diversas ferramentas que podem ajudar.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: É importante entender como é usar o seu aplicativo ou site quando a conectividade é ruim ou pouco confiável e considerar isso quando for programar. Há diversas ferramentas que podem ajudar.
 
-{# wf_updated_on: 2016-08-29 #}
-{# wf_published_on: 2016-05-09 #}
+{# wf_updated_on: 2016-08-29 #} {# wf_published_on: 2016-05-09 #}
 
 # Compreender baixa largura de banda e alta latência {: .page-title }
 
@@ -13,7 +10,7 @@ description: É importante entender como é usar o seu aplicativo ou site quando
 
 ## Testar com baixa largura de banda e alta latência {: #testing }
 
-Uma <a href="http://adwords.blogspot.co.uk/2015/05/building-for-next-moment.html">proporção crescente</a> de pessoas usa a Web em dispositivos móveis. Mesmo em casa, <a href="https://www.washingtonpost.com/news/the-switch/wp/2016/04/18/new-data-americans-are-abandoning-wired-home-internet/">muitas pessoas estão mudando da banda larga fixa para os dispositivos móveis</a>.
+Uma [proporção crescente](http://adwords.blogspot.co.uk/2015/05/building-for-next-moment.html) de pessoas usa a Web em dispositivos móveis. Mesmo em casa, [muitas pessoas estão mudando da banda larga fixa para os dispositivos móveis](https://www.washingtonpost.com/news/the-switch/wp/2016/04/18/new-data-americans-are-abandoning-wired-home-internet/).
 
 Nesse contexto, é importante entender como o aplicativo ou site se comporta quando a conectividade é insuficiente ou pouco confiável. Uma variedade de ferramentas de software pode ajudar a [emular e simular](https://stackoverflow.com/questions/1584617/simulator-or-emulator-what-is-the-difference) banda larga baixa e [latência](https://www.igvita.com/2012/07/19/latency-the-new-web-performance-bottleneck/) alta.
 
@@ -81,18 +78,17 @@ Você pode obter mais informações sobre o Charles em [codewithchris.com](http:
 
 ### O que é lie-fi?
 
-O termo <a href="http://www.urbandictionary.com/define.php?term=lie-fi">lie-fi</a> foi criado em 2008 (quando os telefones tinham <a href="https://www.mobilegazette.com/2008-phones-wallchart.htm" title="Images of phones from 2008">esta</a> aparência) e significa uma conectividade que não é o que parece ser. O navegador se comporta como se tivesse conectividade quando, por algum motivo, não tem.
+O termo [lie-fi](http://www.urbandictionary.com/define.php?term=lie-fi) foi criado em 2008 (quando os telefones tinham [esta](https://www.mobilegazette.com/2008-phones-wallchart.htm "Images of phones from 2008") aparência) e significa uma conectividade que não é o que parece ser. O navegador se comporta como se tivesse conectividade quando, por algum motivo, não tem.
 
 A interpretação incorreta da conectividade pode resultar em uma experiência ineficiente, pois o navegador (ou o JavaScript) persiste na tentativa de recuperar resultados em vez de desistir e optar por um fallback razoável. Na verdade, o lie-fi pode ser pior que o off-line. Se o dispositivo estiver definitivamente off-line, o JavaScript poderá pelo menos executar ações adequadas para contornar a situação.
 
 É provável que o lie-fi se torne um problema maior conforme as pessoas mudam da banda larga fixa para os dispositivos móveis. [Dados recentes do censo americano](https://www.ntia.doc.gov/blog/2016/evolving-technologies-change-nature-internet-use) mostram um [abandono da banda larga fixa](https://www.washingtonpost.com/news/the-switch/wp/2016/04/18/new-data-americans-are-abandoning-wired-home-internet/). O gráfico a seguir mostra o uso doméstico da Internet móvel em 2015 com o de 2013:
 
-<img src="images/home-broadband.png" class="center" alt="Gráfico de dados do censo americano, mostrando a mudança da banda larga fixa para os dispositivos móveis, particularmente em lares de baixa renda">
+<img src="images/home-broadband.png" class="center" alt="Gráfico de dados do censo americano, mostrando a mudança da banda larga fixa para os dispositivos móveis, particularmente em lares de baixa renda" />
 
 ### Use tempos limite para lidar com conectividade intermitente
 
 Anteriormente, [métodos de hacker usando XHR](http://stackoverflow.com/questions/189430/detect-that-the-internet-connection-is-offline) eram utilizados para testar a presença de conectividade intermitente. No entanto, o Service Worker oferece métodos mais confiáveis para definir tempos limite de rede. Jeff Posnick explica como fazer isso usando tempos limite do [sw-toolbox](https://github.com/GoogleChrome/sw-toolbox) em sua palestra [Carga instantânea com Service Workers](https://youtu.be/jCKZDTtUA2A?t=19m58s):
-
 
     toolbox.router.get(
       '/path/to/image',
@@ -103,5 +99,8 @@ Anteriormente, [métodos de hacker usando XHR](http://stackoverflow.com/question
 
 Uma [opção de tempo limite](https://github.com/whatwg/fetch/issues/20) também está planejada para a [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch), e a [Streams API](https://www.w3.org/TR/streams-api/) pode ajudar otimizando a entrega de conteúdo e evitando solicitações monolíticas. Jake Archibald dá mais detalhes sobre como lidar com o lie-fi em [Otimização de carga de páginas](https://youtu.be/d5_6yHixpsQ?t=6m42s).
 
-
 {# wf_devsite_translation #}
+
+## Feedback {: #feedback }
+
+{% include "web/_shared/helpful.html" %}
