@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Sangat penting untuk memahami seperti apa aplikasi atau situs kita ketika memiliki konektivitas yang tidak dapat diandalkan. Berikut beberapa alat yang dapat membantu Anda.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Sangat penting untuk memahami seperti apa aplikasi atau situs kita ketika memiliki konektivitas yang tidak dapat diandalkan. Berikut beberapa alat yang dapat membantu Anda.
 
-{# wf_updated_on: 2016-10-16 #}
-{# wf_published_on: 2016-05-09 #}
+{# wf_updated_on: 2016-10-16 #} {# wf_published_on: 2016-05-09 #}
 
 # Memahami bandwith yang rendah dan respons tinggi {: .page-title }
 
@@ -55,9 +52,7 @@ Kinerja konektivitas tergantung pada lokasi server serta jenis jaringan.
 
 ![WebPagetest settings](images/webpagetest.png)
 
-
 Pilih lokasi dan, dari pengaturan lanjutan, pilih jenis koneksi. Anda bahkan dapat mengotomatisasi pengujian menggunakan [script](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/scripting) (misalnya, untuk masuk ke sebuah situs) atau menggunakan [RESTful API](https://sites.google.com/a/webpagetest.org/docs/advanced-features/webpagetest-restful-apis) mereka. Hal ini membantu Anda untuk memasukkan pengujian konektivitas ke dalam proses logging.
-
 
 [Fiddler](http://www.telerik.com/fiddler) mendukung proxy global melalui [GeoEdge](http://www.geoedge.com/faq), dan aturan khusus yang dapat digunakan untuk mensimulasikan kecepatan modem:
 
@@ -83,13 +78,13 @@ Informasi lebih lanjut tentang Charles dapat dilihat di [codewithchris.com](http
 
 ### Apa itu lie-fi?
 
-Istilah <a href="http://www.urbandictionary.com/define.php?term=lie-fi">lie-fi</a> muncul sekitar tahun 2008 (ketika ponsel tampak seperti <a href="https://www.mobilegazette.com/2008-phones-wallchart.htm" title="Images of phones from 2008">ini</a>). Browser anda seolah-olah memiliki konektivitas, tapi ternyata tidak.
+Istilah [lie-fi](http://www.urbandictionary.com/define.php?term=lie-fi) muncul sekitar tahun 2008 (ketika ponsel tampak seperti [ini](https://www.mobilegazette.com/2008-phones-wallchart.htm "Images of phones from 2008")). Browser anda seolah-olah memiliki konektivitas, tapi ternyata tidak.
 
 Konektivitas yang disalahartikan dapat menimbulkan pengalaman buruk karena browser (atau JavaScript) berusaha untuk mengambil sumber daya ke situs web daripada berhenti. Lie-fi sebenarnya bisa lebih buruk daripada offline; setidaknya jika perangkat pasti offline JavaScript anda dapat mengambil tindakan yang tepat untuk mengatasinya.
 
 Lie-fi kemungkinan akan menjadi masalah yang lebih besar karena lebih banyak orang pindah ke ponsel dan jauh dari fixed broadband. Baru-baru ini [Data Sensus Amerika Serikat terbaru](https://www.ntia.doc.gov/blog/2016/evolving-technologies-change-nature-internet-use) menunjukkan [pindah dari fixed broadband](https://www.washingtonpost.com/news/the-switch/wp/2016/04/18/new-data-americans-are-abandoning-wired-home-internet/). Grafik berikut menunjukkan penggunaan mobile internet di rumah pada 2015 dibandingkan dengan 2013:
 
-<img src="images/home-broadband.png" class="center" alt="Chart from US census data showing the move to mobile away from fixed broadband, particularly in lower-income households">
+<img src="images/home-broadband.png" class="center" alt="Chart from US census data showing the move to mobile away from fixed broadband, particularly in lower-income households" />
 
 ### Gunakan timeout untuk menangani konektivitas yang terputus-putus
 
@@ -99,9 +94,13 @@ Sebelumnya, [metode Hacky menggunakan XHR](http://stackoverflow.com/questions/18
       '/path/to/image',
       toolbox.networkFirst,
       {networkTimeoutSeconds: 3}
-    );    
+    );
+    
 
 Sebuah [pilihan timeout](https://github.com/whatwg/fetch/issues/20) juga direncanakan untuk [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch), dan [Streams API](https://www.w3.org/TR/streams-api/) sehingga dapat membantu dengan mengoptimalkan pengiriman konten. Jake Archibald memberikan rincian lebih lanjut tentang mengatasi lie-fi di [Supercharging page load](https://youtu.be/d5_6yHixpsQ?t=6m42s).
 
-Translated By: 
-{% include "web/_shared/contributors/mychaelgo.html" %}
+Translated By: {% include "web/_shared/contributors/mychaelgo.html" %}
+
+## Feedback {: #feedback }
+
+{% include "web/_shared/helpful.html" %}
