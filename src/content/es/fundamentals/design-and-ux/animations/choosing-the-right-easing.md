@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Elige la aceleración adecuada para tu proyecto, así se trate de una entrada o salida lentas o de ambas posibilidades. ¡Incluso puedes usar rebotes para agregarle diversión!
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Elige la aceleración adecuada para tu proyecto, así se trate de una entrada o salida lentas o de ambas posibilidades. ¡Incluso puedes usar rebotes para agregarle diversión!
 
-{# wf_updated_on: 2016-08-23 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2016-08-23 #} {# wf_published_on: 2014-08-08 #}
 
 # Elección de la aceleración adecuada {: .page-title }
 
@@ -12,16 +9,15 @@ description: Elige la aceleración adecuada para tu proyecto, así se trate de u
 Ahora que ya analizamos las diferentes opciones disponibles para acelerar las animaciones, ¿qué clase deberías usar en tus proyectos y qué tipos de duraciones deben tener tus animaciones?
 
 ### TL;DR {: .hide-from-toc }
+
 * Usa las animaciones de salida lenta para los elementos de la IU; una salida lenta Quintic, a pesar de ser rápida, es una aceleración muy atractiva.
 * Asegúrate de usar la duración de la animación. Las salidas y las entradas lentas deben durar entre 200 y 500 ms, mientras que los rebotes y las aceleraciones elásticas deben tener una duración más prolongada de entre 800 y 1200 ms.
 
-
-<img src="images/quintic-ease-out-markers.png" alt="La curva de una animación de salida lenta Quintic" style="max-width: 300px" class="attempt-right"/>
+<img src="images/quintic-ease-out-markers.png" alt="La curva de una animación de salida lenta Quintic" style="max-width: 300px" class="attempt-right" />
 
 En términos generales, una **salida lenta** será la opción correcta y, sin dudas, un buen parámetro predeterminado. Se inicia rápidamente, lo cual proporciona a tus animaciones una sensación de receptividad (un aspecto bienvenido), aunque con una agradable reducción de la velocidad al final.
 
 Existe un grupo de ecuaciones de salida lenta reconocidas más allá de la especificada con la palabra clave `ease-out` en CSS, cuyos niveles de “agresividad” varían. Para obtener un efecto rápido de salida lenta, considera la [salida lenta Quintic](http://easings.net/#easeOutQuint).
-
 
 [Ver una animación de salida lenta Quintic](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/animations/box-move-quintic-ease-out.html){: target="_blank" .external }
 
@@ -39,7 +35,6 @@ Es importante que las animaciones que se agregan a tu proyecto tengan la duraci�
 
 Estas, por supuesto, son solo algunas recomendaciones. Experimenta con tus propias aceleraciones y elige las que combinen mejor con tus proyectos.
 
-
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
