@@ -1,34 +1,29 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: JavaScript 往往是視覺變更的觸發器。 有時是直接透過樣式操作，有時是計算造成視覺變更，例如搜尋或排序一些資料。 時機不對或長時間執行的 JavaScript 可能是常見的效能問題導因，您應該儘量減少它的影響。
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: JavaScript 往往是視覺變更的觸發器。 有時是直接透過樣式操作，有時是計算造成視覺變更，例如搜尋或排序一些資料。 時機不對或長時間執行的 JavaScript 可能是常見的效能問題導因，您應該儘量減少它的影響。
 
-{# wf_updated_on: 2015-03-19 #}
-{# wf_published_on: 2000-01-01 #}
+{# wf_updated_on: 2015-03-19 #} {# wf_published_on: 2000-01-01 #}
 
 # 最佳化 JavaScript 執行 {: .page-title }
 
 {% include "web/_shared/contributors/paullewis.html" %}
 
-
 JavaScript 往往是視覺變更的觸發器。 有時是直接透過樣式操作，有時是計算造成視覺變更，例如搜尋或排序一些資料。 時機不對或長時間執行的 JavaScript 可能是常見的效能問題導因，您應該儘量減少它的影響。
-
-### TL;DR {: .hide-from-toc }
-- 針對視覺更新避免 setTimeout 或 setInterval；一律改為使用 requestAnimationFrame。
-- 將長時間執行的 JavaScript 從主執行緒移動至 Web Worker。
-- 使用微任務，以讓 DOM 在多個畫面內變更。
-- 使用 Chrome DevTools 的 Timeline 和 JavaScript Profiler，以評估 JavaScript 的影響。
-
 
 JavaScript 效能分析可能稱得上是一門藝術，因為您撰寫的 JavaScript 程式碼一點也不像實際執行的程式碼。 最新的瀏覽器使用 JIT 編譯器和各式各樣的最佳化和技巧，以試圖給您儘可能最快的執行速度，這大幅變更了程式碼的動力。
 
-Note: 如果您真的想要看到作用中的 JIT，應該要看看<a href="http://mrale.ph/irhydra/2/">IRHydra<sup>2</sup> by Vyacheslav Egorov</a>。 這會顯示當 Chrome 的 JavaScript 引擎 V8 正在將之最佳化時的 JavaScript 程式碼之中繼狀態。
+Note: 如果您真的想要看到作用中的 JIT，應該要看看[IRHydra<sup>2</sup> by Vyacheslav Egorov](http://mrale.ph/irhydra/2/)。 這會顯示當 Chrome 的 JavaScript 引擎 V8 正在將之最佳化時的 JavaScript 程式碼之中繼狀態。
 
 不過話雖如此，您還是可以做一些努力，以協助您的應用程式成功執行 JavaScript。
+
+### TL;DR {: .hide-from-toc }
+
+* 針對視覺更新避免 setTimeout 或 setInterval；一律改為使用 requestAnimationFrame。
+* 將長時間執行的 JavaScript 從主執行緒移動至 Web Worker。
+* 使用微任務，以讓 DOM 在多個畫面內變更。
+* 使用 Chrome DevTools 的 Timeline 和 JavaScript Profiler，以評估 JavaScript 的影響。
 
 ## 針對視覺變更，請使用 RequestAnimationFrame
 
 當視覺變更在螢幕上發生時，您會想在正確時機為瀏覽器執行自己的工作，這也正是畫面開始之際。 要保證 JavaScript 會在畫面開始之時執行的唯一方法是使用 `requestAnimationFrame`。
-
 
     /**
      * If run as a requestAnimationFrame callback, this
@@ -41,9 +36,9 @@ Note: 如果您真的想要看到作用中的 JIT，應該要看看<a href="http
     requestAnimationFrame(updateScreen);
     
 
-架構或範例可以像動畫一樣，使用 `setTimeout` 或 `setInterval` 做視覺變更，但這種方式的問題在於，回呼會在畫面的 _某一點_ 執行，可能就在結束之時，如此往往造成我們遺漏一個畫面的效果，從而導致閃避現象。
+架構或範例可以像動畫一樣，使用 `setTimeout` 或 `setInterval` 做視覺變更，但這種方式的問題在於，回呼會在畫面的 *某一點* 執行，可能就在結束之時，如此往往造成我們遺漏一個畫面的效果，從而導致閃避現象。
 
-<img src="images/optimize-javascript-execution/settimeout.jpg"  alt="setTimeout 導致瀏覽器遺漏一個畫面。">
+<img src="images/optimize-javascript-execution/settimeout.jpg" alt="setTimeout 導致瀏覽器遺漏一個畫面。" />
 
 事實上，時下 jQuery 的預設 `animate` 行為是使用 `setTimeout`！您可以 [修補它以使用 `requestAnimationFrame`](https://github.com/gnarf/jquery-requestAnimationFrame)，強烈建議使用者採用。
 
@@ -55,7 +50,6 @@ JavaScript 是在瀏覽器的主執行緒上運作，就連同樣式計算、版
 
 在許多情況下，只要 Web Worker 不需要 DOM 存取時，您就可以將純運算工作移轉給 [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/basic_usage)。 像排序或搜尋等資料操作或穿越動作，常常正好適合這種模式，也適合載入和模型產生。
 
-
     var dataSortWorker = new Worker("sort-worker.js");
     dataSortWorker.postMesssage(dataToSort);
     
@@ -66,10 +60,8 @@ JavaScript 是在瀏覽器的主執行緒上運作，就連同樣式計算、版
        // Update data on screen...
     });
     
-    
 
 並非所有的工作都可以適用這種模式：Web Worker 並無 DOM 存取能力。 當您的工作必須在主執行緒上運作時，請考慮批次方案：將較大的任務分割成微任務，每個微任務僅需幾 ms 的時間，同時是跨每個畫面在 `requestAnimationFrame` 處理常式內執行。
-
 
     var taskList = breakBigTaskIntoMicroTasks(monsterTaskList);
     requestAnimationFrame(processTaskList);
@@ -102,15 +94,12 @@ JavaScript 是在瀏覽器的主執行緒上運作，就連同樣式計算、版
 
 測量您 JavaScript 成本和效能設定檔的最佳方法，是使用 Chrome DevTools。 基本上，您將取得看起來像以下的低詳細資料記錄：
 
-<img src="images/optimize-javascript-execution/low-js-detail.jpg"  alt="Chrome DevTools 的 Timeline 提供低 JS 執行詳細資料。">
+<img src="images/optimize-javascript-execution/low-js-detail.png"
+     alt="Chrome DevTools 的 Timeline 提供低 JS 執行詳細資料。" />
 
 如果您發現您有長時間執行的 JavaScript，您可以啟用 DevTools 使用者介面頂部的 JavaScript 分析工具：
 
-啟用 DevTools 中的 JS 分析工具。"><img src="images/optimize-javascript-execution/js-profiler-toggle.jpg"  alt="
-
-以這種方式分析 JavaScript 會帶有額外負荷，所以當您想要更深入瞭解 JavaScript 執行期特性時，要確定只啟用此功能。 啟用核取方塊之後，您現在可以執行相同的行為，對於您 JavaScript 呼叫了哪些功能，您會得到多出許多的相關資訊：
-
-<img src="images/optimize-javascript-execution/high-js-detail.jpg"  alt="Chrome DevTools 的 Timeline 提供高 JS 執行詳細資料。">
+啟用 DevTools 中的 JS 分析工具。">
 
 持有這項資訊，您可以評估 JavaScript 對您的應用程式的效能影響，並開始尋找並修復功能執行所需時間太長的任何熱點。 正如之前所述，您應設法刪除長時間執行的 JavaScript，若不可能的話，就將之移動到 Web Worker ，騰出主執行緒去執行其它任務。
 
@@ -122,4 +111,6 @@ JavaScript 是在瀏覽器的主執行緒上運作，就連同樣式計算、版
 
 簡而言之，因為微最佳化通常不會對應至您正在打造的應用程式種類，因此對於微最佳化要非常謹慎。
 
+## Feedback {: #feedback }
 
+{% include "web/_shared/helpful.html" %}
