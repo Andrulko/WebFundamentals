@@ -1,16 +1,12 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Este guia examina as regras do PageSpeed Insights no contexto: o que devemos examinar na otimização do caminho crítico de renderização e por quê.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Este guia examina as regras do PageSpeed Insights no contexto: o que devemos examinar na otimização do caminho crítico de renderização e por quê.
 
-{# wf_updated_on: 2015-10-05 #}
-{# wf_published_on: 2014-03-31 #}
+{# wf_updated_on: 2015-10-05 #} {# wf_published_on: 2014-03-31 #}
 
 # Regras e recomendações para o PageSpeed {: .page-title }
 
 {% include "web/_shared/contributors/ilyagrigorik.html" %}
 
 Este guia examina as regras do PageSpeed Insights no contexto: o que devemos examinar na otimização do caminho crítico de renderização e por quê.
-
 
 ## Elimine JavaScript e CSS bloqueadores de renderização
 
@@ -26,12 +22,7 @@ Recursos assíncronos desbloqueiam o analisador de documentos e permitem que o n
 
 ### Evite chamadas síncronas ao servidor
 
-Use o método `navigator.sendBeacon()` para limitar os dados enviados por XMLHttpRequests em
-gerenciadores `unload`. Como muitos navegadores exigem que essas solicitações sejam
-síncronas, podem retardar, algumas vezes visivelmente, as transições entre as páginas. O código
-a seguir mostra como usar `navigator.sendBeacon()` para enviar dados ao servidor no
-gerenciador `pagehide` em vez de no gerenciador `unload`.
-
+Use o método `navigator.sendBeacon()` para limitar os dados enviados por XMLHttpRequests em gerenciadores `unload`. Como muitos navegadores exigem que essas solicitações sejam síncronas, podem retardar, algumas vezes visivelmente, as transições entre as páginas. O código a seguir mostra como usar `navigator.sendBeacon()` para enviar dados ao servidor no gerenciador `pagehide` em vez de no gerenciador `unload`.
 
     <script>
       function() {
@@ -45,8 +36,7 @@ gerenciador `pagehide` em vez de no gerenciador `unload`.
     </script>
     
 
-O novo método `fetch()` oferece uma forma fácil de solicitar assincronamente os dados. Como ele ainda não está disponível em todos os lugares, você deve usar a detecção de recursos para verificar sua presença antes de usá-lo. Esse método processa respostas com promessas em vez de vários gerenciadores de eventos. Ao contrário da resposta ao XMLHttpRequest, a resposta da recuperação é um objeto stream a partir do Chrome 43. Isso significa que uma chamada a `json()` também retorna uma promessa. 
-
+O novo método `fetch()` oferece uma forma fácil de solicitar assincronamente os dados. Como ele ainda não está disponível em todos os lugares, você deve usar a detecção de recursos para verificar sua presença antes de usá-lo. Esse método processa respostas com promessas em vez de vários gerenciadores de eventos. Ao contrário da resposta ao XMLHttpRequest, a resposta da recuperação é um objeto stream a partir do Chrome 43. Isso significa que uma chamada a `json()` também retorna uma promessa.
 
     <script>
     fetch('./api/some.json')  
@@ -69,7 +59,6 @@ O novo método `fetch()` oferece uma forma fácil de solicitar assincronamente o
     
 
 O método `fetch()` também pode processar solicitações POST.
-
 
     <script>
     fetch(url, {
@@ -106,6 +95,6 @@ A diretiva de importação (`@import`) do CSS permite que uma folha de estilo im
 
 Para obter o melhor desempenho, considere a inserção do CSS crítico em linha diretamente no documento HTML. Assim, você consegue eliminar idas e vindas adicionais ao caminho crítico e, se fizer isso corretamente, pode obter um caminho crítico com apenas uma ida e vinda, com o HTML sendo o único recurso bloqueador.
 
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
