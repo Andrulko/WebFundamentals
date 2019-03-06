@@ -1,16 +1,12 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: このガイドでは、コンテキストに応じた PageSpeed Insights ルールについて、つまりクリティカル レンダリング パスを最適化する際の注意点と注意すべき理由を説明します。
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: このガイドでは、コンテキストに応じた PageSpeed Insights ルールについて、つまりクリティカル レンダリング パスを最適化する際の注意点と注意すべき理由を説明します。
 
-{# wf_updated_on:2015-10-05 #}
-{# wf_published_on:2014-03-31 #}
+{# wf_updated_on:2015-10-05 #} {# wf_published_on:2014-03-31 #}
 
 # PageSpeed ルールおよび推奨事項 {: .page-title }
 
 {% include "web/_shared/contributors/ilyagrigorik.html" %}
 
 このガイドでは、コンテキストに応じた PageSpeed Insights ルールについて、つまりクリティカル レンダリング パスを最適化する際の注意点と注意すべき理由を説明します。
-
 
 ## レンダリング ブロック JavaScript および CSS の除去
 
@@ -26,12 +22,7 @@ JavaScript リソースは、`async` としてマーキングするか、特別�
 
 ### 同期サーバー呼び出しを避ける
 
-`navigator.sendBeacon()` メソッドを使用して `unload` ハンドラで XMLHttpRequests によって送信されるデータを制限してください。
-多くのブラウザではこのようなリクエストは同期している必要があるため、ページの遷移が遅れることがあり、ときには目立つほどの遅延が生じます。
-次のコードは、`navigator.sendBeacon()` を使用して、`unload` ハンドラではなく `pagehide` ハンドラでサーバーにデータを送信する方法を示しています。
-
-
-
+`navigator.sendBeacon()` メソッドを使用して `unload` ハンドラで XMLHttpRequests によって送信されるデータを制限してください。 多くのブラウザではこのようなリクエストは同期している必要があるため、ページの遷移が遅れることがあり、ときには目立つほどの遅延が生じます。 次のコードは、`navigator.sendBeacon()` を使用して、`unload` ハンドラではなく `pagehide` ハンドラでサーバーにデータを送信する方法を示しています。
 
     <script>
       function() {
@@ -43,10 +34,9 @@ JavaScript リソースは、`async` としてマーキングするか、特別�
         }
       }();
     </script>
-
+    
 
 新しい `fetch()` メソッドを使用すると、データ リクエストの非同期化が容易になります。ただし、これを使用できる環境はまだ限られているため、機能検出を使用して存在していることを確認してから使用する必要があります。このメソッドでは、複数イベント ハンドラではなく、Promises を使用してレスポンスを処理します。XMLHttpRequest に対するレスポンスとは違い、fetch レスポンスは Chrome 43 以降で提供されているストリーム オブジェクトです。つまり、`json()` を呼び出すと Promise も返ります。
-
 
     <script>
     fetch('./api/some.json')  
@@ -66,10 +56,9 @@ JavaScript リソースは、`async` としてマーキングするか、特別�
         console.log('Fetch Error :-S', err);  
       });
     </script>
-
+    
 
 `fetch()` メソッドでは、 POST リクエストも処理できます。
-
 
     <script>
     fetch(url, {
@@ -80,7 +69,7 @@ JavaScript リソースは、`async` としてマーキングするか、特別�
       body: 'foo=bar&lorem=ipsum'  
     }).then(function() { // Aditional code });
     </script>
-
+    
 
 ### JavaScript の解析を延期する
 
@@ -106,6 +95,6 @@ CSS のインポート（`@import`）ディレクティブを使用すると、�
 
 最大のパフォーマンスを得るには、クリティカル CSS を、HTML ドキュメントに直接インライン化することをおすすめします。これにより、クリティカル パスから余計なラウンドトリップを排除できます。また、適切に実施すれば、HTML 以外のブロック リソースがない「1 ラウンドトリップ」のクリティカル パス長を実現できます。
 
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
