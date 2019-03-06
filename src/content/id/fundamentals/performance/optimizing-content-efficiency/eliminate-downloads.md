@@ -1,15 +1,13 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Anda harus mengaudit sumber daya secara berkala untuk memastikan setiap sumber daya membantu memberikan pengalaman pengguna yang lebih baik.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Anda harus mengaudit sumber daya secara berkala untuk memastikan setiap sumber daya membantu memberikan pengalaman pengguna yang lebih baik.
 
-{# wf_updated_on: 2016-08-29 #}
-{# wf_published_on: 2014-03-31 #}
+{# wf_updated_on: 2016-08-29 #} {# wf_published_on: 2014-03-31 #}
 
 # Meniadakan Unduhan yang Tidak Perlu {: .page-title }
 
 {% include "web/_shared/contributors/ilyagrigorik.html" %}
 
 ### TL;DR {: .hide-from-toc }
+
 * Inventarisir aset Anda dan aset pihak ketiga di laman Anda.
 * Ukur kinerja setiap aset: nilainya dan kinerja teknisnya.
 * Tentukan apakah sumber daya menyediakan nilai yang mencukupi.
@@ -22,12 +20,13 @@ Sumber daya tercepat dan paling dioptimalkan adalah sumber daya yang tidak dikir
 
 Seringkali, laman berisi sumber daya yang tidak perlu, atau lebih buruk lagi, menghambat kinerja laman tanpa memberi banyak nilai tambah bagi pengunjung atau situs host. Ini juga berlaku untuk sumber daya dan widget pihak pertama dan pihak ketiga.
 
-* Situs A memutuskan untuk menampilkan korsel foto di berandanya agar pengunjung bisa melihat pratinjau beberapa foto dengan sekali klik cepat. Semua foto dimuat saat laman telah dimuat, dan pengguna menyusuri setiap foto.
+* Situs A memutuskan untuk menampilkan korsel foto di berandanya agar pengunjung bisa melihat pratinjau beberapa foto dengan sekali klik cepat. Semua foto dimuat saat laman telah dimuat, dan pengguna menyusuri setiap foto. 
     * **Pertanyaan:** Pernahkah Anda mengukur jumlah pengguna yang menampilkan beberapa foto sekaligus di korsel? Anda mungkin menyebabkan overhead yang tinggi karena mengunduh sumber daya yang tidak pernah ditampilkan oleh kebanyakan pengunjung.
-* Situs B telah memutuskan untuk memasang widget pihak ketiga untuk menampilkan materi terkait, meningkatkan keterlibatan sosial, atau memberikan beberapa layanan lainnya.
+* Situs B telah memutuskan untuk memasang widget pihak ketiga untuk menampilkan materi terkait, meningkatkan keterlibatan sosial, atau memberikan beberapa layanan lainnya. 
     * **Pertanyaan:** Pernahkah Anda melacak jumlah pengunjung yang menggunakan widget atau mengeklik materi yang disediakan widget? Apakah interaksi yang dihasilkan widget ini cukup menjadi pembenaran overhead-nya?
 
 Menentukan apakah akan meniadakan unduhan yang tidak perlu sering kali memerlukan banyak pemikiran dan pengukuran yang cermat. Untuk hasil terbaik, inventarisir dan pertimbangkan kembali pertanyaan ini bagi setiap aset di laman Anda.
 
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
