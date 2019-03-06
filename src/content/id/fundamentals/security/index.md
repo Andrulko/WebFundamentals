@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Keamanan adalah topik yang luas, pelajari tentang HTTPS, mengapa ini penting dan bagaimana Anda bisa menerapkannya ke server Anda.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Keamanan adalah topik yang luas, pelajari tentang HTTPS, mengapa ini penting dan bagaimana Anda bisa menerapkannya ke server Anda.
 
-{# wf_updated_on: 2016-09-09 #}
-{# wf_published_on: 2015-09-08 #}
+{# wf_updated_on: 2016-09-09 #} {# wf_published_on: 2015-09-08 #}
 
 # Keamanan dan identitas {: .page-title }
 
@@ -13,18 +10,21 @@ description: Keamanan adalah topik yang luas, pelajari tentang HTTPS, mengapa in
   </iframe>
 </div>
 
-Keamanan adalah topik yang luas, di sini ada beberapa hal untuk Anda mulai. 
+Keamanan adalah topik yang luas, di sini ada beberapa hal untuk Anda mulai.
 
 <div class="clearfix"></div>
 
-
 ## Mengenkripsi Data dalam Pengiriman
 
-<img src="/web/images/content-https-2x.jpg" class="attempt-right">
+<img src="/web/images/content-https-2x.jpg" class="attempt-right" />
 
 Salah satu dari fitur keamanan yang paling penting, yang diperlukan bagi banyak API dan [progressive web app](/web/progressive-web-apps/) modern adalah [Secure HTTP disebut juga HTTPS](encrypt-in-transit/why-https). Salah satu kesalahpahaman umum tentang HTTPS adalah bahwa satu-satunya situs web yang membutuhkan HTTPS adalah yang menangani komunikasi sensitif. Jika privasi dan keamanan belum cukup menjadi alasan untuk melindungi pengguna Anda, banyak fitur browser seperti service worker Payment Request API memerlukan HTTPS.
 
-[Mengaktifkan HTTPS di Server Anda](/web/fundamentals/security/encrypt-in-transit/enable-https)
+Some people mistakenly believe that the only sites that need HTTPS are sites that handle some level of sensitive communication, like personal or financial data. But this isn't true. Every site should be using HTTPS, HTTPS helps to prevents people from listening into what's crossing the wire, and helps prevent it from being tampered with while in transit. Do you want your ISP or school to know every site you were looking at?
+
+{# wf_devsite_translation #}
+
+[Enabling HTTPS on Your Servers](/web/fundamentals/security/encrypt-in-transit/enable-https)
 
 <div class="attempt-left">
   <h2>Content Security Policy</h2>
@@ -35,6 +35,7 @@ Salah satu dari fitur keamanan yang paling penting, yang diperlukan bagi banyak 
     <a href="csp/">Ketahui Selengkapnya</a>
   </p>
 </div>
+
 <div class="attempt-right">
   <h2>Mencegah Materi Campuran</h2>
   <p>
@@ -49,12 +50,13 @@ Salah satu dari fitur keamanan yang paling penting, yang diperlukan bagi banyak 
 
 ## Sumber Daya Terkait
 
+* [Memahami Masalah Keamanan](https://www.youtube.com/watch?v=tgEIo7ZSkbQ)
+* [Getting the Green Lock: HTTPS Stories from the Field](https://www.youtube.com/watch?v=GoXgl9r0Kjk)
+
 ### Chrome DevTools
 
-* [Memahami Masalah Keamanan](/web/tools/chrome-devtools/security)
+* [Understand Security Issues](/web/tools/chrome-devtools/security)
 
+## Feedback {: #feedback }
 
-
-
-
-{# wf_devsite_translation #}
+{% include "web/_shared/helpful.html" %}
