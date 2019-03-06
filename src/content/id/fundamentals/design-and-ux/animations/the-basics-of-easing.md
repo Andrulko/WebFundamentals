@@ -1,9 +1,6 @@
-project_path: /web/_project.yaml
-book_path: /web/fundamentals/_book.yaml
-description: Mempelajari cara melembutkan dan memberikan bobot untuk animasi Anda.
+project_path: /web/_project.yaml book_path: /web/fundamentals/_book.yaml description: Mempelajari cara melembutkan dan memberikan bobot untuk animasi Anda.
 
-{# wf_updated_on: 2016-08-23 #}
-{# wf_published_on: 2014-08-08 #}
+{# wf_updated_on: 2016-08-23 #} {# wf_published_on: 2014-08-08 #}
 
 # Dasar-Dasar Easing {: .page-title }
 
@@ -12,10 +9,10 @@ description: Mempelajari cara melembutkan dan memberikan bobot untuk animasi And
 Di dunia ini tidak ada yang bergerak secara linear dari satu titik ke titik lainnya. Dalam kenyataannya, sesuatu cenderung mengalami percepatan atau perlambatan ketika mereka bergerak. Otak kita sudah diprogram untuk mengharapkan jenis gerakan ini, sehingga ketika membuat animasi, Anda harus menggunakannya untuk keuntungan Anda. Gerakan alami membuat pengguna merasa lebih nyaman dengan aplikasi Anda, yang pada akhirnya memberikan pengalaman yang lebih baik secara keseluruhan.
 
 ### TL;DR {: .hide-from-toc }
+
 * Easing membuat animasi Anda terasa lebih alami.
 * Pilih animasi ease-out untuk elemen UI.
 * Hindari animasi ease-in atau ease-in-out kecuali Anda bisa membuatnya berdurasi pendek; mereka terasa lambat bagi pengguna akhir.
-
 
 Dalam animasi klasik, istilah untuk gerak yang dimulai perlahan kemudian dipercepat adalah "slow in," dan gerakan yang dimulai dengan cepat kemudian berkurang kecepatannya adalah "slow out." Istilah yang paling umum digunakan di web untuk animasi ini adalah “ease in” dan “ease out”. Kadang-kadang keduanya digabungkan, yang disebut “ease in out.” Kemudian, easing adalah proses untuk membuat animasi lebih gampang untuk diucapkan.
 
@@ -46,7 +43,7 @@ Animasi tanpa menggunakan easing disebut sebagai **linear**. Grafik transisi lin
 
 Ketika waktu berjalan, nilai juga mengalami pertambahan dalam jumlah yang setara. Dengan gerakan linear, sesuatu cenderung terasa kaku dan tidak wajar, dan hal ini bisa membuat janggal bagi pengguna. Pada intinya, Anda harus menghindari gerakan linear.
 
-Apakah Anda sedang melakukan pengkodean animasi menggunakan CSS atau JavaScript, Anda akan mendapati bahwa selalu ada pilihan untuk gerakan linear. 
+Apakah Anda sedang melakukan pengkodean animasi menggunakan CSS atau JavaScript, Anda akan mendapati bahwa selalu ada pilihan untuk gerakan linear.
 
 [Lihat animasi linear](https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/animations/box-move-linear.html){: target="_blank" .external }
 
@@ -54,10 +51,8 @@ Apakah Anda sedang melakukan pengkodean animasi menggunakan CSS atau JavaScript,
 
 Untuk mendapatkan efek di atas dengan CSS, kodenya akan terlihat seperti berikut ini:
 
-
     transition: transform 500ms linear;
     
-
 
 ## Animasi ease-out
 
@@ -77,10 +72,8 @@ Easing out biasanya paling cocok digunakan untuk pekerjaan antarmuka pengguna, k
 
 Ada banyak cara untuk mendapatkan efek ease out, tapi yang paling sederhana adalah kata kunci `ease-out` di CSS:
 
-
     transition: transform 500ms ease-out;
     
-
 
 ## Animasi ease-in
 
@@ -102,7 +95,6 @@ Namun, dari sudut pandang interaksi, ease-in terasa sedikit janggal karena akhir
 
 Untuk menggunakan animasi ease-in, sama seperti animasi ease-out dan linear, Anda bisa menggunakan kata kuncinya:
 
-
     transition: transform 500ms ease-in;
     
 
@@ -122,14 +114,11 @@ Jangan menggunakan durasi animasi yang terlalu lama, karena awal animasi ease-in
 
 <div style="clear:both;"></div>
 
-
 Untuk mendapatkan animasi ease-in-out, Anda bisa menggunakan kata kunci CSS `ease-in-out`:
-
 
     transition: transform 500ms ease-in-out;
     
 
-
-
+## Feedback {: #feedback }
 
 {# wf_devsite_translation #}
